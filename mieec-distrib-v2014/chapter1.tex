@@ -3,90 +3,37 @@
 Este trabalho surge no contexto da unidade curricular Preparação para a Dissertação, pertencente ao plano de estudos do Mestrado Integrado em Engenharia Eletrotécnica e de Computadores, sendo que esta mesma unidade curricular dá início ao trabalho a ser realizado no semestre seguinte na unidade curricular Dissertação.
 
 
-\section{Secção Exemplo} \label{sec:context}
+\section{Enquadramento Geral} \label{sec:context}
+Ao longo das últimas décadas a sociedade tem vindo a tornar-se cada vez mais dependente das comunicações com e sem fios, não só em termos empresariais, mas também em termos pessoais. Esta tendência tem vindo a vincar-se recentemente, com a crescente utilização de tablets e smartphones, tornando os recursos atuais incapazes de responder a tal procura. E cada vez esta exigência irá aumentar prevendo-se a necessidade de ligações na ordem das centenas de Gb/s no ano de 2020, essencialmente para comunicações a curta distância. Daqui conclui-se que os recursos que existem atualmente não são capazes de responder a esta necessidade crescente de comunicações de alto débito, e como tal é necessário urgentemente o desenvolvimento de tecnologias não só capazes de satisfazer esta procura, mas ao mesmo tempo que o façam de forma eficiente em termos energéticos e financeiros. Neste contexto enquadra-se o projeto iBrow (Innovative ultra-BROadband ubiquitous Wireless communications through terahertz transceivers), o qual está a ser parcialmente desenvolvido pela equipa de investigação de tecnologias óticas e eletrónicas do INESC-TEC, que vem responder a esta necessidade de uma forma eficiente.
 
-Para além de dar um exemplo de utilização de uma citação, o parágrafo
-seguinte introduz uma referência que pode ser consultada, entre muitas
-outras referências bibliográficas interessantes~\citep{kn:Tha01,kn:PP05}.
+ Este projeto vem propor o desenvolvimento de uma tecnologia capaz de responder a esta necessidade de comunicações de alto débito através de uma utilização eficaz do espetro de frequências, promovendo a utilização de bandas de frequência mais altas, desde 60 GHz até 1 THz. Para além disso vem também propor uma metodologia, que pela primeira vez permite um baixo custo de manufaturação de transcetores capazes de atingir altos débitos de transmissão para que possam ser perfeitamente integrados em redes de comunicações ótica de grande velocidade.
+ 
+Toda esta crescente de consumo por parte dos utilizadores de novas e cada vez mais tecnologias não se verifica apenas na necessidade de aumento de largura de banda para as comunicações, mas existe também uma necessidade extrema da existência de interfaces digitais de vídeo e som que não só sejam capazes de fazer chegar ao utilizador sinais de alto débito, mas que ao mesmo tempo o façam de maneira segura no sentido de proteger eventuais cópias não autorizadas. Assim sendo, o desenvolvimento de um conversor HDMI (High Definition Multimedia Interface) de alto débito enquadra-se perfeitamente nesta necessidade sendo que é a interface de vídeo e áudio standard e que implementa o protocolo HDCP (High-bandwith Digital Content Protection) que protege a reprodução de sinais em dispositivos não autorizados.
 
-\begin{quote}
-  ``Like the Abstract, the Introduction should be written to engage the
-  interest of the reader. It should also give the reader an idea of
-  how the dissertation is structured, and in doing so, define the
-  thread of the contents.''~\citep[chap.\ Introduction]{kn:Tha01} 
-\end{quote}
+Existem várias interfaces digitais que implementam o protocolo referido anteriormente, entre elas destacam-se DisplayPort, DVI e HDMI. No entanto, devido ao tremendo sucesso que a interface HDMI obteve, de acordo com In-Stat referido em [2] foram vendidos 5 milhões de exemplares em 2004, 17.4 milhões em 2005, 63 milhões em 2006 e 143 milhões em 2007, tornou-se a interface standard para HDTV (High-Definition television), substituindo a interface DVI (Digital Visual Interface). Relativamente à interface DisplayPort, esta é utilizada em vários equipamentos, mas principalmente no sector dos computadores e vem complementar o HDMI. Contudo, comparando as duas interfaces previamente referidas, o HDMI tem algumas vantagens no que toca à capacidade de transmitir sinais CEC (Consumer Electronics Control) e a compatibilidade elétrica com o DVI. Mas o mais importante na realidade baseia-se na capacidade de transmissão dos sinais, sendo que o HDMI é capaz de fazer transmitir o sinal na sua largura de banda completa até 10 metros, enquanto que a DisplayPort apenas o consegue transmitir até 3 metros.
 
-Lorem ipsum~\citep{kn:Lip08} dolor sit amet, consectetuer adipiscing
-elit. 
-Sed eget nunc. Phasellus interdum, risus viverra mollis laoreet, felis
-justo iaculis ante, eget ornare purus augue non urna. Nam in magna. In a
-est. Phasellus a tellus vitae enim vehicula imperdiet. Etiam sit amet
-elit. In hac habitasse platea dictumst. Quisque eget turpis vel felis
-elementum tempus. Curabitur sit amet tortor id libero dapibus
-pretium. Integer mattis eros eu lorem. Duis erat tellus, porttitor
-sed, blandit eget, fringilla et, lacus. Phasellus tristique nibh nec
-orci. Mauris sed leo. Suspendisse fringilla tempor dolor. Donec sapien
-enim, congue in, porta et, sollicitudin in, quam. Curabitur semper,
-mauris ut vestibulum eleifend, diam ipsum tincidunt quam, et
-vestibulum velit mauris ut risus. 
+Através da implementação dos objetivos propostos pela dissertação será possível implementar um conversor HDMI capaz de fazer transmitir sinais de alto débito, tornando mais eficiente este tipo de comunicações e ao mesmo tempo fazendo-o de forma segura, protegendo as cópias e reproduções não autorizadas dos sinais transmitidos.
+ 
 
-Sed eget libero. Nulla facilisi. Proin eget tortor. Morbi
-gravida. Donec arcu risus, blandit a, rutrum at, ornare ut,
-nisl. Etiam consectetuer tortor eu odio. Etiam blandit molestie
-ligula. Nulla facilisi. Nam a augue non justo laoreet hendrerit. Nam
-aliquam, purus eu ultricies dictum, urna purus posuere neque, vel
-tempus tellus enim a arcu. 
+\section{Motivação} \label{sec:goals}
+Com a explosão que se fez sentir nos últimos anos na utilização do espetro de frequências, verifica-se que é necessário tornar a sua utilização mais eficiente no sentido de conseguir satisfazer a necessidade da sociedade de comunicar quase sem limites em termos de velocidade da comunicação em si. Promove-se assim uma nova abordagem do espetro de frequências, de maneira a que se possa utilizá-lo de uma forma mais eficaz.  
+Ao longos dos anos tem-se vindo a verificar melhorias no que toca à eficiência espetral através do desenvolvimento e aplicação de algumas técnicas, tal como referido em [7], como por exemplo o QAM (Quadrature Amplitude Modulation) para modulação do sinal e também técnicas MIMO (Multiple Input Multiple Output) nas entradas e saídas do sistema de comunicação. Verificou-se que o aproveitamento do espetro de facto melhorou, no entanto, estas técnicas não são suficientes para se conseguir atingir um débito de algumas dezenas ou centena de Gb/s. Assim sendo, a solução passa por promover a utilização de bandas de frequência mais altas, contrariamente ao que se fez no passado.  
 
-Pellentesque congue sapien in ligula. Nulla nec mi sed augue congue
-tristique. Cras pretium. Pellentesque lobortis, libero id adipiscing
-auctor, orci massa vehicula nulla, vel ullamcorper tortor ipsum ut
-elit. Morbi rhoncus, dui sed tristique volutpat, lorem felis euismod
-lorem, vel tristique nibh arcu vel eros. Nunc tempor. Sed et erat a
-tortor fermentum consequat. Cras varius nisl accumsan libero. Aliquam
-faucibus, justo ut pharetra blandit, est nibh ultrices est, vel
-facilisis quam lectus ut enim. Aliquam convallis, nibh non bibendum
-pharetra, nisl velit lobortis orci, ac ultrices neque sem viverra
-massa. Donec malesuada. Aliquam ligula. Fusce in nisl. Etiam lacinia
-est quis velit. Maecenas massa. Maecenas sed pede. Nulla
-sodales. Etiam vitae erat. Duis tristique sem sit amet libero. Ut a
-libero nec ligula tempus mattis. 
+Por definição, considera-se a banda de ondas mm entre 60 a 100 GHz e a banda THz entre 100 GHz a 1 THz. Estas bandas do espetro de frequências são bandas cuja utilização no passado foi pouca ou até mesmo nenhuma, isto porque para conseguir explorar estas bandas são necessários componentes adequados à operação nas mesmas. Relativamente a banda de ondas mm, apesar de nos últimos anos terem sidos desenvolvidas e aplicadas técnicas que melhoram a eficiência espetral desta região, tal como referido anteriormente, a escassez da largura de banda limita o débito da ligação. Em [7] são referidas implementações realizadas no passado que conseguiram alcançar débitos até 100 GHz em ligações sem fios a uma distância de 1 metro com BER = 1 x 10-3, recorrendo também à utilização de mais de um transmissor e recetor. Apesar de inovadores estes valores revelam-se insuficientes para o que se pretende alcançar. 
 
-\section{Outra Secção Exemplo} \label{sec:goals}
+Quanto à região do espetro que corresponde a uma frequência superior a 10 THz, apesar da grande largura de banda disponível nesta região, existem várias limitações para a comunicação sem fios referidas em [5]. Destaca-se o facto do baixo balanço de potência possível para a transmissão devido aos limites de segurança dos olhos, os impactos atmosféricos na propagação do sinal (chuva, pó e poluição) e ainda o impacto da falta de alinhamento entre transmissores e recetores. Estas são algumas das razões que limitam a comunicação sem fios para frequências superiores a 10 THz.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi sit
-amet nibh. Fusce faucibus, enim vel ultrices ornare, est mauris
-ultricies velit, vitae consequat sem erat vel nunc. Nam libero eros,
-mattis eget, sagittis nec, imperdiet at, sapien. Aliquam lacus. Aenean
-adipiscing nibh in orci. Aliquam vestibulum, elit at fringilla
-dignissim, metus diam lobortis urna, a laoreet nunc odio ac ipsum. Sed
-at urna. Integer vehicula fringilla augue. Nulla lacus eros, rhoncus
-sit amet, posuere ut, vehicula ac, nibh. Ut eleifend, eros eu placerat
-vehicula, justo turpis blandit dolor, eu tincidunt felis risus at
-ante. Aenean suscipit nisl eget eros. Ut laoreet libero eget
-enim. Cras tempus pellentesque felis. Vestibulum vitae erat ac nibh
-posuere eleifend. 
+Assim sendo, segundo [5], torna-se evidente que a banda do espetro com maior potencial para a comunicação sem fios é a banda entre 100 GHz e 1 THz, uma vez que não só oferece uma largura de banda bastante maior (desde GHz até alguns THz) comparativamente a outra bandas, mas também é uma região do espetro que não sofre muito devido às más condições atmosféricas. Para além disso, a utilização destas bandas de frequência altas acabará por aliviar o espetro relativamente à sua escassez e às suas limitações de capacidade. 
 
-Integer nec quam. Sed fermentum. Nunc vitae leo. Etiam sit amet
-quam. Nunc vestibulum massa in mauris. Duis eget nulla. Fusce
-ultricies arcu eu nibh volutpat feugiat. Maecenas urna pede, commodo
-quis, porta eu, bibendum elementum, pede. Sed eros massa, molestie
-eget, mattis non, rutrum ac, magna. Duis dui. Maecenas eget tortor ut
-dolor semper mattis. Maecenas auctor, tellus et ultricies tempor, elit
-est placerat lacus, in posuere mauris lorem et arcu. 
+Tendo em conta esta nova abordagem do espetro, o projeto iBrow tem vindo a desenvolver metodologias que permitem a manufaturação de transcetores para operar a estas frequências de baixo custo, mas que ao mesmo tempo são capazes de atingir altos débitos, para que desta maneira sejam integrados em redes de comunicação com e sem fios de grande velocidade. Os transcetores de baixo custo propostos pelo projeto passam por utilizar díodos ressonantes de efeito túnel (RTD) com formatos de modulação simples e com interligação com fibra ótica. Assim será possível satisfazer as necessidades previstas para 2020 de forma eficaz tanto em termos energéticos como financeiros.
 
-Nulla nec eros et pede vehicula aliquam. Aenean sodales pede vel
-ante. Fusce sollicitudin sodales lacus. Maecenas justo mauris,
-adipiscing vitae, ornare quis, convallis nec, eros. Etiam laoreet
-venenatis ipsum. In tellus odio, eleifend ac, ultrices vel, lobortis
-sed, nibh. Fusce nunc augue, dictum non, pulvinar sed, consectetuer
-eu, ipsum. Vivamus nec pede. Pellentesque pulvinar fringilla dolor. In
-sit amet pede. Proin orci justo, semper vel, vulputate quis, convallis
-ac, nulla. Nulla at justo. Mauris feugiat dolor. Etiam posuere
-fermentum eros. Morbi nisl ipsum, tempus id, ornare quis, mattis id,
-dolor. Aenean molestie metus suscipit dolor. Aliquam id lectus sed
-nisl lobortis rhoncus. Curabitur vitae diam sed sem aliquet
-tempus. Sed scelerisque nisi nec sem. 
+Para que se possa demonstrar o potencial desta tecnologia proposta pelo iBrow, vai-se recorrer à transmissão de vídeo em alta definição descomprimido através destes mesmos dispositivos propostos pelo projeto. Assim sendo, para efetuar a transmissão será utilizada a interface HDMI, que fará transmitir um sinal de alto débito para de seguida o mesmo sinal ser transmitido pelos transcetores propostos pelo projeto iBrow. Esta transmissão terá de ser realizada em série visto que estes mesmos transcetores apenas suportam transmissão de dados em série, uma vez que esta é a maneira mais eficaz.
 
+O HDMI é uma interface digital que transmite vídeo não comprimido e áudio que poderá ou não estar comprimido. Esta interface implementa vários protocolos entre quais se destaca o protocolo HDCP pois é o responsável pela prevenção de reproduções não autorizadas dos sinais a transmitir, o que é bastante importante hoje em dia dado os inúmeros consumidores que conseguem fazer cópias ilegais. Este protocolo faz uma verificação inicial antes de transmitir os dados encriptados no sentido de perceber se o dispositivo de destino é efetivamente um dispositivo autorizado para a reprodução de sinal. Esta é ainda uma interface que consegue transmitir sinais de alta definição e é ainda compatível com o DVI. Hoje em dia, esta é a interface standard para HDTVs e tem diversas aplicações tais como câmaras digitais, discos Blu-ray e leitores de DVD de alta definição, computadores pessoais, tablets e smartphones.
+
+Em suma, esta implementação tornar-se bastante útil, uma vez que é capaz de abranger um vasto nível de aplicações, acessíveis a todos os utilizadores, tanto em ambientes empresariais como pessoais.
+
+\section{Objetivos} \label{sec:struct}
 
 \section{Estrutura da Dissertação} \label{sec:struct}
 
