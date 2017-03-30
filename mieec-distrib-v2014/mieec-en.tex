@@ -1,7 +1,7 @@
 %% FEUP THESIS STYLE for LaTeX2e
-%% how to use feupteses (portuguese version)
+%% how to use feupteses (English version)
 %%
-%% FEUP, JCL & JCF, 31 Jul 2012
+%% FEUP, JCL & JCF, 31 July 2012
 %%
 %% PLEASE send improvements to jlopes at fe.up.pt and to jcf at fe.up.pt
 %%
@@ -11,7 +11,7 @@
 %%           bibtex tese
 %%           makeindex tese (only if creating an index) 
 %%           pdflatex tese
-%% Alternative:
+%% Alternative
 %%          latexmk -pdf tese.tex
 %%========================================
 
@@ -21,21 +21,17 @@
 \usepackage[utf8]{inputenc}
 %\usepackage[latin1]{inputenc}
 
-%% Portuguese version
+%% English version
 
 %% MIEEC options
-\usepackage[portugues,mieec]{feupteses}
-%\usepackage[portugues,mieec,juri]{feupteses}
-%\usepackage[portugues,mieec,final]{feupteses}
-%\usepackage[portugues,mieec,final,onpaper]{feupteses}
+\usepackage[mieec]{feupteses}
+%\usepackage[mieec,juri]{feupteses}
+%\usepackage[mieec,final]{feupteses}
 
-%% For other degrees
-% \usepackage[portugues]{feupteses} % you must define the degree below
 
-%% Options: 
-%% - portugues: titles, etc in portuguese
+%% Additional options for feupteses.sty:
 %% - onpaper: links are not shown (for paper versions)
-%% - backrefs: include back references from bibliography to citation place
+%% - backrefs: include back references from bibliography to citation  place
 
 %% Uncomment to create an index (at the end of the document)
 %\makeindex
@@ -57,33 +53,30 @@
 %%----------------------------------------
 %% Information about the work
 %%----------------------------------------
-\title{Implementação em FPGA de um conversor HDMI para transmissão ótica em série}
-\author{Ana Marisa Oliveira Barbosa}
-
+\title{Title of the Dissertation}
+\author{Name of the Author}
 
 %% Uncomment next line for date of submission
-%\thesisdate{31 de Julho de 2008}
+%\thesisdate{July 31, 2008}
 
-%% Comment next line for copyright text if not used
-\copyrightnotice{Marisa Oliveira, 2017}
+%% Comment next line copyright text if not used
+\copyrightnotice{Name of the Author, 2008}
 
-\supervisor{Orientador}{Prof. Doutor João Paulo de Castro Canas Ferreira}
-\supervisor{Co-orientador}{Prof. Dr. Henrique Manuel de Castro Faria Salgado}
-\supervisor{Supervisor Externo}{Dr. Luís Manuel de Sousa Pessoa}
+\supervisor{Supervisor}{Name of the Supervisor}
 
 %% Uncomment next line if necessary
-%\supervisor{Co-orientador}{Nome de Outro Orientador}
+%\supervisor{Second Supervisor}{Name of the Supervisor}
 
 %% Uncomment committee stuff in the final version if used
-%\committeetext{Aprovado em provas públicas pelo Júri:}
-%\committeemember{Presidente}{Nome do presidente do júri}
-%\committeemember{Arguente}{Nome do arguente do júri}
-%\committeemember{Vogal}{Nome do vogal do júri}
+%\committeetext{Approved by \ldots:}
+%\committeemember{President}{Name of the President}
+%\committeemember{Referee}{Name of the Referee}
+%\committeemember{Referee}{Name of the Referee}
 %\signature
 
 %% Specify cover logo (in folder ``figures'')
 \logo{uporto-feup.pdf}
- 
+
 %% Uncomment next line for additional text  below the author's name (front page)
 
 %%----------------------------------------
@@ -96,13 +89,13 @@
   \include{acknows}  % the acknowledgments
   \include{quote}    % initial quotation if desired
   \cleardoublepage
-  \pdfbookmark[0]{Conteúdo}{contents}
+  \pdfbookmark[0]{Table of Contents}{contents}
   \tableofcontents
   \cleardoublepage
-  \pdfbookmark[0]{Lista de Figuras}{figures}
+  \pdfbookmark[0]{List of Figures}{figures}
   \listoffigures
   \cleardoublepage
-  \pdfbookmark[0]{Lista de Tabelas}{tables}
+  \pdfbookmark[0]{List of Tables}{tables}
   \listoftables
   \include{abbrevs}  % the list of abbreviations used
 \end{Prolog}
@@ -110,7 +103,6 @@
 %%----------------------------------------
 %% Body
 %%----------------------------------------
-
 \StartBody
 
 %% TIP: use a separate file for each chapter
@@ -120,7 +112,7 @@
 \include{chapter4}
 \include{chapter5} 
 
-%% Comment next 2 commands if numbered appendices are not used
+%% comment next 2 commands if numbered appendices are not used
 \appendix
 \include{appendix1}
 
@@ -129,13 +121,13 @@
 %%----------------------------------------
 
 %% Bibliography
-%% Comment the next command if BibTeX file not used, 
-%% Assumes that bibliography is in ``myrefs.bib''
+%% Comment the next command if BibTeX file not used
+%% bibliography is in ``myrefs.bib''
 \PrintBib{myrefs}
 
 %% Index
-%% Uncomment next command if index is required, 
-%% don't forget to run ``makeindex tese'' command
+%% Uncomment next command if index is required
+%% don't forget to run ``makeindex thesis'' command
 %\PrintIndex
 
 \end{document}
