@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.29)  29 MAR 2017 14:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.29)  30 MAR 2017 15:31
 entering extended mode
 **./mieec.tex
 (mieec.tex
@@ -1177,7 +1177,7 @@ Package babel Info: Redefining portuges shorthand "|
 [9]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 46.
- <figures/puzzle.png, id=319, 915.42pt x 352.31625pt>
+ <figures/puzzle.png, id=325, 915.42pt x 352.31625pt>
 File: figures/puzzle.png Graphic file (type png)
 
 <use figures/puzzle.png>
@@ -1306,11 +1306,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 125.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 125.
- [20] (mieec.bbl
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
+ [20] (mieec.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 145.
@@ -1321,9 +1317,9 @@ Package babel Info: Redefining portuges shorthand "|
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
- (mieec.aux (abstract.aux) (acknows.aux) (quote.aux) (abbrevs.aux)
-(chapter1.aux) (chapter2.aux) (chapter3.aux) (chapter4.aux) (chapter5.aux)
-(appendix1.aux))
+ (mieec.aux (abstract.aux) (acknows.aux) (quote.aux) (abbrevs.aux) (chapter1.au
+x) (chapter2.aux) (chapter3.aux) (chapter4.aux)
+(chapter5.aux) (appendix1.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
 Package rerunfilecheck Info: File `mieec.out' has not changed.
@@ -1338,10 +1334,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
  ) 
 Here is how much of TeX's memory you used:
- 8495 strings out of 493333
- 127177 string characters out of 3129709
- 226430 words of memory out of 3000000
- 11693 multiletter control sequences out of 15000+200000
+ 8499 strings out of 493333
+ 127207 string characters out of 3129709
+ 226482 words of memory out of 3000000
+ 11695 multiletter control sequences out of 15000+200000
  81453 words of font info for 103 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,12n,45p,1269b,498s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1358,9 +1354,9 @@ rs/Marisa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C
 :/Users/Marisa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.p
 fb><C:/Users/Marisa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on mieec.pdf (39 pages, 219889 bytes).
+Output written on mieec.pdf (39 pages, 223009 bytes).
 PDF statistics:
- 432 PDF objects out of 1000 (max. 8388607)
- 86 named destinations out of 1000 (max. 500000)
+ 438 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
  283 words of extra memory for PDF output out of 10000 (max. 10000000)
 
