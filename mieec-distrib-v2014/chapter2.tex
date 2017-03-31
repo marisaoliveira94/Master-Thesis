@@ -89,6 +89,15 @@ A numeração 27, 28 e 29 correspondem aos conectores FMC disponíveis na FPGA a
 
 Estes serão os conectores a ser utilizados e mais à frente neste relatório será explicado como é que os sinais são transmitidos. 
 
-\subsection{Transmissor e Recetor} \label{batik} 
-\subsubsection{Transmissor}\label{batik} 
+\subsection{Transmissor e Recetor} \label{batik}
+Este \textit{hardware}, TB-FMCH-HDMI2, está dividido em 2 placas: o recetor (RX) que recebe o sinal recebido pelo cabo HDMI, faz a descodificação e envia o sinal para a FPGA, e o transmissor (TX) que faz o processo inverso, isto é, recebe o sinal proveniente da FPGA e transmite-o para o cabo HDMI para que possa chegar ao dispositivo de destino. 
 \subsubsection{Recetor}\label{batik}
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.86\textwidth]{diagramaBlocosRX}
+		\caption{Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite{R009}}
+		\label{fig:fpgaVistaGeral}
+	\end{center}
+\end{figure}
+\subsubsection{Transmissor}\label{batik} 
