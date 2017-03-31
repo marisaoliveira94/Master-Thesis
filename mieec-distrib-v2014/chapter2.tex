@@ -142,7 +142,17 @@ As suas principais funções dividem-se nas seguintes:
 
 Conclui-se que os dados presentes que são transmitidos para os conectores FMC, para além dos sinais de sincronização são essencialmente dados de vídeo, os do recetor 0 passados entre LA03\_P a LA32\_P e os do recetor 1 passados entre LA03\_N a LA32\_P. Os sinais “\textit{data enabl}e” são sinais que sinalizam a chegada de novos dados. HSYNC é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal VSYNC é a representação da sincronização horizontal, que faz o mesmo que HSYNC (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
 
-Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura 3 ilustra esta situação. 
+Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura~\ref{fig:HDMIamostragemRX} ilustra esta situação.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.7\textwidth]{amostragemRX}
+		\caption{Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite{R009}}
+		\label{fig:HDMIamostragemRX}
+	\end{center}
+\end{figure}
+ 
 \end{enumerate}
 
 
