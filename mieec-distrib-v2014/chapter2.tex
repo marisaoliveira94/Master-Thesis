@@ -111,7 +111,7 @@ As suas principais funções dividem-se nas seguintes:
 	Após passarem pela FPGA embebida (configura por \textit{default}) na placa são passados os seguintes sinais presentes na tabela 1:
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{|c|c|c|c|l}
+	\begin{tabular}{|c|c|c|c|1}
 		\hline
 		\textbf{Nome do pin} & \textit{\textbf{Input/0utput}} & \textbf{FPGA para FMC} & \textbf{RX para a FPGA}        & \textbf{} \\ \hline
 		CLK0\_M2C\_P         & \textit{Output}                & RX\#0\_LLC             & RX\#0 sinal LLC                &           \\ \cline{1-4}
@@ -120,7 +120,6 @@ As suas principais funções dividem-se nas seguintes:
 		LA01\_P\_CC          & \textit{Output}                & RX\#0\_HSYNC           & RX\#0\_HSYNC                   &           \\ \cline{1-4}
 		LA02\_P              & \textit{Output}                & RX\#0\_DE              & RX\#0 data enable              &           \\ \cline{1-4}
 		LA03\_P a LA32\_P    & \textit{Output}                & RX\#0\_P0 a RX\#0\_P29 & RX\#0 dados de vídeo de 0 a 29 &           \\ \cline{1-4}
-		Nome do pin          & \textit{Input/0utput}          & FPGA para FMC          & RX para a FPGA                 &           \\ \cline{1-4}
 		LA33\_P              & \textit{Input/Output}          & Não usado              & ----------                     &           \\ \cline{1-4}
 		CLK0\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     &           \\ \cline{1-4}
 		CLK1\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     &           \\ \hline
