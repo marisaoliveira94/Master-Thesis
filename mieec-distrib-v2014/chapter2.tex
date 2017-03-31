@@ -109,10 +109,8 @@ As suas principais funções dividem-se nas seguintes:
 	\item \textbf{Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}
 	
 	Após passarem pela FPGA embebida (configura por \textit{default}) na placa são passados os seguintes sinais presentes na tabela 1:
-\begin{table}[]
+\begin{table}[h!]
 	\centering
-	\caption{My caption}
-	\label{my-label}
 	\begin{tabular}{|c|c|c|c|l}
 		\hline
 		\textbf{Nome do pin} & \textit{\textbf{Input/0utput}} & \textbf{FPGA para FMC} & \textbf{RX para a FPGA}        & \textbf{} \\ \hline
@@ -138,6 +136,8 @@ As suas principais funções dividem-se nas seguintes:
 		CLK3\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     &           \\ \cline{1-4}
 		HA00\_N a HA23\_N    & Input/Output                   & Não usado              & ----------                     &           \\ \cline{1-4}
 	\end{tabular}
+	\caption{HDMIdataRX}
+	\label{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX, adaptada de [9]}
 \end{table}
 
 
