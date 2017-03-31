@@ -103,8 +103,12 @@ Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possí
 \end{figure}
 As suas principais funções dividem-se nas seguintes:
 \begin{enumerate}
-	\item \textbf{Receção do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}:
+	\item \textbf{Receção do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}
+	
 	A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integrado ADV7612BSWZ-P que recebe sinal HDMI e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (electrically erasable programmable read-only memory) que é usada para guardar dados EDID.
+	\item \textbf{Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}
+	
+	Após passarem pela FPGA embebida na placa são passados os seguintes sinais presentes na tabela 1:
 \end{enumerate}
 \subsubsection{Transmissor}\label{batik} 
 \begin{figure}[h!]
