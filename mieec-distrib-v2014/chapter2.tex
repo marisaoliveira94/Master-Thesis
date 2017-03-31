@@ -38,10 +38,8 @@ Esta especificação do HDMI, tal como a anterior, está também apenas disponí
 Uma das principais características mais recentes das interfaces HDMI prende-se ao facto de permitir que sinais não sejam reproduzidos em dipositivos não autrizados. Isto é, através de um protocolo cujo nome já foi referido anteriormente, HDCP (\textit{High-Bandwith Digital Content Protection}), o sinal HDMI pode ser encriptado e posteriormente transmitido pela \textit{source}, protegendo assim a sua reprodução em dispositivos não autorizados. Esta tem vindo a tornar-se uma característica importante, visto que a reprodução ilegal de vídeos tem vindo a tornar-se reccorrente nos dias atuais.
 
 \section{HDMI implementado sobre a FPGA}
+A interface HDMI, tal como descrito no subcapítulo anterior, consiste numa interface que permite a transferência de sinais áudio e vídeo digitais entre dois dispositivos, e como tal será necessário um adaptador que permita a conexão entre os dois dispositivos e que ao mesmo tempo sirva como recurso para a codificação e descodificação do sinal HDMI. 
 
-Aliquam erat volutpat. Nunc pede ipsum, porttitor eu, bibendum non,
-bibendum nec, nisl. Maecenas eget mauris. Nullam pulvinar. Curabitur
-rutrum commodo est. Nam sapien pede, interdum eu, accumsan ultrices,
-venenatis sit amet, tellus. Praesent ac ante bibendum enim varius
-suscipit. Donec enim. Proin nisi. Quisque libero turpis, varius ut,
-elementum vel, pulvinar sed, nunc. 
+Assim sendo, existe \textit{hardware} disponível que consegue fazer as duas funções descritas, nomeadamente em \cite{R009}. Esta interface HDMI consiste num adaptador e descodificador do sinal HDMI para a FPGA, sendo que são necessárias uma placa para a transmissão e outra para a receção do sinal. Cada placa tem respetivamente dois transmissores e dois recetores independentes e faz uso dos conectores FMC para se conectar com a FPGA.
+
+\subsection{Conexão à FPGA XILINX VC7203 Virtex-7} \label{batik} 
