@@ -5,27 +5,34 @@
 \contentsline {section}{\numberline {1.3}Objetivos}{4}{section.1.3}
 \contentsline {section}{\numberline {1.4}Estrutura da Disserta\IeC {\c c}\IeC {\~a}o}{4}{section.1.4}
 \contentsline {chapter}{\numberline {2}Revis\IeC {\~a}o Bibliogr\IeC {\'a}fica}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introdu\IeC {\c c}\IeC {\~a}o}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Sec\IeC {\c c}\IeC {\~a}o Exemplo}{5}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Sub-sec\IeC {\c c}\IeC {\~a}o Exemplo}{6}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Sub-sec\IeC {\c c}\IeC {\~a}o Exemplo}{6}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Resumo ou Conclus\IeC {\~o}es}{7}{section.2.3}
-\contentsline {chapter}{\numberline {3}Cap\IeC {\'\i }tulo Exemplo}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Introdu\IeC {\c c}\IeC {\~a}o}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Sec\IeC {\c c}\IeC {\~a}o Exemplo}{9}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Exemplo de Figura}{10}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Exemplo de Tabela}{10}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Sec\IeC {\c c}\IeC {\~a}o Exemplo}{11}{section.3.3}
-\contentsline {section}{\numberline {3.4}Resumo}{11}{section.3.4}
-\contentsline {chapter}{\numberline {4}Mais um Cap\IeC {\'\i }tulo}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}Sec\IeC {\c c}\IeC {\~a}o Exemplo}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Mais uma Sec\IeC {\c c}\IeC {\~a}o}{14}{section.4.2}
-\contentsline {section}{\numberline {4.3}Resumo ou Conclus\IeC {\~o}es}{15}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{17}{chapter.5}
-\contentsline {section}{\numberline {5.1}Satisfa\IeC {\c c}\IeC {\~a}o dos Objectivos}{17}{section.5.1}
-\contentsline {section}{\numberline {5.2}Trabalho Futuro}{18}{section.5.2}
-\contentsline {chapter}{\numberline {A}Loren Ipsum}{19}{appendix.A}
-\contentsline {section}{\numberline {A.1}O que \IeC {\'e} o \emph {Loren Ipsum}?}{19}{section.A.1}
-\contentsline {section}{\numberline {A.2}De onde Vem o Loren?}{19}{section.A.2}
-\contentsline {section}{\numberline {A.3}Porque se usa o Loren?}{20}{section.A.3}
-\contentsline {section}{\numberline {A.4}Onde se Podem Encontrar Exemplos?}{20}{section.A.4}
+\contentsline {section}{\numberline {2.1}Interfaces de transmiss\IeC {\~a}o de video/audio}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}HDMI (\textit {High Definition Multimedia Interface})}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}DDC - \textit {Display Data Channel} }{6}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}TMDS - \textit {Transition-Minimized Differential Signaling} }{6}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}CEC - \textit {Consumer Electronics Control} }{7}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}ARC - \textit {Audio Return Channel} }{7}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}HEC - \textit {HDMI Ethernet Channel} }{7}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}HDMI implementado sobre a FPGA}{7}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Conex\IeC {\~a}o \IeC {\`a} FPGA XILINX VC7203 Virtex-7}{8}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Transmissor e Recetor}{9}{subsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Recetor}{9}{subsubsection.2.3.2.1}
+\contentsline {subsubsection}{\numberline {2.3.2.2}Transmissor}{11}{subsubsection.2.3.2.2}
+\contentsline {chapter}{\numberline {3}Cap\IeC {\'\i }tulo Exemplo}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introdu\IeC {\c c}\IeC {\~a}o}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Sec\IeC {\c c}\IeC {\~a}o Exemplo}{13}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Exemplo de Figura}{14}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Exemplo de Tabela}{14}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Sec\IeC {\c c}\IeC {\~a}o Exemplo}{15}{section.3.3}
+\contentsline {section}{\numberline {3.4}Resumo}{15}{section.3.4}
+\contentsline {chapter}{\numberline {4}Mais um Cap\IeC {\'\i }tulo}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}Sec\IeC {\c c}\IeC {\~a}o Exemplo}{17}{section.4.1}
+\contentsline {section}{\numberline {4.2}Mais uma Sec\IeC {\c c}\IeC {\~a}o}{18}{section.4.2}
+\contentsline {section}{\numberline {4.3}Resumo ou Conclus\IeC {\~o}es}{19}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Satisfa\IeC {\c c}\IeC {\~a}o dos Objectivos}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Trabalho Futuro}{22}{section.5.2}
+\contentsline {chapter}{\numberline {A}Loren Ipsum}{23}{appendix.A}
+\contentsline {section}{\numberline {A.1}O que \IeC {\'e} o \emph {Loren Ipsum}?}{23}{section.A.1}
+\contentsline {section}{\numberline {A.2}De onde Vem o Loren?}{23}{section.A.2}
+\contentsline {section}{\numberline {A.3}Porque se usa o Loren?}{24}{section.A.3}
+\contentsline {section}{\numberline {A.4}Onde se Podem Encontrar Exemplos?}{24}{section.A.4}

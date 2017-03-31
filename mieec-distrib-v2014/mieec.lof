@@ -1,8 +1,11 @@
 \select@language {portuges}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite {R008}\relax }}{8}{figure.caption.8}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite {R009}\relax }}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Amostragem dos dados provenientes da FPGA no recetor, retirada de \cite {R009}\relax }}{11}{figure.caption.11}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite {R009}\relax }}{11}{figure.caption.12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Arquitectura da Solu\IeC {\c c}\IeC {\~a}o Proposta\relax }}{10}{figure.caption.8}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
