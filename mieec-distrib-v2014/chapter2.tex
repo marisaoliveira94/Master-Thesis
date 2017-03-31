@@ -92,6 +92,7 @@ Estes serão os conectores a ser utilizados e mais à frente neste relatório se
 \subsection{Transmissor e Recetor} \label{batik}
 Este \textit{hardware}, TB-FMCH-HDMI2, está dividido em 2 placas: o recetor (RX) que recebe o sinal recebido pelo cabo HDMI, faz a descodificação e envia o sinal para a FPGA, e o transmissor (TX) que faz o processo inverso, isto é, recebe o sinal proveniente da FPGA e transmite-o para o cabo HDMI para que possa chegar ao dispositivo de destino. 
 \subsubsection{Recetor}\label{batik}
+Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor disponível.
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
@@ -100,10 +101,13 @@ Este \textit{hardware}, TB-FMCH-HDMI2, está dividido em 2 placas: o recetor (RX
 		\label{fig:HDMIblocosRX}
 	\end{center}
 \end{figure}
-
-Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor disponível.
-
-
-
 As suas principais funções dividem-se nas seguintes:
 \subsubsection{Transmissor}\label{batik} 
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.7\textwidth]{HDMItx}
+		\caption{Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite{R009}}
+		\label{fig:HDMIblocosTX}
+	\end{center}
+\end{figure}
