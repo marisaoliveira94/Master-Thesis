@@ -4,6 +4,20 @@
 Xilinx and Inc, ``{VC7203 Virtex-7 FPGA GTX Transceiver Characterization Board
   User Guide (UG957)},'' 2014.
 
+\bibitem{R009}
+Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
+\newblock 2012.
+
+\bibitem{R012}
+D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
+
+\bibitem{R010}
+Xilinx and Inc, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for
+  High-Speed Serial I/O Connectivity, White Paper},'' 2013.
+
+\bibitem{R011}
+Xilinx and Inc, ``{7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)},''
+
 \bibitem{R002}
 {Wikipedia Contributors}, ``{HDMI},'' 2016.
 
@@ -21,9 +35,5 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
 
 \bibitem{R004}
 W.~contributors, ``audio and video interfaces and connectors,'' 2016.
-
-\bibitem{R009}
-Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
-\newblock 2012.
 
 \end{thebibliography}

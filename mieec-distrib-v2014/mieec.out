@@ -18,22 +18,26 @@
 \BOOKMARK [1][-]{section.2.3}{2.3 HDMI implementado sobre a FPGA}{chapter.2}% 18
 \BOOKMARK [2][-]{subsection.2.3.1}{2.3.1 Conex\343o \340 FPGA XILINX VC7203 Virtex-7}{section.2.3}% 19
 \BOOKMARK [2][-]{subsection.2.3.2}{2.3.2 Transmissor e Recetor}{section.2.3}% 20
-\BOOKMARK [0][-]{chapter.3}{3 Cap\355tulo Exemplo}{}% 21
-\BOOKMARK [1][-]{section.3.1}{3.1 Introdu\347\343o}{chapter.3}% 22
-\BOOKMARK [1][-]{section.3.2}{3.2 Sec\347\343o Exemplo}{chapter.3}% 23
-\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Exemplo de Figura}{section.3.2}% 24
-\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Exemplo de Tabela}{section.3.2}% 25
-\BOOKMARK [1][-]{section.3.3}{3.3 Sec\347\343o Exemplo}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.4}{3.4 Resumo}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{4 Mais um Cap\355tulo}{}% 28
-\BOOKMARK [1][-]{section.4.1}{4.1 Sec\347\343o Exemplo}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.2}{4.2 Mais uma Sec\347\343o}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.3}{4.3 Resumo ou Conclus\365es}{chapter.4}% 31
-\BOOKMARK [0][-]{chapter.5}{5 Conclus\365es e Trabalho Futuro}{}% 32
-\BOOKMARK [1][-]{section.5.1}{5.1 Satisfa\347\343o dos Objectivos}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.2}{5.2 Trabalho Futuro}{chapter.5}% 34
-\BOOKMARK [0][-]{appendix.A}{A Loren Ipsum}{}% 35
-\BOOKMARK [1][-]{section.A.1}{A.1 O que \351 o Loren Ipsum?}{appendix.A}% 36
-\BOOKMARK [1][-]{section.A.2}{A.2 De onde Vem o Loren?}{appendix.A}% 37
-\BOOKMARK [1][-]{section.A.3}{A.3 Porque se usa o Loren?}{appendix.A}% 38
-\BOOKMARK [1][-]{section.A.4}{A.4 Onde se Podem Encontrar Exemplos?}{appendix.A}% 39
+\BOOKMARK [1][-]{section.2.4}{2.4 Conex\343o de alta velocidade em s\351rie}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.4.1}{2.4.1 Arquitetura de serializador e deserializador}{section.2.4}% 22
+\BOOKMARK [2][-]{subsection.2.4.2}{2.4.2 Considera\347\365es na implementa\347\343o deste tipo de arquitetura}{section.2.4}% 23
+\BOOKMARK [2][-]{subsection.2.4.3}{2.4.3 Serializador e Deserializador dispon\355veis na FPGA}{section.2.4}% 24
+\BOOKMARK [0][-]{chapter.3}{3 Cap\355tulo Exemplo}{}% 25
+\BOOKMARK [1][-]{section.3.1}{3.1 Introdu\347\343o}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.2}{3.2 Sec\347\343o Exemplo}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Exemplo de Figura}{section.3.2}% 28
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Exemplo de Tabela}{section.3.2}% 29
+\BOOKMARK [1][-]{section.3.3}{3.3 Sec\347\343o Exemplo}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.4}{3.4 Resumo}{chapter.3}% 31
+\BOOKMARK [0][-]{chapter.4}{4 Mais um Cap\355tulo}{}% 32
+\BOOKMARK [1][-]{section.4.1}{4.1 Sec\347\343o Exemplo}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.2}{4.2 Mais uma Sec\347\343o}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.3}{4.3 Resumo ou Conclus\365es}{chapter.4}% 35
+\BOOKMARK [0][-]{chapter.5}{5 Conclus\365es e Trabalho Futuro}{}% 36
+\BOOKMARK [1][-]{section.5.1}{5.1 Satisfa\347\343o dos Objectivos}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.2}{5.2 Trabalho Futuro}{chapter.5}% 38
+\BOOKMARK [0][-]{appendix.A}{A Loren Ipsum}{}% 39
+\BOOKMARK [1][-]{section.A.1}{A.1 O que \351 o Loren Ipsum?}{appendix.A}% 40
+\BOOKMARK [1][-]{section.A.2}{A.2 De onde Vem o Loren?}{appendix.A}% 41
+\BOOKMARK [1][-]{section.A.3}{A.3 Porque se usa o Loren?}{appendix.A}% 42
+\BOOKMARK [1][-]{section.A.4}{A.4 Onde se Podem Encontrar Exemplos?}{appendix.A}% 43

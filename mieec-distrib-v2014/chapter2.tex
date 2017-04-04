@@ -105,10 +105,10 @@ As suas principais funções dividem-se nas seguintes:
 \begin{enumerate}
 	\item \textbf{Receção do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}
 	
-	A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integrado ADV7612BSWZ-P que recebe sinal HDMI e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (electrically erasable programmable read-only memory) que é usada para guardar dados EDID.
+	\hspace{1.0em}A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integrado ADV7612BSWZ-P que recebe sinal HDMI e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (electrically erasable programmable read-only memory) que é usada para guardar dados EDID.
 	\item \textbf{Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}
 	
-	Após passarem pela FPGA embebida (configura por \textit{default}) na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX}:
+	\hspace{1.0em}Após passarem pela FPGA embebida (configurada por \textit{default}) na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX}:
 
 	\begin{table}[h!]
 		\centering
@@ -140,9 +140,9 @@ As suas principais funções dividem-se nas seguintes:
 		\label{table:HDMIdataRX}
 	\end{table}
 
-Conclui-se que os dados presentes que são transmitidos para os conectores FMC, para além dos sinais de sincronização são essencialmente dados de vídeo, os do recetor 0 passados entre LA03\_P a LA32\_P e os do recetor 1 passados entre LA03\_N a LA32\_P. Os sinais “\textit{data enabl}e” são sinais que sinalizam a chegada de novos dados. HSYNC é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal VSYNC é a representação da sincronização horizontal, que faz o mesmo que HSYNC (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
+\hspace{1.0em}Conclui-se que os dados presentes que são transmitidos para os conectores FMC, para além dos sinais de sincronização são essencialmente dados de vídeo, os do recetor 0 passados entre LA03\_P a LA32\_P e os do recetor 1 passados entre LA03\_N a LA32\_P. O sinail “\textit{data enable}” é um sinal que sinaliza a chegada de dados. HSYNC é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal VSYNC é a representação da sincronização horizontal, que faz o mesmo que HSYNC (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
 
-Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura~\ref{fig:HDMIamostragemRX} na página~\pageref{fig:HDMIamostragemRX} ilustra esta situação.
+\hspace{1.0em}Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura~\ref{fig:HDMIamostragemRX} na página~\pageref{fig:HDMIamostragemRX} ilustra esta situação.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -154,6 +154,17 @@ Uma nota importante ainda sobre a passagem dos sinais através dos conectores FM
 \end{figure}
  
 \end{enumerate}
+
+Na figura~\ref{fig:rx} da página~\pageref{fig:rx} é possivel visualizar a placa TB-FMCH-HDMI2 RX referida anteriomente.
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{rx}
+		\caption{TB-FMCH-HDMI2 RX, retirada de \cite{R009}}
+		\label{fig:rx}
+	\end{center}
+\end{figure}
+
 \subsubsection{Transmissor}\label{batik} 
 O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIblocosTX} na página~\pageref{fig:HDMIblocosTX}.
 \begin{figure}[h!]
@@ -164,3 +175,454 @@ O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIbl
 		\label{fig:HDMIblocosTX}
 	\end{center}
 \end{figure}
+Mais uma vez é possível dividir o diagrama em duas principais funções:
+\begin{enumerate}
+	\item \textbf{Interface com o conector FMC (do conector FMC para a FPGA localizada na placa)}
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Nome do pin} & \textbf{Input/0utput} & \textbf{FMC para FPGA} & \textbf{FPGA para TX}          \\ \hline
+			CLK0\_M2C\_P         & Input                 & TX\#0\_DCLK            & TX\#0 sinal DCLK               \\ \hline
+			CLK1\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ \hline
+			LA00\_P\_CC          & Input                 & TX\#0\_VSYNC           & TX\#0\_VSYNC                   \\ \hline
+			LA01\_P\_CC          & Input                 & TX\#0\_HSYNC           & TX\#0\_HSYNC                   \\ \hline
+			LA02\_P              & Input                 & TX\#0\_DE              & TX\#0 data enable              \\ \hline
+			LA03\_P a LA32\_P    & Input                 & TX\#0\_D0 a TX\#0\_D29 & TX\#0 dados de vídeo de 0 a 29 \\ \hline
+			LA33\_P              & Input/Output          & Não usado              & ----------                     \\ \hline
+			CLK0\_M2C\_N         & Input                 & TX\#1\_DCLK            & TX\#0 sinal DCLK               \\ \hline
+			CLK1\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ \hline
+			LA00\_N\_CC          & Input                 & TX\#1\_VSYNC           & TX\#1\_VSYNC                   \\ \hline
+			LA01\_N\_CC          & Input                 & TX\#1\_HSYNC           & TX\#1\_HSYNC                   \\ \hline
+			LA02\_N              & Output                & TX\#1\_DE              & TX\#1 data enable              \\ \hline
+			LA03\_N a LA32\_N    & Output                & TX\#1\_D0 a TX\#1\_D9  & TX\#1 dados de vídeo de 0 a 29 \\ \hline
+			LA33\_P              & Input/Output          & Não usado              & ----------                     \\ \hline
+			CLK2\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ \hline
+			CLK3\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ \hline
+			HA00\_P a HA23\_P    & Input/Output          & Não usado              & ----------                     \\ \hline
+			CLK2\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ \hline
+			CLK3\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ \hline
+			HA00\_N a HA23\_N    & Input/Output          & Não usado              & ----------                     \\ \hline
+		\end{tabular}
+			\caption{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX, adaptada de \cite{R009}}
+			\label{table:HDMIdataTX}
+	\end{table}
+	
+	\hspace{1.0em}Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX} na página~\pageref{table:HDMIdataRX}, mis uma vez com a placa configurada por \textit{default}.
+	
+	\hspace{1.0em}Os dados capturados pela FPGA embebida na placa na transição de 0 para 1 do sinal de relógio do vídeo, tal como ilustra a figura~\ref{fig:HDMIamostragemTX} na página~\pageref{fig:HDMIamostragemTX}. Como tal, o sinal deve ser transferido na FPGA principal transição de 1 para 0 do sinal de relógio do vídeo. 
+	
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=0.7\textwidth]{amostragemTX}
+			\caption{Amostragem dos dados provenientes do FMC no recetor, retirada de \cite{R009}}
+			\label{fig:HDMIamostragemTX}
+		\end{center}
+	\end{figure}
+	
+	\item \textbf{Transmissor HDMI (da FPGA localizada na placa para ADV7511)}
+	
+	\hspace{1.0em}Após passar pela FPGA embebida na placa o sinal passa pelo bloco ADV7511 para de seguida ser possível o seu envio pelo conector HDMI para o dispositivo de destino. 
+
+\end{enumerate}
+
+Na figura~\ref{fig:tx} da página~\pageref{fig:tx} é possivel visualizar a placa TB-FMCH-HDMI2 RX referida anteriomente.
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{tx}
+		\caption{TB-FMCH-HDMI2 TX, retirada de \cite{R009}}
+		\label{fig:tx}
+	\end{center}
+\end{figure}
+
+\subsubsection{Conexão DDC}\label{batik} 
+
+Para esta configuração da placa, são suportadas dois tipos de conexão DDC que passam a ser descritas.
+
+\begin{enumerate}
+	\item \textbf{Conexão Normal}
+	
+	\hspace{1.0em}Nesta configuração a comunicação DDC realiza-se normalmente entre o recetor e o transmissor HDMI, tal como ilustra a figura~\ref{fig:DDCnormal} na página~\pageref{fig:DDCnormal}. Existe um canal especifico para esta conexão que é recebido através do conector HDMI e enviado juntamente com os outros tipos de dados.
+
+	\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=1.0\textwidth]{DDCnormal}
+			\caption{Configuração DDC normal, retirada de \cite{R009}}
+			\label{fig:DDCnormal}
+		\end{center}
+	\end{figure}
+	
+	\item \textbf{Conexão "\textit{through}"}
+	
+	\hspace{1.0em}Este tipo de conexão faz uma ligação direta do canal DDC entre o recetor e o transmissor inibindo a comunicação normal deste canal. Para fazer esta conexão é necessário um cabo DDC e fazer as conexões corretas. Esta situação está ilustrada na figura~\ref{fig:DDCthrough} na página~\pageref{fig:DDCthrough}.
+	
+		\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=1.0\textwidth]{DDCthrough}
+			\caption{Configuração DDC “\textit{through}”, retirada de \cite{R009}}
+			\label{fig:DDCthrough}
+		\end{center}
+	\end{figure}
+	
+	\hspace{1.0em}Este tipo de configuração poderá ser utilizada numa fase inicial do projeto a ser realizado, visto que não exige comunicação bidirecional através dos transcetores (onde os restantes sinais serão transmitidos), e como tal vem facilitar a comunicação entre dispositivo de origem e de destino.
+\end{enumerate}
+
+\section{Conexão de alta velocidade em série}
+A comunicação de dados de alta velocidade pode ser efetuada tanto em série como em paralelo, no entanto cada uma tem as suas implicações. No caso das comunicações em paralelo permitem uma velocidade de comunicação maior, em contrapartida tem um custo mais elevado devido à necessidade de mais recursos físicos e apresenta ainda problemas no que toca à diferença de tempos de chegada de dados e sinais de relógio (visto que estes podem chegar a tempos diferentes) e também no que toca à interferência entre canais. 
+
+Desta maneira, segundo \cite{R012}, comunicações em série têm vindo a substituir as comunicações em paralelo em ligações de alta velocidade. Apesar disso, as comunicações realizadas dentro dos circuitos integrados são normalmente realizadas em paralelo, visto que permite maior rapidez de comunicação, e como tal é necessário a utilização de serializadores e deserializadores no sentido de transformar os dados nos diferentes domínios em que são utilizados.
+
+\subsection{Arquitetura de serializador e deserializador}
+
+Em \cite{R012} é apresentada uma arquitetura simples de um serializador/deserializador que passará a ser explicada em detalhe de seguida.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{ArqSERDES}
+		\caption{Arquitetura simples de um ser/des, retirada de \cite{R012}}
+		\label{fig:arquiteturaSERDES}
+	\end{center}
+\end{figure}
+
+Na arquitetura representada no topo da figura~\ref{fig:arquiteturaSERDES} na página~\pageref{fig:arquiteturaSERDES} está representado o serializador proposto em \cite{R012}, cujas principais fases passam a ser descritas:
+
+\begin{itemize}
+	\item Chegada do sinal em paralelo ao bloco “\textit{data source}”, que corresponde à chegada dos dados em paralelo a serem posteriormente transmitidos.
+	\item Codificação da fonte (\textit{source enconding}) é bloco que se segue nesta arquitetura e inclui construção de tramas, sincronização de padrões e ainda FEC \footnote{\textit{Foward Error Correction} é uma técnica que permite o controlo de erros na transmissão de dados.}.
+	\item O bloco seguinte da arquitetura corresponde à codificação de canal, que é realizada de maneira a que o sinal a ser transmitido consiga um melhor desempenho no que toca a deteção de bits no recetor.
+	\item De seguida, o sinal codificado é enviado para o bloco PISO (\textit{parallel input - serial output)} e de onde sai um sinal em série dos dados a serem enviados.
+	\item Finalmente estes dados são enviados para o \textit{buffer} para que possam ser devidamente convertidos em sinais elétricos ou pulsos óticos para que de seguida sejam transmitidos pela camada física. 
+	\item Em alguns casos um equalizador (\textit{pre-emphasis}) para corrigir alguns erros que possam acontecer no canal em ligações de alta velocidade é utilizado. Erros podem acontecer por diversos motivos, entre os quais: a dependência da atenuação e da dispersão relativamente à frequência, interferências e ruído.
+\end{itemize}
+
+O deserializador proposto segue a mesma estrutura que o serializador fazendo, no entanto, o processo inverso.
+
+\subsection{Considerações na implementação deste tipo de arquitetura}
+Em \cite{R012} são apontados os principais desafios na implementação deste tipo de arquitetura que passarão a ser descritos brevemente e que serão tidos em conta.
+
+\begin{enumerate}
+	\item \textbf{Restrições na utilização de circuitos}
+	
+	\hspace{1.0em}Logo à partida existem grandes restrições no que toca aos circuitos utilizados nestes tipos de serializadores e deserializadores. Isto porque os sinais recebidos em paralelo são sinais digitais, contudo, quando estes sinais passam pelo canal de transmissão sofrem distorções e também lhes é adicionado ruído, o que leva a que o sinal recebido do lado do recetor seja um sinal analógico e que necessite de ser tratado como tal. A sua recuperação tem de ser então baseada na regeneração correta do sinal de relógio e também na amostragem apropriada. 
+	
+	\hspace{1.0em}Ao mesmo tempo, este tipo de dispositivos são normalmente um subsistema de um sistema grande e usados em dispositivos portáteis, e como tal precisam de ter um baixo consumo de energia. Assim sendo, um dos primeiros grandes desafios desta implementação de serializador/deserializador, segundo \cite{R012}, é conseguir implementar circuitos digitais de alta velocidade e que ao mesmo tempo têm um baixo consumo de potência. Esta mesma referência apresenta duas principais técnicas utilizadas para alcançar tais objetivos que passam pela utilização de lógica CMOS que permitem a utilização a alta velocidade com baixo consumo de potência. 
+	
+	\hspace{1.0em}Outro requisito crítico na implementação deste tipo de arquiteturas é também a adaptação das impedâncias características do \textit{buffer} (de transmissão e receção) com a impedância característica da linha onde é transmitido o sinal. Isto porque, caso estas não estejam adaptadas ocorrerão reflexões no lado do transmissor ou do recetor (consoante a desadaptação) que não permitem a transmissão da potência total do sinal. No entanto, este requisito requer um grande consumo de potência, pois na prática os canais de transmissão têm uma impedância muito baixa. 
+	
+	\item \textbf{PISO (\textit{Parallel input – serial output}) e SIPO (\textit{serial input – parallel output})}
+	
+	\hspace{1.0em}Estes blocos são necessários para o correto funcionamento deste tipo de arquitetura uma vez que é responsável pela conversão dos dados que se fazem chegar em paralelo em série e vice-versa. Na figura~\ref{fig:PISO-SIPO} na página~\pageref{fig:PISO-SIPO} apresenta-se algumas topologias de PISO e SIPO apresentadas em \cite{R012}:
+
+	\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=1.0\textwidth]{arqPISO-SIPO}
+			\caption{Arquitetura de PISO/SIPO, retirada de \cite{R012}}
+			\label{fig:PISO-SIPO}
+		\end{center}
+	\end{figure}
+	
+	\hspace{1.0em}No circuito a) visualiza-se uma estrutura de um único andar que é demasiado lenta devido às capacidades intrínsecas largas no nó de conversão. O circuito b) representa uma topologia heterogénea que é mais rápida que a anterior, e no circuito c) está representada uma topologia de árvore binária que é a topologia mais rápida das apresentadas. 
+	
+	\hspace{1.0em}Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências que serão de seguida mencionados.
+	
+	\item \textbf{Unidade de Multiplicação de Sinais de relógio (CMU – \textit{Clock Multiplier Unit})}
+	
+	\hspace{1.0em}O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor, segundo a fonte \cite{R012}. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. É comum que este sinal de relógio seja então partilhado entre o recetor e o transmissor, sendo que será necessário um bloco que faça o ajuste de fase deste sinal do lado do recetor. Este é necessário por causa do atraso introduzido pelo canal, que não é conhecido à priori e também devido ao ruído introduzido no canal que tornam a fase do sinal recebido bastante crítica para o desempenho do transcetor. Esta unidade é então responsável por tal procedimento.
+	
+	\item \textbf{Equalização}
+	
+	\hspace{1.0em}O sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal no recetor. Como tal, existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria pode ser realizada através da utilização de canais de ligação de melhor qualidade. No entanto, esta opção traz custos acrescidos à ligação. 
+	
+	\hspace{1.0em}Por outro lado, também pode ser utilizada uma técnica de equalização que consegue obter bons resultados sem custos acrescidos à ligação. Ainda na mesma referência são apresentadas diferentes combinações de métodos de equalização que passam a ser brevemente descritos:
+	
+	\begin{itemize}
+		\item Linear ou não-linear
+		\item Pode ser implementado do lado transmissor, ou do recetor ou ainda de ambos os lados
+		\item Pode ser implementado em tempo contínuo ou discreto
+		\item Pode ser adaptativo ou fixo
+	\end{itemize}
+
+	Assim sendo, existe um vasto conjunto de opções de equalização que estão diretamente relacionadas com o circuito CDR (\textit{Clock Data Recovery}), sendo que as mais importantes serão referidas mais à frente neste relatório. 
+
+	\item \textbf{CDR (\textit{Clock Data Recovery})}
+	
+	\hspace{1.0em}Tal como referido anteriormente, a comunicação de sinais de alta velocidade pode sofrer diversas interferências durante a sua transmissão. Contudo, segundo \cite{R012}, após a equalização do sinal estas mesmas interferências são parcialmente compensadas permitindo assim uma recuperação dos dados transmitidos.  Para fazer a correta recuperação do sinal é necessário recorrer a um circuito que recupere inicialmente o sinal de relógio transmitido do emissor para que o sinal recuperado possa ser usado para recuperação dos dados transmitidos. Uma estrutura deste tipo de circuito será descrita mais à frente neste relatório.
+\end{enumerate}
+
+\subsection{Serializador e Deserializador disponíveis na FPGA}
+
+As FPGA de série 7 da XILINX têm disponíveis transcetores capazes de comunicação em série de alta velocidade, tal como é necessário neste projeto. Em específico, na FPGA XILINX VC7203 Virtex-7 estão disponíveis transcetores GTX que permitem uma velocidade de 10 Gb/s e que são os mais adequados para conexão à fibra ótica. Noutros modelos existem outros transcetores, como por exemplo GTZ (que permite até 28 Gb/s), GTH (que permite débitos até 13,1 Gb/s) e GTP (com débitos até 6,6 Gb/s). No entanto apenas serão abordados os transcetores GTX, visto que são os mais adequados para este tipo de comunicações.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{gtxLOCA}
+		\caption{Identificação dos transcetores GTX na FPGA VC7203 Virtex-7, retirada de \cite{R008}}
+		\label{fig:GTXlocalização}
+	\end{center}
+\end{figure}
+
+Na figura~\ref{fig:GTXlocalização} na página~\pageref{fig:GTXlocalização} é possível visualizar a FPGA a ser utilizada no projeto e visualiza-se ainda assinaladas as entradas GTX (QUAD\_111, QUAD\_112, QUAD\_113, QUAD\_114, QUAD\_115, QUAD\_116, QUAD\_117, QUAD\_118 e QUAD\_119). 
+Os transcetores baseiam-se na seguinte arquitetura, segundo \cite{R010}:
+\begin{itemize}
+	\item \textbf{PMA (\textit{Physical Medium Attachment Sublayer})} que inclui:
+	\begin{itemize}
+		\item suporte de taxas de débito até 12,5 Gb/s
+		\item uma PLL por canal para melhor flexibilidade do sinal de relógio
+		\item uma interface que faz a conversão de série para paralelo e de paralelo para série (PISO e SIPO)
+		\item uma PLL (\textit{Phase-Locked Loop})
+		\item Equalizador de decisão com feedback (DFE)
+		\item CDR (\textit{clock data recovery})
+		\item Bloco de pré-ênfase e equalização
+		\item Saída do transmissor programável
+	\end{itemize}
+	\item \textbf{PCS (\textit{Physical Coding Sublayer}) que inclui:}
+	\begin{itemize}
+		\item \textit{Datapath} de 2 e 4 byte internos para suportar diferentes taxas de débitos
+		\item Codificação e descodificação 8B/10B
+		\item Deteção de vírgula e alinhamento de palavra
+		\item PRBS (\textit{Pseudo Random Bit Sequence}) gerador e verificador
+		\item FIFO para correção do sinal de relógio e ligação do canal
+		\item Lógica que processa os dados em paralelo reconfigurável
+		\item Este bloco trabalha com taxas de débitos de informação mais baixas.
+	\end{itemize}
+\end{itemize}
+
+É possível visualizar um diagrama geral da arquitetura dos transcetores GTX disponíveis na FPGA na figura~\ref{fig:GTXarquitetura} na página~\pageref{fig:GTXarquitetura}.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{gtxAqr}
+		\caption{Arquitetura geral dos transcetores GTX, retirada de \cite{R010}}
+		\label{fig:GTXarquitetura}
+	\end{center}
+\end{figure}
+
+O transmissor e o recetor passam a ser descritos mais detalhadamente de seguida.
+
+\subsubsection{Transmissor}
+Cada transcetor GTX inclui um transmissor independente que consiste num módulo PCS e um modulo PMA, tal como referido anteriormente. A figura~\ref{fig:gtx_tx} na página~\pageref{fig:gtx_tx} representa o diagrama de blocos do transmissor.
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{gtx_tx}
+		\caption{Diagrama de blocos de um transmissor GTX, retirada de \cite{R011}}
+		\label{fig:gtx_tx}
+	\end{center}
+\end{figure}
+
+Os dados provenientes da FPGA, cujo formato é em paralelo, passam para a interface transmissora, de seguida para os módulos PCS e PMA e, por fim, para a saída pelo driver do transmissor a alta velocidade. 
+
+O transmissor contém os seguintes blocos principais, cujas funcionalidades passam a ser brevemente resumidas, segundo \cite{R010}:
+\begin{enumerate}
+	
+
+	\item \textbf{Interface transmissora da FPGA}
+	
+	\hspace{1.0em}Esta interface serve como porta de comunicação entre a FPGA e o datapath do transmissor. Esta comunicação é feita através da escrita de dados na porta TXDATA na transição de 0 para 1 do sinal de relógio TXUSRCLK2.
+	
+	\hspace{1.0em}O tamanho do sinal a ser transmitido pode ser configurado para 2, 4 ou 8 bytes. Na realidade este tamanho é definido por TX\_DATA\_WIDTH e TX\_INT\_DATAWIDTH e ainda por TX8B19BEN, e o tamanho interno destes sinais pode ser 16, 20, 32, 40, 64 e 80 bits. A tabela~\ref{table:dataTXDATA} na página~\pageref{table:dataTXDATA} demonstra como esses tamanhos são configurados através das entradas referidas.
+	
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{TX8B10BEN} & \textbf{TX\_DATA\_WIDTH} & \textbf{TX\_INT\_DATAWIDTH} & \textbf{\begin{tabular}[c]{@{}c@{}}Tamanho na interface \\ da FPGA (bits)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tamanho interno \\ dos dados (bits)\end{tabular}} \\ \hline
+		\multirow{4}{*}{1} & 20                       & 0                           & 16                                                                                      & 20                                                                                   \\ \cline{2-5} 
+		& 40                       & 0                           & 32                                                                                      & 20                                                                                   \\ \cline{2-5} 
+		& 40                       & 1                           & 32                                                                                      & 40                                                                                   \\ \cline{2-5} 
+		& 80                       & 1                           & 64                                                                                      & 40                                                                                   \\ \hline
+		\multirow{8}{*}{0} & 16                       & 0                           & 16                                                                                      & 16                                                                                   \\ \cline{2-5} 
+		& 20                       & 0                           & 20                                                                                      & 20                                                                                   \\ \cline{2-5} 
+		& 32                       & 0                           & 32                                                                                      & 16                                                                                   \\ \cline{2-5} 
+		& 32                       & 1                           & 32                                                                                      & 32                                                                                   \\ \cline{2-5} 
+		& 40                       & 0                           & 40                                                                                      & 20                                                                                   \\ \cline{2-5} 
+		& 40                       & 1                           & 40                                                                                      & 40                                                                                   \\ \cline{2-5} 
+		& 64                       & 1                           & 64                                                                                      & 32                                                                                   \\ \cline{2-5} 
+		& 80                       & 1                           & 80                                                                                      & 40                                                                                   \\ \hline
+	\end{tabular}
+	\caption{Configuração do tamanho dos dados de TXDATA, adaptada de \cite{R011}}
+	\label{table:dataTXDATA}
+\end{table}
+
+	\hspace{1.0em}Quando o codificador 8B/10B está ativo, então TX\_DATA\_WIDTH deve estar configurado para 20, 40 ou 80 bits e nesta situação, a interface do transmissor com a FPGA apenas utiliza os dados provenientes da porta TX\_DATA\_WIDTH. Quando o mesmo está desativo, então TX\_DATA\_WIDTH pode estar configurado para 16,20,32,40,64 ou 80 bits.
+
+	\hspace{1.0em}O sinal TX\_INT\_DATAWITH é um atributo que configura a ativação do datapath de 2 e 4 bytes disponível internamente no transcetor.
+
+	\hspace{1.0em}Para além do sinal de relógio TXUSRCLK2, que é o sinal de relógio principal para a sincronização dos sinais que chegam ao transmissor, existe um segundo sinal de relógio paralelo que é usado internamente para operações lógicas a realizar no módulo PCS. Este segundo sinal de relógio, TXUSRCLK, irá depender do tamanho interno dos dados usado no datapath e da taxa de transmissão do transmissor GTX. É possível calcular esta mesma taxa através da divisão entre a taxa de transmissão da linha e do tamanho interno dos dados utilizado no datapath. Para além disso, estes dois sinais de relógio têm uma relação fixa que determina os seus valores que depende dos valores presentes em TX\_DATA\_WIDTH e TX\_INT\_DATAWIDTH. Essas relações estão apresentadas na tabela~\ref{table:freqTXgtx} na página~\pageref{table:freqTXgtx}:
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{\begin{tabular}[c]{@{}c@{}}Tamanho na \\ interface da\\  FPGA (byte)\end{tabular}} & \textbf{TX\_DATA\_WIDTH} & \textbf{TX\_INT\_DATAWIDTH} & \textbf{Frequência de TXUSRCLK2} \\ \hline
+		2                                                                                          & 16, 20                   & 0                           & f(TXUSRCLK2) = f(TXUSRCLK)       \\ \hline
+		4                                                                                          & 32, 40                   & 0                           & f(TXUSRCLK2) = f(TXUSRCLK) / 2   \\ \hline
+		4                                                                                          & 32, 40                   & 1                           & f(TXUSRCLK2) = f(TXUSRCLK)       \\ \hline
+		8                                                                                          & 64, 80                   & 1                           & f(TXUSRCLK2) = f(TXUSRCLK) / 2   \\ \hline
+	\end{tabular}
+	\caption{Configuração da frequência de TXUSRCLK2, adaptada de \cite{R011}}
+	\label{table:freqTXgtx}
+\end{table}
+
+	\hspace{1.0em}Assim sendo, é possível fazer uso dos transcetores disponíveis na FPGA, utilizando um tamanho adequado de dados para a transmissão, tendo em conta as configurações necessárias e disponíveis para tal, tal como descrito anteriormente. Por outras palavras, utilizando tamanhos de entradas devidamente apropriados, será fácil enviar os dados recebidos e descodificados do HDMI através destes transcetores, que pode vir a ser útil numa fase inicial do projeto.
+
+	\item \textbf{Codificador 8B/10B do transmissor}
+	
+	\hspace{1.0em}Esta é a codificação utilizada no sinal para de seguida fazê-lo enviar pelas portas de alta velocidade, e é uma codificação \textit{standard} que troca dois bits por byte para alcançar um equilíbrio e obter uma disparidade limitada para que a recuperação de relógio seja razoável. O transmissor possui um \textit{datapath} específico para fazer este tipo de codificação e ao mesmo tempo poupar recursos da FPGA apesar de aumentar a latência no caminho do transmissor.
+	
+	\hspace{1.0em}A ativação ou não deste bloco é representada no sinal TX8B10BEN. Quando está ativo, o sinal passado na interface do transmissor com a FPGA por TXDATA é codificado antes de ser enviado pelas saídas de alta velocidade, caso contrário, tal não acontece e o sinal é enviado tal como é transmitido. 
+	
+	\item \textbf{\textit{Gearbox} do transmissor}
+	
+	\hspace{1.0em}Este bloco suporta a codificação do sinal 64B/66B e 64B/67B, uma vez que este tipo de codificação é utilizada em alguns protocolos de comunicação de alta velocidade. Esta utilização permite reduzir a sobrecarga da codificação 8B/10B e ao mesmo tempo reter os benefícios de um esquema de codificação. Este bloco suporta interfaces de 2, 4 ou 8 bytes e a codificação dos dados é feita na lógica da FPGA. 
+	
+	\item \textbf{\textit{Buffer} do transmissor}
+	
+	\hspace{1.0em}O transmissor GTX tem disponível também um buffer e um bloco de alinhamento de fase no seu circuito para que possa sincronizar os diferentes domínios dos sinais de relógio. Isto acontece porque internamente o transmissor tem dois sinais de relógios paralelos: o sinal do domínio PMA (XCLK) e o sinal de relógio TXUSRCLK. No entanto, quando a transmissão de dados entre estes dois domínios é realizada é necessário que os sinais estejam sincronizados e as diferenças de fase resolvidas. Como tal, será necessário a utilização deste bloco para se poder realizar a sincronização entre os sinais.
+	
+	\hspace{1.0em}O circuito de alinhamento da fase é utilizado para resolver a diferença entre as fases dos sinais quando o buffer não está ativo. Mas pelo menos um dos blocos deve ser sempre utilizado. 
+	
+	\hspace{1.0em}A utilização do \textit{buffer} é mais fácil e é sempre recomendada a sua utilização, enquanto que o bloco de alinhamento de fase é um bloco mais complexo no que toca a lógica e que requer restrições adicionais nas fontes dos sinais de relógio. Por outro lado, o buffer não deve ser utilizado quando a latência é uma questão importante do circuito, uma vez que o bloco de alinhamento de fase consegue alcançar menor latência. 
+	
+	\item \textbf{Gerador de padrões do transmissor} 
+	
+	\hspace{1.0em}A geração de sequência pseudoaleatórias é bastante utilizada em sistemas de telecomunicações para testar a integridade do sinal de ligações de grande velocidade. Apesar de estas mesmas sequências parecerem aleatórias à primeira vista, na realidade apresentam determinadas características que são utilizadas para medir a qualidade da ligação. Este bloco do transmissor é responsável por esta ação. 
+	
+	\item \textbf{Controlo de polaridade do transmissor} 
+	
+	\hspace{1.0em}Este bloco é responsável por inverter os dados em paralelo antes da sua serialização e transmissão para compensar a inversão de polaridade no par diferencial, isto porque tal pode levar a uma inversão de polarização dos dados transmitidos pelo GTX quando TXN e TXP são acidentalmente trocados na PCB. 
+	
+	\item \textbf{Controlo do sinal de relógio de saída do transmissor}
+	
+	\hspace{1.0em}Este bloco é responsável pelo controlo da divisão do sinal de relógio em série e pelo controlo da divisão e seleção do sinal de relógio em paralelo.
+	
+	\hspace{1.0em}No que toca à divisão do sinal de relógio em série, cada módulo PMA do transmissor possui um divisor D que divide o sinal de relógio da PLL para suportar taxas de transmissão mais baixas. Este divisor pode ser definido estaticamente para aplicações com uma taxa de transmissão fixa, mas também pode ser utilizado para ligações onde a taxa de transmissão pode variar e como tal D varia com essa mesma variação. Este bloco é responsável por esta divisão do sinal de relógio em série. 
+	
+	\hspace{1.0em}Quanto à divisão e seleção do sinal de relógio paralelo, o sinal de relógio em paralelo que sai deste bloco de controlo de divisão de relógio pode ser utlizado como o relógio de fabrico lógico, dependendo das linhas de transmissão requisitadas. Este bloco controla também essa mesma divisão e seleção.
+	
+	\item \textbf{Driver reconfigurável do transmissor}
+	
+	\hspace{1.0em}É um \textit{buffer} de saída diferencial de alta velocidade que possui características para maximizar a integridade do sinal, tal como controlo diferencial de tensão, pré-ênfase e resistências de terminação calibradas.
+	
+	\item \textbf{Suporte de deteção de recetor para arquiteturas \textit{PCI Express}}
+	
+	\hspace{1.0em}As especificações das arquiteturas PCI Express incluem características que permitem detetar a presença do recetor para uma determinada ligação. Este bloco é responsável por esta mesma deteção.	
+\end{enumerate}
+
+\subsubsection{Recetor}
+
+Cada transcetor possui um recetor independente, cujo diagrama de blocos está representado na figura~\ref{fig:gtx_rx} na página~\pageref{fig:gtx_rx}. Mais uma vez, o recetor possui dois módulos principais: PCS e PMA. 
+
+O sinal de alta velocidade em série chega ao RX ao modulo PMA, passa por PCS e, por fim, passa para a lógica da FPGA pela interface com a mesma.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{gtx_rx}
+		\caption{Diagrama de blocos de um recetor GTX, retirada de \cite{R011}}
+		\label{fig:gtx_rx}
+	\end{center}
+\end{figure}
+
+É possível dividir o recetor GTX nos seguintes principais blocos que passam brevemente a ser descritos:
+
+\begin{enumerate}
+	\item \textbf{\textit{Front End} Analógico do recetor}
+	
+	\hspace{1.0em}É um buffer diferencial de entrada de modo de corrente de alta velocidade que possui determinadas características tais como: reconfiguração de tensão de terminação do recetor e calibração das resistências de terminação.
+	
+	\item \textbf{Equalizador do recetor}
+	
+	\hspace{1.0em}Ao longo da transmissão, diversos erros podem acontecer nos dados transmitidos e, como tal, são necessários filtros que permitam ou que pelo menos ajudem a realizar a recuperação do sinal recebido corretamente. Os transcetores GTX disponibilizam filtros adaptativos para tal recuperação: LPM que está otimizado para canais com poucas perdas e ainda DFE para canais com perdas maiores. As arquiteturas apresentadas de seguida foram arquiteturas brevemente abordadas anteriormente dentro deste capítulo que estão referidas em \cite{R012}.
+	
+	\hspace{1.0em}Na figura~\ref{fig:eq_LPM} na página~\pageref{fig:eq_LPM} encontra-se o diagrama de blocos do equalizador LPM. Este modo é recomendado para aplicações com débitos até 11,2 Gb/s de curto alcance, com perdas de canal até 12 dB à frequência de Nyquist.
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=1.0\textwidth]{equalizador_LPM}
+			\caption{Equalizador em modo LPM, retirada de \cite{R011}}
+			\label{fig:eq_LPM}
+		\end{center}
+	\end{figure}
+
+	\hspace{1.0em}Na figura~\ref{fig:eq_DFE} na página~\pageref{fig:eq_DFE} é possível visualizar o diagrama de blocos utilizado para o equalizador DFE (Decision Feedback Equalizer). Este é um filtro que utiliza a realimentação de símbolos detetados para produzir uma estimação da saída do canal. O DFE é alimentado com os símbolos já detetados e produz uma saída que é a combinação da saída do equalizador linear com estes mesmo símbolos já detetados.  
+
+	\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{equalizador_DFE}
+		\caption{Equalizador em modo DFE, retirada de \cite{R011}}
+		\label{fig:eq_DFE}
+	\end{center}
+	\end{figure}	
+
+	\hspace{1.0em}Este equalizador é utilizado para ligações de média distância cujas perdas do canal rondam os 8 dB ou mais à frequência de Nyquist. 
+	
+	\hspace{1.0em}\textbf{Vantagens da utilização deste tipo de equalizador:}
+	\begin{itemize}
+		\item Efetua a equalização sem amplificação do ruído ou interferência
+		\item Pode também fazer correções de reflexões causadas pelas descontinuidades do canal 
+		\item É vantajosa a sua utilização quando as interferências são preocupantes 
+	\end{itemize}
+	
+	\hspace{1.0em}\textbf{Cuidados a ter na utilização deste tipo de equalizador:}
+	\begin{itemize}
+		\item Este tipo de equalização deve ser cuidadosa quando não existe codificação de dados, uma vez que pode levar à não equalização ideal do sinal recebido (pois o filtro pode não se auto adaptar aos dados recebidos).
+	\end{itemize}
+
+	\hspace{1.0em}Visto que neste projeto se pretende realizar comunicações de média/longa distância, deve ser utilizado o equalizador DFE para obter uma boa equalização do sinal recebido. 
+	
+	\item \textbf{CDR (\textit{Clock Data Recovery}) do recetor}
+	
+	\hspace{1.0em}O circuito de CDR faz a recuperação do relógio dos dados recebidos em série. Na figura~\ref{fig:cdr} na página~\pageref{fig:cdr} é possível encontrar a arquitetura deste mesmo circuito. Este circuito foi também já brevemente referido no subcapítulo anterior que refere as considerações a tomar quando se implementam arquiteturas de serialização e deserialização, e passa de seguida a ser descrito.
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=1.0\textwidth]{CDR}
+			\caption{Detalhes do circuito CDR (\textit{Clock data recovery}), retirada de \cite{R011}}
+			\label{fig:cdr}
+		\end{center}
+	\end{figure}
+
+	\hspace{1.0em}A tracejado encontra-se o caminho feito pelo sinal de relógio até à sua recuperação. 
+	Os dados recebidos passam pelo equalizador e de seguida são capturados por um “data sampler” e um “edge sampler”. O “edge sampler” captura a fase do sinal recebido em série quando este está na sua região de transição, enquanto que o “data sampler” captura a fase do mesmo sinal a meio do olho dos dados. Estas duas fases são de seguida enviadas para a máquina de estados do CDR para que esta consiga determinar a fase dos sinais que chegam e ao mesmo tempo controlar os interpoladores de fase (PIs).
+	
+	\item \textbf{Controlo do sinal de relógio de saída} 
+	
+	Tal como no transmissor, o bloco de divisão de sinal de relógio tem dois principais componentes: controlo da divisão do sinal de relógio em série e ainda controlo e seleção da divisão do sinal relógio em paralelo. As suas funções são iguais à do transmissor.
+	
+	\item \textbf{Análise de Margem do Recetor}
+	
+	\hspace{1.0em}Com o aumento das taxas de débito da transmissão e também da atenuação os equalizadores dos recetores têm mais capacidade de superar a atenuação do canal. Contudo, isto traz um novo desafio, pois nestes casos, a qualidade da ligação não pode ser medida através da abertura do olho no diagrama de olho resultante. 
+	
+	\hspace{1.0em}Para taxas de transmissão muito altas pode acontecer que o diagrama de olho do sinal recebido possa parecer completamente fechado, apesar de que após a equalização esteja aberto. Como tal, esta medida de qualificação da qualidade da ligação realizada pode então ter de ser reavaliada.
+	
+	\hspace{1.0em}Assim sendo, os transmissores GTX possuem um mecanismo que permite medir e visualizar a margem do diagrama de olho recebido após equalização. Também existem modos que permitem determinar e diagnosticar os efeitos das configurações de equalização.
+	
+	\hspace{1.0em}Este mecanismo permite que uma correta avaliação da qualidade do canal e para além disso, pode ser feita enquanto os dados estão a ser recebidos, devido ao seu mecanismo que assim o permite, não exigindo nenhuma alteração às configurações do recetor e nem nenhuma lógica extra da FPGA. 
+	
+	\item \textbf{Controlo da polarização do recetor}
+	
+	\hspace{1.0em}Tal como foi mencionado aquando a referência da funcionalidade deste mesmo bloco no transmissor, os sinais RXN e RXP podem ser trocados acidentalmente na PCB e como tal os dados diferencias recebidos pelo recetor estão invertidos. Este bloco é responsável pela inversão dos bytes em paralelo no módulo PCS antes da deserialização do sinal (SIPO) para compensar a polarização inversa do par diferencial.
+	
+	\item \textbf{Verificador de Padrões do recetor}
+	
+	\hspace{1.0em}Este bloco é responsável pela verificação de determinados padrões PSBR e faz esta mesma verificação antes do alinhamento das palavras ou descodificação. Tal como descrito aquando a referência ao gerador destes mesmos padrões no transmissor, estes servem para verificar a integridade do sinal na ligação.
+	
+	
+	
+\end{enumerate}
