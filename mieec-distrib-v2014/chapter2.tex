@@ -623,6 +623,111 @@ O sinal de alta velocidade em série chega ao RX ao modulo PMA, passa por PCS e,
 	
 	\hspace{1.0em}Este bloco é responsável pela verificação de determinados padrões PSBR e faz esta mesma verificação antes do alinhamento das palavras ou descodificação. Tal como descrito aquando a referência ao gerador destes mesmos padrões no transmissor, estes servem para verificar a integridade do sinal na ligação.
 	
+	\item \textbf{Alinhamento de \textit{Byte} e palavras do recetor}
+	
+	\hspace{1.0em}Os dados em série que chegam ao recetor devem ser alinhados com limitações de símbolos antes de poderem ser utilizados como dados em paralelo. Assim sendo, o transmissor envia sequências reconhecíveis (normalmente são chamadas de vírgulas) e o recetor procura essa mesma sequência nos dados recebido. Quando a encontra move-a para os limites das palavras para que as palavras em paralelo recebidas sejam iguais às palavras enviadas pelo transmissor. Para ativar a utilização deste bloco o sinal de entrada RXCOMMADETEN deve ser verdadeiro, mas caso a latência seja um parâmetro critico do circuito então este bloco não deve estar ativo. 
+	
+	\hspace{1.0em}Para definir a sequência que o bloco de alinhamento deve procurar (a vírgula) nos dados que chegam em série ao recetor, então deve-se definir as entradas ALIGB\_MCOMMA\_VALUE, ALIGN\_PCOMMA\_VALUE e ALIGN\_COMMA\_ENABLE. Os tamanhos destas sequências dependerão dos valores em RX\_DATA\_WIDTH, que será explicado mais à frente neste relatório.
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=0.7\textwidth]{commaObtain1}
+			\caption{Mecanismo de obtenção da “vírgula”, retirado de \cite{R011}}
+			\label{fig:comma1}
+		\end{center}
+	\end{figure}
+	
+	\hspace{1.0em}A figura~\ref{fig:comma1} na página~\pageref{fig:comma1} ilustra o mecanismo utlizado para obter a sequência de procura dos dados recebidos no recetor quando ALIGN\_COMMA\_DOUBLE é falso. Quando este mesmo sinal é verdadeiro faz-se então uma extensão do sinal ALIGN\_MCOMMA\_VALUE e do sinal ALIGN\_PCOMMA\_VALUE, tal como está representado na figura~\ref{fig:comma2} na página \pageref{fig:comma2}.
+	
+		\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=0.7\textwidth]{commaObtain2}
+			\caption{Mecanismo de obtenção da “vírgula” quando ALIGN\_COMMA\_DOUBLE=1, retirado de \cite{R011}}
+			\label{fig:comma2}
+		\end{center}
+	\end{figure}
+	
+	\hspace{1.0em}Quando este mesmo sinal está ativo os sinais de entrada ALIGN\_MCOMMA\_VALUE e ALIGN\_PCOMMA\_VALUE são combinados e o bloco procura por duas sequências de uma vez nos mesmos dados recebidos. Para ativar o alinhamento de palavras da sequência MCOMMA o sinal RXMCOMMAALIGNEN deve estar ativo, enquanto que para ativar o alinhamento da palavra PCOMMA o sinal RXPCOMMAALIGNEN deve estar ativo. Quando ambas estão ativas então o alinhamento é realizado com qualquer padrão.
+	
+	\hspace{1.0em}É necessário ter em atenção que em aplicações cuja taxa de débito é superior a 5 Gb/s e que têm demasiado ruído, pode acontecer por vezes um falso alinhamento de palavras que leva à ativação do sinal. Isto indica que as palavras estão alinhadas sem realmente haver dados válidos presentes nelas. Assim sendo, neste tipo de sistemas é necessária a presença de um sistema que faça a verificação da validade destes dados alinhados para prevenir casos como estes.
+	
+	\hspace{1.0em}Deste modo, com esta característica do recetor GTX da FPGA o alinhamento de palavras torna-se simplificado.
+	
+	\item \textbf{Descodificador 8B/10B do recetor}
+	
+	\hspace{1.0em}Se os sinais estiverem codificados segundo 8B/10B então devem ser descodificados segundo esta norma também. Desta forma, o recetor possui um bloco responsável pela descodificação 8B/10B no recetor sem que gaste recursos adicionais à FPGA. Este mesmo bloco pode não estar ativo caso o sinal tenha codificação 8B/10B.
+	
+	\item \textbf{\textit{Buffer} do recetor}
+	
+	\hspace{1.0em}Tal como no transmissor o \textit{buffer} é utilizado para possibilitar a sincronização entre o domínio do sinal de relógio do PMA em paralelo e o sinal de relógio RXUSRCLK. Isto porque, para ser possível a transmissão de dados entre os dois domínios a taxa do domínio PMA dever ser suficientemente parecida com a taxa de RXUSRCLK e todas as diferenças de fases entre as mesmas devem estar resolvidas. Este é, então, o bloco responsável por estes ajustes que devem ser feitos. Alternativamente a este buffer pode ser utilizado o circuito de alinhamento de fase, tal como foi referido anteriormente. No entanto, existem algumas vantagens e desvantagens de utilização destas duas opções.
+	
+	\hspace{1.0em}A utilização do \textit{buffer} torna-se mais fácil em termos de operação, enquanto que o circuito de alinhamento exige lógica extra e restrições adicionais relativamente às fontes do sinal de relógio, tal como acontecia para o transmissor. Quanto à utilização de sinais de relógio o buffer pode usar tanto o sinal de relógio recuperado como o sinal de relógio local, enquanto que o circuito de alinhamento de fase apenas pode utilizar o sinal de relógio recuperado pelo recetor. Relativamente aos tempos de estabilização a utilização do buffer não necessita de começar a funcionar imediatamente após a sua inicialização, enquanto que o circuito de alinhamento do sinal necessita de esperar pela estabilização de todos os sinais de relógio antes de conseguir realizar qualquer alinhamento de fase ou atraso. Em contrapartida, o buffer tem uma latência maior do que o circuito de alinhamento de fase, apesar de essa mesma latência depender também de algumas características do mesmo, como por exemplo a correção do sinal de relógio ou a ligação entre os canais do recetor.
+	
+	\item \textbf{Correção do Sinal de relógio do recetor }
+	
+	\hspace{1.0em}Este bloco é responsável por evitar o overflow do buffer, isto porque o buffer faz a ponte de ligação entre dois domínios de sinal de relógio que apesar de serem muito idênticos nunca serão iguais. Como tal, haverá sempre uma ligeira diferença de fase entre os dois sinais causando acumulação que podem levar a um overflow ou underflow a não ser que seja corrigido. 
+	
+	\hspace{1.0em}Para fazer esta correção, cada transmissor envia periodicamente um ou mais caracteres especiais que permitem que o recetor os elimine ou replique no buffer consoante a necessidade. Através da remoção desses caracteres quando o buffer está muito cheio e a sua replicação quando o \textit{buffer} está vazio o recetor previne o \textit{oveflow} ou \textit{underflow}. 
+	
+	\item \textbf{\textbf{Ligação de canais do recetor}}
+	
+	\hspace{1.0em}Este bloco é responsável por fazer chegar todos os canais ao mesmo tempo ao recetor. Isto acontece porque existem protocolos que combinam múltiplos transcetores para criar um único canal de saída de alta velocidade. A diferença entre os tamanhos dos sinais de cada transcetor pode fazer com que os sinais sejam enviados todos ao mesmo tempo, mas que cheguem a tempos diferentes ao recetor. Este bloco é responsável por eliminar este efeito através do uso de um buffer como um bloco cuja latência é variável. 
+	
+	\hspace{1.0em}Os transmissores GTX enviam um caracter que identifica a ligação entre canais (ou uma sequência de caracteres) simultaneamente. Quando este é recebido o recetor é capaz de determinar a diferença entre cada canal e ajustar a latência do buffer para que os dados cheguem todos ao mesmo tempo a interface com o utilizador. 
+	
+	\item \textbf{\textit{Gearbox} do receto}r
+	
+	\hspace{1.0em}Este bloco é similar ao bloco gearbox do transmissor referido anteriormente neste relatório.
+	
+	\item \textbf{Interface do recetor com FPGA}
+	
+	\hspace{1.0em}Este bloco é responsável pela comunicação entre o recetor e a FPGA, ou seja, a FPGA consegue ler os dados recebidos no recetor através da leitura do sinal RXDATA na transição de 0 para 1 do sinal de relógio RXUSRCLK2. O tamanho desta porta pode ser configurado para 2, 4 ou 8 bytes, mas a largura real da porta depende de RX\_DATA\_WIDTH, RX\_DATAWIDTH e RX8B10BEN, tal como no transmissor. Assim, os tamanhos dos dados das portas pode ser 16, 20, 32, 40, 64 ou 80 bits.
+	
+	\hspace{1.0em}O recetor dos transcetores GTX contém datapaths internos de 2 e 4 bytes que são configuráveis através do atributo RX\_INT\_DATAWIDTH. A largura dos sinais na interface da FPGA é configurável através do sinal RX\_DATA\_WIDTH que deve ser 20, 40 ou 80 bits no caso de o descodificador 8B/10B estar ativo. Neste caso, a interface do recetor com a FPGA apenas usa as portas RXDATA. Quando o descodificador 8B/10B não é utilizado então RX\_DATA\_WIDTH pode ser configurado para outro qualquer valor disponível. O valor do tamanho dos sinais para as diferentes configurações no recetor está disponível na tabela\ref{table:dataRXDATA} na página~\pageref{table:dataRXDATA}.
 	
 	
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{RX8B10BEN} & \textbf{RX\_DATA\_WIDTH} & \textbf{RX\_INT\_DATAWIDTH} & \textbf{\begin{tabular}[c]{@{}c@{}}Tamanho na \\ interface da \\ FPGA (bits)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tamanho \\ interno dos \\ dados (bits)\end{tabular}} \\ \hline
+		\multirow{4}{*}{1} & 20                       & 0                           & 16                                                                                         & 20                                                                                      \\ \cline{2-5} 
+		& 40                       & 0                           & 32                                                                                         & 20                                                                                      \\ \cline{2-5} 
+		& 40                       & 1                           & 32                                                                                         & 40                                                                                      \\ \cline{2-5} 
+		& 80                       & 1                           & 64                                                                                         & 40                                                                                      \\ \hline
+		\multirow{8}{*}{0} & 16                       & 0                           & 16                                                                                         & 16                                                                                      \\ \cline{2-5} 
+		& 20                       & 0                           & 20                                                                                         & 20                                                                                      \\ \cline{2-5} 
+		& 32                       & 0                           & 32                                                                                         & 16                                                                                      \\ \cline{2-5} 
+		& 32                       & 1                           & 32                                                                                         & 32                                                                                      \\ \cline{2-5} 
+		& 40                       & 0                           & 40                                                                                         & 20                                                                                      \\ \cline{2-5} 
+		& 40                       & 1                           & 40                                                                                         & 40                                                                                      \\ \cline{2-5} 
+		& 64                       & 1                           & 64                                                                                         & 32                                                                                      \\ \cline{2-5} 
+		& 80                       & 1                           & 80                                                                                         & 40                                                                                      \\ \hline
+	\end{tabular}
+	\caption{Configuração do tamanho dos dados de RXDATA, adaptada de \cite{R011}}
+	\label{table:dataRXDATA}
+\end{table}
+	\hspace{1.0em}A interface do recetor com a FPGA inclui dois sinais de relógio em paralelo: RXUSRCLK e RXUSRCLK2. A taxa de débito do sinal de relógio paralelo RXUSRCLK2 na interface é determinada pela taxa de débito de linha no recetor, a largura do sinal RXDATA e se a codificação 8B/10B está ativa ou não. Também um segundo sinal de relógio paralelo RXUSRCLK é disponibilizado para lógica interna no PCS do transmissor e depende da largura dos sinais internamente no datapath e da taxa de débito da linha do recetor. Esta taxa pode ser calculada através da razão entre a taxa de débito da linha e da largura dos dados internamente no \textit{datapath}. 
+	
+	\hspace{1.0em}Existe uma relação entre o sinal de relógio RXUSRCLCK E RXUSRCLK2 fixa que se baseia nos sinais RX\_DATA\_WIDTH e RX\_INT\_DATAWIDTH. Por exemplo, para uma linha cuja taxa de débito seja superior a 6,6 Gb/s então é necessário recorrer ao datpath interno de 4 byte, ativando o sinal RX\_INT\_DATAWIDTH. A relação dos valores entre RXUSRCLK e RXUSRCLK2 está representada na tabela~\ref{table:freqRXgtx} na página~\pageref{table:freqRXgtx}.
+	
+	\begin{table}[]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{\begin{tabular}[c]{@{}c@{}}Tamanho na \\ interface da \\ FPGA (byte)\end{tabular}} & \textbf{RX\_DATA\_WIDTH} & \textbf{RX\_INT\_DATAWIDTH} & \textbf{Frequência de TXUSRCLK2} \\ \hline
+			2                                                                                          & 16, 20                   & 0                           & f(RXUSRCLK2) = f(RXUSRCLK)       \\ \hline
+			4                                                                                          & 32, 40                   & 0                           & f(RXUSRCLK2) = f(RXUSRCLK) / 2   \\ \hline
+			4                                                                                          & 32, 40                   & 1                           & f(RXUSRCLK2) = f(RXUSRCLK)       \\ \hline
+			8                                                                                          & 64, 80                   & 1                           & f(RXUSRCLK2) = f(RXUSRCLK) / 2   \\ \hline
+		\end{tabular}
+		\caption{Configuração da frequência de TXUSRCLK2, adaptada de \cite{R011}}
+		\label{table:freqRXgtx}
+	\end{table}
+
+	\hspace{1.0em}Após a análise dos recursos existentes já na FPGA a ser utilizada neste trabalho conclui-se que estes transcetores de alto débito permitem não só fazer a transmissão do sinal, mas também incluem técnicas de recuperação fiável dos mesmos dados transmitidos. Uma vez que estes transcetores são também bastantes flexíveis em termos de configurações tornará a implementação da transmissão dos dados pretendidos mais fácil numa fácil inicial, antes da utilização dos transcetores desenvolvidos pelo projeto iBrow. 
 \end{enumerate}
