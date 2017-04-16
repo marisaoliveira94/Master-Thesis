@@ -1,4 +1,4 @@
-\chapter{Revisão Bibliográfica} \label{chap:sota}
+\chapter{Revisão Bibliográfica} \label{chap:chap2}
 
 Neste capítulo é realizada uma revisão bibliográfica das interfaces áudio e vídeo existentes, em específico do HDMI, também sobre métodos de codificação/descodificação de sinais HDMI numa FPGA e ainda sobre ligações de alta velocidade em série e cuidados que se deve ter com as mesmas.
 
@@ -13,36 +13,37 @@ No caso da transmissão de sinais de áudio e vídeo digital existem várias int
 	\item \textbf{\textit{HDMI (High Definition Multimedia Interface):}} utiliza um conector do tipo HDMI e é uma interface de transmissão de sinal áudio/vídeo comprimida para transmissão de sinal digital descomprimida. 
 \end{itemize}
 
-\section{HDMI (\textit{High Definition Multimedia Interface})}\label{sec:dialecto}
+\section{HDMI (\textit{High Definition Multimedia Interface})}\label{sec:HDMI}
 O HDMI é uma interface de áudio e vídeo de alta definição que transporta dados áudio no formato não comprimido. Suporta num único cabo qualquer formato de vídeo em diversas resoluções e desde 2004 tem vindo a sofrer algumas alterações que vêm melhorar o desempenho da interface. 
 
 Esta interface está dividida em diversos canais de comunicação que implementam determinados protocolos, entre os quais se destacam as seguintes de \cite{R002}:
-\subsection{DDC - \textit{Display Data Channel} } \label{batik} 
+\subsection{DDC - \textit{Display Data Channel} } \label{subsec:DDC} 
 É um conjunto de protocolos utilizado nas comunicações digitais entre um dispositvo de origem e um dispositivo final que permite a comunicação entre ambos. Estes protocolos permitem que o ecrã comunique com o seu adaptador quais os modos que consegue suportar e também que o dispositivo que liga ao ecrã consiga ajustar alguns parâmetros, como por exemplo o contraste e a luminosidade. EDID (\textit{Extended display identification data}) é a estrutura \textit{standard} para este tipo de comunicações que define as capacidades do monitor e os modos gráficos suportados pelo mesmo.  Este protocolo é utilizado pela \textit{source} da comunicação do HDMI para obter os dados necessários do dispoistivo \textit{sink}, no sentido de perceber quais os modos suportados pelo mesmo. Este canal é também ativamente usado para HDCP (\textit{High-Bandwith Digital Content Protection}).
 
-\subsection{TMDS - \textit{Transition-Minimized Differential Signaling} } \label{batik} 
+\subsection{TMDS - \textit{Transition-Minimized Differential Signaling} } \label{subsec:TMDS} 
 É uma tecnologia utilizada para transmissão de dados em série de alta velocidade utilizado em comunicações digitais. O transmissor implementa um algoritmo que reduz as interferências eletromagnéticas nos cabos e permite ainda uma recuperação robusta de sinal de relógio no recetor. 
 
 Em específico na interface HDMI, este protocolo divide a informação a transmitir em 3 principais pacotes e intercala a sua transmissão: Período de transmissão de vídeo, período de transmissão de dados e período de controlo. No primeiro período (período de transmissão de vídeo) são transmitidas os pixeis do vídeo em linha. No segundo período (o período de transmissão de dados) são transmitidos os dados de vídeo e os dados auxiliares à transmissão dentro dos respectivos pacotes. O terceiro período ocorre entre os dois anteriores. 
 
 Para além de ser utilizada no HDMI, esta técnica é também utilizada em interfaces DVI.
-\subsection{CEC - \textit{Consumer Electronics Control} } \label{batik} 
+
+\subsection{CEC - \textit{Consumer Electronics Control} } \label{subsec:CEC} 
 É uma característica do HDMI que permite ao utilizador controlar até 15 dispositivos que tenham esta mesma característica ativa e que estão conectados por HDMI usando apenas um controlo remoto. Também é possivel dispositivos inviduais controlarem outros dispositivos sem intervenção do utilizador
 
-\subsection{ARC - \textit{Audio Return Channel}  } \label{batik} 
+\subsection{ARC - \textit{Audio Return Channel}  } \label{subsec:ARC} 
 Esta característica do HDMI utiliza 2 pins do conector. É uma ligação de audio que tem como objetivo substituir outros cabos entre a TV e outros recetores ou então sistema de som. Esta direção é usada quando é a TV que gera ou recebe o vídeo mas é outro equipamente que reproduz o som. Esta característica está apenas disponível a partir da versão 1.4 de HDMI.
 
-\subsection{HEC - \textit{HDMI Ethernet Channel}  } \label{batik} 
+\subsection{HEC - \textit{HDMI Ethernet Channel}  } \label{subsec:HEC} 
 Esta especificação do HDMI, tal como a anterior, está também apenas disponível a partir da versão 1.4 do HDMI e é uma tecnologia capaz de consolidar vídeo, audio e dados em série num único cabo HDMI, permitindo também aplicações baseadas em IP sobre o HDMI e uma comunicação \textit{Ethernet} bidireccional até 100 Mbit/s.
 
 Uma das principais características mais recentes das interfaces HDMI prende-se ao facto de permitir que sinais não sejam reproduzidos em dipositivos não autrizados. Isto é, através de um protocolo cujo nome já foi referido anteriormente, HDCP (\textit{High-Bandwith Digital Content Protection}), o sinal HDMI pode ser encriptado e posteriormente transmitido pela \textit{source}, protegendo assim a sua reprodução em dispositivos não autorizados. Esta tem vindo a tornar-se uma característica importante, visto que a reprodução ilegal de vídeos tem vindo a tornar-se reccorrente nos dias atuais.
 
-\section{HDMI implementado sobre a FPGA}
+\section{HDMI implementado sobre a FPGA}\label{sec:HDMIinFPGA}
 A interface HDMI, tal como descrito no subcapítulo anterior, consiste numa interface que permite a transferência de sinais áudio e vídeo digitais entre dois dispositivos, e como tal será necessário um adaptador que permita a conexão entre os dois dispositivos e que ao mesmo tempo sirva como recurso para a codificação e descodificação do sinal HDMI. 
 
 Assim sendo, existe \textit{hardware} disponível que consegue fazer as duas funções descritas, nomeadamente em \cite{R009}. Esta interface HDMI consiste num adaptador e descodificador do sinal HDMI para a FPGA, sendo que são necessárias uma placa para a transmissão e outra para a receção do sinal. Cada placa tem respetivamente dois transmissores e dois recetores independentes e faz uso dos conectores FMC para se conectar com a FPGA.
 
-\subsection{Conexão à FPGA XILINX VC7203 Virtex-7} \label{batik} 
+\subsection{Conexão à FPGA XILINX VC7203 Virtex-7} \label{subsec:HDMIconexao} 
 Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visualiza-se a placa de desenvolvimento a ser utilizada no projeto com numeração para as suas diversas características, sendo que nesta fase se pretende perceber o que são os conectores FMC (\textit{FPGA Mezzanine Card}) e onde estão localizados nesta mesma placa.
 
 \begin{figure}[h!]
@@ -89,9 +90,9 @@ A numeração 27, 28 e 29 correspondem aos conectores FMC disponíveis na FPGA a
 
 Estes serão os conectores a ser utilizados e mais à frente neste relatório será explicado como é que os sinais são transmitidos. 
 
-\subsection{Transmissor e Recetor} \label{batik}
+\subsection{Transmissor e Recetor} \label{subsec:TXandRX}
 Este \textit{hardware}, TB-FMCH-HDMI2, está dividido em 2 placas: o recetor (RX) que recebe o sinal recebido pelo cabo HDMI, faz a descodificação e envia o sinal para a FPGA, e o transmissor (TX) que faz o processo inverso, isto é, recebe o sinal proveniente da FPGA e transmite-o para o cabo HDMI para que possa chegar ao dispositivo de destino. 
-\subsubsection{Recetor}\label{batik}
+\subsubsection{Recetor}\label{subsubsec:RX}
 Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor disponível.
 \begin{figure}[h!]
 	\begin{center}
@@ -165,7 +166,7 @@ Na figura~\ref{fig:rx} da página~\pageref{fig:rx} é possivel visualizar a plac
 	\end{center}
 \end{figure}
 
-\subsubsection{Transmissor}\label{batik} 
+\subsubsection{Transmissor}\label{subsubsec:RX} 
 O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIblocosTX} na página~\pageref{fig:HDMIblocosTX}.
 \begin{figure}[h!]
 	\begin{center}
@@ -239,7 +240,7 @@ Na figura~\ref{fig:tx} da página~\pageref{fig:tx} é possivel visualizar a plac
 	\end{center}
 \end{figure}
 
-\subsubsection{Conexão DDC}\label{batik} 
+\subsubsection{Conexão DDC}\label{subsubsec:DDCconexao} 
 
 Para esta configuração da placa, são suportadas dois tipos de conexão DDC que passam a ser descritas.
 
@@ -273,7 +274,7 @@ Para esta configuração da placa, são suportadas dois tipos de conexão DDC qu
 	\hspace{1.0em}Este tipo de configuração poderá ser utilizada numa fase inicial do projeto a ser realizado, visto que não exige comunicação bidirecional através dos transcetores (onde os restantes sinais serão transmitidos), e como tal vem facilitar a comunicação entre dispositivo de origem e de destino.
 \end{enumerate}
 
-\section{Conexão de alta velocidade em série}
+\section{Conexão de alta velocidade em série} \label{sec:conexaoSerie}
 A comunicação de dados de alta velocidade pode ser efetuada tanto em série como em paralelo, no entanto cada uma tem as suas implicações. No caso das comunicações em paralelo permitem uma velocidade de comunicação maior, em contrapartida tem um custo mais elevado devido à necessidade de mais recursos físicos e apresenta ainda problemas no que toca à diferença de tempos de chegada de dados e sinais de relógio (visto que estes podem chegar a tempos diferentes) e também no que toca à interferência entre canais. 
 
 Desta maneira, segundo \cite{R012}, comunicações em série têm vindo a substituir as comunicações em paralelo em ligações de alta velocidade. Apesar disso, as comunicações realizadas dentro dos circuitos integrados são normalmente realizadas em paralelo, visto que permite maior rapidez de comunicação, e como tal é necessário a utilização de serializadores e deserializadores no sentido de transformar os dados nos diferentes domínios em que são utilizados.

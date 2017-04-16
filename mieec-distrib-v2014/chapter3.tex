@@ -1,2 +1,24 @@
-\chapter{Chapter 3}\label{chap:chap3}
+\chapter{HDMI}\label{chap:chap3}
 
+Neste capítulo será abordado a primeira parte do trabalho proposto nesta dissertação que consiste em extraír os dados de imagem disponiveis numa ligação HDMI.
+
+\section{\textit{Hardware} utilizado}
+
+Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para efetuar a seleção dos dados é utlizado a placa TB-FMCH-HDMI que através das suas entradas e saída FMC de alta velocidade consegue enviar para a FPGA os sinais de imagem e som. 
+
+Nas imagens \ref{fig:rx} e \ref{fig:tx} é possivel visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituidas por conectores HDMI, de seguida o sinal é enviado para um recetor ou transmissor HDMI, ADV7612 no caso do recetor e ADV7511 no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FGPA embebida na placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de audio e video.
+
+\subsection{Configurações da FPGA} \label{subsec:HDMIconfig}
+
+A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) embebida nas placas tem 3 configurações possiveis disponiveis. Estas configurações variam não só no suporte que têm que pode ser apenas imagem mas também imagem e audio, mas também no número de bits por imagem que as imagens a ser transmitidas podem ter. Estas diferenças passam a ser brevemente descritas nas próximas secções.
+
+\subsubsection{Configuração por \textit{default}} \label{subsubsec:HDMIconfigdefault}
+
+Esta configuração vem previamente configurada de fábrica nas placas e acaba por ser a mais simples de todas. Os dados enviados pelos conectores FMC são apenas referentes aos dados de imagem. As tabela \ref{table:HDMIdataRX} e \ref{table:HDMIdataTX} nas páginas \pageref{table:HDMIdataRX} e \pageref{table:HDMIdataTX} respectivamente identificam os pinos aos quais são atribuídas os sinais de dados de imagem HDMI tanto no recetor como no transmissor.
+
+Esta configuração apenas transmite imagens RGB (\textit{Red Green Blue}) com 10 bits. Assim sendo, independetemente da formatação das imagens da fonte HDMI, apenas são transmitidos imagens em formato RGB.
+
+\subsubsection{1 canal e suporte de audio} \label {subsubsec:HDMIconfig+audio}
+\subsubsection{2 canais melhorado} \label{subsubsec:HDMIconfigMelhorado}
+
+\subsection{Configuração dos \textit{switches}}

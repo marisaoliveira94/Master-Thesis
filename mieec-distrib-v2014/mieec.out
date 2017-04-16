@@ -22,7 +22,10 @@
 \BOOKMARK [2][-]{subsection.2.4.1}{2.4.1 Arquitetura de serializador e deserializador}{section.2.4}% 22
 \BOOKMARK [2][-]{subsection.2.4.2}{2.4.2 Considera\347\365es na implementa\347\343o deste tipo de arquitetura}{section.2.4}% 23
 \BOOKMARK [2][-]{subsection.2.4.3}{2.4.3 Serializador e Deserializador dispon\355veis na FPGA}{section.2.4}% 24
-\BOOKMARK [0][-]{chapter.3}{3 Cap\355tulo Exemplo}{}% 25
-\BOOKMARK [0][-]{chapter.4}{4 Mais um Cap\355tulo}{}% 26
-\BOOKMARK [0][-]{chapter.5}{5 Conclus\365es e Trabalho Futuro}{}% 27
-\BOOKMARK [0][-]{appendix.A}{A Loren Ipsum}{}% 28
+\BOOKMARK [0][-]{chapter.3}{3 HDMI}{}% 25
+\BOOKMARK [1][-]{section.3.1}{3.1 Hardware utilizado}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Configura\347\365es da FPGA}{section.3.1}% 27
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Configura\347\343o dos switches}{section.3.1}% 28
+\BOOKMARK [0][-]{chapter.4}{4 Transmiss\343o dos dados em s\351rie}{}% 29
+\BOOKMARK [0][-]{chapter.5}{5 Conclus\365es e Trabalho Futuro}{}% 30
+\BOOKMARK [0][-]{appendix.A}{A Loren Ipsum}{}% 31

@@ -11,8 +11,6 @@ A level-1 auxiliary file: chapter5.aux
 A level-1 auxiliary file: appendix1.aux
 The style file: ieeetr.bst
 Database file #1: myrefs.bib
-Warning--I didn't find a database entry for "kn:ZPMD97"
-Warning--I didn't find a database entry for "kn:Lip08"
 Warning--empty journal in R008
 Warning--empty publisher in R009
 Warning--empty journal in R012
@@ -20,4 +18,4 @@ Warning--empty year in R012
 Warning--empty journal in R010
 Warning--empty journal in R011
 Warning--empty year in R011
-(There were 9 warnings)
+(There were 7 warnings)
