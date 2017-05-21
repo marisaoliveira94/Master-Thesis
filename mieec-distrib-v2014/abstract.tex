@@ -1,7 +1,15 @@
 \chapter*{Resumo}
 %\addcontentsline{toc}{chapter}{Resumo}
 
-Este documento contempla o trabalho realizado para problema proposto neste projeto no âmbito da Dissertação de Mestrado. Este relatório contém uma análise introdutória do problema, a revisão bibliográfica do mesmo, de seguida é realizada a caracterização do problema e a proposta de resolução do mesmo. Por fim, é ainda realizado uma calendarização das tarefas a serem realizadas e metodologias de abordagem das mesmas.
+A sociedade atual depende cada vez mais dos serviços de comunicações, exigindo melhores ligações e mais rápidas, prevendo-se num futuro próximo a necessidade de ligações na ordem das centenas de Gb/s. O projeto iBrow que está a ser desenvolvido por vários parceiros, incluindo o INES-TEC, e vem propor uma nova exploração do espetro de frequências permitindo assim comunicações de alta velocidade. Este projeto passa por propor uma metodologia que permite a manufaturação de transcetores de baixo custo capazes de atingir grandes débitos de transmissão. 
+
+A interface HDMI é cada vez mais usada em todos os tipos de ambientes: tanto empresariais como domésticos. Por esse motivo acaba por ser uma boa interface para testar os transcetores que estão a ser desenvolvidos. E por isso nesta dissertação é proposto um projeto que visa testar os transcetores desenvolvidos pelo projeto, desenvolvendo e implementando uma arquitetura em FPGA capaz de suportar sinais provenientes de uma fonte HDMI, serializá-los e ainda enviá-los através das saídas de alta velocidade para que possam ser de serguida enviados stravés dos transcetores do projeto iBrow, no sentido de os testar. A arquitetura é capaz de suportar ainda o processo inverso, isto é, receber os dados provenientes dos transcetores do projeto iBrow através das entradas de alta velocidade existentes na FPGA a ser utilizada e voltá-los a enviar para o disposituivo final HDMI.
+
+Inicialmente foi desenvolvida e implementada uma arquitetura em FPGA, recorrendo a \textit{hardware} capaz de descodificar sinais HDMI, que é capaz de transmitir entre dois dispositivos sinais de imagem tanto em formato RGB como YCbCr, e som em formato I2S. 
+
+--> Explicar arquitetura da parte HDMI
+
+--> Explicar arquitetura da parte dos GTX
 
 \chapter*{Abstract}
 %\addcontentsline{toc}{chapter}{Abstract}
