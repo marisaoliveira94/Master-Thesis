@@ -1,22 +1,28 @@
 \chapter{HDMI}\label{chap:chap3}
 
-Neste capítulo será abordado a primeira parte do trabalho proposto nesta dissertação que consiste em extraír os dados de imagem disponiveis numa ligação HDMI.
+Este capítulo descreve o trabalho realizado para cumprir a primeira parte do projeto: obter uma conexão HDMI entre recetor e transmissor. São descritas as várias configurações das placas HDMI disponiveis e ainda as arquiteturas desenvolvidas e implementadas para cumprir esta parte do projeto. 
 
 \section{\textit{Hardware} utilizado}
 
-Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para efetuar a seleção dos dados é utlizado a placa TB-FMCH-HDMI que através das suas entradas e saída FMC de alta velocidade consegue enviar para a FPGA os sinais de imagem e som. 
+Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para receber os dados provenientes do cabo HDMI e fazer a sua selecção são utilizadas duas placas HDMI (TB-FMCH-HDMI2 RX E TB-FMCH-HDMI2 TX) que, através das suas entradas e saída FMC de alta velocidade, conseguem enviar para a FPGA os sinais de imagem e som. Nas imagens \ref{fig:rx} e \ref{fig:tx} é possivel visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituidas por conectores HDMI, de seguida o sinal é enviado para um recetor ou transmissor HDMI, ADV7612 no caso do recetor e ADV7511 no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FGPA embebida na placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de audio e video.
 
-Nas imagens \ref{fig:rx} e \ref{fig:tx} é possivel visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituidas por conectores HDMI, de seguida o sinal é enviado para um recetor ou transmissor HDMI, ADV7612 no caso do recetor e ADV7511 no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FGPA embebida na placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de audio e video.
+As placas possuem ainda uma PROM (\textit{Programmable read-only memory}) XCF16PFSG48C de configuração reprogramável que permite armazenar o \textit{bitstream} que configura a FPGA embebida do modo que se pretende. É esta FPGA embebida que em cada placa (RX e TX) é responsável pela selecção e envio dos dados pretendidos para os conectores FMC (e posterior envio para a FPGA), e como tal é necessário que estejam configuradas para realizarem tais procedimentos. O recurso a estas memórias reconfiguraveis vem permitir uma fácil alteração da configuração da FPGA uma vez que, segundo \cite{R026}, estas memórias de leitura permitem não só armazenar os \textit{bitstreams} de configuração da FPGA, mas também reconfigurá-los, caso se pretenda, de uma forma fácil e eficiente.
 
 \subsection{Configurações da FPGA} \label{subsec:HDMIconfig}
 
-A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) embebida nas placas tem 3 configurações possiveis disponiveis. Estas configurações variam não só no suporte que têm que pode ser apenas imagem mas também imagem e audio, mas também no número de bits por imagem que as imagens a ser transmitidas podem ter. Estas diferenças passam a ser brevemente descritas nas próximas secções.
+A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) embebida nas placas tem 3 configurações disponiveis. Estas configurações variam não só no suporte que têm, que pode ser apenasde imagem mas também de imagem e audio, mas variam também no número de bits por imagem que estas podem ter. Nas secções seguintes serão brevemente expostas as configurações disponiveis e como se pode tirar partido das mesmas no projeto.
+
 
 \subsubsection{Configuração por \textit{default}} \label{subsubsec:HDMIconfigdefault}
 
-Esta configuração vem previamente configurada de fábrica nas placas e acaba por ser a mais simples de todas. Os dados enviados pelos conectores FMC são apenas referentes aos dados de imagem. As tabela \ref{table:HDMIdataRX} e \ref{table:HDMIdataTX} nas páginas \pageref{table:HDMIdataRX} e \pageref{table:HDMIdataTX} respectivamente identificam os pinos aos quais são atribuídas os sinais de dados de imagem HDMI tanto no recetor como no transmissor.
+Esta configuração vem previamente escrita na memória PROM de fábrica e acaba por ser a mais simples de todas. Os dados enviados pelos conectores FMC são apenas referentes aos dados de imagem. As tabela \ref{table:HDMIdataRX} e \ref{table:HDMIdataTX} nas páginas \pageref{table:HDMIdataRX} e \pageref{table:HDMIdataTX} respectivamente identificam os pinos aos quais são atribuídas os sinais de dados de imagem HDMI tanto no recetor como no transmissor.
 
-Esta configuração apenas transmite imagens RGB (\textit{Red Green Blue}) com 10 bits. Assim sendo, independetemente da formatação das imagens da fonte HDMI, apenas são transmitidos imagens em formato RGB. A tabela \ref{table:HDMIdataDefaultdetail} apresentada na página \pageref{table:HDMIdataDefaultdetail} mostra com  mais detalhe as portas utilizadas e ainda qual os bits que representam em cada imagem. 
+Esta configuração apenas transmite imagens RGB (\textit{Red Green Blue}) com 10 bits. Assim sendo, independetemente da formatação das imagens da fonte HDMI, o recetor ADV7612 presente na placa recetora HDMI converte a imagem para o formato RGB com 10 bits. Segundo \cite{R016}, 
+
+
+A tabela \ref{table:HDMIdataDefaultdetail} apresentada na página \pageref{table:HDMIdataDefaultdetail} mostra com  mais detalhe as portas utilizadas tanto no transmissor como no recetor e ainda quais os \textit{bits} que representam em cada imagem. Esta tabela foi adaptada de \cite{R009} onde são apresentados os detalhes de todos os conectores FMC.
+
+--> FALAR UM POUCO DO ADV7612 no sentido de explicar essa transformação??
 
 
 \begin{table}[h!]
@@ -63,7 +69,9 @@ Esta configuração apenas transmite imagens RGB (\textit{Red Green Blue}) com 1
 	\label{table:HDMIdataDefaultdetail}
 \end{table}
 
-É de notar ainda que esta configuração é capaz de suportar até dois canais (RX0 e TX0, RX1 e TX1), no entanto nesta tabela \ref{table:HDMIdataDefaultdetail} apenas são apresentados os dados correspondentes ao canal 0 pois apenas será necessário utilizar um canal neste projeto. 
+É de notar ainda que esta configuração é capaz de suportar até dois canais (RX0 e TX0, RX1 e TX1), no entanto nesta tabela apenas são apresentados os dados correspondentes ao canal 0 pois apenas será necessário utilizar um canal neste projeto. 
+
+Apesar de ser um configuração simples, uma vez que apenas são transmitidos sinais de imagem em formato RGB, é uma configuração que será utilizada numa fase inicial em algumas arquiteturas implementadas que serão descritas no subcapitulo \ref{subsec:HDMIarquiteturas}.
 
 \subsubsection{1 canal e suporte de audio} \label {subsubsec:HDMIconfig+audio}
 
@@ -73,9 +81,11 @@ Esta configuração trata-se de uma configuração capaz de suportar não só im
 
 \subsubsection{2 canais melhorado} \label{subsubsec:HDMIconfigMelhorado}
 
+--> Falar como é que se reconfigurou as placas
+
 \subsection{Configuração dos \textit{switches}}
 
-\subsection{Arquiteturas Desenvolvidas}
+\subsection{Arquiteturas Desenvolvidas} \label{subsec:HDMIarquiteturas}
 
 \subsubsection{Transmissão de uma imagem gerada na FPGA}
 

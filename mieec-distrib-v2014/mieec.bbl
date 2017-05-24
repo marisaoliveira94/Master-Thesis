@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{R008}
 Xilinx and Inc, ``{VC7203 Virtex-7 FPGA GTX Transceiver Characterization Board
@@ -35,5 +35,12 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
 
 \bibitem{R004}
 W.~contributors, ``audio and video interfaces and connectors,'' 2016.
+
+\bibitem{R026}
+Xilinx, ``{Platform Flash In-System},'' {\em Memory}, vol.~123, pp.~1--46,
+  2006.
+
+\bibitem{R016}
+{Analog Devices}, ``{ADV7612 Reference Manual},''
 
 \end{thebibliography}
