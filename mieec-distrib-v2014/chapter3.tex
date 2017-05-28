@@ -17,56 +17,25 @@ A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) embebida nas placas tem 3 configur
 
 Esta configuração vem previamente escrita na memória PROM de fábrica e acaba por ser a mais simples de todas. Os dados enviados pelos conectores FMC são apenas referentes aos dados de imagem. As tabela \ref{table:HDMIdataRX} e \ref{table:HDMIdataTX} nas páginas \pageref{table:HDMIdataRX} e \pageref{table:HDMIdataTX} respectivamente identificam os pinos aos quais são atribuídas os sinais de dados de imagem HDMI tanto no recetor como no transmissor.
 
-Esta configuração apenas transmite imagens RGB (\textit{Red Green Blue}) com 10 bits. Assim sendo, independetemente da formatação das imagens da fonte HDMI, o recetor ADV7612 presente na placa recetora HDMI converte a imagem para o formato RGB com 10 bits. Segundo \cite{R016}, 
+Esta configuração apenas transmite imagens RGB (\textit{Red Green Blue}) com 10 bits. Assim sendo, tal como referido em \cite{R009}, independentemente da formatação das imagens da fonte HDMI o recetor ADV7612 integrado na placa recetora HDMI converte a imagem para o formato RGB e transmite de maneira a enviar os dados em apenas 10 bits.  FALAR SOBRE ESTAS CONVERSÕES
 
-
-A tabela \ref{table:HDMIdataDefaultdetail} apresentada na página \pageref{table:HDMIdataDefaultdetail} mostra com  mais detalhe as portas utilizadas tanto no transmissor como no recetor e ainda quais os \textit{bits} que representam em cada imagem. Esta tabela foi adaptada de \cite{R009} onde são apresentados os detalhes de todos os conectores FMC.
-
---> FALAR UM POUCO DO ADV7612 no sentido de explicar essa transformação??
-
+A tabela \ref{table:HDMIdefaultSimplified} da página \pageref{table:HDMIdefaultSimplified}, adaptada de \cite{R009}, apresenta brevemente quais as portas das placas utilizadas e que sinais são transmitidos nas mesmas, no entanto é possivel encontrar na tabela \ref{table:HDMIdataDefaultdetail} do anexo \ref{ap1:HDMI} mais promenores relativamente a estes dados. Os nomes dos sinais são referentes aos sinais em TB-FMCH-HDMI2 (tanto TX como RX), assim como quando se faz referência à FPGA nestas tabelas estas correspondem às que estão embebidas nas placas HDMI. 
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
-		\textbf{PIN} & \textbf{FPGA -\textgreater FMC (RX)} & \textbf{FMC->FPGA (TX)} & \textbf{Descrição}       \\ \hline
-		CLK0\_M2C\_P & RX\#O\_LLC                           & TX\#O\_DCLK                        & \textit{clock} dos pixeis         \\ \hline
-		LA00\_P\_CC  & RX\#0\_VSYNC                         & TX\#0\_VSYNC                       & sincr. Vertical          \\ \hline
-		LA01\_P\_CC  & RX\#0\_HSYNC                         & TX\#0\_HSYNC                       & sincr. Horizontal        \\ \hline
-		LA02\_P      & RX\#0\_DE                            & TX\#0\_DE                          & sinal de dados ativos    \\ \hline
-		LA03\_P      & RX\#0\_P0                            & TX\#0\_D0                          & Pixel de imagem B{[}0{]} \\ \hline
-		LA04\_P      & RX\#0\_P1                            & TX\#0\_D1                          & Pixel de imagem B{[}1{]} \\ \hline
-		LA05\_P      & RX\#0\_P2                            & TX\#0\_D2                          & Pixel de imagem B{[}2{]} \\ \hline
-		LA06\_P      & RX\#0\_P3                            & TX\#0\_D3                          & Pixel de imagem B{[}3{]} \\ \hline
-		LA07\_P      & RX\#0\_P4                            & TX\#0\_D4                          & Pixel de imagem B{[}4{]} \\ \hline
-		LA08\_P      & RX\#0\_P5                            & TX\#0\_D5                          & Pixel de imagem B{[}5{]} \\ \hline
-		LA09\_P      & RX\#0\_P6                            & TX\#0\_D6                          & Pixel de imagem B{[}6{]} \\ \hline
-		LA10\_P      & RX\#0\_P7                            & TX\#0\_D7                          & Pixel de imagem B{[}7{]} \\ \hline
-		LA11\_P      & RX\#0\_P8                            & TX\#0\_D8                          & Pixel de imagem B{[}8{]} \\ \hline
-		LA12\_P      & RX\#0\_P9                            & TX\#0\_D9                          & Pixel de imagem B{[}9{]} \\ \hline
-		LA13\_P      & RX\#0\_P10                           & TX\#0\_D10                         & Pixel de imagem G{[}0{]} \\ \hline
-		LA14\_P      & RX\#0\_P11                           & TX\#0\_D11                         & Pixel de imagem G{[}1{]} \\ \hline
-		LA15\_P      & RX\#0\_P12                           & TX\#0\_D12                         & Pixel de imagem G{[}2{]} \\ \hline
-		LA16\_P      & RX\#0\_P13                           & TX\#0\_D13                         & Pixel de imagem G{[}3{]} \\ \hline
-		LA17\_P\_CC  & RX\#0\_P14                           & TX\#0\_D14                         & Pixel de imagem G{[}4{]} \\ \hline
-		LA18\_P\_CC  & RX\#0\_P15                           & TX\#0\_D15                         & Pixel de imagem G{[}5{]} \\ \hline
-		LA19\_P      & RX\#0\_P16                           & TX\#0\_D16                         & Pixel de imagem G{[}6{]} \\ \hline
-		LA20\_P      & RX\#0\_P17                           & TX\#0\_D17                         & Pixel de imagem G{[}7{]} \\ \hline
-		LA21\_P      & RX\#0\_P18                           & TX\#0\_D18                         & Pixel de imagem G{[}8{]} \\ \hline
-		LA22\_P      & RX\#0\_P19                           & TX\#0\_D19                         & Pixel de imagem G{[}9{]} \\ \hline
-		LA23\_P      & RX\#0\_P20                           & TX\#0\_D20                         & Pixel de imagem R{[}0{]} \\ \hline
-		LA24\_P      & RX\#0\_P21                           & TX\#0\_D21                         & Pixel de imagem R{[}1{]} \\ \hline
-		LA25\_P      & RX\#0\_P22                           & TX\#0\_D22                         & Pixel de imagem R{[}2{]} \\ \hline
-		LA26\_P      & RX\#0\_P23                           & TX\#0\_D23                         & Pixel de imagem R{[}3{]} \\ \hline
-		LA27\_P      & RX\#0\_P24                           & TX\#0\_D24                         & Pixel de imagem R{[}4{]} \\ \hline
-		LA28\_P      & RX\#0\_P25                           & TX\#0\_D25                         & Pixel de imagem R{[}5{]} \\ \hline
-		LA29\_P      & RX\#0\_P26                           & TX\#0\_D26                         & Pixel de imagem R{[}6{]} \\ \hline
-		LA30\_P      & RX\#0\_P27                           & TX\#0\_D27                         & Pixel de imagem R{[}7{]} \\ \hline
-		LA31\_P      & RX\#0\_P28                           & TX\#0\_D28                         & Pixel de imagem R{[}8{]} \\ \hline
-		LA32\_P      & RX\#0\_P29                           & TX\#0\_D29                         & Pixel de imagem R{[}9{]} \\ \hline
+		\textbf{PIN}                                                                     & \textbf{FPGA -> FMC (RX)}                                                  & \textbf{FMC -> (TX)}                                                    & \textbf{Descrição}                                                      \\ \hline
+		CLK0\_M2C\_P                                                                     & RX\#O\_LLC                                                                            & TX\#O\_DCLK                                                                           & \begin{tabular}[c]{@{}c@{}}Sinal de relógio dos\\   pixeis\end{tabular} \\ \hline
+		LA00\_P\_CC                                                                      & RX\#0\_VSYNC                                                                          & TX\#0\_VSYNC                                                                          & \begin{tabular}[c]{@{}c@{}}Sincronização\\   Vertical\end{tabular}      \\ \hline
+		LA01\_P\_CC                                                                      & RX\#0\_HSYNC                                                                          & TX\#0\_HSYNC                                                                          & \begin{tabular}[c]{@{}c@{}}Sincronização\\   Horizontal\end{tabular}    \\ \hline
+		LA02\_P                                                                          & RX\#0\_DE                                                                             & TX\#0\_DE                                                                             & \begin{tabular}[c]{@{}c@{}}Sinal de \\ dados ativos\end{tabular}        \\ \hline
+		\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}LA03\_P \\ a \\ LA32\_P\end{tabular}} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}RX\#0\_P0 \\ a \\ RX\#0\_P29\end{tabular}} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}TX\#0\_D0 \\ a \\ TX\#0\_D29\end{tabular}} & \multirow{3}{*}{Pixel de Imagem}                                        \\
+		&                                                                                       &                                                                                       &                                                                         \\
+		&                                                                                       &                                                                                       &                                                                         \\ \hline
 	\end{tabular}
-	\caption{Localização dos pinos de dados utilizados em TB-FMCH-HDMI2 configurado por \textit{default}}
-	\label{table:HDMIdataDefaultdetail}
+	\caption{Descrição e localização dos pinos de TB-FMCH-HDMI2 configurada por \textit{default}}
+	\label{table:HDMIdefaultSimplified}
 \end{table}
 
 É de notar ainda que esta configuração é capaz de suportar até dois canais (RX0 e TX0, RX1 e TX1), no entanto nesta tabela apenas são apresentados os dados correspondentes ao canal 0 pois apenas será necessário utilizar um canal neste projeto. 
@@ -75,7 +44,39 @@ Apesar de ser um configuração simples, uma vez que apenas são transmitidos si
 
 \subsubsection{1 canal e suporte de audio} \label {subsubsec:HDMIconfig+audio}
 
-Esta configuração trata-se de uma configuração capaz de suportar não só imagens em formato YCbCr mas também RGB com 12 bits, como também suporta audio em formato $I^{2}$S. A configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB, é nesse formato que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse formato que chega ao seu destino.
+Para além da configuração descrita anteriormente em \ref{subsubsec:HDMIconfigdefault} que apenas suporta a transmissão de imagem, existe ainda uma configuração capaz de suportar não só a transmissão de imagem mas também de som. A configuração que é escrita na PROM para programar a FPGA embebida controla o recetor ADV7612 de maneira a conseguir transmitir imagens no formato YCbCr ou RGB com 12 bits e também fazer a transmissão do audio em formato $I^{2}$S.
+
+Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB é nesse formato que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse formato que chega ao seu destino. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de audio mas também sinais de relógio necessários à sua transmissão. A tabela x passa a descrever com mais detalhe os sinais transmitidos para esta configuração da FPGA.
+
+Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas com mais detalhes relativamente aos pinos usados e o seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde é são apresentados todos os detalhes dos conectores FMC das placas.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{PIN}                                                                           & \textbf{FPGA -\textgreater FMC (RX)}                                                 & \textbf{FMC -> FPGA (TX)}                                                 & \textbf{FPGA->HDMI\_TX}                                                           \\ \hline
+		CLK0\_M2C\_P                                                                           & RX\#0\_LLC                                                                           & TX\#0\_DCLK                                                                          & \begin{tabular}[c]{@{}c@{}}Sinal de relógio dos\\ pixeis\end{tabular}                        \\ \hline
+		LA00\_P\_CC                                                                            & RX\#0\_VSYNC                                                                         & TX\#0\_VSYNC                                                                         & Sincronização vertical                                                                       \\ \hline
+		LA01\_P\_CC                                                                            & RX\#0\_HSYNC                                                                         & TX\#0\_HSYNC                                                                         & Sincronização horizontal                                                                     \\ \hline
+		LA02\_P                                                                                & RX\#0\_DE                                                                            & TX\#0\_DE                                                                            & Sinal de dados ativos                                                                        \\ \hline
+		\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}LA03\_P\\   a LA32\_P\end{tabular}}         & \multirow{3}{*}{RX\#0\_P0 a RX\#0\_P29}                                              & \multirow{3}{*}{TX\#0\_D0 a TX\#0\_D29}                                              & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Pixel de imagem do bit\\   0 ao 29\end{tabular}}  \\
+		&                                                                                      &                                                                                      &                                                                                              \\
+		&                                                                                      &                                                                                      &                                                                                              \\ \hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LA00\_N\_CC\\   a LA01\_N\_CC\end{tabular}} & \multirow{2}{*}{RX\#0\_InputVideoStatus}                                             & \multirow{2}{*}{RX\#0\_InputVideoStatus}                                             & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Formato de video\\   (2D/3D)\end{tabular}}        \\
+		&                                                                                      &                                                                                      &                                                                                              \\ \hline
+		LA19\_N                                                                                & RX\#0\_MCLK                                                                          & TX\#0\_MCLK                                                                          & Master Clock de som                                                                          \\ \hline
+		LA20\_N                                                                                & RX\#0\_SCLK                                                                          & TX\#0\_SCLK                                                                          & Serial Clock de som                                                                          \\ \hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LA21\_N\\   a LA26\_N\end{tabular}}         & \multirow{2}{*}{RX\#0\_AP0 a RX\#0\_AP5}                                             & \multirow{2}{*}{TX\#0\_AP0 a TX\#0\_AP5}                                             & \multirow{2}{*}{Dados de som}                                                                \\
+		&                                                                                      &                                                                                      &                                                                                              \\ \hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LA27\_N\\   a LA32\_N\end{tabular}}         & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}RX\#0\_P30 a\\   RX\#0\_P35\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}TX\#0\_P30 a\\   TX\#0\_P35\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Pixel de imagem do bit\\   30 ao 35\end{tabular}} \\
+		&                                                                                      &                                                                                      &                                                                                              \\ \hline
+	\end{tabular}
+	\centering
+	\caption{Descrição e localização dos pinos de TB-FMCH-HDMI2 configurada para 1 canal com suporte de audio}
+	\label{table:HDMIaudiosuportSimplified}
+\end{table}
 
 
 

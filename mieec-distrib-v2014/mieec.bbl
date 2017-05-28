@@ -40,7 +40,8 @@ W.~contributors, ``audio and video interfaces and connectors,'' 2016.
 Xilinx, ``{Platform Flash In-System},'' {\em Memory}, vol.~123, pp.~1--46,
   2006.
 
-\bibitem{R016}
-{Analog Devices}, ``{ADV7612 Reference Manual},''
+\bibitem{R014}
+Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio support},''
+  pp.~1--59.
 
 \end{thebibliography}
