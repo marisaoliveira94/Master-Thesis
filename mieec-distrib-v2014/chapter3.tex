@@ -12,7 +12,7 @@ As placas possuem ainda uma PROM (\textit{Programmable read-only memory}) XCF16P
 
 A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) embebida nas placas tem 3 configurações disponiveis. Estas configurações variam não só no suporte que têm, que pode ser apenasde imagem mas também de imagem e audio, mas variam também no número de bits por imagem que estas podem ter. Nas secções seguintes serão brevemente expostas as configurações disponiveis e como se pode tirar partido das mesmas no projeto.
 
-
+--> Falar como é que se reconfigurou as placas
 \subsubsection{Configuração por \textit{default}} \label{subsubsec:HDMIconfigdefault}
 
 Esta configuração vem previamente escrita na memória PROM de fábrica e acaba por ser a mais simples de todas. Os dados enviados pelos conectores FMC são apenas referentes aos dados de imagem. As tabela \ref{table:HDMIdataRX} e \ref{table:HDMIdataTX} nas páginas \pageref{table:HDMIdataRX} e \pageref{table:HDMIdataTX} respectivamente identificam os pinos aos quais são atribuídas os sinais de dados de imagem HDMI tanto no recetor como no transmissor.
@@ -50,8 +50,6 @@ Assim como referido em \cite{R014}, neste caso a configuração da imagem está 
 
 Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas que inclui mais detalhes relativamente aos pinos usados e ao seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde é são apresentados todos os detalhes dos conectores FMC das placas.
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -64,10 +62,10 @@ Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIau
 		\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}LA03\_P\\   a LA32\_P\end{tabular}}         & \multirow{3}{*}{RX\#0\_P0 a RX\#0\_P29}                                              & \multirow{3}{*}{TX\#0\_D0 a TX\#0\_D29}                                              & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Pixel de imagem do bit\\   0 ao 29\end{tabular}}  \\
 		&                                                                                      &                                                                                      &                                                                                              \\
 		&                                                                                      &                                                                                      &                                                                                              \\ \hline
-		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LA00\_N\_CC\\   a LA01\_N\_CC\end{tabular}} & \multirow{2}{*}{RX\#0\_InputVideoStatus}                                             & \multirow{2}{*}{RX\#0\_InputVideoStatus}                                             & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Formato de video\\   (2D/3D)\end{tabular}}        \\
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LA00\_N\_CC\\   a LA01\_N\_CC\end{tabular}} & \multirow{2}{*}{RX\#0\_InputVideoStatus}                                             & \multirow{2}{*}{TX\#0\_InputVideoStatus}                                             & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Formato de video\\   (2D/3D)\end{tabular}}        \\
 		&                                                                                      &                                                                                      &                                                                                              \\ \hline
-		LA19\_N                                                                                & RX\#0\_MCLK                                                                          & TX\#0\_MCLK                                                                          & Master Clock de som                                                                          \\ \hline
-		LA20\_N                                                                                & RX\#0\_SCLK                                                                          & TX\#0\_SCLK                                                                          & Serial Clock de som                                                                          \\ \hline
+		LA19\_N                                                                                & RX\#0\_MCLK                                                                          & TX\#0\_MCLK                                                                          & \textit{Master Clock} de som                                                                          \\ \hline
+		LA20\_N                                                                                & RX\#0\_SCLK                                                                          & TX\#0\_SCLK                                                                          & \textit{Serial Clock} de som                                                                          \\ \hline
 		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LA21\_N\\   a LA26\_N\end{tabular}}         & \multirow{2}{*}{RX\#0\_AP0 a RX\#0\_AP5}                                             & \multirow{2}{*}{TX\#0\_AP0 a TX\#0\_AP5}                                             & \multirow{2}{*}{Dados de som}                                                                \\
 		&                                                                                      &                                                                                      &                                                                                              \\ \hline
 		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LA27\_N\\   a LA32\_N\end{tabular}}         & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}RX\#0\_P30 a\\   RX\#0\_P35\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}TX\#0\_P30 a\\   TX\#0\_P35\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Pixel de imagem do bit\\   30 ao 35\end{tabular}} \\
@@ -78,35 +76,47 @@ Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIau
 	\label{table:HDMIaudiosuportSimplified}
 \end{table}
 
-Os dados referentes ao som transmitidos pela placa recetor HDMI e recebidos de seguida pela placa emissora HDMI estão mencionados com mais detalhe na tabela \ref{table:HDMI1canal+audioDETAIL}, e tal como indicado anteriormente, esta configuração é capaz de transmitir e receber dados no formato $I^{2}$S, o que implica o envio e recepção dos seguintes dados:
+Os dados referentes ao som transmitidos pela placa recetor HDMI e recebidos de seguida pela placa emissora HDMI estão mencionados com mais detalhe na tabela \ref{table:HDMI1canal+audioDETAIL}, e tal como indicado anteriormente, esta configuração é capaz de transmitir e receber dados no formato $I^{2}$S. Nas especificações deste protocolo, em \cite{R027}, são definidos os sinais transmitidos aquando a utilização deste formato, que passam a ser descritos:
+
 \begin{enumerate}
-	\item \textit{\textbf{Serial Clock}}: Este sinal é por vezes reconhecido pelo nome de \textit{Bit Clock} ou\textit{ Continuous Serial Clock} e é um sinal de relógio referente aos dados de som em série.
+	\item \textbf{\textit{Continuous Serial Clock} (SCK):} Este sinal é por vezes reconhecido pelo nome de \textit{Bit Clock} e é um sinal de relógio referente aos dados de som em série transmitidos pelos canais AP1, AP2, AP3 e AP4.
 	
-	\item \textit{\textbf{Left/Right Clock}}: Este é um sinal de relógio que vem definir a selecção (direita ou esquerda) dos dados de som. Tal como se visualiza na figura \ref{fig:i2s} da página \pageref{fig:i2s}, é um sinal que alterna periodicamente entre 1 e 0 (e que por isso é chamado de sinal de relógio) que quando está ativo indica que os dados em série que chegam em AP1, AP2, AP3 e AP4 são sinais referente ao lado direito, e que quando está desativo esses mesmos sinais são referentes ao lado esquerdo.
+	\item \textbf{\textit{Word Select}(WS)}: Este sinal é por vezes também conhecido por \textit{Left/Right Clock} e é um sinal que indica o canal de som (esquerdo ou direito) que está a ser transmitido através dos dados em série recebidos ou enviados nas portas AP1, AP2, AP3 e AP4. É nomeado de sinal de relógio porque geralmente alterna entre 0 e 1 periodicamente, no entanto tal pode não acontecer, tal como referido em \cite{R027}. 
 	
-	\item \textbf{AP1 a AP4}: Sinais onde são enviados os dados em si de audio.
-	
-			\begin{figure}[h!]
-		\begin{center}
-			\leavevmode
-			\includegraphics[width=1.0\textwidth]{audio_example}
-			\caption{Imagem retirada de \cite{R014}}
-			\label{fig:i2s}
-		\end{center}
-	\end{figure}
+	\item \textbf{\textit{Serial Data}}: Sinais que transportam os dados de audio.
+
 \end{enumerate}
 
-Segundo \cite{R018} ou \cite{R017} não é necessário enviar o master clock que ele sabe recuperá-lo tendo os outros.
+Na imagem \ref{fig:i2s_audio} são ilustrados os sinais referentes ao audio descritos previamente. O sinal "SCLK" (\textit{Serial Clock}) é referente ao sinal "\textit{Continuous Serial Clock}", o sinal LRCLK (\textit{Left/Right Clock}) refere-se ao sinal "\textit{Word Select}" e ainda ISx refere-se ao sinal "\textit{Serial Data}".
+	\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{audio_i2s}
+		\caption{Ilustração dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite{R016}}
+		\label{fig:i2s_audio}
+	\end{center}
+\end{figure}
+
+Na placa recetora HDMI, que envia os dados para a FPGA Virtex-7, é também enviado o sinal \textit{Master Clock} que corresponde a um sinal de relógio de referência do sinais de audio da entrada e ainda dados de audio em AP0. É mencionado em \cite{R016} que estes dois sinais são referentes ao formato SPDIF e como tal não serão abordados neste projeto uma vez que as placas apenas suportam o formato $I^{2}$S.
+
+Esta configuração das FPGAs embebidas nas placas é a configuração mais utilizada ao longo do projeto, uma vez que para além de ser versátil quanto ao formato das imagens transmitidas, é também capaz de suportar audio. Em contrapartida, apenas suporta um canal (ao contrário da anterior), mas tal não é um problema pois apenas se pretende obter uma transmissão num único canal entre dispositivo de fonte HDMI e dispositivo final HDMI. 
+
 
 \subsubsection{2 canais melhorado} \label{subsubsec:HDMIconfigMelhorado}
 
---> Falar como é que se reconfigurou as placas
+--> Dizer que esta configuração faz tal tal e tal, mas que não será abordad uma vez que nao foi utilizada
 
 \subsection{Configuração dos \textit{switches}}
 
+Explicar como configurar os switches para obter o que queremos
+
 \subsection{Arquiteturas Desenvolvidas} \label{subsec:HDMIarquiteturas}
 
+Neste sub-capitulo passam a ser descritos as arquiteturas desenvolvidas e implementadas na FPGA apenas referente à comunicação entre as placas HDMI. 
+
 \subsubsection{Transmissão de uma imagem gerada na FPGA}
+
+Inicialmente optou-se pela geração de uma imagem na FPGA e o seu envio para a placa transmissora HDMI através dos conectores FMC.
 
 		\begin{figure}[h!]
 	\begin{center}
