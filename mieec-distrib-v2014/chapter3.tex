@@ -48,7 +48,7 @@ Para além da configuração descrita anteriormente em \ref{subsubsec:HDMIconfig
 
 Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB é nesse formato que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse formato que chega ao seu destino. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de audio mas também sinais de relógio necessários à sua transmissão. A tabela x passa a descrever com mais detalhe os sinais transmitidos para esta configuração da FPGA.
 
-Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas com mais detalhes relativamente aos pinos usados e o seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde é são apresentados todos os detalhes dos conectores FMC das placas.
+Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas que inclui mais detalhes relativamente aos pinos usados e ao seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde é são apresentados todos os detalhes dos conectores FMC das placas.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -78,7 +78,25 @@ Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIau
 	\label{table:HDMIaudiosuportSimplified}
 \end{table}
 
+Os dados referentes ao som transmitidos pela placa recetor HDMI e recebidos de seguida pela placa emissora HDMI estão mencionados com mais detalhe na tabela \ref{table:HDMI1canal+audioDETAIL}, e tal como indicado anteriormente, esta configuração é capaz de transmitir e receber dados no formato $I^{2}$S, o que implica o envio e recepção dos seguintes dados:
+\begin{enumerate}
+	\item \textit{\textbf{Serial Clock}}: Este sinal é por vezes reconhecido pelo nome de \textit{Bit Clock} ou\textit{ Continuous Serial Clock} e é um sinal de relógio referente aos dados de som em série.
+	
+	\item \textit{\textbf{Left/Right Clock}}: Este é um sinal de relógio que vem definir a selecção (direita ou esquerda) dos dados de som. Tal como se visualiza na figura \ref{fig:i2s} da página \pageref{fig:i2s}, é um sinal que alterna periodicamente entre 1 e 0 (e que por isso é chamado de sinal de relógio) que quando está ativo indica que os dados em série que chegam em AP1, AP2, AP3 e AP4 são sinais referente ao lado direito, e que quando está desativo esses mesmos sinais são referentes ao lado esquerdo.
+	
+	\item \textbf{AP1 a AP4}: Sinais onde são enviados os dados em si de audio.
+	
+			\begin{figure}[h!]
+		\begin{center}
+			\leavevmode
+			\includegraphics[width=1.0\textwidth]{audio_example}
+			\caption{Imagem retirada de \cite{R014}}
+			\label{fig:i2s}
+		\end{center}
+	\end{figure}
+\end{enumerate}
 
+Segundo \cite{R018} ou \cite{R017} não é necessário enviar o master clock que ele sabe recuperá-lo tendo os outros.
 
 \subsubsection{2 canais melhorado} \label{subsubsec:HDMIconfigMelhorado}
 
