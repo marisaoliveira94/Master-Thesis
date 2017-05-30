@@ -1,0 +1,366 @@
+\chapter{Ficheiros da arquitetura A} \label{ap2:codigo}
+
+
+
+\subsection{Código em Verilog do bloco gerador de uma barra a cores}
+`timescale 1ns / 1ps
+
+//////////////////////////////////////////////////////////////////////////////////
+
+// Company: INESC-TEC/FEUP
+
+// Author : Marisa Oliveira
+
+// 
+
+// Create Date: 03/15/2017 11:12:37 AM
+
+// Design Name: 
+
+// Module Name: imageGenerator
+
+// Project Name: 
+
+// Target Devices: 
+
+// Tool Versions: 
+
+// Description: 
+
+// 
+
+// Dependencies: 
+
+// 
+
+// Revision:
+
+// Revision 0.01 - File Created
+
+// Additional Comments:
+
+// 
+
+//////////////////////////////////////////////////////////////////////////////////
+
+module imageGenerator(
+
+\quad input rst,
+	
+\quad input start,
+	
+\quad input clk,
+	
+\quad output ENABLE,
+	
+\quad output VSYNC,
+	
+\quad output HSYNC,
+	
+\quad output [29:0] PIXEL,
+	
+\quad output CLK
+	
+);
+
+\quad //Atributos da imagem a ser produzida pelo bloco
+
+\quad parameter    HSW = 12'h02C;    //nro de ciclos de relogio que dura o HSYNC
+
+\quad parameter    HBP = 12'h02C;    //nro de px em branco antes da imagem (na horizontal)
+
+\quad parameter    HFP = 12'h094;    //nro de px em branco depois da imgem (na horizontal)
+
+\quad parameter    HRES = 12'h780;    //nro de px na horizontal = 1920px
+
+\quad parameter    VSW = 12'h005;    //nro de linhas horizontais que o VSYNC dura
+
+\quad parameter    VBP = 12'h024;    //nro de linhas horizontais antes da imagem
+
+\quad parameter    VFP = 12'h004;    //nro de linhas horizontais depois da imagem
+
+\quad parameter    VRES = 12'h438;    //nro de px na vertical = 1080  
+
+//Portas do modulo 
+
+//input	rst;
+//input	clk;
+//input 	start;
+
+//output	ENABLE;
+//output	VSYNC;
+//output	HSYNC;
+//output	[29;0] PIXEL;
+//Registos internos
+
+reg        r\_ENABLE;
+reg        r\_VSYNC;
+reg        r\_HSYNC;
+reg        [29:0] r\_PIXEL;
+
+reg[11:0]    VCOUNT;
+reg[11:0]    HCOUNT;  
+initial
+begin
+r\_ENABLE <= 1'b0;
+r\_VSYNC <= 1'b0;
+r\_HSYNC <= 1'b0;
+r\_PIXEL <= 30'b0;
+VCOUNT <= 12'b0;
+HCOUNT <= 12'b0;
+end
+//Corpo RTL
+
+parameter    HTOTAL = HSW + HBP + HRES + HFP;
+parameter    VTOTAL = VSW + VBP + VRES + VBP;
+
+always @(posedge clk or posedge rst) begin
+
+if(rst == 1'b1) begin
+r\_ENABLE    <= 1'b0;
+r\_VSYNC        <= 1'b0;
+r\_HSYNC        <= 1'b0;
+r\_PIXEL        <= 30'b0;
+end else begin
+
+if(start == 1'b1) begin
+//gerar o pulso VSYNC
+if(VCOUNT == VSW \&\& HCOUNT == HTOTAL) begin
+//desligar o sinal de VSYNC
+r\_VSYNC    <=    1'b0;    
+end else if(VCOUNT == VTOTAL \&\& HCOUNT == HTOTAL) begin
+//ligar o VSYNC
+r\_VSYNC    <=    1'b1;
+end
+
+//gerar o pulso HSYNC
+if(HCOUNT == HSW) begin 
+//desligar o sinal de HSYNC
+r\_HSYNC    <= 1'b0;
+end else if(HCOUNT == HTOTAL) begin
+//ligar o sinal de HSYNC
+r\_HSYNC <= 1'b1;
+end
+
+//gerar os dados PX
+if( (VCOUNT > VSW + VBP) \&\& (VCOUNT < VSW + VBP + VRES + 1'b1) ) begin
+if( (HCOUNT > HSW + HBP - 1'b1) \&\& (HCOUNT < HSW + HBP + HRES + 1'b1) ) begin
+//ativar o enable
+r\_ENABLE <= 1'b1;
+end else begin
+//desativar o enable
+r\_ENABLE <= 1'b0;
+end
+if ( HCOUNT < HSW + HBP + {3'b0,HRES[11:3]} ) begin
+r\_PIXEL  <= 30'h3FFF\_FFFF ; // White
+end else if ( HCOUNT < HSW + HBP + {2'b0,HRES[11:2]} ) begin
+r\_PIXEL  <= 30'h3FFF\_0000 ; // Yellow
+end else if ( HCOUNT < HSW + HBP + {2'b0,HRES[11:2]} + {3'b0,HRES[11:3]} ) begin
+r\_PIXEL  <= 30'h000F\_FFFF ; // Cyan
+end else if (HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} ) begin
+r\_PIXEL  <= 30'h000F\_FC00 ; // Green
+end else if ( HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} + {3'b0,HRES[11:3]} ) begin
+r\_PIXEL  <= 30'h3FF0\_03FF ; // Magenta
+end else if (HCOUNT <HSW + HBP + {1'b0,HRES[11:1]} + {2'b0,HRES[11:2]} ) begin
+r\_PIXEL  <= 30'h3FF0\_0000 ; // Red
+end else if (HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} + {2'b0,HRES[11:2]} + {3'b0,HRES[11:3]} ) begin
+r\_PIXEL  <= 30'h0000\_03FF ; // Blue
+end else begin
+r\_PIXEL  <= 30'h0000\_0000 ; // Black
+end
+end
+end
+else begin
+r\_ENABLE <= 1'b0;
+r\_VSYNC        <= 1'b0;
+r\_HSYNC        <= 1'b0;
+r\_PIXEL        <= 30'b0;
+end
+end
+end
+
+//Maquina de estados
+always @(posedge clk or posedge rst) begin
+if(rst == 1'b1) begin
+VCOUNT    <=    VTOTAL;
+HCOUNT    <=    HTOTAL;
+end else begin 
+if(start == 1'b1) begin
+if(HCOUNT==HTOTAL) begin
+HCOUNT <= 12'd1;
+if(VCOUNT==VTOTAL) begin
+VCOUNT <= 12'd1;
+end else begin
+VCOUNT <= VCOUNT + 1'b1;
+end
+end else begin
+HCOUNT <= HCOUNT +1'b1;
+end
+end
+end
+end
+
+
+//Output
+assign ENABLE   =   r\_ENABLE;
+assign VSYNC    =   r\_VSYNC;
+assign HSYNC    =   r\_HSYNC;
+assign PIXEL    =   (r\_ENABLE == 1'b1) ? r\_PIXEL : 48'b0 ;
+assign CLK      = clk;
+endmodule
+
+\subsection{Restrições Físicas} \label{ap2:physical_cnstrs}
+
+set\_property PACKAGE\_PIN E18 [get\_ports clk\_n]
+
+set\_property IOSTANDARD DIFF\_HSTL\_II\_18 [get\_ports clk\_p]
+
+set\_property PACKAGE\_PIN E34 [get\_ports clk\_out]
+
+set\_property PACKAGE\_PIN K35 [get\_ports enable]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports clk\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports enable]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports vsync]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports hsync]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[29]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[28]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[27]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[26]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[25]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[24]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[23]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[22]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[21]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[20]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[19]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[18]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[17]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[16]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[15]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[14]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[13]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[12]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[11]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[10]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[9]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[8]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[7]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[6]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[5]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[4]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[3]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[2]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[1]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[0]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports reset]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports start]
+
+set\_property PACKAGE\_PIN N41 [get\_ports reset]
+
+set\_property PACKAGE\_PIN M32 [get\_ports hsync]
+
+set\_property PACKAGE\_PIN L31 [get\_ports vsync]
+
+set\_property PACKAGE\_PIN J32 [get\_ports {pixel[0]}]
+
+set\_property PACKAGE\_PIN K33 [get\_ports {pixel[1]}]
+
+set\_property PACKAGE\_PIN L34 [get\_ports {pixel[2]}]
+
+set\_property PACKAGE\_PIN M33 [get\_ports {pixel[3]}]
+
+set\_property PACKAGE\_PIN H34 [get\_ports {pixel[4]}]
+
+set\_property PACKAGE\_PIN K29 [get\_ports {pixel[5]}]
+
+set\_property PACKAGE\_PIN J30 [get\_ports {pixel[6]}]
+
+set\_property PACKAGE\_PIN L29 [get\_ports {pixel[7]}]
+
+set\_property PACKAGE\_PIN J31 [get\_ports {pixel[8]}]
+
+set\_property PACKAGE\_PIN M28 [get\_ports {pixel[9]}]
+
+set\_property PACKAGE\_PIN R28 [get\_ports {pixel[10]}]
+
+set\_property PACKAGE\_PIN N28 [get\_ports {pixel[11]}]
+
+set\_property PACKAGE\_PIN R30 [get\_ports {pixel[12]}]
+
+set\_property PACKAGE\_PIN U31 [get\_ports {pixel[13]}]
+
+set\_property PACKAGE\_PIN C35 [get\_ports {pixel[14]}]
+
+set\_property PACKAGE\_PIN D35 [get\_ports {pixel[15]}]
+
+set\_property PACKAGE\_PIN B36 [get\_ports {pixel[16]}]
+
+set\_property PACKAGE\_PIN B34 [get\_ports {pixel[17]}]
+
+set\_property PACKAGE\_PIN B39 [get\_ports {pixel[18]}]
+
+set\_property PACKAGE\_PIN A35 [get\_ports {pixel[19]}]
+
+set\_property PACKAGE\_PIN C38 [get\_ports {pixel[20]}]
+
+set\_property PACKAGE\_PIN B37 [get\_ports {pixel[21]}]
+
+set\_property PACKAGE\_PIN E32 [get\_ports {pixel[22]}]
+
+set\_property PACKAGE\_PIN B32 [get\_ports {pixel[23]}]
+
+set\_property PACKAGE\_PIN E33 [get\_ports {pixel[24]}]
+
+set\_property PACKAGE\_PIN C33 [get\_ports {pixel[25]}]
+
+set\_property PACKAGE\_PIN G32 [get\_ports {pixel[26]}]
+
+set\_property PACKAGE\_PIN F36 [get\_ports {pixel[27]}]
+
+set\_property PACKAGE\_PIN F34 [get\_ports {pixel[28]}]
+
+set\_property PACKAGE\_PIN H33 [get\_ports {pixel[29]}]
+
+set\_property PACKAGE\_PIN E42 [get\_ports start]
+
+\subsection{Restrições Temporais} \label{ap2:timing_cnstrs}
+
+create\_clock -period 5.000 [get\_ports clk\_n]
+
+create\_clock -period 5.000 [get\_ports clk\_p]

@@ -34,8 +34,12 @@
 \contentsline {subsection}{\numberline {3.1.2}Configura\IeC {\c c}\IeC {\~a}o dos \textit {switches}}{39}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Arquiteturas Desenvolvidas}{39}{subsection.3.1.3}
 \contentsline {subsubsection}{\numberline {3.1.3.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{39}{subsubsection.3.1.3.1}
-\contentsline {subsubsection}{\numberline {3.1.3.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{43}{subsubsection.3.1.3.2}
-\contentsline {subsubsection}{\numberline {3.1.3.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{43}{subsubsection.3.1.3.3}
-\contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{45}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{47}{chapter.5}
-\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o dos pinos das placas HDMI}{49}{appendix.A}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{46}{subsubsection.3.1.3.2}
+\contentsline {subsubsection}{\numberline {3.1.3.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{46}{subsubsection.3.1.3.3}
+\contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{47}{chapter.4}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{49}{chapter.5}
+\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o dos pinos das placas HDMI}{51}{appendix.A}
+\contentsline {chapter}{\numberline {B}Ficheiros da arquitetura A}{55}{appendix.B}
+\contentsline {subsection}{\numberline {B.0.1}C\IeC {\'o}digo em Verilog do bloco gerador de uma barra a cores}{55}{subsection.B.0.1}
+\contentsline {subsection}{\numberline {B.0.2}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{57}{subsection.B.0.2}
+\contentsline {subsection}{\numberline {B.0.3}Restri\IeC {\c c}\IeC {\~o}es Temporais}{59}{subsection.B.0.3}

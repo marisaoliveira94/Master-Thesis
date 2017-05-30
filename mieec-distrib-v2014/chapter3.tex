@@ -116,7 +116,7 @@ Neste sub-capitulo passam a ser descritas as arquiteturas desenvolvidas e implem
 
 \subsubsection{Transmissão de uma imagem gerada na FPGA}
 
-Numa fase inicil do projeto, optou-se por simplificar a transmissão e para tal utilizou-se apenas a placa transmissora HDMI. Contrui-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utlizou-se essa imagem para ser transmitida pelos conectore FMC.
+Numa fase inicil do projeto, optou-se por simplificar a transmissão e para tal utilizou-se apenas a placa transmissora HDMI configurada por defeito. Contrui-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utlizou-se essa imagem para ser transmitida pelos conectore FMC.
 
 O bloco gerador de uma barra de cores foi adaptado de um bloco disponibilizado pela \textit{Inrenvium} aquando a compra das placas. Apesar de ter sido ligeiramente adaptado para este caso em especifico, este baseia-se essencialmente numa maquina de estados que vai contando as linhas e as colunas para que possa enviar não só os valores das cores de cada pixel, mas também os sinais de controlo como a sincronização vertical, a sincronização horizontal e ainda os valor de pixeis ativos.
 
@@ -142,17 +142,18 @@ Para que se entenda mais facilmente como e quando se transmitem os sinais de con
 	\end{center}
 \end{figure}
 
-Para gerar uma imagem em \textit{FULL HD} cuja resolução é 1920x1080 pixeis e o sinal de relógio deve ter uma frequência de 148.5 MHz, foram o utilizados os seguintes valores para os parâmetro previamente descritos:
-\begin{itemize}
-	\item HRES = 1920
-	\item HSW = 44
-	\item HBP = 44
-	\item HFP = 148
-	\item VRES = 1080
-	\item VSW = 5
-	\item VBP = 36
-	\item VFP = 4
-\end{itemize}
+Para gerar uma imagem em \textit{FULL HD} cuja resolução é 1920x1080 pixeis e o sinal de relógio deve ter uma frequência de 148.5 MHz, foram o utilizados os seguintes valores para os parâmetro previamente descritos: HRES = 1920, HSW = 44, HBP = 44, HFP = 148,  VRES = 1080, VSW = 5, VBP = 36 e VFP = 4.
+%
+%\begin{itemize}
+%	\item HRES = 1920
+%	\item HSW = 44
+%	\item HBP = 44
+%	\item HFP = 148
+%	\item VRES = 1080
+%	\item VSW = 5
+%	\item VBP = 36
+%	\item VFP = 4
+%\end{itemize}
 
 A figura \ref{fig:colorBar_fsm} na página \pageref{fig:colorBar_fsm} ilustra a maquina de estados desenvolvida para implementar a geração de uma barra a cores na FPGA. 
 
@@ -186,26 +187,93 @@ Existem 4 estados nesta máquina eu consistem essencialmente em detecção do fi
 Quando a máquina de estados se encontra no estado para gerar dados, então os dados de controlo são gerados nas seguintes condições :
 \begin{itemize}
 	\item \textbf{Sinal de sincronização vertical:} O sinal de sincronização vertical é um sinal que como já foi referido anteriormente indica o incio de transmissão de uma nova imagem, e por isso é ativado pela máquina de estados desenvolvida quando o valor em VCOUNT se igual ao valor de VTOTAL e quando o valor de HCOUNT se igual ao valor de HTOTAL, ou seja é ativado no final de uma imagem. Este sinal é ainda desligado quando o valor de VCOUNT se igual a VSW e o valor de HCOUNT se igual ao valor de HTOTAl, isto porque quando estas duas condições se verificam seignifica que o número de linhas em que o sinal de sincronização vertical deve estar ativo já terminou (é mesmo isso que o valor do parâmetro VSW define : \textit{Vertical Sync Width}).
+	
 	\item \textbf{Sinal de sincronização horizontal:} O sinal de sincronização horizontal indica o inicio de uma nova linha e como tal deve ser ativo sempre que o valor de HCOUNT se igual e ao valor de HTOTAL (porque indica o fim da emissão de uma linha). Da mesma maneira, este sinal deve ser desativo sempre que o valor de HCOUNT se igual ao valor de HSW, isto porque este valor indica que o período de tempo que este sinal deve estar ativo terminou.
-	\item \textbf{Sinal de dados ativos:} Este sinal deve estar ativo sempre que se estiver a transmitir os valores de cada pixel, e por isso deve estar ativo sempre que as quatro condições que serão de seguida apresentadas se verificarem:
 	
-	e por isso esse motivo este sinal deve ser ligado sempre que o valor de HCOUNT for maior do a soma entre HSW e HBP subtraído de 1 valor e ao mesmo tempo for menor do que a soma entre HRES, HBP e HSW. Deve estar ativo entre entes valores, por que
-	\item \textbf{Valor dos pixeis}
+	\item \textbf{Sinal de dados ativos:} Este sinal deve estar ativo sempre que se estiver a transmitir pixeis válidos, e por isso sempre que as condições que serão de seguida apresentadas se verificarem:
+	\begin{enumerate}
+		\item O valor de VCCOUNT é maior do que a soma entre VSW e VBP.
+		\item O valor de VCOUNT é menor do que a soma entre VSW, VBP, VRES e 1.
+		\item O valor de HCOUNT é maior do que a soma entre HSW, HBP subtraída de 1 valor.
+		\item O valor de HCOUNT é menor do que a soma HSW, HBP e HRES.
+	\end{enumerate}
+	As duas primeira condições garantem que VCOUNT está na zona vertical que corresponde à transmissão de imagem na figura \ref{fig:colorBar_exemple}, e as duas ultimas condições garantem o mesmo mas na zona horizontal.
+	\item \textbf{Valor dos pixeis:} Estes sinais correspondem a um barramento de 30 bits de uma imagem RGB com 10 bits por componente de cor. Como tal, estes valores devem corresponder a cores sempre o sinal de dados ativos estiver ligado e 0 sempre que estiver desligado. 
 \end{itemize}
-	
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{planA}
-		\caption{}
+		\caption{Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores}
 		\label{fig:planA}
 	\end{center}
 \end{figure}
 
+Na figura \ref{fig:planA} é apresentado um diagrama de blocos da arquitetura implementada recorrendo a um bloco gerador de uma barra de cores. Este bloco foi implementado recorrendo-se à maquina de estados apresentada anteriormente.
+
+Nas entradas do bloco estão ligados 4 sinais sendo que dois deles correspondem a um sinal de relógio diferencial de 200 MHz (\textit{clock\_p} corresponde ao sinal positivo e \textit{clock\_n} ao sinal negativo), e os outros dois sinais, \textit{start} e \textit{reset}, são sinais relevantes para a máquina de estados do bloco de geração de barras de cores definidos pelo utilizador e, por isso, são atribuídos a botões da FPGA. O sinal de relógio diferencial ligado às entradas deste bloco é proveniente do oscilador presente na FPGA e irá alimentar uma modulo que coloca na sua saída um sinal de relógio de 148.5 MHz. Esse módulo foi criado através do IP disponibilizado no VIVADO \textit{Clocking Wizard} que vem facilitar a geração de um sinal de relógio com a frequência pretendida tendo como uma base um sinal diferencial de 200 MHz. O sinal gerado, de 148.5 MHz, é o sinal de relógio principal do sistema uma vez que é a frequência necessária para gerar uma imagem em \textit{FULL HD}, e como tal é a essa cadência que os sinais serão enviados para a placa HDMI transmissora e é esse ainda o sinal de relógio da mesma.
+
+Relativamente às saída do módulo é possivel visualizar na imagem \ref{fig:planA} que estas se encontram diretamente ligadas à placa transmissora HDMI através dos conectores FMC. Estes sinais são um barramento de 30 bits que corresponde ao pixel (\textit{pixel}), o sinal de sincronização horizontal (\textit{hsync}), o sinal de sincronização de vertical (\textit{vsync}) e ainda o sinal de dados ativos (\textit{enable}).
+
+Para além do desenvolvimento do código em Verilog é necessário que as portas do modulo de topo, no caso desta arquitetura do modulo "planoA\_top.v", estejam atribuidas a portas físicas da FPGA. Para tal é necessário definir onde estão as localizações das portas na FPGA (LOC) e o seu banco e criar um ficheiro de gere essas mesmas restrições fisicas. A tabela \ref{table:locPlanA} na página \pageref{table:locPlanA} indica quais as localizações fisicas de cada porta existente no modulo de topo e no caso das saídas são também apresentados os nomes dos conectores na placa HDMI transmissora aos quais estas devem estar ligadas.
+
+\begin{longtable}[h!]
+	{|c|c|c|c|c|c|}
+	%\begin{tabular}
+		\hline
+		\centering
+		\textbf{I/O} & \textbf{Sinal} & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{Nome na placa HDMI} & \textbf{LOC na placa HDMI} \\ \hline \endhead
+		O            & clk\_px        & E34                  & 35                     & TX\#O\_DCLK               & CLK0\_M2C\_P         \\ \hline
+		O            & enable         & K35                  & 34                     & TX\#0\_DE                 & LA02\_P              \\ \hline
+		O            & vsync          & L31                  & 34                     & TX\#0\_VSYNC              & LA00\_P\_CC          \\ \hline
+		O            & hsync          & M32                  & 34                     & TX\#0\_HSYNC              & LA01\_P\_CC          \\ \hline
+		O            & pixel{[}0{]}   & J32                  & 34                     & TX\#0\_D0                 & LA03\_P              \\ \hline
+		O            & pixel{[}1{]}   & K33                  & 34                     & TX\#0\_D1                 & LA04\_P              \\ \hline
+		O            & pixel{[}2{]}   & L34                  & 34                     & TX\#0\_D2                 & LA05\_P              \\ \hline
+		O            & pixel{[}3{]}   & M33                  & 34                     & TX\#0\_D3                 & LA06\_P              \\ \hline
+		O            & pixel{[}4{]}   & H34                  & 34                     & TX\#0\_D4                 & LA07\_P              \\ \hline
+		O            & pixel{[}5{]}   & K29                  & 34                     & TX\#0\_D5                 & LA08\_P              \\ \hline
+		O            & pixel{[}6{]}   & J30                  & 34                     & TX\#0\_D6                 & LA09\_P              \\ \hline
+		O            & pixel{[}7{]}   & L29                  & 34                     & TX\#0\_D7                 & LA10\_P              \\ \hline
+		O            & pixel{[}8{]}   & J31                  & 34                     & TX\#0\_D8                 & LA11\_P              \\ \hline
+		O            & pixel{[}9{]}   & M28                  & 34                     & TX\#0\_D9                 & LA12\_P              \\ \hline
+		O            & pixel{[}10{]}  & R28                  & 34                     & TX\#0\_D10                & LA13\_P              \\ \hline
+		O            & pixel{[}11{]}  & N28                  & 34                     & TX\#0\_D11                & LA14\_P              \\ \hline
+		O            & pixel{[}12{]}  & R30                  & 34                     & TX\#0\_D12                & LA15\_P              \\ \hline
+		O            & pixel{[}13{]}  & U31                  & 34                     & TX\#0\_D13                & LA16\_P              \\ \hline
+		O            & pixel{[}14{]}  & C35                  & 35                     & TX\#0\_D14                & LA17\_P\_CC          \\ \hline
+		O            & pixel{[}15{]}  & D35                  & 35                     & TX\#0\_D15                & LA18\_P\_CC          \\ \hline
+		O            & pixel{[}16{]}  & B36                  & 35                     & TX\#0\_D16                & LA19\_P              \\ \hline
+		O            & pixel{[}17{]}  & B34                  & 35                     & TX\#0\_D17                & LA20\_P              \\ \hline
+		O            & pixel{[}18{]}  & B39                  & 35                     & TX\#0\_D18                & LA21\_P              \\ \hline
+		O            & pixel{[}19{]}  & A35                  & 35                     & TX\#0\_D19                & LA22\_P              \\ \hline
+		O            & pixel{[}20{]}  & C38                  & 35                     & TX\#0\_D20                & LA23\_P              \\ \hline
+		O            & pixel{[}21{]}  & B37                  & 35                     & TX\#0\_D21                & LA24\_P              \\ \hline
+		O            & pixel{[}22{]}  & E32                  & 35                     & TX\#0\_D22                & LA25\_P              \\ \hline
+		O            & pixel{[}23{]}  & B32                  & 35                     & TX\#0\_D23                & LA26\_P              \\ \hline
+		O            & pixel{[}24{]}  & E33                  & 35                     & TX\#0\_D24                & LA27\_P              \\ \hline
+		O            & pixel{[}25{]}  & C33                  & 35                     & TX\#0\_D25                & LA28\_P              \\ \hline
+		O            & pixel{[}26{]}  & G32                  & 35                     & TX\#0\_D26                & LA29\_P              \\ \hline
+		O            & pixel{[}27{]}  & F36                  & 35                     & TX\#0\_D27                & LA30\_P              \\ \hline
+		O            & pixel{[}28{]}  & F34                  & 35                     & TX\#0\_D28                & LA31\_P              \\ \hline
+		O            & pixel{[}29{]}  & H33                  & 35                     & TX\#0\_D29                & LA32\_P              \\ \hline
+		I            & clk\_p         & E19                  & 38                     & ---                       & ---                  \\ \hline
+		I            & clk\_n         & E18                  & 38                     & ---                       & ---                  \\ \hline
+		I            & reset          & N41                  & 19                     & ---                       & ---                  \\ \hline
+		I            & start          & E42                  & 19                     & ---                       & ---                  \\ \hline
+%	\end{tabular}
+	\caption{Localização das portas de entrada e saída da arquitetura}
+	\label{table:locPlanA}
+\end{longtable}
+
+O ficheiro com estas restrições fisicas gerado após a atribuição das mesmas é apresentado no sub-capitulo \ref{ap2:physical_cnstrs} do anexo \ref{ap2:codigo}. Para cada porta são atribuídas duas restrições: uma que indica a localização fisica na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que se tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
+
+Para além destas restrições fisicas geradas, são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas no sub-capitulo \ref{ap2:timing_cnstrs} do anexo \ref{ap2:codigo}. As retrições temporais existentes definem que nas portas de entrada do sinal de relógio difernecial é mandatório haver um sinal com uma frequência de 200 MHz (periodo de 5ns). Isto porque todos os sinais estão dependentes deste sinal de entrada, e por isso caso haja algum tipo de latência deste sinal todos os outros irão sofrer consequências.
+
 \subsubsection{Transmissão de imagem entre dispositivos HDMI}
 
-		\begin{figure}[h!]
+\begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{planB1}

@@ -31,3 +31,7 @@
 \BOOKMARK [0][-]{chapter.4}{4 Transmiss\343o dos dados em s\351rie}{}% 31
 \BOOKMARK [0][-]{chapter.5}{5 Conclus\365es e Trabalho Futuro}{}% 32
 \BOOKMARK [0][-]{appendix.A}{A Descri\347\343o dos pinos das placas HDMI}{}% 33
+\BOOKMARK [0][-]{appendix.B}{B Ficheiros da arquitetura A}{}% 34
+\BOOKMARK [1][-]{subsection.B.0.1}{B.0.1 C\363digo em Verilog do bloco gerador de uma barra a cores}{appendix.B}% 35
+\BOOKMARK [2][-]{subsection.B.0.2}{B.0.2 Restri\347\365es F\355sicas}{subsection.B.0.1}% 36
+\BOOKMARK [2][-]{subsection.B.0.3}{B.0.3 Restri\347\365es Temporais}{subsection.B.0.1}% 37
