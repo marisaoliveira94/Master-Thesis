@@ -112,13 +112,89 @@ Explicar como configurar os switches para obter o que queremos
 
 \subsection{Arquiteturas Desenvolvidas} \label{subsec:HDMIarquiteturas}
 
-Neste sub-capitulo passam a ser descritos as arquiteturas desenvolvidas e implementadas na FPGA apenas referente à comunicação entre as placas HDMI. 
+Neste sub-capitulo passam a ser descritas as arquiteturas desenvolvidas e implementadas na FPGA referentes à comunicação entre as placas HDMI.  Por outras palavras, é feita uma aplicação daquilo que foi explicado sobre as placas HDMI a serem utilizadas até agora em arquiteturas implementadas e testadas em FPGA.
 
 \subsubsection{Transmissão de uma imagem gerada na FPGA}
 
-Inicialmente optou-se pela geração de uma imagem na FPGA e o seu envio para a placa transmissora HDMI através dos conectores FMC.
+Numa fase inicil do projeto, optou-se por simplificar a transmissão e para tal utilizou-se apenas a placa transmissora HDMI. Contrui-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utlizou-se essa imagem para ser transmitida pelos conectore FMC.
 
-		\begin{figure}[h!]
+O bloco gerador de uma barra de cores foi adaptado de um bloco disponibilizado pela \textit{Inrenvium} aquando a compra das placas. Apesar de ter sido ligeiramente adaptado para este caso em especifico, este baseia-se essencialmente numa maquina de estados que vai contando as linhas e as colunas para que possa enviar não só os valores das cores de cada pixel, mas também os sinais de controlo como a sincronização vertical, a sincronização horizontal e ainda os valor de pixeis ativos.
+
+Para que se entenda mais facilmente como e quando se transmitem os sinais de controlo da imagem e também os valor dos pixeis é demonstrado na imagem \ref{fig:colorBar_exemple} na página \pageref{fig:colorBar_exemple} uma exemplo de transmissão de uma imagem gerada na FPGA. Antes de passar para descrição da geração da imagem passam a ser descritos os acrónimos apresentados na figura:
+
+\begin{enumerate}
+	\item \textbf{HRES:} \textit{Horizontal Resolution} é o parâmetro que define a resolução horizontal da imagem que vai ser gerada pelo bloco, ou seja o número de pixeis em cada linha de transmissão.
+	\item \textbf{HSW:} \textit{Horizontal Sync Width} é o parâmetro que define o número de ciclos de relógio que o sinal de sincronização horizontal tem.
+	\item \textbf{HBP:} \textit{Horizontal Back Porch} é o parâmetro que define o número de pixeis que não contêm informação útil (relativamente à cor dos mesmos) antes de começar a ser transmitida a linha de imagem.
+	\item \textbf{HFP:} \textit{Horizontal Front Porch} é o parâmetro que define o número de pixeis que não contem informação útil depois de ser transmitida uma linha da imagem.
+	\item \textbf{VRES:} \textit{Vertical Resolution} é o parâmetro que define a resolução vertical da imagem que vai ser gerada pelo bloco, por outras palavras é o número de linhas de pixeis a ser geradas.
+	\item \textbf{VSW:} \textit{Vertical Sync Width} é o parâmetro que define o número de linhas horizontais que o sinal de sincronização vertical está ativo.
+	\item \textbf{VBP:} \textit{Vertical Back Porch} é o parâmetro que define o número de linhas horizontais que não contém informação útil relativamente ao pixeis antes de começarem a ser transmitidas as linhas de pixeis.
+	\item \textbf{VFP:} \textit{Vertical Front Porch} é o parâmetro que define o número de linhas horizontais que não contém informação útil relativamente ao pixeis depois de terem sido transmitidas todas as linhas horizontais da imagem.
+\end{enumerate}
+	
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{exemplo_colorBar}
+		\caption{Exemplo de imagem gerada pelo modulo desenvolvido}
+		\label{fig:colorBar_exemple}
+	\end{center}
+\end{figure}
+
+Para gerar uma imagem em \textit{FULL HD} cuja resolução é 1920x1080 pixeis e o sinal de relógio deve ter uma frequência de 148.5 MHz, foram o utilizados os seguintes valores para os parâmetro previamente descritos:
+\begin{itemize}
+	\item HRES = 1920
+	\item HSW = 44
+	\item HBP = 44
+	\item HFP = 148
+	\item VRES = 1080
+	\item VSW = 5
+	\item VBP = 36
+	\item VFP = 4
+\end{itemize}
+
+A figura \ref{fig:colorBar_fsm} na página \pageref{fig:colorBar_fsm} ilustra a maquina de estados desenvolvida para implementar a geração de uma barra a cores na FPGA. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{colorBar_FSM}
+		\caption{Máquina de estados para gerar uma barra de cores}
+		\label{fig:colorBar_fsm}
+	\end{center}
+\end{figure}
+
+Os registos VCOUNT E HCOUNT de decisão que se visualiza na figura correspondem a contadores que vão contanto pixel a pixel até ao fim de uma linha (no caso do HCOUNT) ou então de uma imagem inteira (no caso do VCOUNT). Os valores de HTOTAL e VTOTAL não são mais do que a soma de todo o tamanho dos dados na horizontal e na vertical respectivamente. Assim sendo, para este caso em especifico obtem-se os seguintes valores:
+\begin{itemize}
+	\item HTOTAL = HSW + HBP + HRES + HFP = 44 + 44 + 1920 + 148 = 2156
+	\item VTOTAL = VSW + VBP + VRES + VFP = 5 + 36 + 1080 + 4 = 1125
+\end{itemize}
+
+Para além destes sinais de decisão para mudança de estado existem mais dois sinais no diagrama da máquina de estados presente na figura \ref{fig:colorBar_fsm} que ainda não foram mencionados que são o \textit{reset} e o \textit{start}. Estes dois sinais são botões do utilizador que lhe permitem definir quando se pretende que a transmissão esteja ativa ou desativa (através do botão \textit{start}) ou então quando se pretende restabelecer os dados originais da máquina de estados (através do botão \textit{reset}). 
+
+
+Existem 4 estados nesta máquina eu consistem essencialmente em detecção do final de uma linha, e detecção do final de uma imagem e geração de dados. Os estados passam a ser descritos de seguida:
+
+\begin{enumerate}
+	\item \textbf{Estado inicial:} Neste estado são configurados os parâmetros para o inicio de uma transmissão, ou seja, os valores de HCOUNT e VCOUNT são igualados ao valor total do tamanho na horizontal e na vertical respectivamente. Por outras palavras, os valores de HCOUNT e VCOUNT são igualados a HTOTAL e VTOTAL respectivamente. Isto acontece porque é possivel retornar a este estado estando em qualquer um dos outros desde que seja pressionado o botão  de \textit{reset} ou então que a transmissão seja desligada pelo utilizador (\textit{start} = 0).
+	\item \textbf{Estado para gerar dados:} Neste estado, ao flanco positivo do sinal de relógio do sistema, é incrementado o valor de HCOUNT e ao mesmo tempo são gerados os dados a serem transmitidos em cada ciclo de sinal de relógio, consoante o valor de HCOUNT e VCOUT. Quando o valor de HCOUNT se igualar ao valor de HTOTAL, então significa que foi transmitida uma linha inteira da imagem, e por isso a máquina transita de estado e o valor de VCOUNT volta a ser igualado a 1. O processo de geração de dados será explicado em XXXX
+	\item \textbf{Estado de fim de linha:} Quando este estado está ativo, então uma linha da imagem foi transmitida, o que implica que é necessário incrementar o valor de linhas totais transmitidas (incrementando 1 valor em VCOUNT) e ainda verificar se a transmissão de uma imagem completa está realizada. Caso o valor de VCOUNT se iguale ao valor de VTOTAL, então transita-se para o estado de fim de imagem, e coloca-se o valor de VCOUNT a 1. Caso contrário, então a máquina transita para o estado que estava anteriormente.
+	\item \textbf{Estado de fim de imagem} Quando este estado está ativo então significa que ambos os valores de HCOUNT e VCOUNT estão igualados a 1 e que por isso já foi transmitida uma imagem completa e como tal passa-se a transmitir uma próxima imagem, transitando novamente para o estado para gerar dados.
+\end{enumerate}
+
+Quando a máquina de estados se encontra no estado para gerar dados, então os dados de controlo são gerados nas seguintes condições :
+\begin{itemize}
+	\item \textbf{Sinal de sincronização vertical:} O sinal de sincronização vertical é um sinal que como já foi referido anteriormente indica o incio de transmissão de uma nova imagem, e por isso é ativado pela máquina de estados desenvolvida quando o valor em VCOUNT se igual ao valor de VTOTAL e quando o valor de HCOUNT se igual ao valor de HTOTAL, ou seja é ativado no final de uma imagem. Este sinal é ainda desligado quando o valor de VCOUNT se igual a VSW e o valor de HCOUNT se igual ao valor de HTOTAl, isto porque quando estas duas condições se verificam seignifica que o número de linhas em que o sinal de sincronização vertical deve estar ativo já terminou (é mesmo isso que o valor do parâmetro VSW define : \textit{Vertical Sync Width}).
+	\item \textbf{Sinal de sincronização horizontal:} O sinal de sincronização horizontal indica o inicio de uma nova linha e como tal deve ser ativo sempre que o valor de HCOUNT se igual e ao valor de HTOTAL (porque indica o fim da emissão de uma linha). Da mesma maneira, este sinal deve ser desativo sempre que o valor de HCOUNT se igual ao valor de HSW, isto porque este valor indica que o período de tempo que este sinal deve estar ativo terminou.
+	\item \textbf{Sinal de dados ativos:} Este sinal deve estar ativo sempre que se estiver a transmitir os valores de cada pixel, e por isso deve estar ativo sempre que as quatro condições que serão de seguida apresentadas se verificarem:
+	
+	e por isso esse motivo este sinal deve ser ligado sempre que o valor de HCOUNT for maior do a soma entre HSW e HBP subtraído de 1 valor e ao mesmo tempo for menor do que a soma entre HRES, HBP e HSW. Deve estar ativo entre entes valores, por que
+	\item \textbf{Valor dos pixeis}
+\end{itemize}
+	
+
+\begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{planA}
