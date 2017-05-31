@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.7)  31 MAY 2017 00:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.7)  31 MAY 2017 22:14
 entering extended mode
 **./mieec.tex
 (mieec.tex
@@ -1204,7 +1204,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 48.
- [7] <figures/FPGA.jpg, id=432, 408.02437pt x 271.76532pt>
+ [7] <figures/FPGA.jpg, id=434, 408.02437pt x 271.76532pt>
 File: figures/FPGA.jpg Graphic file (type jpg)
 
 <use figures/FPGA.jpg>
@@ -1218,7 +1218,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 93.
 
-<figures/HDMIrx.jpg, id=441, 389.95688pt x 338.76563pt>
+<figures/HDMIrx.jpg, id=443, 389.95688pt x 338.76563pt>
 File: figures/HDMIrx.jpg Graphic file (type jpg)
 
 <use figures/HDMIrx.jpg>
@@ -1249,19 +1249,19 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 145.
 [10 <./figures/HDMIrx.jpg>]
-<figures/amostragemRX.jpg, id=461, 292.09125pt x 93.34875pt>
+<figures/amostragemRX.jpg, id=463, 292.09125pt x 93.34875pt>
 File: figures/amostragemRX.jpg Graphic file (type jpg)
 
 <use figures/amostragemRX.jpg>
 Package pdftex.def Info: figures/amostragemRX.jpg used on input line 151.
 (pdftex.def)             Requested size: 298.75264pt x 95.48651pt.
- <figures/rx.png, id=466, 457.71pt x 198.7425pt>
+ <figures/rx.png, id=468, 457.71pt x 198.7425pt>
 File: figures/rx.png Graphic file (type png)
 
 <use figures/rx.png>
 Package pdftex.def Info: figures/rx.png used on input line 163.
 (pdftex.def)             Requested size: 426.79135pt x 185.3229pt.
- <figures/HDMItx.jpg, id=472, 392.96812pt x 272.51813pt>
+ <figures/HDMItx.jpg, id=474, 392.96812pt x 272.51813pt>
 File: figures/HDMItx.jpg Graphic file (type jpg)
 
 <use figures/HDMItx.jpg>
@@ -1287,7 +1287,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 215.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 215.
- [12 <./figures/HDMItx.jpg>] <figures/amostragemTX.jpg, id=494, 374.14781pt x 1
+ [12 <./figures/HDMItx.jpg>] <figures/amostragemTX.jpg, id=496, 374.14781pt x 1
 30.98938pt>
 File: figures/amostragemTX.jpg Graphic file (type jpg)
 
@@ -1295,7 +1295,7 @@ File: figures/amostragemTX.jpg Graphic file (type jpg)
 Package pdftex.def Info: figures/amostragemTX.jpg used on input line 221.
 (pdftex.def)             Requested size: 298.75264pt x 104.59775pt.
 
-<figures/tx.png, id=499, 454.69875pt x 196.48407pt>
+<figures/tx.png, id=501, 454.69875pt x 196.48407pt>
 File: figures/tx.png Graphic file (type png)
  <use figures/tx.png>
 Package pdftex.def Info: figures/tx.png used on input line 237.
@@ -1306,14 +1306,14 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 250.
 
 [13 <./figures/amostragemTX.jpg> <./figures/tx.png>]
-<figures/DDCnormal.jpg, id=512, 551.05875pt x 279.29344pt>
+<figures/DDCnormal.jpg, id=514, 551.05875pt x 279.29344pt>
 File: figures/DDCnormal.jpg Graphic file (type jpg)
 
 <use figures/DDCnormal.jpg>
 Package pdftex.def Info: figures/DDCnormal.jpg used on input line 255.
 (pdftex.def)             Requested size: 426.79135pt x 216.31805pt.
 
-<figures/DDCthrough.jpg, id=517, 551.05875pt x 286.06876pt>
+<figures/DDCthrough.jpg, id=519, 551.05875pt x 286.06876pt>
 File: figures/DDCthrough.jpg Graphic file (type jpg)
 
 <use figures/DDCthrough.jpg>
@@ -1335,7 +1335,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 288.
 
-<figures/ArqSERDES.jpg, id=528, 590.95781pt x 307.1475pt>
+<figures/ArqSERDES.jpg, id=530, 590.95781pt x 307.1475pt>
 File: figures/ArqSERDES.jpg Graphic file (type jpg)
 
 <use figures/ArqSERDES.jpg>
@@ -1363,7 +1363,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 318.
  [16 <./figures/ArqSERDES.jpg>]
-<figures/arqPISO-SIPO.jpg, id=549, 578.91281pt x 304.88907pt>
+<figures/arqPISO-SIPO.jpg, id=551, 578.91281pt x 304.88907pt>
 File: figures/arqPISO-SIPO.jpg Graphic file (type jpg)
 
 <use figures/arqPISO-SIPO.jpg>
@@ -1386,7 +1386,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 367.
 
-<figures/gtxLOCA.jpg, id=567, 615.0478pt x 420.06938pt>
+<figures/gtxLOCA.jpg, id=569, 615.0478pt x 420.06938pt>
 File: figures/gtxLOCA.jpg Graphic file (type jpg)
 
 <use figures/gtxLOCA.jpg>
@@ -1406,7 +1406,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 389.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 389.
-[19] <figures/gtxAqr.jpg, id=581, 444.91219pt x 222.8325pt>
+[19] <figures/gtxAqr.jpg, id=583, 444.91219pt x 222.8325pt>
 File: figures/gtxAqr.jpg Graphic file (type jpg)
 
 <use figures/gtxAqr.jpg>
@@ -1417,7 +1417,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 415.
  [20 <./figures/gtxLOCA.jpg>]
-<figures/gtx_tx.jpg, id=590, 583.42969pt x 245.41687pt>
+<figures/gtx_tx.jpg, id=592, 583.42969pt x 245.41687pt>
 File: figures/gtx_tx.jpg Graphic file (type jpg)
 
 <use figures/gtx_tx.jpg>
@@ -1460,7 +1460,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 521.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 521.
- [24] <figures/gtx_rx.jpg, id=628, 596.2275pt x 229.60782pt>
+ [24] <figures/gtx_rx.jpg, id=630, 596.2275pt x 229.60782pt>
 File: figures/gtx_rx.jpg Graphic file (type jpg)
 
 <use figures/gtx_rx.jpg>
@@ -1471,14 +1471,14 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 556.
  [25 <./figures/gtx_rx.jpg>]
-<figures/equalizador_LPM.jpg, id=644, 463.7325pt x 242.40562pt>
+<figures/equalizador_LPM.jpg, id=646, 463.7325pt x 242.40562pt>
 File: figures/equalizador_LPM.jpg Graphic file (type jpg)
 
 <use figures/equalizador_LPM.jpg>
 Package pdftex.def Info: figures/equalizador_LPM.jpg used on input line 562.
 (pdftex.def)             Requested size: 426.79135pt x 223.10094pt.
 
-<figures/equalizador_DFE.jpg, id=649, 586.44093pt x 346.29375pt>
+<figures/equalizador_DFE.jpg, id=651, 586.44093pt x 346.29375pt>
 File: figures/equalizador_DFE.jpg Graphic file (type jpg)
 
 <use figures/equalizador_DFE.jpg>
@@ -1493,7 +1493,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 591.
 [26 <./figures/equalizador_LPM.jpg>]
-<figures/CDR.jpg, id=658, 721.19438pt x 217.5628pt>
+<figures/CDR.jpg, id=660, 721.19438pt x 217.5628pt>
 File: figures/CDR.jpg Graphic file (type jpg)
  <use figures/CDR.jpg>
 Package pdftex.def Info: figures/CDR.jpg used on input line 602.
@@ -1517,14 +1517,14 @@ Overfull \hbox (16.32939pt too wide) in paragraph at lines 637--638
 as en-tra-das ALIGB_MCOMMA_VALUE,
  []
 
-<figures/commaObtain1.jpg, id=674, 337.26pt x 124.21407pt>
+<figures/commaObtain1.jpg, id=676, 337.26pt x 124.21407pt>
 File: figures/commaObtain1.jpg Graphic file (type jpg)
 
 <use figures/commaObtain1.jpg>
 Package pdftex.def Info: figures/commaObtain1.jpg used on input line 642.
 (pdftex.def)             Requested size: 298.75264pt x 110.0346pt.
 
-<figures/commaObtain2.jpg, id=681, 347.04657pt x 147.55125pt>
+<figures/commaObtain2.jpg, id=683, 347.04657pt x 147.55125pt>
 File: figures/commaObtain2.jpg Graphic file (type jpg)
 
 <use figures/commaObtain2.jpg>
@@ -1634,7 +1634,7 @@ rted-to.pdf figures/audio_i2s.eps>
 (epstopdf)             \includegraphics on input line 94.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/audio_i2s-eps-converted-to.pdf, id=767, 448.67625pt x 111.41624pt>
+<figures/audio_i2s-eps-converted-to.pdf, id=769, 448.67625pt x 111.41624pt>
 File: figures/audio_i2s-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/audio_i2s-eps-converted-to.pdf>
@@ -1667,7 +1667,7 @@ s-converted-to.pdf figures/exemplo_colorBar.eps>
 (epstopdf)             \includegraphics on input line 139.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_colorBar-eps-converted-to.pdf, id=796, 424.58624pt x 305.14pt>
+<figures/exemplo_colorBar-eps-converted-to.pdf, id=798, 424.58624pt x 305.14pt>
 File: figures/exemplo_colorBar-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/exemplo_colorBar-eps-converted-to.pdf>
 Package pdftex.def Info: figures/exemplo_colorBar-eps-converted-to.pdf used on 
@@ -1685,7 +1685,7 @@ nverted-to.pdf figures/colorBar_FSM.eps>
 (epstopdf)             \includegraphics on input line 163.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/colorBar_FSM-eps-converted-to.pdf, id=799, 387.4475pt x 273.02pt>
+<figures/colorBar_FSM-eps-converted-to.pdf, id=801, 387.4475pt x 273.02pt>
 File: figures/colorBar_FSM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/colorBar_FSM-eps-converted-to.pdf>
@@ -1718,7 +1718,7 @@ Package epstopdf Info: Source file: <figures/planA.eps>
 -to.pdf figures/planA.eps>
 (epstopdf)             \includegraphics on input line 207.
 Package epstopdf Info: Output file is already uptodate.
- <figures/planA-eps-converted-to.pdf, id=835, 689.57625pt x 356.33125pt>
+ <figures/planA-eps-converted-to.pdf, id=837, 689.57625pt x 356.33125pt>
 File: figures/planA-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planA-eps-converted-to.pdf>
@@ -1730,17 +1730,17 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 216.
  [43 <./figures/planA-eps-converted-to.pdf>]
-Overfull \hbox (50.20155pt too wide) in alignment at lines 222--226
+Overfull \hbox (45.32887pt too wide) in alignment at lines 222--226
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (50.20155pt too wide) in alignment at lines 226--246
+Overfull \hbox (45.32887pt too wide) in alignment at lines 226--246
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (50.20155pt too wide) in alignment at lines 246--268
+Overfull \hbox (45.32887pt too wide) in alignment at lines 246--268
  [] [] [] [] [] [] 
  []
 
@@ -1749,6 +1749,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 268.
 [44]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 275.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 275.
+ [45]
 Package epstopdf Info: Source file: <figures/planB1.eps>
 (epstopdf)                    date: 2017-05-25 22:10:55
 (epstopdf)                    size: 1291402 bytes
@@ -1757,29 +1762,31 @@ Package epstopdf Info: Source file: <figures/planB1.eps>
 (epstopdf)                    size: 23325 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planB1-eps-converte
 d-to.pdf figures/planB1.eps>
-(epstopdf)             \includegraphics on input line 279.
+(epstopdf)             \includegraphics on input line 280.
 Package epstopdf Info: Output file is already uptodate.
- <figures/planB1-eps-converted-to.pdf, id=867, 776.9025pt x 402.50375pt>
+
+<figures/planB1-eps-converted-to.pdf, id=873, 776.9025pt x 402.50375pt>
 File: figures/planB1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planB1-eps-converted-to.pdf>
 Package pdftex.def Info: figures/planB1-eps-converted-to.pdf used on input line
- 279.
+ 280.
 (pdftex.def)             Requested size: 426.79135pt x 221.11978pt.
-
-Underfull \vbox (badness 3547) has occurred while \output is active []
-
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 283.
+(babel)             in language  on input line 332.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 283.
- [45])
+(babel)             in language  on input line 332.
+ [46 <./figures/planB1-eps-converted-to.pdf>]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 368.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 368.
+ [47])
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 122.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 122.
-
-[46 <./figures/planB1-eps-converted-to.pdf>]
+ [48]
 \openout2 = `chapter4.aux'.
 
  (chapter4.tex
@@ -1791,7 +1798,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 123.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 123.
- [47
+ [49
 
 
 
@@ -1803,7 +1810,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [48
+ [50
 
 
 
@@ -1816,7 +1823,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 124.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 124.
- [49]
+ [51]
 \openout2 = `appendix1.aux'.
 
  (appendix1.tex
@@ -1824,7 +1831,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [50
+ [52
 
 
 
@@ -1836,7 +1843,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 47.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 47.
-[51]
+[53]
 Overfull \hbox (64.70134pt too wide) in alignment at lines 51--56
  [] [] [] [] 
  []
@@ -1860,12 +1867,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 110.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 110.
-[52])
+[54])
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 128.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 128.
- [53]
+ [55]
 \openout2 = `appendix2.aux'.
 
  (appendix2.tex
@@ -1873,7 +1880,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [54
+ [56
 
 
 
@@ -1891,7 +1898,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 62.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 62.
-[55]
+[57]
 Overfull \hbox (32.13902pt too wide) in paragraph at lines 145--181
 \T1/ptm/m/n/10.95 30'h3FFF_0000 ; // Yel-low end else if ( HCOUNT < HSW + HBP +
  2'b0,HRES[11:2] + 3'b0,HRES[11:3]
@@ -1919,7 +1926,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 181.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 181.
-[56]
+[58]
 Overfull \hbox (11.01292pt too wide) in paragraph at lines 182--202
 []\T1/ptm/m/n/10.95 //Maquina de es-ta-dos always @(po-sedge clk or po-sedge rs
 t) be-gin if(rst == 1'b1) be-gin VCOUNT
@@ -1937,12 +1944,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 266.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 266.
-[57]
+[59]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 344.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 344.
- [58]
+ [60]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 362.
 )
@@ -1950,12 +1957,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 129.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 129.
- [59] (mieec.bbl
+ [61] (mieec.bbl
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [60
+ [62
 
 
 ])
@@ -1964,7 +1971,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 149.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 149.
- [61]
+ [63]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
  (mieec.aux (abstract.aux) (acknows.aux)
 (quote.aux) (abbrevs.aux) (chapter1.aux) (chapter2.aux) (chapter3.aux)
@@ -1983,10 +1990,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 149.
  ) 
 Here is how much of TeX's memory you used:
- 9056 strings out of 493333
- 137892 string characters out of 3125802
- 257723 words of memory out of 3000000
- 12050 multiletter control sequences out of 15000+200000
+ 9062 strings out of 493333
+ 137946 string characters out of 3125802
+ 264856 words of memory out of 3000000
+ 12053 multiletter control sequences out of 15000+200000
  83510 words of font info for 97 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,16n,51p,1757b,501s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1999,9 +2006,9 @@ ta/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Marisa
 :/Users/Marisa Oliveira/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times
 /utmr8a.pfb><C:/Users/Marisa Oliveira/AppData/Local/Programs/MiKTeX 2.9/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on mieec.pdf (79 pages, 2153764 bytes).
+Output written on mieec.pdf (81 pages, 2162278 bytes).
 PDF statistics:
- 1029 PDF objects out of 1200 (max. 8388607)
- 239 named destinations out of 1000 (max. 500000)
+ 1040 PDF objects out of 1200 (max. 8388607)
+ 242 named destinations out of 1000 (max. 500000)
  427 words of extra memory for PDF output out of 10000 (max. 10000000)
 
