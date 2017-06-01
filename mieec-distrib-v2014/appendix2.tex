@@ -2,212 +2,212 @@
 
 
 
-\subsection{Código em Verilog do bloco gerador de uma barra a cores}
-`timescale 1ns / 1ps
-
-//////////////////////////////////////////////////////////////////////////////////
-
-// Company: INESC-TEC/FEUP
-
-// Author : Marisa Oliveira
-
-// 
-
-// Create Date: 03/15/2017 11:12:37 AM
-
-// Design Name: 
-
-// Module Name: imageGenerator
-
-// Project Name: 
-
-// Target Devices: 
-
-// Tool Versions: 
-
-// Description: 
-
-// 
-
-// Dependencies: 
-
-// 
-
-// Revision:
-
-// Revision 0.01 - File Created
-
-// Additional Comments:
-
-// 
-
-//////////////////////////////////////////////////////////////////////////////////
-
-module imageGenerator(
-
-\quad input rst,
-	
-\quad input start,
-	
-\quad input clk,
-	
-\quad output ENABLE,
-	
-\quad output VSYNC,
-	
-\quad output HSYNC,
-	
-\quad output [29:0] PIXEL,
-	
-\quad output CLK
-	
-);
-
-\quad //Atributos da imagem a ser produzida pelo bloco
-
-\quad parameter    HSW = 12'h02C;    //nro de ciclos de relogio que dura o HSYNC
-
-\quad parameter    HBP = 12'h02C;    //nro de px em branco antes da imagem (na horizontal)
-
-\quad parameter    HFP = 12'h094;    //nro de px em branco depois da imgem (na horizontal)
-
-\quad parameter    HRES = 12'h780;    //nro de px na horizontal = 1920px
-
-\quad parameter    VSW = 12'h005;    //nro de linhas horizontais que o VSYNC dura
-
-\quad parameter    VBP = 12'h024;    //nro de linhas horizontais antes da imagem
-
-\quad parameter    VFP = 12'h004;    //nro de linhas horizontais depois da imagem
-
-\quad parameter    VRES = 12'h438;    //nro de px na vertical = 1080  
-
-//Portas do modulo 
-
-//input	rst;
-//input	clk;
-//input 	start;
-
-//output	ENABLE;
-//output	VSYNC;
-//output	HSYNC;
-//output	[29;0] PIXEL;
-//Registos internos
-
-reg        r\_ENABLE;
-reg        r\_VSYNC;
-reg        r\_HSYNC;
-reg        [29:0] r\_PIXEL;
-
-reg[11:0]    VCOUNT;
-reg[11:0]    HCOUNT;  
-initial
-begin
-r\_ENABLE <= 1'b0;
-r\_VSYNC <= 1'b0;
-r\_HSYNC <= 1'b0;
-r\_PIXEL <= 30'b0;
-VCOUNT <= 12'b0;
-HCOUNT <= 12'b0;
-end
-//Corpo RTL
-
-parameter    HTOTAL = HSW + HBP + HRES + HFP;
-parameter    VTOTAL = VSW + VBP + VRES + VBP;
-
-always @(posedge clk or posedge rst) begin
-
-if(rst == 1'b1) begin
-r\_ENABLE    <= 1'b0;
-r\_VSYNC        <= 1'b0;
-r\_HSYNC        <= 1'b0;
-r\_PIXEL        <= 30'b0;
-end else begin
-
-if(start == 1'b1) begin
-//gerar o pulso VSYNC
-if(VCOUNT == VSW \&\& HCOUNT == HTOTAL) begin
-//desligar o sinal de VSYNC
-r\_VSYNC    <=    1'b0;    
-end else if(VCOUNT == VTOTAL \&\& HCOUNT == HTOTAL) begin
-//ligar o VSYNC
-r\_VSYNC    <=    1'b1;
-end
-
-//gerar o pulso HSYNC
-if(HCOUNT == HSW) begin 
-//desligar o sinal de HSYNC
-r\_HSYNC    <= 1'b0;
-end else if(HCOUNT == HTOTAL) begin
-//ligar o sinal de HSYNC
-r\_HSYNC <= 1'b1;
-end
-
-//gerar os dados PX
-if( (VCOUNT > VSW + VBP) \&\& (VCOUNT < VSW + VBP + VRES + 1'b1) ) begin
-if( (HCOUNT > HSW + HBP - 1'b1) \&\& (HCOUNT < HSW + HBP + HRES + 1'b1) ) begin
-//ativar o enable
-r\_ENABLE <= 1'b1;
-end else begin
-//desativar o enable
-r\_ENABLE <= 1'b0;
-end
-if ( HCOUNT < HSW + HBP + {3'b0,HRES[11:3]} ) begin
-r\_PIXEL  <= 30'h3FFF\_FFFF ; // White
-end else if ( HCOUNT < HSW + HBP + {2'b0,HRES[11:2]} ) begin
-r\_PIXEL  <= 30'h3FFF\_0000 ; // Yellow
-end else if ( HCOUNT < HSW + HBP + {2'b0,HRES[11:2]} + {3'b0,HRES[11:3]} ) begin
-r\_PIXEL  <= 30'h000F\_FFFF ; // Cyan
-end else if (HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} ) begin
-r\_PIXEL  <= 30'h000F\_FC00 ; // Green
-end else if ( HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} + {3'b0,HRES[11:3]} ) begin
-r\_PIXEL  <= 30'h3FF0\_03FF ; // Magenta
-end else if (HCOUNT <HSW + HBP + {1'b0,HRES[11:1]} + {2'b0,HRES[11:2]} ) begin
-r\_PIXEL  <= 30'h3FF0\_0000 ; // Red
-end else if (HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} + {2'b0,HRES[11:2]} + {3'b0,HRES[11:3]} ) begin
-r\_PIXEL  <= 30'h0000\_03FF ; // Blue
-end else begin
-r\_PIXEL  <= 30'h0000\_0000 ; // Black
-end
-end
-end
-else begin
-r\_ENABLE <= 1'b0;
-r\_VSYNC        <= 1'b0;
-r\_HSYNC        <= 1'b0;
-r\_PIXEL        <= 30'b0;
-end
-end
-end
-
-//Maquina de estados
-always @(posedge clk or posedge rst) begin
-if(rst == 1'b1) begin
-VCOUNT    <=    VTOTAL;
-HCOUNT    <=    HTOTAL;
-end else begin 
-if(start == 1'b1) begin
-if(HCOUNT==HTOTAL) begin
-HCOUNT <= 12'd1;
-if(VCOUNT==VTOTAL) begin
-VCOUNT <= 12'd1;
-end else begin
-VCOUNT <= VCOUNT + 1'b1;
-end
-end else begin
-HCOUNT <= HCOUNT +1'b1;
-end
-end
-end
-end
-
-
-//Output
-assign ENABLE   =   r\_ENABLE;
-assign VSYNC    =   r\_VSYNC;
-assign HSYNC    =   r\_HSYNC;
-assign PIXEL    =   (r\_ENABLE == 1'b1) ? r\_PIXEL : 48'b0 ;
-assign CLK      = clk;
-endmodule
+%\subsection{Código em Verilog do bloco gerador de uma barra a cores}
+%`timescale 1ns / 1ps
+%
+%//////////////////////////////////////////////////////////////////////////////////
+%
+%// Company: INESC-TEC/FEUP
+%
+%// Author : Marisa Oliveira
+%
+%// 
+%
+%// Create Date: 03/15/2017 11:12:37 AM
+%
+%// Design Name: 
+%
+%// Module Name: imageGenerator
+%
+%// Project Name: 
+%
+%// Target Devices: 
+%
+%// Tool Versions: 
+%
+%// Description: 
+%
+%// 
+%
+%// Dependencies: 
+%
+%// 
+%
+%// Revision:
+%
+%// Revision 0.01 - File Created
+%
+%// Additional Comments:
+%
+%// 
+%
+%//////////////////////////////////////////////////////////////////////////////////
+%
+%module imageGenerator(
+%
+%\quad input rst,
+%	
+%\quad input start,
+%	
+%\quad input clk,
+%	
+%\quad output ENABLE,
+%	
+%\quad output VSYNC,
+%	
+%\quad output HSYNC,
+%	
+%\quad output [29:0] PIXEL,
+%	
+%\quad output CLK
+%	
+%);
+%
+%\quad //Atributos da imagem a ser produzida pelo bloco
+%
+%\quad parameter    HSW = 12'h02C;    //nro de ciclos de relogio que dura o HSYNC
+%
+%\quad parameter    HBP = 12'h02C;    //nro de px em branco antes da imagem (na horizontal)
+%
+%\quad parameter    HFP = 12'h094;    //nro de px em branco depois da imgem (na horizontal)
+%
+%\quad parameter    HRES = 12'h780;    //nro de px na horizontal = 1920px
+%
+%\quad parameter    VSW = 12'h005;    //nro de linhas horizontais que o VSYNC dura
+%
+%\quad parameter    VBP = 12'h024;    //nro de linhas horizontais antes da imagem
+%
+%\quad parameter    VFP = 12'h004;    //nro de linhas horizontais depois da imagem
+%
+%\quad parameter    VRES = 12'h438;    //nro de px na vertical = 1080  
+%
+%//Portas do modulo 
+%
+%//input	rst;
+%//input	clk;
+%//input 	start;
+%
+%//output	ENABLE;
+%//output	VSYNC;
+%//output	HSYNC;
+%//output	[29;0] PIXEL;
+%//Registos internos
+%
+%reg        r\_ENABLE;
+%reg        r\_VSYNC;
+%reg        r\_HSYNC;
+%reg        [29:0] r\_PIXEL;
+%
+%reg[11:0]    VCOUNT;
+%reg[11:0]    HCOUNT;  
+%initial
+%begin
+%r\_ENABLE <= 1'b0;
+%r\_VSYNC <= 1'b0;
+%r\_HSYNC <= 1'b0;
+%r\_PIXEL <= 30'b0;
+%VCOUNT <= 12'b0;
+%HCOUNT <= 12'b0;
+%end
+%//Corpo RTL
+%
+%parameter    HTOTAL = HSW + HBP + HRES + HFP;
+%parameter    VTOTAL = VSW + VBP + VRES + VBP;
+%
+%always @(posedge clk or posedge rst) begin
+%
+%if(rst == 1'b1) begin
+%r\_ENABLE    <= 1'b0;
+%r\_VSYNC        <= 1'b0;
+%r\_HSYNC        <= 1'b0;
+%r\_PIXEL        <= 30'b0;
+%end else begin
+%
+%if(start == 1'b1) begin
+%//gerar o pulso VSYNC
+%if(VCOUNT == VSW \&\& HCOUNT == HTOTAL) begin
+%//desligar o sinal de VSYNC
+%r\_VSYNC    <=    1'b0;    
+%end else if(VCOUNT == VTOTAL \&\& HCOUNT == HTOTAL) begin
+%//ligar o VSYNC
+%r\_VSYNC    <=    1'b1;
+%end
+%
+%//gerar o pulso HSYNC
+%if(HCOUNT == HSW) begin 
+%//desligar o sinal de HSYNC
+%r\_HSYNC    <= 1'b0;
+%end else if(HCOUNT == HTOTAL) begin
+%//ligar o sinal de HSYNC
+%r\_HSYNC <= 1'b1;
+%end
+%
+%//gerar os dados PX
+%if( (VCOUNT > VSW + VBP) \&\& (VCOUNT < VSW + VBP + VRES + 1'b1) ) begin
+%if( (HCOUNT > HSW + HBP - 1'b1) \&\& (HCOUNT < HSW + HBP + HRES + 1'b1) ) begin
+%//ativar o enable
+%r\_ENABLE <= 1'b1;
+%end else begin
+%//desativar o enable
+%r\_ENABLE <= 1'b0;
+%end
+%if ( HCOUNT < HSW + HBP + {3'b0,HRES[11:3]} ) begin
+%r\_PIXEL  <= 30'h3FFF\_FFFF ; // White
+%end else if ( HCOUNT < HSW + HBP + {2'b0,HRES[11:2]} ) begin
+%r\_PIXEL  <= 30'h3FFF\_0000 ; // Yellow
+%end else if ( HCOUNT < HSW + HBP + {2'b0,HRES[11:2]} + {3'b0,HRES[11:3]} ) begin
+%r\_PIXEL  <= 30'h000F\_FFFF ; // Cyan
+%end else if (HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} ) begin
+%r\_PIXEL  <= 30'h000F\_FC00 ; // Green
+%end else if ( HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} + {3'b0,HRES[11:3]} ) begin
+%r\_PIXEL  <= 30'h3FF0\_03FF ; // Magenta
+%end else if (HCOUNT <HSW + HBP + {1'b0,HRES[11:1]} + {2'b0,HRES[11:2]} ) begin
+%r\_PIXEL  <= 30'h3FF0\_0000 ; // Red
+%end else if (HCOUNT < HSW + HBP + {1'b0,HRES[11:1]} + {2'b0,HRES[11:2]} + {3'b0,HRES[11:3]} ) begin
+%r\_PIXEL  <= 30'h0000\_03FF ; // Blue
+%end else begin
+%r\_PIXEL  <= 30'h0000\_0000 ; // Black
+%end
+%end
+%end
+%else begin
+%r\_ENABLE <= 1'b0;
+%r\_VSYNC        <= 1'b0;
+%r\_HSYNC        <= 1'b0;
+%r\_PIXEL        <= 30'b0;
+%end
+%end
+%end
+%
+%//Maquina de estados
+%always @(posedge clk or posedge rst) begin
+%if(rst == 1'b1) begin
+%VCOUNT    <=    VTOTAL;
+%HCOUNT    <=    HTOTAL;
+%end else begin 
+%if(start == 1'b1) begin
+%if(HCOUNT==HTOTAL) begin
+%HCOUNT <= 12'd1;
+%if(VCOUNT==VTOTAL) begin
+%VCOUNT <= 12'd1;
+%end else begin
+%VCOUNT <= VCOUNT + 1'b1;
+%end
+%end else begin
+%HCOUNT <= HCOUNT +1'b1;
+%end
+%end
+%end
+%end
+%
+%
+%//Output
+%assign ENABLE   =   r\_ENABLE;
+%assign VSYNC    =   r\_VSYNC;
+%assign HSYNC    =   r\_HSYNC;
+%assign PIXEL    =   (r\_ENABLE == 1'b1) ? r\_PIXEL : 48'b0 ;
+%assign CLK      = clk;
+%endmodule
 
 \subsection{Restrições Físicas} \label{ap2:physical_cnstrs}
 

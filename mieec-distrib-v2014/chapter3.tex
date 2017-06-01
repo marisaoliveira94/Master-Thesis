@@ -54,7 +54,7 @@ Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIau
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
-		\textbf{PIN}                                                                           & \textbf{FPGA -\textgreater FMC (RX)}                                                 & \textbf{FMC -> FPGA (TX)}                                                 & \textbf{FPGA->HDMI\_TX}                                                           \\ \hline
+		\textbf{PIN}                                                                           & \textbf{FPGA -\textgreater FMC (RX)}                                                 &\textbf{FMC -> FPGA (TX)}& \textbf{FPGA->HDMI\_TX} \\ \hline
 		CLK0\_M2C\_P                                                                           & RX\#0\_LLC                                                                           & TX\#0\_DCLK                                                                          & \begin{tabular}[c]{@{}c@{}}Sinal de relógio dos\\ pixeis\end{tabular}                        \\ \hline
 		LA00\_P\_CC                                                                            & RX\#0\_VSYNC                                                                         & TX\#0\_VSYNC                                                                         & Sincronização vertical                                                                       \\ \hline
 		LA01\_P\_CC                                                                            & RX\#0\_HSYNC                                                                         & TX\#0\_HSYNC                                                                         & Sincronização horizontal                                                                     \\ \hline
@@ -114,7 +114,7 @@ Explicar como configurar os switches para obter o que queremos
 
 Neste sub-capitulo passam a ser descritas as arquiteturas desenvolvidas e implementadas na FPGA referentes à comunicação entre as placas HDMI.  Por outras palavras, é feita uma aplicação daquilo que foi explicado sobre as placas HDMI a serem utilizadas até agora em arquiteturas implementadas e testadas em FPGA.
 
-\subsubsection{Transmissão de uma imagem gerada na FPGA}
+\subsubsection{Transmissão de uma imagem gerada na FPGA} \label{subsub:planA}
 
 Numa fase inicil do projeto, optou-se por simplificar a transmissão e para tal utilizou-se apenas a placa transmissora HDMI configurada por defeito. Contrui-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utlizou-se essa imagem para ser transmitida pelos conectore FMC.
 
@@ -223,7 +223,8 @@ Para além do desenvolvimento do código em Verilog é necessário que as portas
 	%\begin{tabular}
 		\hline
 		\centering
-		\textbf{I/O} & \textbf{Sinal} & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{Nome na placa HDMI} & \textbf{PIN da placa HDMI} \\ \hline \endhead
+%		\textbf{I/O} & \textbf{Sinal} & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{Nome na placa HDMI} & \textbf{PIN da placa HDMI} \\ \hline \endhead
+		\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
 		O            & clk\_px        & E34                  & 35                     & TX\#O\_DCLK               & CLK0\_M2C\_P         \\ \hline
 		O            & enable         & K35                  & 34                     & TX\#0\_DE                 & LA02\_P              \\ \hline
 		O            & vsync          & L31                  & 34                     & TX\#0\_VSYNC              & LA00\_P\_CC          \\ \hline
@@ -272,18 +273,28 @@ O ficheiro com estas restrições fisicas gerado após a atribuição das mesmas
 Para além destas restrições fisicas geradas, são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas no sub-capitulo \ref{ap2:timing_cnstrs} do anexo \ref{ap2:codigo}. As retrições temporais existentes definem que nas portas de entrada do sinal de relógio difernecial é mandatório haver um sinal com uma frequência de 200 MHz (periodo de 5ns). Isto porque este sinal de relógio é um sinal primário e como tal é importante que a ferramenta de sintese saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
 
 Após a definição de todas as restrições e escrita do cófigo em verilo, a arquitetura desenvolvida foi devidamente implementada na FPGA e testada obtendo-se o previsto.
-\subsubsection{Transmissão de imagem entre dispositivos HDMI}
+\subsubsection{Transmissão de imagem entre dispositivos HDMI} \label{subsub:planB}
 
-Na arquitetura desenvolvida que é apresentada neste sub-capitulo são utilizadas as placas HDMI recetora e transmissora ambas configuradas por defeito e procede-se à transmissão de uma imagem entre dispositivos HDMI. Foi desenvolvida uma arquitetura que recebe à cadência do sinal HDMI (neste caso em especifico como é uma imagem \textit{FULL HD} é uma frequência de 148,5 MHz)
+Na arquitetura desenvolvida que é apresentada neste sub-capitulo são utilizadas as placas HDMI recetora e transmissora ambas configuradas por defeito e procede-se à transmissão de uma imagem entre dispositivos HDMI. Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em especifico como é uma imagem \textit{FULL HD} é uma frequência de 148,5 MHz) os o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A imagem \ref{fig:planb1} da página \pageref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{planB1}
-		\caption{}
+		\caption{Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI}
 		\label{fig:planb1}
 	\end{center}
 \end{figure}
+%--> ENTRADA E SAIDA
+É possivel visualizar que na entrada desta arquitetura, tal como já acontecia na anterior, existem os sinais provenientes da placa HDMI recetora, e na sua saída os sinais que são enviados para a placa HDMI transmisora. Também à semelhança da arquitetura descrita em \ref{subsub:planA} existem mais 4 sinais provenientes do exterior: o sinal de relógio diferencia de 200 MHz constituido pelo par positivo \textit{clock\_p} e pelo par negativo \textit{clock\_n}, e ainda o sinal \textit{start} que define o incio da transmissão da barra de cores em vez dos sinais provebientes da fonte HDMI e, por fim, o sinal de \textit{reset} que permite restabelecer os dados originais do sistema caso se pretenda. Estas dois ultimos sinais são definidos pelo utilizador.
+
+%--> FUNCIONAMENTO DA MESMA
+Esta arquitetura 
+%
+%--> CONSTRAINTS
+%
+%--> RESULTADOS
+
 
 
 \begin{longtable}[]

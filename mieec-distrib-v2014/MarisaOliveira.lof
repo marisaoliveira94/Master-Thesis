@@ -1,0 +1,33 @@
+\select@language {portuges}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite {R008}\relax }}{8}{figure.caption.8}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite {R009}\relax }}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Amostragem dos dados provenientes da FPGA no recetor, retirada de \cite {R009}\relax }}{11}{figure.caption.11}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces TB-FMCH-HDMI2 RX, retirada de \cite {R009}\relax }}{11}{figure.caption.12}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite {R009}\relax }}{12}{figure.caption.13}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Amostragem dos dados provenientes do FMC no recetor, retirada de \cite {R009}\relax }}{13}{figure.caption.15}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces TB-FMCH-HDMI2 TX, retirada de \cite {R009}\relax }}{13}{figure.caption.16}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o DDC normal, retirada de \cite {R009}\relax }}{14}{figure.caption.17}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o DDC \IeC {\textquotedblleft }\textit {through}\IeC {\textquotedblright }, retirada de \cite {R009}\relax }}{15}{figure.caption.18}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Arquitetura simples de um ser/des, retirada de \cite {R012}\relax }}{16}{figure.caption.19}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Arquitetura de PISO/SIPO, retirada de \cite {R012}\relax }}{18}{figure.caption.20}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Identifica\IeC {\c c}\IeC {\~a}o dos transcetores GTX na FPGA VC7203 Virtex-7, retirada de \cite {R008}\relax }}{20}{figure.caption.21}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Arquitetura geral dos transcetores GTX, retirada de \cite {R010}\relax }}{21}{figure.caption.22}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Diagrama de blocos de um transmissor GTX, retirada de \cite {R011}\relax }}{21}{figure.caption.23}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Diagrama de blocos de um recetor GTX, retirada de \cite {R011}\relax }}{25}{figure.caption.26}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Equalizador em modo LPM, retirada de \cite {R011}\relax }}{26}{figure.caption.27}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Equalizador em modo DFE, retirada de \cite {R011}\relax }}{27}{figure.caption.28}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Detalhes do circuito CDR (\textit {Clock data recovery}), retirada de \cite {R011}\relax }}{28}{figure.caption.29}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Mecanismo de obten\IeC {\c c}\IeC {\~a}o da \IeC {\textquotedblleft }v\IeC {\'\i }rgula\IeC {\textquotedblright }, retirado de \cite {R011}\relax }}{29}{figure.caption.30}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Mecanismo de obten\IeC {\c c}\IeC {\~a}o da \IeC {\textquotedblleft }v\IeC {\'\i }rgula\IeC {\textquotedblright } quando ALIGN\_COMMA\_DOUBLE=1, retirado de \cite {R011}\relax }}{30}{figure.caption.31}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{38}{figure.caption.36}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Exemplo de imagem gerada pelo modulo desenvolvido\relax }}{40}{figure.caption.37}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{41}{figure.caption.38}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{43}{figure.caption.39}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{46}{figure.caption.40}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

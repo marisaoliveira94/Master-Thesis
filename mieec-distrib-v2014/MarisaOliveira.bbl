@@ -1,0 +1,54 @@
+\begin{thebibliography}{10}
+
+\bibitem{R008}
+Xilinx and Inc, ``{VC7203 Virtex-7 FPGA GTX Transceiver Characterization Board
+  User Guide (UG957)},'' 2014.
+
+\bibitem{R009}
+Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
+\newblock 2012.
+
+\bibitem{R012}
+D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
+
+\bibitem{R010}
+Xilinx and Inc, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for
+  High-Speed Serial I/O Connectivity, White Paper},'' 2013.
+
+\bibitem{R011}
+Xilinx and Inc, ``{7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)},''
+
+\bibitem{R016}
+{Analog Devices}, ``{ADV7612 Reference Manual},''
+
+\bibitem{R002}
+{Wikipedia Contributors}, ``{HDMI},'' 2016.
+
+\bibitem{R007}
+S.~Koenig, D.~Lopez-Diaz, J.~Antes, F.~Boes, R.~Henneberger, A.~Leuther,
+  A.~Tessmann, R.~Schmogrow, D.~Hillerkuss, R.~Palmer, T.~Zwick, C.~Koos,
+  W.~Freude, O.~Ambacher, J.~Leuthold, and I.~Kallfass, ``{Wireless sub-THz
+  communication system with high data rate enabled by RF photonics and active
+  MMIC technology},'' {\em 2014 IEEE Photonics Conference, IPC 2014}, vol.~7,
+  no.~December 2013, pp.~414--415, 2014.
+
+\bibitem{R005}
+J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
+  communications},'' {\em Journal of Applied Physics}, vol.~107, no.~11, 2010.
+
+\bibitem{R004}
+W.~contributors, ``audio and video interfaces and connectors,'' 2016.
+
+\bibitem{R026}
+Xilinx, ``{Platform Flash In-System},'' {\em Memory}, vol.~123, pp.~1--46,
+  2006.
+
+\bibitem{R014}
+Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio support},''
+  pp.~1--59.
+
+\bibitem{R027}
+P.~Semiconductors and B.~I. Timing, ``{I 2 S bus specification I 2 S bus
+  specification},'' no.~February 1986, pp.~1--7, 1996.
+
+\end{thebibliography}

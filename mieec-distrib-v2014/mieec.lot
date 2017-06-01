@@ -1,20 +1,10 @@
 \select@language {portuges}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o e localiza\IeC {\c c}\IeC {\~a}o dos pinos de TB-FMCH-HDMI2 configurada por \textit {default}\relax }}{2}{table.caption.4}
+\contentsline {table}{\numberline {1.2}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o e localiza\IeC {\c c}\IeC {\~a}o dos pinos de TB-FMCH-HDMI2 configurada para 1 canal com suporte de audio\relax }}{3}{table.caption.5}
+\contentsline {table}{\numberline {1.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de entrada e sa\IeC {\'\i }da da arquitetura de transmis\IeC {\~a}o de uma barra de cores para a placa HDMI transmissora\relax }}{11}{table.1.3}
+\contentsline {table}{\numberline {1.4}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de entrada e sa\IeC {\'\i }da da arquitura de transmiss\IeC {\~a}o de uma imagem RGB de 10 bits entre as placas HDMI transmissora e recetora\relax }}{14}{table.1.4}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX, adaptada de \cite {R009}\relax }}{10}{table.caption.10}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX, adaptada de \cite {R009}\relax }}{12}{table.caption.14}
-\contentsline {table}{\numberline {2.3}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o do tamanho dos dados de TXDATA, adaptada de \cite {R011}\relax }}{22}{table.caption.24}
-\contentsline {table}{\numberline {2.4}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o da frequ\IeC {\^e}ncia de TXUSRCLK2, adaptada de \cite {R011}\relax }}{23}{table.caption.25}
-\contentsline {table}{\numberline {2.5}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o do tamanho dos dados de RXDATA, adaptada de \cite {R011}\relax }}{32}{table.caption.32}
-\contentsline {table}{\numberline {2.6}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o da frequ\IeC {\^e}ncia de TXUSRCLK2, adaptada de \cite {R011}\relax }}{33}{table.caption.33}
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o e localiza\IeC {\c c}\IeC {\~a}o dos pinos de TB-FMCH-HDMI2 configurada por \textit {default}\relax }}{36}{table.caption.34}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o e localiza\IeC {\c c}\IeC {\~a}o dos pinos de TB-FMCH-HDMI2 configurada para 1 canal com suporte de audio\relax }}{37}{table.caption.35}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de entrada e sa\IeC {\'\i }da da arquitetura de transmis\IeC {\~a}o de uma barra de cores para a placa HDMI transmissora\relax }}{45}{table.3.3}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de entrada e sa\IeC {\'\i }da da arquitura de transmiss\IeC {\~a}o de uma imagem RGB de 10 bits entre as placas HDMI transmissora e recetora\relax }}{48}{table.3.4}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em TB-FMCH-HDMI2 configurado por \textit {default}\relax }}{54}{table.A.1}
-\contentsline {table}{\numberline {A.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em TB-FMCH-HDMI2 com a configura\IeC {\c c}\IeC {\~a}o de um canal e suporte de audio\relax }}{55}{table.A.2}
+\contentsline {table}{\numberline {A.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em TB-FMCH-HDMI2 configurado por \textit {default}\relax }}{16}{table.A.1}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em TB-FMCH-HDMI2 com a configura\IeC {\c c}\IeC {\~a}o de um canal e suporte de audio\relax }}{17}{table.A.2}
 \addvspace {10\p@ }
