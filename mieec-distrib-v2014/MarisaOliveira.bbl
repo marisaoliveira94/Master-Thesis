@@ -51,4 +51,8 @@ Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio support},''
 P.~Semiconductors and B.~I. Timing, ``{I 2 S bus specification I 2 S bus
   specification},'' no.~February 1986, pp.~1--7, 1996.
 
+\bibitem{R024}
+C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification
+  Techniques Using SystemVerilog},'' {\em Snug-2008}, no.~Cdc, pp.~1--56, 2008.
+
 \end{thebibliography}

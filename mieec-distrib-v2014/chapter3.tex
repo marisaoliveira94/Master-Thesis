@@ -2,7 +2,7 @@
 
 Este capítulo descreve o trabalho realizado para cumprir a primeira parte do projeto: obter uma conexão HDMI entre recetor e transmissor. São descritas as várias configurações das placas HDMI disponiveis e ainda as arquiteturas desenvolvidas e implementadas para cumprir esta parte do projeto. 
 
-\section{\textit{Hardware} utilizado}
+\section{\textit{Hardware} utilizado} \label{sec:hardware}
 
 Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para receber os dados provenientes do cabo HDMI e fazer a sua selecção são utilizadas duas placas HDMI (TB-FMCH-HDMI2 RX E TB-FMCH-HDMI2 TX) que, através das suas entradas e saída FMC de alta velocidade, conseguem enviar para a FPGA os sinais de imagem e som. Nas imagens \ref{fig:rx} e \ref{fig:tx} é possivel visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituidas por conectores HDMI, de seguida o sinal é enviado para um recetor ou transmissor HDMI, ADV7612 no caso do recetor e ADV7511 no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FGPA embebida na placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de audio e video.
 
@@ -46,7 +46,7 @@ Apesar de ser um configuração simples, uma vez que apenas são transmitidos si
 
 Para além da configuração descrita anteriormente em \ref{subsubsec:HDMIconfigdefault} que apenas suporta a transmissão de imagem, existe ainda uma configuração capaz de suportar não só a transmissão de imagem mas também de som. A configuração que é escrita na PROM para programar a FPGA embebida controla o recetor ADV7612 de maneira a conseguir transmitir imagens no formato YCbCr ou RGB com 12 bits e também fazer a transmissão do audio em formato $I^{2}$S.
 
-Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB é nesse formato que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse formato que chega ao seu destino. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de audio mas também sinais de relógio necessários à sua transmissão. A tabela x passa a descrever com mais detalhe os sinais transmitidos para esta configuração da FPGA.
+Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB é nesse formato que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse formato que chega ao seu destino. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de audio mas também sinais de relógio necessários à sua transmissão.
 
 Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas que inclui mais detalhes relativamente aos pinos usados e ao seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde é são apresentados todos os detalhes dos conectores FMC das placas.
 
@@ -102,6 +102,7 @@ Na placa recetora HDMI, que envia os dados para a FPGA Virtex-7, é também envi
 Esta configuração das FPGAs embebidas nas placas é a configuração mais utilizada ao longo do projeto, uma vez que para além de ser versátil quanto ao formato das imagens transmitidas, é também capaz de suportar audio. Em contrapartida, apenas suporta um canal (ao contrário da anterior), mas tal não é um problema pois apenas se pretende obter uma transmissão num único canal entre dispositivo de fonte HDMI e dispositivo final HDMI. 
 
 
+--> FALTA FALAR DOS BITS DE INFORMAÇÃO DO ESTADO DO VIDEO TRANSMITIDOS
 \subsubsection{2 canais melhorado} \label{subsubsec:HDMIconfigMelhorado}
 
 --> Dizer que esta configuração faz tal tal e tal, mas que não será abordad uma vez que nao foi utilizada
@@ -110,11 +111,11 @@ Esta configuração das FPGAs embebidas nas placas é a configuração mais util
 
 Explicar como configurar os switches para obter o que queremos
 
-\subsection{Arquiteturas Desenvolvidas} \label{subsec:HDMIarquiteturas}
+\section{Arquiteturas Desenvolvidas} \label{sec:HDMIarquiteturas}
 
-Neste sub-capitulo passam a ser descritas as arquiteturas desenvolvidas e implementadas na FPGA referentes à comunicação entre as placas HDMI.  Por outras palavras, é feita uma aplicação daquilo que foi explicado sobre as placas HDMI a serem utilizadas até agora em arquiteturas implementadas e testadas em FPGA.
+Nesta secção passam a ser descritas as arquiteturas desenvolvidas e implementadas na FPGA referentes à comunicação entre as placas HDMI.  Por outras palavras, é feita uma aplicação daquilo que foi explicado sobre as placas HDMI a serem utilizadas até agora em arquiteturas implementadas e testadas em FPGA.
 
-\subsubsection{Transmissão de uma imagem gerada na FPGA} \label{subsub:planA}
+\subsection{Transmissão de uma imagem gerada na FPGA} \label{subsub:planA}
 
 Numa fase inicil do projeto, optou-se por simplificar a transmissão e para tal utilizou-se apenas a placa transmissora HDMI configurada por defeito. Contrui-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utlizou-se essa imagem para ser transmitida pelos conectore FMC.
 
@@ -143,17 +144,6 @@ Para que se entenda mais facilmente como e quando se transmitem os sinais de con
 \end{figure}
 
 Para gerar uma imagem em \textit{FULL HD} cuja resolução é 1920x1080 pixeis e o sinal de relógio deve ter uma frequência de 148.5 MHz, foram o utilizados os seguintes valores para os parâmetro previamente descritos: HRES = 1920, HSW = 44, HBP = 44, HFP = 148,  VRES = 1080, VSW = 5, VBP = 36 e VFP = 4.
-%
-%\begin{itemize}
-%	\item HRES = 1920
-%	\item HSW = 44
-%	\item HBP = 44
-%	\item HFP = 148
-%	\item VRES = 1080
-%	\item VSW = 5
-%	\item VBP = 36
-%	\item VFP = 4
-%\end{itemize}
 
 A figura \ref{fig:colorBar_fsm} na página \pageref{fig:colorBar_fsm} ilustra a maquina de estados desenvolvida para implementar a geração de uma barra a cores na FPGA. 
 
@@ -216,66 +206,39 @@ Nas entradas do bloco estão ligados 4 sinais sendo que dois deles correspondem 
 
 Relativamente às saída do módulo é possivel visualizar na imagem \ref{fig:planA} que estas se encontram diretamente ligadas à placa transmissora HDMI através dos conectores FMC. Estes sinais são um barramento de 30 bits que corresponde ao pixel (\textit{pixel}), o sinal de sincronização horizontal (\textit{hsync}), o sinal de sincronização de vertical (\textit{vsync}) e ainda o sinal de dados ativos (\textit{enable}).
 
-Para além do desenvolvimento do código em Verilog é necessário que as portas do modulo de topo, no caso desta arquitetura do modulo "planoA\_top.v", estejam atribuidas a portas físicas da FPGA. Para tal é necessário definir onde estão as localizações das portas na FPGA (LOC) e o seu banco e criar um ficheiro de gere essas mesmas restrições fisicas. A tabela \ref{table:locPlanA} na página \pageref{table:locPlanA} indica quais as localizações fisicas de cada porta existente no modulo de topo e no caso das saídas são também apresentados os nomes dos conectores na placa HDMI transmissora aos quais estas devem estar ligadas.
+Para além do desenvolvimento do código em Verilog é necessário que as portas do modulo de topo, no caso desta arquitetura do modulo "planoA\_top.v", estejam atribuidas a portas físicas da FPGA. Para tal é necessário definir onde estão as localizações das portas na FPGA (LOC) e criar um ficheiro de defina essas mesmas restrições fisicas. A tabela \ref{table:LOCplanA_simples} na página \pageref{table:LOCplanA_simples} indica quais as localizações fisicas de cada porta existente no modulo de topo. No caso das portas que se conectam com a placa HDMI transmissora, estão representadas de forma abreviada, no entanto na tabela \ref{table:locPlanAdetail} do anexo \ref{ap3:LOCs} é possivel encontrar todas as portas com mais detalhes e ainda com informação sobre a ligação à placa HDMI transmissora.
 
 \begin{longtable}[h!]
-	{|c|c|c|c|c|c|}
-	%\begin{tabular}
-		\hline
-		\centering
-%		\textbf{I/O} & \textbf{Sinal} & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{Nome na placa HDMI} & \textbf{PIN da placa HDMI} \\ \hline \endhead
-		\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
-		O            & clk\_px        & E34                  & 35                     & TX\#O\_DCLK               & CLK0\_M2C\_P         \\ \hline
-		O            & enable         & K35                  & 34                     & TX\#0\_DE                 & LA02\_P              \\ \hline
-		O            & vsync          & L31                  & 34                     & TX\#0\_VSYNC              & LA00\_P\_CC          \\ \hline
-		O            & hsync          & M32                  & 34                     & TX\#0\_HSYNC              & LA01\_P\_CC          \\ \hline
-		O            & pixel{[}0{]}   & J32                  & 34                     & TX\#0\_D0                 & LA03\_P              \\ \hline
-		O            & pixel{[}1{]}   & K33                  & 34                     & TX\#0\_D1                 & LA04\_P              \\ \hline
-		O            & pixel{[}2{]}   & L34                  & 34                     & TX\#0\_D2                 & LA05\_P              \\ \hline
-		O            & pixel{[}3{]}   & M33                  & 34                     & TX\#0\_D3                 & LA06\_P              \\ \hline
-		O            & pixel{[}4{]}   & H34                  & 34                     & TX\#0\_D4                 & LA07\_P              \\ \hline
-		O            & pixel{[}5{]}   & K29                  & 34                     & TX\#0\_D5                 & LA08\_P              \\ \hline
-		O            & pixel{[}6{]}   & J30                  & 34                     & TX\#0\_D6                 & LA09\_P              \\ \hline
-		O            & pixel{[}7{]}   & L29                  & 34                     & TX\#0\_D7                 & LA10\_P              \\ \hline
-		O            & pixel{[}8{]}   & J31                  & 34                     & TX\#0\_D8                 & LA11\_P              \\ \hline
-		O            & pixel{[}9{]}   & M28                  & 34                     & TX\#0\_D9                 & LA12\_P              \\ \hline
-		O            & pixel{[}10{]}  & R28                  & 34                     & TX\#0\_D10                & LA13\_P              \\ \hline
-		O            & pixel{[}11{]}  & N28                  & 34                     & TX\#0\_D11                & LA14\_P              \\ \hline
-		O            & pixel{[}12{]}  & R30                  & 34                     & TX\#0\_D12                & LA15\_P              \\ \hline
-		O            & pixel{[}13{]}  & U31                  & 34                     & TX\#0\_D13                & LA16\_P              \\ \hline
-		O            & pixel{[}14{]}  & C35                  & 35                     & TX\#0\_D14                & LA17\_P\_CC          \\ \hline
-		O            & pixel{[}15{]}  & D35                  & 35                     & TX\#0\_D15                & LA18\_P\_CC          \\ \hline
-		O            & pixel{[}16{]}  & B36                  & 35                     & TX\#0\_D16                & LA19\_P              \\ \hline
-		O            & pixel{[}17{]}  & B34                  & 35                     & TX\#0\_D17                & LA20\_P              \\ \hline
-		O            & pixel{[}18{]}  & B39                  & 35                     & TX\#0\_D18                & LA21\_P              \\ \hline
-		O            & pixel{[}19{]}  & A35                  & 35                     & TX\#0\_D19                & LA22\_P              \\ \hline
-		O            & pixel{[}20{]}  & C38                  & 35                     & TX\#0\_D20                & LA23\_P              \\ \hline
-		O            & pixel{[}21{]}  & B37                  & 35                     & TX\#0\_D21                & LA24\_P              \\ \hline
-		O            & pixel{[}22{]}  & E32                  & 35                     & TX\#0\_D22                & LA25\_P              \\ \hline
-		O            & pixel{[}23{]}  & B32                  & 35                     & TX\#0\_D23                & LA26\_P              \\ \hline
-		O            & pixel{[}24{]}  & E33                  & 35                     & TX\#0\_D24                & LA27\_P              \\ \hline
-		O            & pixel{[}25{]}  & C33                  & 35                     & TX\#0\_D25                & LA28\_P              \\ \hline
-		O            & pixel{[}26{]}  & G32                  & 35                     & TX\#0\_D26                & LA29\_P              \\ \hline
-		O            & pixel{[}27{]}  & F36                  & 35                     & TX\#0\_D27                & LA30\_P              \\ \hline
-		O            & pixel{[}28{]}  & F34                  & 35                     & TX\#0\_D28                & LA31\_P              \\ \hline
-		O            & pixel{[}29{]}  & H33                  & 35                     & TX\#0\_D29                & LA32\_P              \\ \hline
-		I            & clk\_p         & E19                  & 38                     & ---                       & ---                  \\ \hline
-		I            & clk\_n         & E18                  & 38                     & ---                       & ---                  \\ \hline
-		I            & reset          & N41                  & 19                     & ---                       & ---                  \\ \hline
-		I            & start          & E42                  & 19                     & ---                       & ---                  \\ \hline
+	{|c|c|c|c|}
+	\hline
+	\centering
+%	\begin{tabular}
+		\textbf{I/O} & \textbf{Sinal}        & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline  \endhead
+		I            & clk\_p                & E19                  & 38                     \\ \hline
+		I            & clk\_n                & E18                  & 38                     \\ \hline
+		I            & reset                 & N41                  & 19                     \\ \hline
+		I            & start                 & E42                  & 19                     \\ \hline
+		O            & cll\_px               & E34                  & 35                     \\ \hline
+		O            & enable                & K35                  & 34                     \\ \hline
+		O            & vsync                 & L31                  & 34                     \\ \hline
+		O            & hsync                 & M32                  & 34                     \\ \hline
+		O            & pixel{[}0{]}a{[}29{]} & (Ver anexo)          & 34 e 35                \\ \hline
 %	\end{tabular}
-	\caption{Localização das portas de entrada e saída da arquitetura de transmisão de uma barra de cores para a placa HDMI transmissora}
-	\label{table:locPlanA}
+	\caption{Localização das portas de entrada e saída da arquitetura}
+	\label{table:LOCplanA_simples}
 \end{longtable}
 
 O ficheiro com estas restrições fisicas gerado após a atribuição das mesmas é apresentado no sub-capitulo \ref{ap2:physical_cnstrs} do anexo \ref{ap2:codigo}. Para cada porta são atribuídas duas restrições: uma que indica a localização fisica na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que se tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
 
-Para além destas restrições fisicas geradas, são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas no sub-capitulo \ref{ap2:timing_cnstrs} do anexo \ref{ap2:codigo}. As retrições temporais existentes definem que nas portas de entrada do sinal de relógio difernecial é mandatório haver um sinal com uma frequência de 200 MHz (periodo de 5ns). Isto porque este sinal de relógio é um sinal primário e como tal é importante que a ferramenta de sintese saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
+Para além destas restrições fisicas geradas, são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas no sub-capitulo \ref{ap2:planA_timing_cnstrs} do anexo \ref{ap2:codigo}. As retrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial existe um sinal com uma frequência de 200 MHz (periodo de 5ns). Isto porque este sinal de relógio é um sinal primário e como tal é importante que a ferramenta de implementação saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
 
-Após a definição de todas as restrições e escrita do cófigo em verilo, a arquitetura desenvolvida foi devidamente implementada na FPGA e testada obtendo-se o previsto.
-\subsubsection{Transmissão de imagem entre dispositivos HDMI} \label{subsub:planB}
+Após a definição de todas as restrições e escrita do cófigo em verilg, a arquitetura desenvolvida foi devidamente implementada na FPGA e testada obtendo-se o previsto.
 
-Na arquitetura desenvolvida que é apresentada neste sub-capitulo são utilizadas as placas HDMI recetora e transmissora ambas configuradas por defeito e procede-se à transmissão de uma imagem entre dispositivos HDMI. Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em especifico como é uma imagem \textit{FULL HD} é uma frequência de 148,5 MHz) os o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A imagem \ref{fig:planb1} da página \pageref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
+\subsection{Transmissão de imagem entre dispositivos HDMI} \label{subsub:planB}
+
+Na arquitetura desenvolvida que é apresentada neste sub-capitulo são utilizadas as placas HDMI recetora e transmissora ambas configuradas por defeito e procede-se à transmissão de uma imagem entre dispositivos HDMI. O objetivo do desenvolvimento desta arquitetura consiste em obter uma ligação entre dois dispositivos ligados às placas HDMI de uma imagem RGB de 10 bits.
+
+Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em especifico como é uma imagem \textit{FULL HD} é uma frequência de 148,5 MHz) os o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A imagem \ref{fig:planb1} da página \pageref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -286,98 +249,118 @@ Na arquitetura desenvolvida que é apresentada neste sub-capitulo são utilizada
 	\end{center}
 \end{figure}
 %--> ENTRADA E SAIDA
-É possivel visualizar que na entrada desta arquitetura, tal como já acontecia na anterior, existem os sinais provenientes da placa HDMI recetora, e na sua saída os sinais que são enviados para a placa HDMI transmisora. Também à semelhança da arquitetura descrita em \ref{subsub:planA} existem mais 4 sinais provenientes do exterior: o sinal de relógio diferencia de 200 MHz constituido pelo par positivo \textit{clock\_p} e pelo par negativo \textit{clock\_n}, e ainda o sinal \textit{start} que define o incio da transmissão da barra de cores em vez dos sinais provebientes da fonte HDMI e, por fim, o sinal de \textit{reset} que permite restabelecer os dados originais do sistema caso se pretenda. Estas dois ultimos sinais são definidos pelo utilizador.
+
+É possivel visualizar que nesta arquitetura, tal como já acontecia na anterior, existem na sua saída os os sinais que são enviados para a placa HDMI transmisora e para além disso existem também os sinais provenientes da placa HDMI recetora. Também à semelhança da arquitetura descrita em \ref{subsub:planA} existem mais 4 sinais provenientes do exterior: o sinal de relógio diferencia de 200 MHz constituido pelo par positivo \textit{clock\_p} e pelo par negativo \textit{clock\_n}, e ainda o sinal \textit{start} que define o incio da transmissão da barra de cores em vez dos sinais provebientes da fonte HDMI e, por fim, o sinal de \textit{reset} que permite restabelecer os dados originais do sistema caso se pretenda.
 
 %--> FUNCIONAMENTO DA MESMA
-Esta arquitetura 
-%
-%--> CONSTRAINTS
-%
-%--> RESULTADOS
+Os sinais que são recebidos à entrada são lidos para registos sincronos com o sinal de relógio proveniente da entrada (da placa HDMI recetora). Quando o sinal definido pelo utilizador \textit{start} está ativo os sinais seleccionados pelo multiplexador visivel na figura \ref{fig:planb1} são os sinais provenientes do modulo desenvolvido anteriormente que gera uma barra de cores. Esse mesmo sinal de start está ligado à entrada do bloco gerador da barra de cores para que quando ativo gere a imagem. Quando o sinal \textit{start} está desativo então obtém-se uma ligação entre as placas HDMI recetora e transmissora pois os sinais seleccionados pelo multiplexador são o sinais provenientes da entrada do modulo. Sempre que o sinal de \textit{reset} é ativo então todos os dados são repostos aos originais, como por exemplo os registos voltam ao estado original e também o bloco que produz a barra de cores.
 
+A tabela \ref{table:LOCplanB_simples} na página \pageref{table:LOCplanB_simples} especifica as localizações fisicas da FPGA que foram atribuidas a cada porta do modulo desenvolvido e ainda o banco ao qual pertencem. As portas que fazem conexão com as placas HDMI transmissora e recetora são apresentadas nesta tabela de forma abreviada, no entanto na tabela \ref{table:LOCplanB_detail} do anexo \ref{ap3:LOCs} é possivel encontrar mais detalhamente as localizações dessas portas na FPGA bem como informação relativamente a esses sinais nas placas HDMI transmissora e recetora.
 
-
-\begin{longtable}[]
-	{|c|c|c|c|c|c|}
-%	\begin{tabular}
-		\hline
-		\centering
-		\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
-		I            & clk\_px\_in       & AJ32                 & 14                     & RX\#0\_LLC                                                              & CLK0\_M2C\_P                                                           \\ \hline
-		I            & enable\_in        & AN38                 & 15                     & RX\#0\_VSYNC                                                            & LA02\_P                                                                \\ \hline
-		I            & vsync\_in         & AU38                 & 15                     & RX\#0\_HSYNC                                                            & LA00\_P\_CC                                                            \\ \hline
-		I            & hsync\_in         & AU39                 & 15                     & RX\#0\_DE                                                               & LA01\_P\_CC                                                            \\ \hline
-		I            & pixel\_in{[}0{]}  & AM41                 & 15                     & RX\#0\_P0                                                               & LA03\_P                                                                \\ \hline
-		I            & pixel\_in{[}1{]}  & AR38                 & 15                     & RX\#0\_P1                                                               & LA04\_P                                                                \\ \hline
-		I            & pixel\_in{[}2{]}  & AN40                 & 15                     & RX\#0\_P2                                                               & LA05\_P                                                                \\ \hline
-		I            & pixel\_in{[}3{]}  & AR37                 & 15                     & RX\#0\_P3                                                               & LA06\_P                                                                \\ \hline
-		I            & pixel\_in{[}4{]}  & AM39                 & 15                     & RX\#0\_P4                                                               & LA07\_P                                                                \\ \hline
-		I            & pixel\_in{[}5{]}  & AP40                 & 15                     & RX\#0\_P5                                                               & LA08\_P                                                                \\ \hline
-		I            & pixel\_in{[}6{]}  & AP41                 & 15                     & RX\#0\_P6                                                               & LA09\_P                                                                \\ \hline
-		I            & pixel\_in{[}7{]}  & AT39                 & 15                     & RX\#0\_P7                                                               & LA10\_P                                                                \\ \hline
-		I            & pixel\_in{[}8{]}  & AR42                 & 15                     & RX\#0\_P8                                                               & LA11\_P                                                                \\ \hline
-		I            & pixel\_in{[}9{]}  & AW37                 & 15                     & RX\#0\_P9                                                               & LA12\_P                                                                \\ \hline
-		I            & pixel\_in{[}10{]} & BA37                 & 15                     & RX\#0\_P10                                                              & LA13\_P                                                                \\ \hline
-		I            & pixel\_in{[}11{]} & AW38                 & 15                     & RX\#0\_P11                                                              & LA14\_P                                                                \\ \hline
-		I            & pixel\_in{[}12{]} & BB38                 & 15                     & RX\#0\_P12                                                              & LA15\_P                                                                \\ \hline
-		I            & pixel\_in{[}13{]} & BA39                 & 15                     & RX\#0\_P13                                                              & LA16\_P                                                                \\ \hline
-		I            & pixel\_in{[}14{]} & AK34                 & 14                     & RX\#0\_P14                                                              & LA17\_P\_CC                                                            \\ \hline
-		I            & pixel\_in{[}15{]} & AJ33                 & 14                     & RX\#0\_P15                                                              & LA18\_P\_CC                                                            \\ \hline
-		I            & pixel\_in{[}16{]} & AM36                 & 14                     & RX\#0\_P16                                                              & LA19\_P                                                                \\ \hline
-		I            & pixel\_in{[}17{]} & AJ36                 & 14                     & RX\#0\_P17                                                              & LA20\_P                                                                \\ \hline
-		I            & pixel\_in{[}18{]} & AP36                 & 14                     & RX\#0\_P18                                                              & LA21\_P                                                                \\ \hline
-		I            & pixel\_in{[}19{]} & AK37                 & 14                     & RX\#0\_P19                                                              & LA22\_P                                                                \\ \hline
-		I            & pixel\_in{[}20{]} & AN35                 & 14                     & RX\#0\_P20                                                              & LA23\_P                                                                \\ \hline
-		I            & pixel\_in{[}21{]} & AL36                 & 14                     & RX\#0\_P21                                                              & LA24\_P                                                                \\ \hline
-		I            & pixel\_in{[}22{]} & AG33                 & 14                     & RX\#0\_P22                                                              & LA25\_P                                                                \\ \hline
-		I            & pixel\_in{[}23{]} & AK35                 & 14                     & RX\#0\_P23                                                              & LA26\_P                                                                \\ \hline
-		I            & pixel\_in{[}24{]} & AH31                 & 14                     & RX\#0\_P24                                                              & LA27\_P                                                                \\ \hline
-		I            & pixel\_in{[}25{]} & AH34                 & 14                     & RX\#0\_P25                                                              & LA28\_P                                                                \\ \hline
-		I            & pixel\_in{[}26{]} & AM34                 & 14                     & RX\#0\_P26                                                              & LA29\_P                                                                \\ \hline
-		I            & pixel\_in{[}27{]} & AM31                 & 14                     & RX\#0\_P27                                                              & LA30\_P                                                                \\ \hline
-		I            & pixel\_in{[}28{]} & AM33                 & 14                     & RX\#0\_P28                                                              & LA31\_P                                                                \\ \hline
-		I            & pixel\_in{[}29{]} & AL29                 & 14                     & RX\#0\_P29                                                              & LA32\_P                                                                \\ \hline
-		O            & clk\_px           & E34                  & 35                     & TX\#O\_DCLK                                                             & CLK0\_M2C\_P                                                           \\ \hline
-		O            & enable            & K35                  & 34                     & TX\#0\_DE                                                               & LA02\_P                                                                \\ \hline
-		O            & vsync             & L31                  & 34                     & TX\#0\_VSYNC                                                            & LA00\_P\_CC                                                            \\ \hline
-		O            & hsync             & M32                  & 34                     & TX\#0\_HSYNC                                                            & LA01\_P\_CC                                                            \\ \hline
-		O            & pixel{[}0{]}      & J32                  & 34                     & TX\#0\_D0                                                               & LA03\_P                                                                \\ \hline
-		O            & pixel{[}1{]}      & K33                  & 34                     & TX\#0\_D1                                                               & LA04\_P                                                                \\ \hline
-		O            & pixel{[}2{]}      & L34                  & 34                     & TX\#0\_D2                                                               & LA05\_P                                                                \\ \hline
-		O            & pixel{[}3{]}      & M33                  & 34                     & TX\#0\_D3                                                               & LA06\_P                                                                \\ \hline
-		O            & pixel{[}4{]}      & H34                  & 34                     & TX\#0\_D4                                                               & LA07\_P                                                                \\ \hline
-		O            & pixel{[}5{]}      & K29                  & 34                     & TX\#0\_D5                                                               & LA08\_P                                                                \\ \hline
-		O            & pixel{[}6{]}      & J30                  & 34                     & TX\#0\_D6                                                               & LA09\_P                                                                \\ \hline
-		O            & pixel{[}7{]}      & L29                  & 34                     & TX\#0\_D7                                                               & LA10\_P                                                                \\ \hline
-		O            & pixel{[}8{]}      & J31                  & 34                     & TX\#0\_D8                                                               & LA11\_P                                                                \\ \hline
-		O            & pixel{[}9{]}      & M28                  & 34                     & TX\#0\_D9                                                               & LA12\_P                                                                \\ \hline
-		O            & pixel{[}10{]}     & R28                  & 34                     & TX\#0\_D10                                                              & LA13\_P                                                                \\ \hline
-		O            & pixel{[}11{]}     & N28                  & 34                     & TX\#0\_D11                                                              & LA14\_P                                                                \\ \hline
-		O            & pixel{[}12{]}     & R30                  & 34                     & TX\#0\_D12                                                              & LA15\_P                                                                \\ \hline
-		O            & pixel{[}13{]}     & U31                  & 34                     & TX\#0\_D13                                                              & LA16\_P                                                                \\ \hline
-		O            & pixel{[}14{]}     & C35                  & 35                     & TX\#0\_D14                                                              & LA17\_P\_CC                                                            \\ \hline
-		O            & pixel{[}15{]}     & D35                  & 35                     & TX\#0\_D15                                                              & LA18\_P\_CC                                                            \\ \hline
-		O            & pixel{[}16{]}     & B36                  & 35                     & TX\#0\_D16                                                              & LA19\_P                                                                \\ \hline
-		O            & pixel{[}17{]}     & B34                  & 35                     & TX\#0\_D17                                                              & LA20\_P                                                                \\ \hline
-		O            & pixel{[}18{]}     & B39                  & 35                     & TX\#0\_D18                                                              & LA21\_P                                                                \\ \hline
-		O            & pixel{[}19{]}     & A35                  & 35                     & TX\#0\_D19                                                              & LA22\_P                                                                \\ \hline
-		O            & pixel{[}20{]}     & C38                  & 35                     & TX\#0\_D20                                                              & LA23\_P                                                                \\ \hline
-		O            & pixel{[}21{]}     & B37                  & 35                     & TX\#0\_D21                                                              & LA24\_P                                                                \\ \hline
-		O            & pixel{[}22{]}     & E32                  & 35                     & TX\#0\_D22                                                              & LA25\_P                                                                \\ \hline
-		O            & pixel{[}23{]}     & B32                  & 35                     & TX\#0\_D23                                                              & LA26\_P                                                                \\ \hline
-		O            & pixel{[}24{]}     & E33                  & 35                     & TX\#0\_D24                                                              & LA27\_P                                                                \\ \hline
-		O            & pixel{[}25{]}     & C33                  & 35                     & TX\#0\_D25                                                              & LA28\_P                                                                \\ \hline
-		O            & pixel{[}26{]}     & G32                  & 35                     & TX\#0\_D26                                                              & LA29\_P                                                                \\ \hline
-		O            & pixel{[}27{]}     & F36                  & 35                     & TX\#0\_D27                                                              & LA30\_P                                                                \\ \hline
-		O            & pixel{[}28{]}     & F34                  & 35                     & TX\#0\_D28                                                              & LA31\_P                                                                \\ \hline
-		O            & pixel{[}29{]}     & H33                  & 35                     & TX\#0\_D29                                                              & LA32\_P                                                                \\ \hline
-		I            & reset             & N41                  & 19                     & ---                                                                     & ---                                                                    \\ \hline
-		I            & start             & E42                  & 19                     & ---                                                                     & ---                                                                    \\ \hline
-		I            & clk\_p            & E19                  & 38                     & ---                                                                     & ---                                                                    \\ \hline
-		I            & clk\_n            & E18                  & 38                     & ---                                                                     & ---                                                                    \\ \hline
-%	\end{tabular}
-	\caption{Localização das portas de entrada e saída da arquitura de transmissão de uma imagem RGB de 10 bits entre as placas HDMI transmissora e recetora}
-	\label{table:locPlanB}
+\begin{longtable}[h!]
+	{|c|c|c|c|}
+	\hline
+	\centering
+		\textbf{I/O} & \textbf{Sinal}              & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline \endhead
+		I            & clk\_p                      & E19                  & 38                     \\ \hline
+		I            & clk\_n                      & E18                  & 38                     \\ \hline
+		I            & reset                       & N41                  & 19                     \\ \hline
+		I            & start                       & E42                  & 19                     \\ \hline
+		I            & clk\_px\_in                 & AJ32                 & 14                     \\ \hline
+		I            & enable\_in                  & AN38                 & 15                     \\ \hline
+		I            & vsync\_in                   & AU38                 & 15                     \\ \hline
+		I            & hsync\_in                   & AU39                 & 15                     \\ \hline
+		I            & pixel\_in{[}0{]} a {[}29{]} & (Ver anexo)          & 14 e 15                \\ \hline
+		O            & clock\_px                   & E34                  & 35                     \\ \hline
+		O            & enable                      & K35                  & 34                     \\ \hline
+		O            & vsync                       & L31                  & 34                     \\ \hline
+		O            & hsync                       & M32                  & 34                     \\ \hline
+		O            & pixel{[}0{]}a{[}29{]}       & (Ver anexo)            & 34 e 35                \\ \hline
+		\caption{Localização das entradas e saídas das portas da arquitetura}
+	\label{table:LOCplanB_simples}
 \end{longtable}
 
-\subsubsection{Transmissão de imagem e som entre dispositivos HDMI}
+%--> CONSTRAINTS %
+
+A atribuição destas mesmas localizações das portas gerou um ficheiro de restrições físicas que é apresentado na secção \ref{ap2:planB_physical_cnstrs} do anexo \ref{ap2:codigo}. Relativamente a estas retrições físicas, existem para cada porta do modulo duas restrições: uma que define a localização fisica e outra a norma da fisica, tal como já foi mencionado anteriormente. 
+
+Quanto às restrições temporais aplicadas ao sistema são idênticas às mesmas aplicadas na arquitetura desenvolvida anteriormente e estáo presentes em \ref{ap2:planB_timing_cnstrs} no anexo \ref{ap2:codigo}.
+%--> RESULTADOS
+
+Após sintese e implementação do código desenvolvido em verilog juntamente com as restrições aplicadas, a FPGA foi programada com esta arquitetura e foram obtidos os resultados esperados: obteve-se uma transmissão de imagem entre dois dispositivos HDMI. Foi utilizado um computador com saída HDMI como fonte de imagem conectado a placa HDMI RX, e desta maneira obteve-se no dispositivo HDMI de destino, que neste caso foi um monitor com entrada HDMI, conectado à placa HDMI transmissora a imagem transmitida.
+
+
+\subsection{Transmissão de imagem e som entre dispositivos HDMI}
+
+Após se obter uma ligação entre dois dispositivos HDMI de uma imagem, procedeu-se ao desenvolvimento de uma arquitetura capaz de trasmitir imagem e som. Para tal foi necessário reconfigurar as placas HDMI, tal como mencionado no capitulo X (CAPITULO ONDE VOU ESCREVER COMO SE CONFIGURA AS PLACAS), para a configuração que suporta apenas um canal mas que permite a transmissão de audio em formato $I^{2}$S. As características desta configuração são apresentadas na secção \ref{subsubsec:HDMIconfig+audio} na página \pageref{subsubsec:HDMIconfig+audio} deste documento, mas é de notar que as imagens poderão ter transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados no sub-capitulo XXX - ONDE VOU EXPLICAR COMO CONFIGURAR OS SWITCHES). Neste caso em especifico serão utilizados 12 bits por cor o que preferá um total de 36 bits por pixel.
+
+Na imagem \ref{fig:planC} na página \pageref{fig:planC} é ilustrado um diagrama de blocos da arquitetura desenvolvida para se realizar a transmissão de imagem e som entre dois dispositivos HDMI. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{planC}
+		\caption{Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI}
+		\label{fig:planC}
+	\end{center}
+\end{figure}
+
+%--> ENTRADA E SAIDA
+Através de uma breve observação do diagrama de blocos ilustrado é possivel concluir que existem mais portas tanto de entrada como de saída nesta arquitetura comparativamente às arquiteturas descritas previamente. Isto deve-se ao facto de agora haver a transmissão do som o que implica a transmissão de mais sinais. Assim sendo, na entrada encontram-se os sinais relativos às imagens à semelhança das arquiteturas anteriores: 36 bits de pixel, sinais de sincronização horizontal\textit{hsync} e vertical (\textit{vsync}) e ainda sinal que indica sinais de pixel ativos(\textit{enable}). Para além destes sinais provenientes da placa HDMI recetora, são recebidos os sinais referentes ao som: o sinal de relógio dos dados em série (\textit{sclk}), o sinal referente à seleccção do canal de audio esquerdo ou direto (\textit{lrclk}) e ainda os sinais que transportam os dados de som (de AP1 a AP4). Para além de dados de imagem e som há também um barramento de 2 bits que contém informação relativamente ao tipo de video que é transmitido (tal como já referido na secção \ref{subsubsec:HDMIconfig+audio}). Todos estes sinais que se encontram na entrada do modulo encontram-se também na saída pois é necessário enviar todos para a placa HDMI transmissora, no entanto o processo de transmissão dos mesmos passa a ser descrito.
+
+Para além destes sinais provenientes e que são enviados para as palcas HDMI existem ainda mais portas do bloco. Existe o tipico sinal de relógio diferencia de 200 MHz definido na porta com \textit{clock\_p} pelo sinal positivo e como \textit{clock\_n} pelo sinal negativo. Este sinal de relógio proveniente do oscilador da FPGA serve como fonte para poder ser reproduzido o sinal de 148.5 MHz (frequência de uma imagem \textit{FULL HD}) que irá produzir a barra de cores no modulo "\textit{coloBar\_generator}". As outras três portas ainda não mencionadas são três sinais definidos pelo utilizador através de interruptores e botões. O sinal de \textit{reset} serve para repor todos os dados originais do sistema caso o utilizador pretenda. O sinal \textit{POWER} é o sinal que define a transmissão dos dados provenientes da placa HDMI recetora ou então da barra de cores, e o sinal \textit{MUTE} define a transmissão ou não dos sinais de som.
+
+%% FUNCIONAMENTO DA MESMA
+
+Os sinais de entrada relativos à imagem, tal como nas arquiteturas anteriores, são lidos para registos sincronos com o sinal de relógio de imagem (que no caso desta demonstração será 148.5 MHz pois são transmitidas imagens em \textit{FULL HD}). Estes mesmo sinais são enviados para a placa HDMI transmissora caso o sinal \textit{POWER} esteja ativo. Este sinal é um sinal que quando está desativo em vez de enviar para as saídas do modulo os sinais recebidos da placa HDMI recetora, envia os dados provenientes do bloco que reproduz uma barra de cores.
+
+Relativamente aos dados referentes ao som, estes são também lidos para registos sincronos com o sinal de relógio proveniente da fonte HDMI uma vez que a frequência deste é superior à frequência dos sinais de som (EXPLICAR MELHOR AQUI OS VALORES). Uma vez que se está a lidar com dois dominios de relógio diferentes (de som e imagem), e tal como referido em \cite{R024}, é necessário utilizar pelo menos dois registos no mesmo dominio de relógio para que não seja captada meta-estabilidade (por causa das diferentes frequências).
+
+O sinal de audio enviado para as placas HDMI transmissora está dependente do valor do sinal de \textit{POWER} e \textit{MUTE}. Caso \textit{MUTE} esteja ativo o sinal de som não é transmitido e as entradas da placa HDMI são definidas com zero. O mesmo acontece quando o sinal de \textit{POWER} esteja desativo uma vez que indica que a transmissão da parte da placa HDMI recetora está desligada.
+
+Mais uma vez para esta arquitetura é necessário definir as localizações fisicas de cada porta de entrada e saída do modulo principal, e como tal é possivel encontrar descritas essas mesmas atribuições na tabela \ref{table:LOCplanC_simples} na página \pageref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que se conectam as placas HDMI são brevemente descritas, no entanto na tabela \ref{table:LOCplanC_detail} do anexo \ref{ap3:LOCs} essas mesmas conexões são descritas com mais detalhe.
+
+\begin{longtable}[h!]
+	{|c|c|c|c|}
+
+		\hline
+		\centering
+\textbf{I/O} & \textbf{Sinal}               & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline \endhead
+I            & clk\_p                       & E19                  & 38                     \\ \hline
+I            & clk\_n                       & E18                  & 38                     \\ \hline
+I            & reset                        & N41                  & 19                     \\ \hline
+I            & POWER                        & E42                  & 19                     \\ \hline
+I            & MUTE                         & G41                  & 19                     \\ \hline
+I            & clock\_p\_in                 & AJ32                 & 14                     \\ \hline
+I            & vsync\_in                    & AU38                 & 15                     \\ \hline
+I            & hsync\_in                    & AU39                 & 15                     \\ \hline
+I            & enable\_in                   & AN38                 & 15                     \\ \hline
+I            & pixel\_in{[}0{]} a {[}35{]}  & (Ver anexo)          & 14 e 15                \\ \hline
+I            & sclk\_in                     & AJ37                 & 14                     \\ \hline
+I            & lrclk\_in                    & AL35                 & 14                     \\ \hline
+I            & AP1\_in                      & AL37                 & 14                     \\ \hline
+I            & AP2\_in                      & AP35                 & 14                     \\ \hline
+I            & AP3\_in                      & AM37                 & 14                     \\ \hline
+I            & AP4\_in                      & AH33                 & 14                     \\ \hline
+I            & info\_in{[}0{]}              & AV38                 & 15                     \\ \hline
+I            & info\_in{[}1{]}              & AV39                 & 15                     \\ \hline
+O            & clock\_p\_out                & E34                  & 35                     \\ \hline
+O            & vsync\_out                   & L31                  & 34                     \\ \hline
+O            & hsync\_out                   & M32                  & 34                     \\ \hline
+O            & enable\_out                  & K35                  & 34                     \\ \hline
+O            & pixel\_out{[}0{]} a {[}35{]} & (Ver anexo)          & 34 e 35                \\ \hline
+O            & sclk\_out                    & A34                  & 35                     \\ \hline
+O            & lrclk\_out                   & B33                  & 35                     \\ \hline
+O            & AP1\_out                     & A36                  & 35                     \\ \hline
+O            & AP2\_out                     & C39                  & 35                     \\ \hline
+O            & AP3\_out                     & B38                  & 35                     \\ \hline
+O            & AP4\_out                     & D32                  & 35                     \\ \hline
+O            & info\_out{[}0{]}             & K32                  & 34                     \\ \hline
+O            & info\_out{[}1{]}             & L32                  & 34                     \\ \hline   
+	\caption{Localização das entradas e saídas das portas da arquitetura}
+	\label{table:LOCplanC_simples}	
+\end{longtable}
+
+%--> CONSTRAINTS %
+
+%--> RESULTADOS
