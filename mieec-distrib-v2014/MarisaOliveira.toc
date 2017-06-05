@@ -33,12 +33,12 @@
 \contentsline {subsubsection}{\numberline {3.1.1.3}Suporte de dois canais de imagem melhorado}{39}{subsubsection.3.1.1.3}
 \contentsline {subsection}{\numberline {3.1.2}Configura\IeC {\c c}\IeC {\~a}o dos interruptores}{39}{subsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.2.1}Configura\IeC {\c c}\IeC {\~a}o por \textit {default}}{40}{subsubsection.3.1.2.1}
-\contentsline {subsubsection}{\numberline {3.1.2.2}Suporte de um canal de imagem e \IeC {\'a}udio}{40}{subsubsection.3.1.2.2}
-\contentsline {subsubsection}{\numberline {3.1.2.3}Suporte de dois canais de imagem melhorado}{40}{subsubsection.3.1.2.3}
-\contentsline {section}{\numberline {3.2}Arquiteturas Desenvolvidas}{40}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{42}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{48}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{50}{subsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Suporte de um canal de imagem e \IeC {\'a}udio}{41}{subsubsection.3.1.2.2}
+\contentsline {subsubsection}{\numberline {3.1.2.3}Suporte de dois canais de imagem melhorado}{41}{subsubsection.3.1.2.3}
+\contentsline {section}{\numberline {3.2}Arquiteturas Desenvolvidas}{42}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{43}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{49}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{51}{subsection.3.2.3}
 \contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{55}{chapter.4}
 \contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{57}{chapter.5}
 \contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o dos pinos das placas HDMI}{59}{appendix.A}

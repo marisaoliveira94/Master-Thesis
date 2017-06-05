@@ -47,7 +47,7 @@ Para além da configuração descrita anteriormente em \ref{subsubsec:HDMIconfig
 
 Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB é nesse mesmo que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse que chega ao seu destino. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de áudio mas também sinais de relógio necessários à sua transmissão.
 
-Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas que inclui mais detalhes relativamente aos pinos usados e ao seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde é são apresentados todos os detalhes dos conectores FMC das placas.
+Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas que inclui mais detalhes relativamente aos pinos usados e ao seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde são apresentados todos os detalhes dos conectores FMC das placas.
 
 \begin{table}[h!]
 	\centering
@@ -109,17 +109,17 @@ Esta configuração acaba por ser bastante útil e será utilizada em diversas a
 
 Esta configuração é capaz de suportar a transmissão de imagens em dois canais, tal como a configuração apresentada em \ref{subsubsec:HDMIconfigdefault} no entanto com alguns melhoramentos. A principal diferença consiste na capacidade de transmitir não só imagens em formato RGB mas também em YCbCr num dos canais. A tabela \ref{table:HDMI1canal_melhorado} do anexo \ref{ap1:HDMI} foi adaptada de \cite{R013} e apresenta detalhadamente todos os sinais transmitidos entre as placas HDMI e ainda os nomes dos conectores FMC.
 
-Esta configuração na placa recetora transmite no canal 0 (RX0)  imagens tanto no formato RGB como YCbCr de 10 bits por cor e os sinais de controlo da respectivamente. Relativamente ao canal 1 dessa mesma placa (RX1) apenas é possível transmitir imagens em formato RGB de 10 bits por cor e os seus respetivos controlos. Para além disso, para cada canal são transmitidos dois bits que identificam o estado do vídeo que é transmitido, tal como já acontecia na configuração descrita em \ref{subsubsec:HDMIconfig+audio}.
+Esta configuração na placa recetora transmite no canal 0 (RX0)  imagens tanto no formato RGB como YCbCr de 10 bits por cor e os sinais de controlo respectivos. Relativamente ao canal 1 dessa mesma placa (RX1) apenas é possível transmitir imagens em formato RGB de 10 bits por cor e os seus respetivos controlos. Para além disso, para cada canal são transmitidos dois bits que identificam o estado do vídeo que é transmitido, tal como já acontecia na configuração descrita em \ref{subsubsec:HDMIconfig+audio}.
 
-Quando à placa transmissora quando configurada desta forma é capaz de receber nos dois canais (TX0 e TX1) imagens no formato RGB ou YCbCr com 10 bits por cor. Apesar de na tabela \ref{table:HDMI1canal_melhorado} o canal 1 definir os seus bits apenas para o caso de RGB, este canal também suporta na placa transmissora o formato YCbCr (e por isso a atribuição dos bits assemelham-se ao canal 0). Tal não é suportado no canal 1 da placa transmissora e por esse motivo a tabela está assim apresentada. À semelhança da placa recetora, a placa transmissora recebe 2 bits relativos à informação do vídeo que está a ser transferido, tal como a tabela \ref{table:HDMI1canal_melhorado} sugere.
+Quando à placa transmissora quando configurada desta forma é capaz de receber nos dois canais (TX0 e TX1) imagens no formato RGB ou YCbCr com 10 bits por cor. Apesar de na tabela \ref{table:HDMI1canal_melhorado} o canal 1 definir os seus bits apenas para o caso de RGB, este canal também suporta na placa transmissora o formato YCbCr (e por isso a atribuição dos bits para TX1 assemelham-se ao canal TX0). Tal não é suportado no canal 1 da placa HDMI recetora (RX1) e por esse motivo a tabela está assim apresentada. À semelhança da placa recetora, a placa transmissora recebe 2 bits relativos à informação do vídeo que está a ser transferido, tal como a tabela \ref{table:HDMI1canal_melhorado} sugere.
 
 \subsection{Configuração dos interruptores}
 
-Neste capitulo serão descritas as configurações dos interruptores presentes nas placas HDMI para cada configuração existente. Tal é necessário definir para que os recetores e transmissores presentes nas placas possam enviar e receber imagens nos formatos que o utilizador presente.
+Neste capitulo serão descritas as configurações dos interruptores presentes nas placas HDMI para cada configuração existente. Tal é necessário definir para que os recetores e transmissores presentes nas placas possam enviar e receber imagens nos formatos que o utilizador pretende. Existem 8 interruptores que podem ser definidos pelo utilizador. Os interruptores entre S1-1 e S1-4 têm como função selecionar o tipo de formato que sai do recetor ADV7612 ou ADV7511 embebido na placa. Relativamente aos outros interruptores, raramente são utilizados e quando são a sua função não é relevante para o projeto e por isso não será especificada.
 
 \subsubsection{Configuração por \textit{default}} \label{subsubsec:HDMIconfigdefault_switches}
 
-Placa Recetora
+Quando as placas estão configuras de fábrica, relembra-se que as imagens transmitidas correspondem ao formato RGB de 30 bits (10 bits por cor). Como tal, a indicação que vem em \cite{R009} sobre as funções dos interruptores da placa HDMI recetora é muito pouca. Apenas é indicado que quando esta configuração está ativa os interruptores se devem encontrar tal como especifica a tabela \ref{table:HDMI_default_switches_RX} na página \pageref{table:HDMI_default_switches_RX}.
 
 \begin{table}[h!]
 	\centering
@@ -135,20 +135,20 @@ Placa Recetora
 		\textbf{S1-7}        & Não usado       \\ \hline
 		\textbf{S1-8}        & ON              \\ \hline
 	\end{tabular}
-	\caption{My caption}
-	\label{my-label}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada de fábrica, adaptada de \cite{R009}}
+	\label{table:HDMI_default_switches_RX}
 \end{table}
 
-Placa Transmissora
+Relativamente à placa HDMI transmissora, é sabido que lhe chegam imagens no formato RGB de 10 bits, no entanto é possivel configurar o ADV7511 de tal forma que na sua saída o número de bits não seja limitado a 10. Para tal é necessário configurar os interruptores da forma que a tabela \ref{table:HDMI_default_switches_TX} indica.
 
-\begin{table}[h!]
+ \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
 		\textbf{Interruptor} & \multicolumn{3}{c|}{\textbf{Estado}} \\ \hline
 		\textbf{S1-1}        & OFF        & ON         & ON         \\ \hline
 		\textbf{S1-2}        & ON         & ON         & OFF        \\ \hline
-		\textbf{S1-3}        & ON         & OFF        & OFF        \\ \hline
+		\textbf{S1-3}        & ON         & OFF        & ON        \\ \hline
 		\textbf{S1-4}        & ON         & ON         & ON         \\ \hline
 		\textbf{OUTPUT}      & 8 bits     & 10 bits    & 12 bits    \\ \hline
 		\textbf{S1-5}        & \multicolumn{3}{c|}{OFF}             \\ \hline
@@ -156,15 +156,12 @@ Placa Transmissora
 		\textbf{S1-7}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
 		\textbf{S1-8}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
 	\end{tabular}
-	\caption{My caption}
-	\label{my-label}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada de fábrica, adaptada de \cite{R009}}
+	\label{table:HDMI_default_switches_TX}
 \end{table}
 \subsubsection{Suporte de um canal de imagem e áudio} \label {subsubsec:HDMIconfig+audio_switches}
 
-Placa Recetora
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
+Quando se configuram as placas HDMI de forma a obter-se o suporte de áudio, então o formato da imagem transmitida também não é limitado a RGB. Desta maneira, o tabela \ref{table:HDMI_1ch+audio_switches_RX} indica como se devem configurar os interruptores de forma a obter-se na saída do ADV7612 as diversas possibilidades relativamente ao formato da imagem.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|}
@@ -181,14 +178,11 @@ Placa Recetora
 		\textbf{S1-7}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
 		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
 	\end{tabular}
-	\caption{My caption}
-	\label{my-label}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada para um canal e suporte de áudio, adaptada de \cite{R014}}
+	\label{table:HDMI_1ch+audio_switches_RX}
 \end{table}
 
-Placa transmissora
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
+À semelhança da placa recetora para esta configuração, também é possivel configurar o ADV7511 para se obter na sua saída diversos formatos de imagem. A tabela \ref{table:HDMI_1ch+audio_switches_TX} apresentada na página \pageref{table:HDMI_1ch+audio_switches_TX} indica essas mesmas combinações. 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -205,15 +199,14 @@ Placa transmissora
 		\textbf{S1-7}                    & \multicolumn{9}{c|}{Não usado}                                                                                                                                                                                                                                                                                                                                             \\ \hline
 		\textbf{S1-8}                    & \multicolumn{9}{c|}{ON}                                                                                                                                                                                                                                                                                                                                                    \\ \hline
 	\end{tabular}
-	\caption{My caption}
-	\label{my-label}
+	\caption{Configuração dos interruptores da placa HDMI TX configurada para um canal e suporte de áudio, adaptada de \cite{R014}}
+	\label{table:HDMI_1ch+audio_switches_TX}
 \end{table}
 
 \subsubsection{Suporte de dois canais de imagem melhorado} \label{subsubsec:HDMIconfigMelhorado_switches}
 
-Placa Recetora
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
+Quando se reconfigura as placas para suportarem a versão de transmissão de dois canais melhorada, é necessário ter em conta que existe um canal (canal 0) que tem a possibilidade de transmitir imagens tanto no formato YCbCr como RGB, porém o canal 1 apenas o faz no formato RGB. Na tabela \ref{table:HDMI_2ch_melhoradp_RX} da página \pageref{table:HDMI_2ch_melhoradp_RX} são apresentadas as configurações dos interruptores que configuram o ADV7612 de forma a enviar diferentes formatos.
+
 \begin{table}[h!]
 	\centering
 
@@ -231,16 +224,12 @@ Placa Recetora
 		\textbf{S1-7}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
 		\textbf{S1-8}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
 	\end{tabular}
-	\caption{My caption}
-	\label{my-label}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite{R013}}
+	\label{table:HDMI_2ch_melhoradp_RX}
 \end{table}
 
-
-Placa Transmissora
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-\begin{table}[]
+Relativamente à placa HDMI transmissora, ambos os canais são capazes de suportar imagens em formato RGB ou YCbCr. A tabela \ref{table:HDMI_2ch_melhoradp_TX} da página \pageref{table:HDMI_2ch_melhoradp_TX} apresenta as combinações dos interruptores para se poder obter os diversos formatos na saída do ADV7511.
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|}
 		\hline
@@ -256,8 +245,8 @@ Placa Transmissora
 		\textbf{S1-7}                    & \multicolumn{6}{c|}{Não usado}                                   \\ \hline
 		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                          \\ \hline
 	\end{tabular}
-	\caption{My caption}
-\label{my-label}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite{R013}}
+	\label{table:HDMI_2ch_melhoradp_TX} 
 \end{table}
 \section{Arquiteturas Desenvolvidas} \label{sec:HDMIarquiteturas}
 
@@ -265,7 +254,7 @@ Nesta secção passam a ser descritas as arquiteturas desenvolvidas e implementa
 
 \subsection{Transmissão de uma imagem gerada na FPGA} \label{subsub:planA}
 
-Numa fase inicil do projeto, optou-se por simplificar a transmissão e para tal utilizou-se apenas a placa transmissora HDMI configurada por defeito. Contrui-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utlizou-se essa imagem para ser transmitida pelos conectore FMC.
+Numa fase inicil do projeto, optou-se por simplificar a transmissão e para tal utilizou-se apenas a placa transmissora HDMI configurada por defeito. Contrui-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utlizou-se essa imagem para ser transmitida pelos conectores FMC.
 
 O bloco gerador de uma barra de cores foi adaptado de um bloco disponibilizado pela \textit{Inrenvium} aquando a compra das placas. Apesar de ter sido ligeiramente adaptado para este caso em especifico, este baseia-se essencialmente numa maquina de estados que vai contando as linhas e as colunas para que possa enviar não só os valores das cores de cada pixel, mas também os sinais de controlo como a sincronização vertical, a sincronização horizontal e ainda os valor de pixeis ativos.
 
@@ -376,7 +365,7 @@ Para além do desenvolvimento do código em Verilog é necessário que as portas
 	\label{table:LOCplanA_simples}
 \end{longtable}
 
-O ficheiro com estas restrições fisicas gerado após a atribuição das mesmas é apresentado no sub-capitulo \ref{ap2:physical_cnstrs} do anexo \ref{ap2:codigo}. Para cada porta são atribuídas duas restrições: uma que indica a localização fisica na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que se tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
+O ficheiro com estas restrições fisicas gerado após a atribuição das mesmas é apresentado no sub-capitulo \ref{ap2:planA_physical_cnstrs} do anexo \ref{ap2:codigo}. Para cada porta são atribuídas duas restrições: uma que indica a localização fisica na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que se tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
 
 Para além destas restrições fisicas geradas, são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas no sub-capitulo \ref{ap2:planA_timing_cnstrs} do anexo \ref{ap2:codigo}. As retrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial existe um sinal com uma frequência de 200 MHz (periodo de 5ns). Isto porque este sinal de relógio é um sinal primário e como tal é importante que a ferramenta de implementação saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
 
@@ -440,7 +429,7 @@ Após sintese e implementação do código desenvolvido em verilog juntamente co
 
 \subsection{Transmissão de imagem e som entre dispositivos HDMI}
 
-Após se obter uma ligação entre dois dispositivos HDMI de uma imagem, procedeu-se ao desenvolvimento de uma arquitetura capaz de trasmitir imagem e som. Para tal foi necessário reconfigurar as placas HDMI, tal como mencionado no capitulo X (CAPITULO ONDE VOU ESCREVER COMO SE CONFIGURA AS PLACAS), para a configuração que suporta apenas um canal mas que permite a transmissão de audio em formato $I^{2}$S. As características desta configuração são apresentadas na secção \ref{subsubsec:HDMIconfig+audio} na página \pageref{subsubsec:HDMIconfig+audio} deste documento, mas é de notar que as imagens poderão ter transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados no sub-capitulo XXX - ONDE VOU EXPLICAR COMO CONFIGURAR OS SWITCHES). Neste caso em especifico serão utilizados 12 bits por cor o que preferá um total de 36 bits por pixel.
+Após se obter uma ligação entre dois dispositivos HDMI de uma imagem, procedeu-se ao desenvolvimento de uma arquitetura capaz de trasmitir imagem e som. Para tal foi necessário reconfigurar as placas HDMI, tal como mencionado anteriormente, para a configuração que suporta apenas um canal mas que permite a transmissão de áudio em formato $I^{2}$S. As características desta configuração são apresentadas na secção \ref{subsubsec:HDMIconfig+audio} na página \pageref{subsubsec:HDMIconfig+audio} deste documento, mas é de notar que as imagens poderão ser transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados no sub-capitulo \ref{subsubsec:HDMIconfig+audio_switches}). Neste caso em especifico serão utilizados 12 bits por cor o que preferá um total de 36 bits por pixel.
 
 Na imagem \ref{fig:planC} na página \pageref{fig:planC} é ilustrado um diagrama de blocos da arquitetura desenvolvida para se realizar a transmissão de imagem e som entre dois dispositivos HDMI. 
 
