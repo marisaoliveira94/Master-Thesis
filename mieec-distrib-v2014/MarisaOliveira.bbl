@@ -43,6 +43,9 @@ W.~contributors, ``audio and video interfaces and connectors,'' 2016.
 Xilinx, ``{Platform Flash In-System},'' {\em Memory}, vol.~123, pp.~1--46,
   2006.
 
+\bibitem{R025}
+Xilinx, ``{Xilinx Platform Cable USB II},'' vol.~593, pp.~1--36, 2015.
+
 \bibitem{R014}
 Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio support},''
   pp.~1--59.
@@ -50,6 +53,10 @@ Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio support},''
 \bibitem{R027}
 P.~Semiconductors and B.~I. Timing, ``{I 2 S bus specification I 2 S bus
   specification},'' no.~February 1986, pp.~1--7, 1996.
+
+\bibitem{R013}
+Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support},''
+  pp.~1--56.
 
 \bibitem{R024}
 C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification

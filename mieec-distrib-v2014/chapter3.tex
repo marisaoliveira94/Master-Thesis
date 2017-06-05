@@ -1,25 +1,24 @@
 \chapter{HDMI}\label{chap:chap3}
 
-Este capítulo descreve o trabalho realizado para cumprir a primeira parte do projeto: obter uma conexão HDMI entre recetor e transmissor. São descritas as várias configurações das placas HDMI disponiveis e ainda as arquiteturas desenvolvidas e implementadas para cumprir esta parte do projeto. 
+Este capítulo descreve o trabalho realizado para cumprir a primeira parte do projeto: obter uma conexão HDMI entre recetor e transmissor. São descritas as várias configurações das placas HDMI disponíveis e ainda as arquiteturas desenvolvidas e implementadas para cumprir esta parte do projeto. 
 
 \section{\textit{Hardware} utilizado} \label{sec:hardware}
 
-Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para receber os dados provenientes do cabo HDMI e fazer a sua selecção são utilizadas duas placas HDMI (TB-FMCH-HDMI2 RX E TB-FMCH-HDMI2 TX) que, através das suas entradas e saída FMC de alta velocidade, conseguem enviar para a FPGA os sinais de imagem e som. Nas imagens \ref{fig:rx} e \ref{fig:tx} é possivel visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituidas por conectores HDMI, de seguida o sinal é enviado para um recetor ou transmissor HDMI, ADV7612 no caso do recetor e ADV7511 no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FGPA embebida na placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de audio e video.
+Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para receber os dados provenientes do cabo HDMI e fazer a sua seleção são utilizadas duas placas HDMI (TB-FMCH-HDMI2 RX E TB-FMCH-HDMI2 TX) que, através das suas entradas e saída FMC de alta velocidade, conseguem enviar para e receber da FPGA os sinais de imagem e som. Nas imagens \ref{fig:rx} e \ref{fig:tx} é possível visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituídas por conectores HDMI onde é recebido o sinal HDMI que de seguida é enviado para um recetor ou transmissor, ADV7612 no caso do recetor e ADV7511 no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FGPA embebida na placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de áudio e vídeo
 
-As placas possuem ainda uma PROM (\textit{Programmable read-only memory}) XCF16PFSG48C de configuração reprogramável que permite armazenar o \textit{bitstream} que configura a FPGA embebida do modo que se pretende. É esta FPGA embebida que em cada placa (RX e TX) é responsável pela selecção e envio dos dados pretendidos para os conectores FMC (e posterior envio para a FPGA), e como tal é necessário que estejam configuradas para realizarem tais procedimentos. O recurso a estas memórias reconfiguraveis vem permitir uma fácil alteração da configuração da FPGA uma vez que, segundo \cite{R026}, estas memórias de leitura permitem não só armazenar os \textit{bitstreams} de configuração da FPGA, mas também reconfigurá-los, caso se pretenda, de uma forma fácil e eficiente.
+As placas possuem ainda uma PROM (\textit{Programmable read-only memory}) XCF16PFSG48C de configuração reprogramável que permite armazenar o \textit{bitstream} que configura a FPGA embebida do modo que se pretende. É esta FPGA embebida que em cada placa (RX e TX) é responsável pela seleção e envio ou receção dos dados pretendidos para ou dos conectores FMC, e como tal é necessário que estejam configuradas para realizarem tais procedimentos. O recurso a estas memórias reconfiguráveis vem permitir uma fácil alteração da configuração da FPGA uma vez que, segundo \cite{R026}, estas memórias de leitura permitem não só armazenar os \textit{bitstreams} de configuração da FPGA, mas também reconfigurá-los, caso se pretenda, de uma forma fácil e eficiente.
+
+As reconfigurações destas memórias são realizadas através de um programador JTAG e ainda recorrendo a um \textit{software}. O \textit{software} utilizado neste projeto tem o nome de \textit{imPACT} e é disponibilizado pela \textit{Xilinx}. Após a conexão do conector JTAG à respectiva placa e ao computador (através de uma porta USB) é necessário inicializar o \textit{software} e programar a memória com o respetivo ficheiro pretendido. Em \cite{R025} são detalhadas informações acerca do programador utilizado e ainda sobre o procedimento para se reconfigurar as memórias. As reconfigurações realizadas neste projeto basearam-se nesse documento.
 
 \subsection{Configurações da FPGA} \label{subsec:HDMIconfig}
 
-A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) embebida nas placas tem 3 configurações disponiveis. Estas configurações variam não só no suporte que têm, que pode ser apenasde imagem mas também de imagem e audio, mas variam também no número de bits por imagem que estas podem ter. Nas secções seguintes serão brevemente expostas as configurações disponiveis e como se pode tirar partido das mesmas no projeto.
+A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) embebida nas placas tem 3 configurações disponíveis. Estas variam não só no suporte que possuem, que pode ser apenas de imagem mas também de áudio, mas variam também no número de bits por imagem que estas podem ter. Nas secções seguintes serão brevemente abordadas as configurações disponíveis e como se pode tirar partido das mesmas no projeto que foi desenvolvido.
 
---> Falar como é que se reconfigurou as placas
 \subsubsection{Configuração por \textit{default}} \label{subsubsec:HDMIconfigdefault}
 
-Esta configuração vem previamente escrita na memória PROM de fábrica e acaba por ser a mais simples de todas. Os dados enviados pelos conectores FMC são apenas referentes aos dados de imagem. As tabela \ref{table:HDMIdataRX} e \ref{table:HDMIdataTX} nas páginas \pageref{table:HDMIdataRX} e \pageref{table:HDMIdataTX} respectivamente identificam os pinos aos quais são atribuídas os sinais de dados de imagem HDMI tanto no recetor como no transmissor.
+Esta configuração vem previamente escrita na memória PROM de fábrica e acaba por ser a mais simples de todas. Os dados enviados pelos conectores FMC são apenas referentes aos dados de imagem. As tabela \ref{table:HDMIdataRX} e \ref{table:HDMIdataTX} nas páginas \pageref{table:HDMIdataRX} e \pageref{table:HDMIdataTX} respectivamente identificam as portas às quais são atribuídas os sinais de dados de imagem HDMI tanto na placa recetora como na transmissora.
 
-Esta configuração apenas transmite imagens RGB (\textit{Red Green Blue}) com 10 bits. Assim sendo, tal como referido em \cite{R009}, independentemente da formatação das imagens da fonte HDMI o recetor ADV7612 integrado na placa recetora HDMI converte a imagem para o formato RGB e transmite de maneira a enviar os dados em apenas 10 bits.  FALAR SOBRE ESTAS CONVERSÕES
-
-A tabela \ref{table:HDMIdefaultSimplified} da página \pageref{table:HDMIdefaultSimplified}, adaptada de \cite{R009}, apresenta brevemente quais as portas das placas utilizadas e que sinais são transmitidos nas mesmas, no entanto é possivel encontrar na tabela \ref{table:HDMIdataDefaultdetail} do anexo \ref{ap1:HDMI} mais promenores relativamente a estes dados. Os nomes dos sinais são referentes aos sinais em TB-FMCH-HDMI2 (tanto TX como RX), assim como quando se faz referência à FPGA nestas tabelas estas correspondem às que estão embebidas nas placas HDMI. 
+Esta configuração suporta a transmissão de imagens RGB (\textit{Red Green Blue}) com 10 bits. Assim sendo, tal como referido em \cite{R009}, independentemente da formatação das imagens da fonte HDMI o recetor ADV7612 integrado na placa recetora HDMI converte a imagem para o formato RGB e transmite de maneira a enviar os dados em apenas 10 bits. A tabela \ref{table:HDMIdefaultSimplified} da página \pageref{table:HDMIdefaultSimplified}, adaptada de \cite{R009}, apresenta brevemente quais as portas das placas utilizadas e que sinais são transmitidos nas mesmas, no entanto é possível encontrar na tabela \ref{table:HDMIdataDefaultdetail} do anexo \ref{ap1:HDMI} mais detalhes relativamente a estes dados. Os nomes dos sinais são referentes aos sinais em TB-FMCH-HDMI2 (tanto TX como RX), e como tal quando se faz referência à FPGA nestas tabelas estas correspondem às que estão embebidas nas placas HDMI. 
 
 \begin{table}[h!]
 	\centering
@@ -40,13 +39,13 @@ A tabela \ref{table:HDMIdefaultSimplified} da página \pageref{table:HDMIdefault
 
 É de notar ainda que esta configuração é capaz de suportar até dois canais (RX0 e TX0, RX1 e TX1), no entanto nesta tabela apenas são apresentados os dados correspondentes ao canal 0 pois apenas será necessário utilizar um canal neste projeto. 
 
-Apesar de ser um configuração simples, uma vez que apenas são transmitidos sinais de imagem em formato RGB, é uma configuração que será utilizada numa fase inicial em algumas arquiteturas implementadas que serão descritas no subcapitulo \ref{subsec:HDMIarquiteturas}.
+Apesar de ser um configuração simples, uma vez que apenas são transmitidos sinais de imagem em formato RGB, é uma configuração que será utilizada numa fase inicial em algumas arquiteturas implementadas que serão descritas na secção \ref{sec:HDMIarquiteturas}.
 
-\subsubsection{1 canal e suporte de audio} \label {subsubsec:HDMIconfig+audio}
+\subsubsection{Suporte de um canal de imagem e áudio} \label {subsubsec:HDMIconfig+audio}
 
-Para além da configuração descrita anteriormente em \ref{subsubsec:HDMIconfigdefault} que apenas suporta a transmissão de imagem, existe ainda uma configuração capaz de suportar não só a transmissão de imagem mas também de som. A configuração que é escrita na PROM para programar a FPGA embebida controla o recetor ADV7612 de maneira a conseguir transmitir imagens no formato YCbCr ou RGB com 12 bits e também fazer a transmissão do audio em formato $I^{2}$S.
+Para além da configuração descrita anteriormente em \ref{subsubsec:HDMIconfigdefault} que apenas suporta a transmissão de imagem, existe ainda uma configuração capaz de suportar não só a transmissão de imagem mas também de som. A configuração que é escrita na PROM da placa recetora para programar a FPGA embebida controla o recetor ADV7612 de maneira a conseguir transmitir imagens no formato YCbCr ou RGB com 12 bits e também fazer a transmissão do audio em formato $I^{2}$S. O mesmo acontece na placa transmissora mas para ser capaz de receber estas configurações.
 
-Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB é nesse formato que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse formato que chega ao seu destino. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de audio mas também sinais de relógio necessários à sua transmissão.
+Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI, e é transmitida pelas placas tal como é emitida pela fonte, por outras palavras, se a fonte HDMI transmitir uma imagem em formato RGB é nesse mesmo que chega ao destino, no entanto se for transmitida uma imagem no formato YCbCr é nesse que chega ao seu destino. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de áudio mas também sinais de relógio necessários à sua transmissão.
 
 Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIaudiosuportSimplified} são brevemente apresentados as portas e os sinais usados com este tipo de configuração da FPGA embebida. Na tabela \ref{table:HDMI1canal+audioDETAIL} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas que inclui mais detalhes relativamente aos pinos usados e ao seu uso. Ambas as tabelas foram adaptadas de \cite{R014} onde é são apresentados todos os detalhes dos conectores FMC das placas.
 
@@ -72,11 +71,11 @@ Na tabela \ref{table:HDMIaudiosuportSimplified} na página \pageref{table:HDMIau
 		&                                                                                      &                                                                                      &                                                                                              \\ \hline
 	\end{tabular}
 	\centering
-	\caption{Descrição e localização dos pinos de TB-FMCH-HDMI2 configurada para 1 canal com suporte de audio}
+	\caption{Descrição e localização dos pinos de TB-FMCH-HDMI2 configurada para um canal de imagem e áudio}
 	\label{table:HDMIaudiosuportSimplified}
 \end{table}
 
-Os dados referentes ao som transmitidos pela placa recetor HDMI e recebidos de seguida pela placa emissora HDMI estão mencionados com mais detalhe na tabela \ref{table:HDMI1canal+audioDETAIL}, e tal como indicado anteriormente, esta configuração é capaz de transmitir e receber dados no formato $I^{2}$S. Nas especificações deste protocolo, em \cite{R027}, são definidos os sinais transmitidos aquando a utilização deste formato, que passam a ser descritos:
+Os dados referentes ao som transmitidos pela placa recetora e recebidos de seguida pela placa emissora estão mencionados com mais detalhe na tabela \ref{table:HDMI1canal+audioDETAIL} do anexo \ref{ap1:HDMI}, e tal como indicado anteriormente, esta configuração é capaz de transmitir e receber dados no formato $I^{2}$S. Nas especificações deste protocolo, em \cite{R027}, são definidos os sinais transmitidos aquando a utilização deste formato, que passam a ser descritos:
 
 \begin{enumerate}
 	\item \textbf{\textit{Continuous Serial Clock} (SCK):} Este sinal é por vezes reconhecido pelo nome de \textit{Bit Clock} e é um sinal de relógio referente aos dados de som em série transmitidos pelos canais AP1, AP2, AP3 e AP4.
@@ -87,8 +86,9 @@ Os dados referentes ao som transmitidos pela placa recetor HDMI e recebidos de s
 
 \end{enumerate}
 
-Na imagem \ref{fig:i2s_audio} são ilustrados os sinais referentes ao audio descritos previamente. O sinal "SCLK" (\textit{Serial Clock}) é referente ao sinal "\textit{Continuous Serial Clock}", o sinal LRCLK (\textit{Left/Right Clock}) refere-se ao sinal "\textit{Word Select}" e ainda ISx refere-se ao sinal "\textit{Serial Data}".
-	\begin{figure}[h!]
+Na imagem \ref{fig:i2s_audio} são ilustrados os sinais referentes ao audio descritos previamente. O sinal "SCLK" (\textit{Serial Clock}) é referente ao sinal "\textit{Continuous Serial Clock}", o sinal LRCLK (\textit{Left/Right Clock}) refere-se ao sinal "\textit{Word Select}" e ainda ISx refere-se ao sinal "\textit{Serial Data}". É de notar que os dados de som alternam à frequência do sinal "SCLK" que possui uma frequência 64 vezes superior à de "LRCLK". É sabido que a frequência deste é de 48 kHz e por isso o sinal "SCLK" possui uma frequência de aproximadamente de 3,072 MHz.
+
+\begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{audio_i2s}
@@ -97,20 +97,168 @@ Na imagem \ref{fig:i2s_audio} são ilustrados os sinais referentes ao audio desc
 	\end{center}
 \end{figure}
 
-Na placa recetora HDMI, que envia os dados para a FPGA Virtex-7, é também enviado o sinal \textit{Master Clock} que corresponde a um sinal de relógio de referência do sinais de audio da entrada e ainda dados de audio em AP0. É mencionado em \cite{R016} que estes dois sinais são referentes ao formato SPDIF e como tal não serão abordados neste projeto uma vez que as placas apenas suportam o formato $I^{2}$S.
+Na placa recetora HDMI, que envia os dados para a FPGA Virtex-7, é também enviado o sinal \textit{Master Clock} que corresponde a um sinal de relógio de referência do sinais de áudio da entrada e ainda dados de áudio em AP0. É mencionado em \cite{R016} que estes dois sinais são referentes ao som no formato SPDIF e como tal não serão abordados neste projeto uma vez que as placas apenas suportam o formato $I^{2}$S.
 
-Esta configuração das FPGAs embebidas nas placas é a configuração mais utilizada ao longo do projeto, uma vez que para além de ser versátil quanto ao formato das imagens transmitidas, é também capaz de suportar audio. Em contrapartida, apenas suporta um canal (ao contrário da anterior), mas tal não é um problema pois apenas se pretende obter uma transmissão num único canal entre dispositivo de fonte HDMI e dispositivo final HDMI. 
+Para além de dados de som e imagem são transmitidos dois bits com informação relativa ao estado do vídeo transmitido. Estes dados indicam o tipo e formato de vídeo que está a ser transmitidos e devem de seguida ser recebidos na placa transmissora. A combinação dos dois bits definem o estado do vídeo e são detalhadas em \cite{R014}.
+
+Esta configuração acaba por ser bastante útil e será utilizada em diversas arquiteturas desenvolvidas uma vez que possui duas grandes vantagens: é capaz de suportar som e ao mesmo tempo não limita o formato da imagem transmitida a RGB. Em contrapartida, apenas suporta um canal (ao contrário da anterior), mas tal não é um problema pois apenas se pretende obter a transmissão num único canal entre dispositivo de fonte e dispositivo final HDMI. 
 
 
---> FALTA FALAR DOS BITS DE INFORMAÇÃO DO ESTADO DO VIDEO TRANSMITIDOS
-\subsubsection{2 canais melhorado} \label{subsubsec:HDMIconfigMelhorado}
+\subsubsection{Suporte de dois canais de imagem melhorado} \label{subsubsec:HDMIconfigMelhorado}
 
---> Dizer que esta configuração faz tal tal e tal, mas que não será abordad uma vez que nao foi utilizada
 
-\subsection{Configuração dos \textit{switches}}
+Esta configuração é capaz de suportar a transmissão de imagens em dois canais, tal como a configuração apresentada em \ref{subsubsec:HDMIconfigdefault} no entanto com alguns melhoramentos. A principal diferença consiste na capacidade de transmitir não só imagens em formato RGB mas também em YCbCr num dos canais. A tabela \ref{table:HDMI1canal_melhorado} do anexo \ref{ap1:HDMI} foi adaptada de \cite{R013} e apresenta detalhadamente todos os sinais transmitidos entre as placas HDMI e ainda os nomes dos conectores FMC.
 
-Explicar como configurar os switches para obter o que queremos
+Esta configuração na placa recetora transmite no canal 0 (RX0)  imagens tanto no formato RGB como YCbCr de 10 bits por cor e os sinais de controlo da respectivamente. Relativamente ao canal 1 dessa mesma placa (RX1) apenas é possível transmitir imagens em formato RGB de 10 bits por cor e os seus respetivos controlos. Para além disso, para cada canal são transmitidos dois bits que identificam o estado do vídeo que é transmitido, tal como já acontecia na configuração descrita em \ref{subsubsec:HDMIconfig+audio}.
 
+Quando à placa transmissora quando configurada desta forma é capaz de receber nos dois canais (TX0 e TX1) imagens no formato RGB ou YCbCr com 10 bits por cor. Apesar de na tabela \ref{table:HDMI1canal_melhorado} o canal 1 definir os seus bits apenas para o caso de RGB, este canal também suporta na placa transmissora o formato YCbCr (e por isso a atribuição dos bits assemelham-se ao canal 0). Tal não é suportado no canal 1 da placa transmissora e por esse motivo a tabela está assim apresentada. À semelhança da placa recetora, a placa transmissora recebe 2 bits relativos à informação do vídeo que está a ser transferido, tal como a tabela \ref{table:HDMI1canal_melhorado} sugere.
+
+\subsection{Configuração dos interruptores}
+
+Neste capitulo serão descritas as configurações dos interruptores presentes nas placas HDMI para cada configuração existente. Tal é necessário definir para que os recetores e transmissores presentes nas placas possam enviar e receber imagens nos formatos que o utilizador presente.
+
+\subsubsection{Configuração por \textit{default}} \label{subsubsec:HDMIconfigdefault_switches}
+
+Placa Recetora
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Interruptor} & \textbf{Estado} \\ \hline
+		\textbf{S1-1}        & ON              \\ \hline
+		\textbf{S1-2}        & ON              \\ \hline
+		\textbf{S1-3}        & ON              \\ \hline
+		\textbf{S1-4}        & ON              \\ \hline
+		\textbf{S1-5}        & Não usado       \\ \hline
+		\textbf{S1-6}        & Não usado       \\ \hline
+		\textbf{S1-7}        & Não usado       \\ \hline
+		\textbf{S1-8}        & ON              \\ \hline
+	\end{tabular}
+	\caption{My caption}
+	\label{my-label}
+\end{table}
+
+Placa Transmissora
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Interruptor} & \multicolumn{3}{c|}{\textbf{Estado}} \\ \hline
+		\textbf{S1-1}        & OFF        & ON         & ON         \\ \hline
+		\textbf{S1-2}        & ON         & ON         & OFF        \\ \hline
+		\textbf{S1-3}        & ON         & OFF        & OFF        \\ \hline
+		\textbf{S1-4}        & ON         & ON         & ON         \\ \hline
+		\textbf{OUTPUT}      & 8 bits     & 10 bits    & 12 bits    \\ \hline
+		\textbf{S1-5}        & \multicolumn{3}{c|}{OFF}             \\ \hline
+		\textbf{S1-6}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
+		\textbf{S1-7}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
+		\textbf{S1-8}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
+	\end{tabular}
+	\caption{My caption}
+	\label{my-label}
+\end{table}
+\subsubsection{Suporte de um canal de imagem e áudio} \label {subsubsec:HDMIconfig+audio_switches}
+
+Placa Recetora
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Interruptor}             & \multicolumn{6}{c|}{\textbf{Estado}}                                                                                                                                                                           \\ \hline
+		\textbf{S1-1}                    & ON                                                        & OFF                                                       & ON                                                        & ON     & OFF     & ON      \\ \hline
+		\textbf{S1-2}                    & ON                                                        & ON                                                        & OFF                                                       & ON     & ON      & OFF     \\ \hline
+		\textbf{S1-3}                    & ON                                                        & ON                                                        & ON                                                        & OFF    & OFF     & OFF     \\ \hline
+		\textbf{S1-4}                    & ON                                                        & ON                                                        & ON                                                        & ON     & ON      & ON      \\ \hline
+		\multirow{2}{*}{\textbf{OUTPUT}} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & RGB    & RGB     & RGB     \\ \cline{2-7} 
+		& 8 bits                                                    & 10 bits                                                   & 12 bits                                                   & 8 bits & 10 bits & 12 bits \\ \hline
+		\textbf{S1-5}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+		\textbf{S1-6}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+		\textbf{S1-7}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+	\end{tabular}
+	\caption{My caption}
+	\label{my-label}
+\end{table}
+
+Placa transmissora
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Interruptor}             & \multicolumn{9}{c|}{\textbf{Estado}}                                                                                                                                                                                                                                                                                                                                       \\ \hline
+		\textbf{S1-1}                    & ON                                                    & OFF                                                   & ON                                                    & ON                                                    & OFF                                                   & ON                                                    & ON     & OFF     & ON      \\ \hline
+		\textbf{S1-2}                    & ON                                                    & ON                                                    & OFF                                                   & ON                                                    & ON                                                    & OFF                                                   & ON     & ON      & OFF     \\ \hline
+		\textbf{S1-3}                    & ON                                                    & ON                                                    & ON                                                    & OFF                                                   & OFF                                                   & OFF                                                   & ON     & ON      & ON      \\ \hline
+		\textbf{S1-4}                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & OFF    & OFF     & OFF     \\ \hline
+		\multirow{2}{*}{\textbf{OUTPUT}} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & RGB    & RGB     & RGB     \\ \cline{2-10} 
+		& 8 bits                                                & 10 bits                                               & 12 bits                                               & 8 bits                                                & 10 bits                                               & 12 bits                                               & 8 bits & 10 bits & 12 bits \\ \hline
+		\textbf{S1-5}                    & \multicolumn{9}{c|}{OFF}                                                                                                                                                                                                                                                                                                                                                   \\ \hline
+		\textbf{S1-6}                    & \multicolumn{9}{c|}{Não usado}                                                                                                                                                                                                                                                                                                                                             \\ \hline
+		\textbf{S1-7}                    & \multicolumn{9}{c|}{Não usado}                                                                                                                                                                                                                                                                                                                                             \\ \hline
+		\textbf{S1-8}                    & \multicolumn{9}{c|}{ON}                                                                                                                                                                                                                                                                                                                                                    \\ \hline
+	\end{tabular}
+	\caption{My caption}
+	\label{my-label}
+\end{table}
+
+\subsubsection{Suporte de dois canais de imagem melhorado} \label{subsubsec:HDMIconfigMelhorado_switches}
+
+Placa Recetora
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h!]
+	\centering
+
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Interruptor}             & \multicolumn{4}{c|}{\textbf{Estado}}             \\ \hline
+		\textbf{S1-1}                    & ON            & OFF           & ON     & OFF     \\ \hline
+		\textbf{S1-2}                    & ON            & ON            & ON     & ON      \\ \hline
+		\textbf{S1-3}                    & ON            & ON            & OFF    & OFF     \\ \hline
+		\textbf{S1-4}                    & ON            & ON            & ON     & ON      \\ \hline
+		\multirow{2}{*}{\textbf{OUTPUT}} & YCbCr 444/422 & YCbCr 444/422 & RGB    & RGB     \\ \cline{2-5} 
+		& 8 bits        & 10 bits       & 8 bits & 10 bits \\ \hline
+		\textbf{S1-5}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+		\textbf{S1-6}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+		\textbf{S1-7}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+		\textbf{S1-8}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+	\end{tabular}
+	\caption{My caption}
+	\label{my-label}
+\end{table}
+
+
+Placa Transmissora
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Interruptor}             & \multicolumn{6}{c|}{\textbf{Estado}}                             \\ \hline
+		\textbf{S1-1}                    & ON        & OFF       & ON        & OFF       & ON     & OFF     \\ \hline
+		\textbf{S1-2}                    & ON        & ON        & ON        & ON        & ON     & ON      \\ \hline
+		\textbf{S1-3}                    & ON        & ON        & OFF       & OFF       & ON     & ON      \\ \hline
+		\textbf{S1-4}                    & ON        & ON        & ON        & ON        & OFF    & OFF     \\ \hline
+		\multirow{2}{*}{\textbf{OUTPUT}} & YCbCr 444 & YCbCr 444 & YCbCr 422 & YCbCr 422 & RGB    & RGB     \\ \cline{2-7} 
+		& 8 bits    & 10 bits   & 8 bits    & 10 bits   & 8 bits & 10 bits \\ \hline
+		\textbf{S1-5}                    & \multicolumn{6}{c|}{OFF}                                         \\ \hline
+		\textbf{S1-6}                    & \multicolumn{6}{c|}{Não usado}                                   \\ \hline
+		\textbf{S1-7}                    & \multicolumn{6}{c|}{Não usado}                                   \\ \hline
+		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                          \\ \hline
+	\end{tabular}
+	\caption{My caption}
+\label{my-label}
+\end{table}
 \section{Arquiteturas Desenvolvidas} \label{sec:HDMIarquiteturas}
 
 Nesta secção passam a ser descritas as arquiteturas desenvolvidas e implementadas na FPGA referentes à comunicação entre as placas HDMI.  Por outras palavras, é feita uma aplicação daquilo que foi explicado sobre as placas HDMI a serem utilizadas até agora em arquiteturas implementadas e testadas em FPGA.
@@ -312,13 +460,13 @@ Para além destes sinais provenientes e que são enviados para as palcas HDMI ex
 
 %% FUNCIONAMENTO DA MESMA
 
-Os sinais de entrada relativos à imagem, tal como nas arquiteturas anteriores, são lidos para registos sincronos com o sinal de relógio de imagem (que no caso desta demonstração será 148.5 MHz pois são transmitidas imagens em \textit{FULL HD}). Estes mesmo sinais são enviados para a placa HDMI transmissora caso o sinal \textit{POWER} esteja ativo. Este sinal é um sinal que quando está desativo em vez de enviar para as saídas do modulo os sinais recebidos da placa HDMI recetora, envia os dados provenientes do bloco que reproduz uma barra de cores.
+Os sinais de entrada relativos à imagem, tal como nas arquiteturas anteriores, são lidos para registos síncronos com o sinal de relógio de imagem (que no caso desta demonstração será 148.5 MHz pois são transmitidas imagens em \textit{FULL HD}). Estes mesmo sinais são enviados para a placa HDMI transmissora caso o sinal \textit{POWER} esteja ativo. Este sinal é um sinal que quando está desativo em vez de enviar para as saídas do modulo os sinais recebidos da placa HDMI recetora, envia os dados provenientes do bloco que reproduz uma barra de cores.
 
-Relativamente aos dados referentes ao som, estes são também lidos para registos sincronos com o sinal de relógio proveniente da fonte HDMI uma vez que a frequência deste é superior à frequência dos sinais de som (EXPLICAR MELHOR AQUI OS VALORES). Uma vez que se está a lidar com dois dominios de relógio diferentes (de som e imagem), e tal como referido em \cite{R024}, é necessário utilizar pelo menos dois registos no mesmo dominio de relógio para que não seja captada meta-estabilidade (por causa das diferentes frequências).
+Relativamente aos dados referentes ao som, estes são também lidos para registos síncronos com o sinal de relógio referente à imagem proveniente da fonte HDMI pois numa fase mais avançada do projeto tal simplificação virá facilitar a transmissão dos dados em série a alta velocidade. Porém é necessário ter em consideração que estes dados variam a uma taxa que não é síncrona com o sinal de relógio da imagem, pois este possui uma frequência de 148,5 MHz para uma imagem no formato \textit{FULL HD}, e os dados de som variam a uma frequência de 3,072 MHz (tal como mencionado no sub-capitulo \ref{subsubsec:HDMIconfig+audio}). Assim sendo é necessário tomar as devidas precauções quando se faz o cruzamento entre estes dois domínios de relógio para que não sejam captados dados dos registos quando estes se encontram num estado de meta-estabilidade. Assim sendo, tal como sugerido em \cite{R024}, são utilizados dois registos síncronos com o sinal de relógio referente à imagem para que não haja propagações de erros.
 
-O sinal de audio enviado para as placas HDMI transmissora está dependente do valor do sinal de \textit{POWER} e \textit{MUTE}. Caso \textit{MUTE} esteja ativo o sinal de som não é transmitido e as entradas da placa HDMI são definidas com zero. O mesmo acontece quando o sinal de \textit{POWER} esteja desativo uma vez que indica que a transmissão da parte da placa HDMI recetora está desligada.
+O sinal de áudio enviado para as placas HDMI transmissora está dependente do valor do sinal de \textit{POWER} e \textit{MUTE}. Caso \textit{MUTE} esteja ativo o sinal de som não é transmitido e as entradas da placa HDMI são definidas com zero. O mesmo acontece quando o sinal de \textit{POWER} esteja desativo uma vez que indica que a transmissão da parte da placa HDMI recetora está desligada.
 
-Mais uma vez para esta arquitetura é necessário definir as localizações fisicas de cada porta de entrada e saída do modulo principal, e como tal é possivel encontrar descritas essas mesmas atribuições na tabela \ref{table:LOCplanC_simples} na página \pageref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que se conectam as placas HDMI são brevemente descritas, no entanto na tabela \ref{table:LOCplanC_detail} do anexo \ref{ap3:LOCs} essas mesmas conexões são descritas com mais detalhe.
+Mais uma vez é necessário definir as localizações fisicas de cada porta de entrada e saída do modulo principal, e como tal é possivel encontrar descritas essas mesmas atribuições na tabela \ref{table:LOCplanC_simples} na página \pageref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que se conectam as placas HDMI são brevemente descritas, no entanto na tabela \ref{table:LOCplanC_detail} do anexo \ref{ap3:LOCs} essas mesmas conexões são descritas com mais detalhe.
 
 \begin{longtable}[h!]
 	{|c|c|c|c|}
@@ -363,4 +511,8 @@ O            & info\_out{[}1{]}             & L32                  & 34         
 
 %--> CONSTRAINTS %
 
+Para que a ferramenta de implementação reconheça as localizações fisicas da FPGA às quais são atribuídas as portas do bloco é gerado um ficheiro de restrições físicas semelhantes aos ficheiros gerados para as outras arquiteturas apresentadas até agora neste documento. O ficheiro que contém as restrições fisicas pode ser encontrado em \ref{ap2:planC_phisical_cnstrs} no anexo \ref{ap2:codigo}. Também à semelhança das arquiteturas anteriormente descritas foram geradas duas restrições temporais relativamente ao sinal de relógio diferencial à entrada que definem que na entrada existe um sinal com uma frequência de 200 MHz. Estas são apresentadas em \ref{ap2:planC_timing_cnstrs} no anexo \ref{ap2:codigo}.
+
 %--> RESULTADOS
+
+Esta arquitetura foi devidamente implementada na FPGA e testada, obtendo-se os resultados esperados. Apesar de os sinais de audio provenientes da placa HDMI recetora serem sincronos com sinal de relógio que não é o dos pixeis, o cruzamento estes dois dominios de relógio diferentes não apresentou qualquer tipo de problemas uma vez que ao ouvido humano os pequenos atrasados que possam eventualemente acontecer não são percetiveis. 

@@ -446,3 +446,433 @@ set\_property PACKAGE\_PIN AL29 [get\_ports {pixel\_in[29]}]
 create\_clock -period 5.000 [get\_ports clk\_n]
 
 create\_clock -period 5.000 [get\_ports clk\_p]
+
+
+\section{Transmissão de imagem e som entre dispositivos HDMI} \label{ap2:imagem_som_RX_TX}
+
+\subsubsection{Restrições Físicas}\label{ap2:planC_phisical_cnstrs}
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[35]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[34]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[33]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[32]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[31]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[30]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[29]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[28]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[27]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[26]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[25]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[24]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[23]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[22]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[21]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[20]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[19]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[18]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[17]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[16]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[15]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[14]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[13]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[12]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[11]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[10]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[9]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[8]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[7]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[6]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[5]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[4]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[3]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[2]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[1]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[0]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {info\_out[1]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {info\_out[0]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {info\_in[1]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {info\_in[0]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[35]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[34]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[33]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[32]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[31]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[30]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[29]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[28]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[27]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[26]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[25]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[24]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[23]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[22]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[21]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[20]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[19]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[18]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[17]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[16]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[15]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[14]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[13]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[12]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[11]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[10]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[9]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[8]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[7]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[6]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[5]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[4]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[3]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[2]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[1]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_out[0]}]
+
+set\_property PACKAGE\_PIN AM41 [get\_ports {pixel\_in[0]}]
+
+set\_property PACKAGE\_PIN AR38 [get\_ports {pixel\_in[1]}]
+
+set\_property PACKAGE\_PIN AN40 [get\_ports {pixel\_in[2]}]
+
+set\_property PACKAGE\_PIN AR37 [get\_ports {pixel\_in[3]}]
+
+set\_property PACKAGE\_PIN AM39 [get\_ports {pixel\_in[4]}]
+
+set\_property PACKAGE\_PIN AP40 [get\_ports {pixel\_in[5]}]
+
+set\_property PACKAGE\_PIN AP41 [get\_ports {pixel\_in[6]}]
+
+set\_property PACKAGE\_PIN AT39 [get\_ports {pixel\_in[7]}]
+
+set\_property PACKAGE\_PIN AR42 [get\_ports {pixel\_in[8]}]
+
+set\_property PACKAGE\_PIN AW37 [get\_ports {pixel\_in[9]}]
+
+set\_property PACKAGE\_PIN BA37 [get\_ports {pixel\_in[10]}]
+
+set\_property PACKAGE\_PIN AW38 [get\_ports {pixel\_in[11]}]
+
+set\_property PACKAGE\_PIN BB38 [get\_ports {pixel\_in[12]}]
+
+set\_property PACKAGE\_PIN AK34 [get\_ports {pixel\_in[14]}]
+
+set\_property PACKAGE\_PIN AJ33 [get\_ports {pixel\_in[15]}]
+
+set\_property PACKAGE\_PIN AM36 [get\_ports {pixel\_in[16]}]
+
+set\_property PACKAGE\_PIN AJ36 [get\_ports {pixel\_in[17]}]
+
+set\_property PACKAGE\_PIN AP36 [get\_ports {pixel\_in[18]}]
+
+set\_property PACKAGE\_PIN AK37 [get\_ports {pixel\_in[19]}]
+
+set\_property PACKAGE\_PIN AN35 [get\_ports {pixel\_in[20]}]
+
+set\_property PACKAGE\_PIN AL36 [get\_ports {pixel\_in[21]}]
+
+set\_property PACKAGE\_PIN AG33 [get\_ports {pixel\_in[22]}]
+
+set\_property PACKAGE\_PIN AK35 [get\_ports {pixel\_in[23]}]
+
+set\_property PACKAGE\_PIN AH31 [get\_ports {pixel\_in[24]}]
+
+set\_property PACKAGE\_PIN AH34 [get\_ports {pixel\_in[25]}]
+
+set\_property PACKAGE\_PIN AM34 [get\_ports {pixel\_in[26]}]
+
+set\_property PACKAGE\_PIN AM31 [get\_ports {pixel\_in[27]}]
+
+set\_property PACKAGE\_PIN AM33 [get\_ports {pixel\_in[28]}]
+
+set\_property PACKAGE\_PIN AL29 [get\_ports {pixel\_in[29]}]
+
+set\_property PACKAGE\_PIN AJ31 [get\_ports {pixel\_in[30]}]
+
+set\_property PACKAGE\_PIN AJ35 [get\_ports {pixel\_in[31]}]
+
+set\_property PACKAGE\_PIN AN34 [get\_ports {pixel\_in[32]}]
+
+set\_property PACKAGE\_PIN AM32 [get\_ports {pixel\_in[33]}]
+
+set\_property PACKAGE\_PIN AN33 [get\_ports {pixel\_in[34]}]
+
+set\_property PACKAGE\_PIN AL30 [get\_ports {pixel\_in[35]}]
+
+set\_property PACKAGE\_PIN BA39 [get\_ports {pixel\_in[13]}]
+
+set\_property PACKAGE\_PIN AV38 [get\_ports {info\_in[0]}]
+
+set\_property PACKAGE\_PIN AV39 [get\_ports {info\_in[1]}]
+
+%set\_property PACKAGE\_PIN AP37 [get\_ports AP0\_in]
+
+%set\_property IOSTANDARD LVCMOS18 [get\_ports AP0\_in]
+
+set\_property PACKAGE\_PIN AL37 [get\_ports AP1\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP1\_in]
+
+set\_property PACKAGE\_PIN AP35 [get\_ports AP2\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP2\_in]
+
+set\_property PACKAGE\_PIN AM37 [get\_ports AP3\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP3\_in]
+
+set\_property PACKAGE\_PIN AH33 [get\_ports AP4\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP4\_in]
+
+set\_property PACKAGE\_PIN AL35 [get\_ports lrclk\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports lrclk\_in]
+
+%set\_property PACKAGE\_PIN AN36 [get\_ports mclk\_in]
+
+%set\_property IOSTANDARD LVCMOS18 [get\_ports mclk\_in]
+
+set\_property PACKAGE\_PIN AJ37 [get\_ports sclk\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports sclk\_in]
+
+set\_property PACKAGE\_PIN AJ32 [get\_ports clock\_p\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports clock\_p\_in]
+
+set\_property PACKAGE\_PIN AU38 [get\_ports vsync\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports vsync\_in]
+
+set\_property PACKAGE\_PIN AU39 [get\_ports hsync\_in]
+
+set\_property PACKAGE\_PIN AN38 [get\_ports enable\_in]
+
+set\_property PACKAGE\_PIN E19 [get\_ports clock\_p]
+
+set\_property IOSTANDARD DIFF\_HSTL\_II\_18 [get\_ports clock\_p]
+
+set\_property PACKAGE\_PIN N41 [get\_ports reset]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports reset]
+
+set\_property PACKAGE\_PIN E42 [get\_ports POWER]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports POWER]
+
+set\_property PACKAGE\_PIN G41 [get\_ports MUTE]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports MUTE]
+
+
+set\_property PACKAGE\_PIN J32 [get\_ports {pixel\_out[0]}]
+
+set\_property PACKAGE\_PIN K33 [get\_ports {pixel\_out[1]}]
+
+set\_property PACKAGE\_PIN L34 [get\_ports {pixel\_out[2]}]
+
+set\_property PACKAGE\_PIN M33 [get\_ports {pixel\_out[3]}]
+
+set\_property PACKAGE\_PIN H34 [get\_ports {pixel\_out[4]}]
+
+set\_property PACKAGE\_PIN K29 [get\_ports {pixel\_out[5]}]
+
+set\_property PACKAGE\_PIN J30 [get\_ports {pixel\_out[6]}]
+
+
+set\_property PACKAGE\_PIN L29 [get\_ports {pixel\_out[7]}]
+
+set\_property PACKAGE\_PIN J31 [get\_ports {pixel\_out[8]}]
+
+set\_property PACKAGE\_PIN M28 [get\_ports {pixel\_out[9]}]
+
+set\_property PACKAGE\_PIN R28 [get\_ports {pixel\_out[10]}]
+
+set\_property PACKAGE\_PIN N28 [get\_ports {pixel\_out[11]}]
+
+
+set\_property PACKAGE\_PIN R30 [get\_ports {pixel\_out[12]}]
+
+set\_property PACKAGE\_PIN U31 [get\_ports {pixel\_out[13]}]
+
+set\_property PACKAGE\_PIN C35 [get\_ports {pixel\_out[14]}]
+
+set\_property PACKAGE\_PIN D35 [get\_ports {pixel\_out[15]}]
+
+set\_property PACKAGE\_PIN B36 [get\_ports {pixel\_out[16]}]
+
+set\_property PACKAGE\_PIN B34 [get\_ports {pixel\_out[17]}]
+
+set\_property PACKAGE\_PIN B39 [get\_ports {pixel\_out[18]}]
+
+set\_property PACKAGE\_PIN A35 [get\_ports {pixel\_out[19]}]
+
+set\_property PACKAGE\_PIN C38 [get\_ports {pixel\_out[20]}]
+
+set\_property PACKAGE\_PIN B37 [get\_ports {pixel\_out[21]}]
+
+set\_property PACKAGE\_PIN E32 [get\_ports {pixel\_out[22]}]
+
+set\_property PACKAGE\_PIN B32 [get\_ports {pixel\_out[23]}]
+
+set\_property PACKAGE\_PIN E33 [get\_ports {pixel\_out[24]}]
+
+set\_property PACKAGE\_PIN C33 [get\_ports {pixel\_out[25]}]
+
+set\_property PACKAGE\_PIN G32 [get\_ports {pixel\_out[26]}]
+
+set\_property PACKAGE\_PIN F36 [get\_ports {pixel\_out[27]}]
+
+set\_property PACKAGE\_PIN F34 [get\_ports {pixel\_out[28]}]
+
+set\_property PACKAGE\_PIN H33 [get\_ports {pixel\_out[29]}]
+
+set\_property PACKAGE\_PIN D33 [get\_ports {pixel\_out[30]}]
+
+set\_property PACKAGE\_PIN C34 [get\_ports {pixel\_out[31]}]
+
+set\_property PACKAGE\_PIN F32 [get\_ports {pixel\_out[32]}]
+
+set\_property PACKAGE\_PIN F37 [get\_ports {pixel\_out[33]}]
+
+set\_property PACKAGE\_PIN F35 [get\_ports {pixel\_out[34]}]
+
+set\_property PACKAGE\_PIN G33 [get\_ports {pixel\_out[35]}]
+
+set\_property PACKAGE\_PIN L32 [get\_ports {info\_out[1]}]
+
+set\_property PACKAGE\_PIN K32 [get\_ports {info\_out[0]}]
+
+%set\_property PACKAGE\_PIN A39 [get\_ports AP0\_out]
+
+%set\_property IOSTANDARD LVCMOS18 [get\_ports AP0\_out]
+
+set\_property PACKAGE\_PIN A36 [get\_ports AP1\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP1\_out]
+
+set\_property PACKAGE\_PIN C39 [get\_ports AP2\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP2\_out]
+
+set\_property PACKAGE\_PIN B38 [get\_ports AP3\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP3\_out]
+
+set\_property PACKAGE\_PIN D32 [get\_ports AP4\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP4\_out]
+
+set\_property PACKAGE\_PIN B33 [get\_ports lrclk\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports lrclk\_out]
+
+%set\_property PACKAGE\_PIN A37 [get\_ports mclk\_out]
+
+set\_property PACKAGE\_PIN A34 [get\_ports sclk\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports sclk\_out]
+
+%set\_property IOSTANDARD LVCMOS18 [get\_ports mclk\_out]
+
+set\_property PACKAGE\_PIN E34 [get\_ports clock\_p\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports clock\_p\_out]
+
+set\_property PACKAGE\_PIN K35 [get\_ports enable\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports enable\_in]
+
+set\_property PACKAGE\_PIN M32 [get\_ports hsync\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports hsync\_out]
+
+set\_property PACKAGE\_PIN L31 [get\_ports vsync\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports vsync\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports enable\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports hsync\_in]
+
+\subsubsection{Restrições Temporais}\label{ap2:planC_timing_cnstrs}
+
+create\_clock -period 5.000 [get\_ports clk\_n]
+
+create\_clock -period 5.000 [get\_ports clk\_p]

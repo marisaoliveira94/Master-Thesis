@@ -23,11 +23,11 @@
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Mecanismo de obten\IeC {\c c}\IeC {\~a}o da \IeC {\textquotedblleft }v\IeC {\'\i }rgula\IeC {\textquotedblright } quando ALIGN\_COMMA\_DOUBLE=1, retirado de \cite {R011}\relax }}{30}{figure.caption.31}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{38}{figure.caption.36}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Exemplo de imagem gerada pelo modulo desenvolvido\relax }}{40}{figure.caption.37}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{41}{figure.caption.38}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{43}{figure.caption.39}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{45}{figure.caption.40}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{48}{figure.caption.41}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Exemplo de imagem gerada pelo modulo desenvolvido\relax }}{43}{figure.caption.43}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{44}{figure.caption.44}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{46}{figure.caption.45}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{48}{figure.caption.46}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{51}{figure.caption.47}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -29,24 +29,33 @@
 \contentsline {section}{\numberline {3.1}\textit {Hardware} utilizado}{35}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Configura\IeC {\c c}\IeC {\~o}es da FPGA}{36}{subsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.1.1}Configura\IeC {\c c}\IeC {\~a}o por \textit {default}}{36}{subsubsection.3.1.1.1}
-\contentsline {subsubsection}{\numberline {3.1.1.2}1 canal e suporte de audio}{37}{subsubsection.3.1.1.2}
-\contentsline {subsubsection}{\numberline {3.1.1.3}2 canais melhorado}{39}{subsubsection.3.1.1.3}
-\contentsline {subsection}{\numberline {3.1.2}Configura\IeC {\c c}\IeC {\~a}o dos \textit {switches}}{39}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Arquiteturas Desenvolvidas}{39}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{39}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{45}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{47}{subsection.3.2.3}
-\contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{51}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{53}{chapter.5}
-\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o dos pinos das placas HDMI}{55}{appendix.A}
-\contentsline {chapter}{\numberline {B}Localiza\IeC {\c c}\IeC {\~o}es das portas provenientes de TB-HDMI}{59}{appendix.B}
-\contentsline {section}{\numberline {B.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{59}{section.B.1}
-\contentsline {section}{\numberline {B.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{60}{section.B.2}
-\contentsline {section}{\numberline {B.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{62}{section.B.3}
-\contentsline {chapter}{\numberline {C}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{67}{appendix.C}
-\contentsline {subsection}{\numberline {C.0.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{67}{subsection.C.0.1}
-\contentsline {subsubsection}{\numberline {C.0.1.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{67}{subsubsection.C.0.1.1}
-\contentsline {subsubsection}{\numberline {C.0.1.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{69}{subsubsection.C.0.1.2}
-\contentsline {subsection}{\numberline {C.0.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{69}{subsection.C.0.2}
-\contentsline {subsubsection}{\numberline {C.0.2.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{69}{subsubsection.C.0.2.1}
-\contentsline {subsubsection}{\numberline {C.0.2.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{72}{subsubsection.C.0.2.2}
+\contentsline {subsubsection}{\numberline {3.1.1.2}Suporte de um canal de imagem e \IeC {\'a}udio}{36}{subsubsection.3.1.1.2}
+\contentsline {subsubsection}{\numberline {3.1.1.3}Suporte de dois canais de imagem melhorado}{39}{subsubsection.3.1.1.3}
+\contentsline {subsection}{\numberline {3.1.2}Configura\IeC {\c c}\IeC {\~a}o dos interruptores}{39}{subsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Configura\IeC {\c c}\IeC {\~a}o por \textit {default}}{40}{subsubsection.3.1.2.1}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Suporte de um canal de imagem e \IeC {\'a}udio}{40}{subsubsection.3.1.2.2}
+\contentsline {subsubsection}{\numberline {3.1.2.3}Suporte de dois canais de imagem melhorado}{40}{subsubsection.3.1.2.3}
+\contentsline {section}{\numberline {3.2}Arquiteturas Desenvolvidas}{40}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{42}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{48}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{50}{subsection.3.2.3}
+\contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{55}{chapter.4}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{57}{chapter.5}
+\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o dos pinos das placas HDMI}{59}{appendix.A}
+\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o por \textit {default}}{59}{section.A.1}
+\contentsline {section}{\numberline {A.2}Suporte de um canal de imagem e \IeC {\'a}udio}{60}{section.A.2}
+\contentsline {section}{\numberline {A.3}Suporte de dois canais de imagem melhorado}{61}{section.A.3}
+\contentsline {chapter}{\numberline {B}Localiza\IeC {\c c}\IeC {\~o}es das portas provenientes de TB-HDMI}{65}{appendix.B}
+\contentsline {section}{\numberline {B.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{65}{section.B.1}
+\contentsline {section}{\numberline {B.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{66}{section.B.2}
+\contentsline {section}{\numberline {B.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{68}{section.B.3}
+\contentsline {chapter}{\numberline {C}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{73}{appendix.C}
+\contentsline {subsection}{\numberline {C.0.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{73}{subsection.C.0.1}
+\contentsline {subsubsection}{\numberline {C.0.1.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{73}{subsubsection.C.0.1.1}
+\contentsline {subsubsection}{\numberline {C.0.1.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{75}{subsubsection.C.0.1.2}
+\contentsline {subsection}{\numberline {C.0.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{75}{subsection.C.0.2}
+\contentsline {subsubsection}{\numberline {C.0.2.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{75}{subsubsection.C.0.2.1}
+\contentsline {subsubsection}{\numberline {C.0.2.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{78}{subsubsection.C.0.2.2}
+\contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{79}{section.C.1}
+\contentsline {subsubsection}{\numberline {C.1.0.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{79}{subsubsection.C.1.0.1}
+\contentsline {subsubsection}{\numberline {C.1.0.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{84}{subsubsection.C.1.0.2}
