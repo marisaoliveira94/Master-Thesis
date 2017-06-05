@@ -1,0 +1,27 @@
+\select@language {english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX, adaptada de \cite {R009}\relax }}{10}{table.caption.10}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX, adaptada de \cite {R009}\relax }}{12}{table.caption.14}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o do tamanho dos dados de TXDATA, adaptada de \cite {R011}\relax }}{22}{table.caption.24}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o da frequ\IeC {\^e}ncia de TXUSRCLK2, adaptada de \cite {R011}\relax }}{23}{table.caption.25}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o do tamanho dos dados de RXDATA, adaptada de \cite {R011}\relax }}{32}{table.caption.32}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o da frequ\IeC {\^e}ncia de TXUSRCLK2, adaptada de \cite {R011}\relax }}{33}{table.caption.33}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o e localiza\IeC {\c c}\IeC {\~a}o dos pinos de TB-FMCH-HDMI2 configurada por \textit {default}\relax }}{37}{table.caption.34}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o e localiza\IeC {\c c}\IeC {\~a}o dos pinos de TB-FMCH-HDMI2 configurada para um canal de imagem e \IeC {\'a}udio\relax }}{38}{table.caption.35}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada de f\IeC {\'a}brica, adaptada de \cite {R009}\relax }}{40}{table.caption.37}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada de f\IeC {\'a}brica, adaptada de \cite {R009}\relax }}{40}{table.caption.38}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para um canal e suporte de \IeC {\'a}udio, adaptada de \cite {R014}\relax }}{41}{table.caption.39}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para um canal e suporte de \IeC {\'a}udio, adaptada de \cite {R014}\relax }}{41}{table.caption.40}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite {R013}\relax }}{42}{table.caption.41}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite {R013}\relax }}{42}{table.caption.42}
+\contentsline {table}{\numberline {3.9}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de entrada e sa\IeC {\'\i }da da arquitetura\relax }}{48}{table.3.9}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das entradas e sa\IeC {\'\i }das das portas da arquitetura\relax }}{50}{table.3.10}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das entradas e sa\IeC {\'\i }das das portas da arquitetura\relax }}{54}{table.3.11}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em TB-FMCH-HDMI2 configurado por \textit {default}\relax }}{60}{table.A.1}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em TB-FMCH-HDMI2 com a configura\IeC {\c c}\IeC {\~a}o de um canal e suporte de audio\relax }}{61}{table.A.2}
+\contentsline {table}{\numberline {A.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em TB-FMCH-HDMI2 com a configura\IeC {\c c}\IeC {\~a}o de suporte de dois canais melhorado\relax }}{64}{table.A.3}
