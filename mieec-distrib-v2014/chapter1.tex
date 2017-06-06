@@ -33,21 +33,65 @@ O HDMI é uma interface digital que transmite vídeo não comprimido e áudio qu
 
 Em suma, esta implementação tornar-se bastante útil, uma vez que é capaz de abranger um vasto nível de aplicações, acessíveis a todos os utilizadores, tanto em ambientes empresariais como pessoais.
 
-\section{Objetivos} \label{sec:struct}
-Este trabalho tem como principal objetivo a implementação de uma arquitetura de serialização e deserialização de um sinal HDMI, e que ao mesmo tempo faça o tratamento destes mesmos sinais para posterior envio e receção do sinal de alta velocidade em série. Como tal, será necessário utilizar um recurso que permita a implementação dessa mesma arquitetura versatilmente, por outras palavras, um recurso que permita eventuais reconfigurações da arquitetura desenvolvida e que ao mesmo tempo possua características que sejam úteis ao desenvolvimento do projeto.
+%\section{Objetivos} \label{sec:struct}
+%Este trabalho tem como principal objetivo a implementação de uma arquitetura de serialização e deserialização de um sinal HDMI, e que ao mesmo tempo faça o tratamento destes mesmos sinais para posterior envio e receção do sinal de alta velocidade em série. Como tal, será necessário utilizar um recurso que permita a implementação dessa mesma arquitetura versatilmente, por outras palavras, um recurso que permita eventuais reconfigurações da arquitetura desenvolvida e que ao mesmo tempo possua características que sejam úteis ao desenvolvimento do projeto.
+%
+%O projeto fará uso então de uma FPGA VC7203 Virtex-7 que possibilita a implementação de uma arquitetura adequada e que ao mesmo tempo possui entradas e saídas de alta velocidade que vão ajudar na ligação do sinal com os transcetores de alta velocidade. O protótipo desenvolvido em hardware reprogramável deve ser devidamente validado para que o sinal digital possa de seguida ser transmitido através de uma ligação por fibra ótica usando os RTDs desenvolvidos no projeto iBrow.
 
-O projeto fará uso então de uma FPGA VC7203 Virtex-7 que possibilita a implementação de uma arquitetura adequada e que ao mesmo tempo possui entradas e saídas de alta velocidade que vão ajudar na ligação do sinal com os transcetores de alta velocidade. O protótipo desenvolvido em hardware reprogramável deve ser devidamente validado para que o sinal digital possa de seguida ser transmitido através de uma ligação por fibra ótica usando os RTDs desenvolvidos no projeto iBrow.
+\section{Descrição do Problema e Objetivos} \label{sec:descrição_objetivos}
+
+Este projeto tem como principal objetivo a implementação de uma arquitetura que permita a receção de dados HDMI, o seu tratamento e serialização para o seu posterior envio em alta velocidade. Para além disto, a arquitetura deve também voltar a receber os dados em série, fazer a sua conversão para dados em paralelo e voltar a enviar para um dispositivo HDMI final.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{diagrama_inicial}
+		\caption{Diagrama geral do problema proposto}
+		\label{fig:diagrama_inicial}
+	\end{center}
+\end{figure}
+
+O projeto faz uso de uma FPGA VC7203 (\textit{Virtex-7}) que possibilita a implementação de uma arquitetura adquada e ao mesmo tempo possui entradas e saídas de alta velocidade para que se possa testar a arquitetura desenvolvida. Para além disso, serão também utilizadas umas placas HDMI que permitem enviar os dados em paralelo de um fonte HDMI para a FPGA VC7203 através dos conectores FMC, e depois fazer o processo inverso, ou seja, enviar os dados em série para a placa para que a placa os transmita para o dispositivo final HDMI.
+
+A figura \ref{fig:diagrama_inicial} da página \pageref{fig:diagrama_inicial} ilustra um diagrama geral do projeto a ser realizado. No sentido de simplificar o desenvolvimento do mesmo, este foi dividido em 2 partes:
+\begin{enumerate}
+	\item Concepção e desenvolvimento de arquiteturas que permitam comunicação entre dispositivos HDMI.
+	\item Concepção e desenvolvimento de arquiteturas que permitem serialização de dados e deserialização dos mesmos.
+\end{enumerate}
+
+A primeira parte do projeto consiste em obter comunicações entre dois dispositivos HDMI utilizando para tal as placas HDMI disponiveis. A figura \ref{fig:1parte_projeto} da página \pageref{fig:1parte_projeto} ilustra um diagrama que descreve em que consiste o problema a ser resolvido na primeira parte do projeto.
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{1aparte}
+		\caption{Diagrama geral da primeira parte problema}
+		\label{fig:1parte_projeto}
+	\end{center}
+\end{figure}
+
+À placa HDMI recetora é ligado um sinal externo via cabo HDMI de uma fonte HDMI e de seguida essa mesma placa enviará para a FPGA através dos conectores FMC os sinais de video a serem transmitidos. Na FPGA VC7203 é desenvolvida uma arquitetura que permita o tratamento dos dados provenientes dos conectores FMC e de seguida, esses mesmo dados, são enviados para a placa HDMI transmissora de maneira a que esta possa envia-los para o dispositivo HDMI de destino.
+
+A segunda parte do projeto consiste em desenvolver uma arquitura na FPGA que permita serializar os dados recebidos, envia-los através das entradas de alta velocidade da mesma e voltar a recebe-los. A figura \ref{fig:2parte_projeto} da página \pageref{fig:2parte_projeto} ilustra o diagrama do trabalho a ser desenvolvido nesta fase.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.7\textwidth]{2parte}
+		\caption{Diagrama geral da segunda parte do problema}
+		\label{fig:2parte_projeto}
+	\end{center}
+\end{figure}
+
+Tal como ilustra a figura \ref{fig:2parte_projeto}, serão recebidos dados em paralelo e deve ser desenvolvida uma arquitetura que organize esses mesmos dados em tramas, e de seguida os envie para os transcetores da FPGA que automaticamente fazem a serialização dos dados. Depois os dados em série são transmitidos por um cabo físico, e recebidos nos transcetores onde serão de-serializados novamente. Por fim, as tramas serão recebidas e processadas de modo a obter-se na saída os dados em paralelo tal como recebidos na entrada. Assim que as duas partes do projeto estejam concluídas obtem-se o objetivo final.
 
 \section{Estrutura da Dissertação} \label{sec:struct}
 
-FAZER ESTA PARTE !!!
+Esta dissertação está organizada em vários capitulos que vão desde uma revisão bibliográfica do problema até à descrição da resposta ao mesmo. 
+No capitulo \ref{chap:chap2} é feita uma revisão bibliográfica sobre os diversos aspectos que o problema apresenta, apresentando também considerações de diversos autores sobre tal.  
 
-Para além da introdução, esta dissertação contém mais x capítulos.
-No capítulo~\ref{chap:sota}, é descrito o estado da arte e são
-apresentados trabalhos relacionados. 
-No capítulo~\ref{chap:chap3}, ipsum dolor sit amet, consectetuer
-adipiscing elit.
-No capítulo~\ref{chap:chap4} praesent sit amet sem. 
-No capítulo~\ref{chap:concl}  posuere, ante non tristique
-consectetuer, dui elit scelerisque augue, eu vehicula nibh nisi ac
-est. 
+No capitulo \ref{chap:chap3} é descrito toda a concepção e desenvolvimento das arquiteturas referentes à primeira parte do trabalho apresentado em \ref{sec:descrição_objetivos}. São descritas todas as arquiteturas desenvolvidas, as principais dificuldades encontradas no seu desenvolvimento e ainda os resultados obtidos.
+
+O capitulo \ref{chap:chap4} aborda todas as questões relativas à transmissão em série. São apresentas as arquiteturas desenvolvidas para se obter uma ligação em série, todos os cuidados necessários e ainda são explicadas as decisões tomadas quanto à escolha de determinados parâmetros.
+
+O capitulo \ref{chap:concl} expões as conclusões finais de todo o trabalho realizado e ainda aborda trabalho que pode futuramento ser realizado decorrente do que foi realizado até ao momento.
+

@@ -46,10 +46,11 @@ Assim sendo, existe \textit{hardware} disponível que consegue fazer as duas fun
 \subsection{Conexão à FPGA XILINX VC7203 Virtex-7} \label{subsec:HDMIconexao} 
 Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visualiza-se a placa de desenvolvimento a ser utilizada no projeto com numeração para as suas diversas características, sendo que nesta fase se pretende perceber o que são os conectores FMC (\textit{FPGA Mezzanine Card}) e onde estão localizados nesta mesma placa.
 
+
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.86\textwidth]{FPGA}
+		\includegraphics[width=0.86\textwidth]{fpga_vet}
 		\caption{Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite{R008}}
 		\label{fig:fpgaVistaGeral}
 	\end{center}
@@ -94,10 +95,11 @@ Estes serão os conectores a ser utilizados e mais à frente neste relatório se
 Este \textit{hardware}, TB-FMCH-HDMI2, está dividido em 2 placas: o recetor (RX) que recebe o sinal recebido pelo cabo HDMI, faz a descodificação e envia o sinal para a FPGA, e o transmissor (TX) que faz o processo inverso, isto é, recebe o sinal proveniente da FPGA e transmite-o para o cabo HDMI para que possa chegar ao dispositivo de destino. 
 \subsubsection{Recetor}\label{subsubsec:RX}
 Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor disponível.
+
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.7\textwidth]{HDMIrx}
+		\includegraphics{diagramaBlocosRX_hdmi}
 		\caption{Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite{R009}}
 		\label{fig:HDMIblocosRX}
 	\end{center}
@@ -148,7 +150,7 @@ As suas principais funções dividem-se nas seguintes:
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.7\textwidth]{amostragemRX}
+		\includegraphics{amostragem_RX_vet}
 		\caption{Amostragem dos dados provenientes da FPGA no recetor, retirada de \cite{R009}}
 		\label{fig:HDMIamostragemRX}
 	\end{center}
@@ -160,7 +162,7 @@ Na figura~\ref{fig:rx} da página~\pageref{fig:rx} é possivel visualizar a plac
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=1.0\textwidth]{rx}
+		\includegraphics{placa_HDMI_rx_vet}
 		\caption{TB-FMCH-HDMI2 RX, retirada de \cite{R009}}
 		\label{fig:rx}
 	\end{center}
@@ -171,7 +173,7 @@ O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIbl
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.7\textwidth]{HDMItx}
+		\includegraphics{diagramaBlocosTX_HDMI}
 		\caption{Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite{R009}}
 		\label{fig:HDMIblocosTX}
 	\end{center}
@@ -218,7 +220,7 @@ Mais uma vez é possível dividir o diagrama em duas principais funções:
 	\begin{figure}[h!]
 		\begin{center}
 			\leavevmode
-			\includegraphics[width=0.7\textwidth]{amostragemTX}
+			\includegraphics{amostragem_TX_vet}
 			\caption{Amostragem dos dados provenientes do FMC no recetor, retirada de \cite{R009}}
 			\label{fig:HDMIamostragemTX}
 		\end{center}
@@ -234,45 +236,45 @@ Na figura~\ref{fig:tx} da página~\pageref{fig:tx} é possivel visualizar a plac
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=1.0\textwidth]{tx}
+		\includegraphics{placa_HDMI_tx_vet}
 		\caption{TB-FMCH-HDMI2 TX, retirada de \cite{R009}}
 		\label{fig:tx}
 	\end{center}
 \end{figure}
 
-\subsubsection{Conexão DDC}\label{subsubsec:DDCconexao} 
-
-Para esta configuração da placa, são suportadas dois tipos de conexão DDC que passam a ser descritas.
-
-\begin{enumerate}
-	\item \textbf{Conexão Normal}
-	
-	\hspace{1.0em}Nesta configuração a comunicação DDC realiza-se normalmente entre o recetor e o transmissor HDMI, tal como ilustra a figura~\ref{fig:DDCnormal} na página~\pageref{fig:DDCnormal}. Existe um canal especifico para esta conexão que é recebido através do conector HDMI e enviado juntamente com os outros tipos de dados.
-
-	\begin{figure}[h!]
-		\begin{center}
-			\leavevmode
-			\includegraphics[width=1.0\textwidth]{DDCnormal}
-			\caption{Configuração DDC normal, retirada de \cite{R009}}
-			\label{fig:DDCnormal}
-		\end{center}
-	\end{figure}
-	
-	\item \textbf{Conexão "\textit{through}"}
-	
-	\hspace{1.0em}Este tipo de conexão faz uma ligação direta do canal DDC entre o recetor e o transmissor inibindo a comunicação normal deste canal. Para fazer esta conexão é necessário um cabo DDC e fazer as conexões corretas. Esta situação está ilustrada na figura~\ref{fig:DDCthrough} na página~\pageref{fig:DDCthrough}.
-	
-		\begin{figure}[h!]
-		\begin{center}
-			\leavevmode
-			\includegraphics[width=1.0\textwidth]{DDCthrough}
-			\caption{Configuração DDC “\textit{through}”, retirada de \cite{R009}}
-			\label{fig:DDCthrough}
-		\end{center}
-	\end{figure}
-	
-	\hspace{1.0em}Este tipo de configuração poderá ser utilizada numa fase inicial do projeto a ser realizado, visto que não exige comunicação bidirecional através dos transcetores (onde os restantes sinais serão transmitidos), e como tal vem facilitar a comunicação entre dispositivo de origem e de destino.
-\end{enumerate}
+%\subsubsection{Conexão DDC}\label{subsubsec:DDCconexao} 
+%
+%Para esta configuração da placa, são suportadas dois tipos de conexão DDC que passam a ser descritas.
+%
+%\begin{enumerate}
+%	\item \textbf{Conexão Normal}
+%	
+%	\hspace{1.0em}Nesta configuração a comunicação DDC realiza-se normalmente entre o recetor e o transmissor HDMI, tal como ilustra a figura~\ref{fig:DDCnormal} na página~\pageref{fig:DDCnormal}. Existe um canal especifico para esta conexão que é recebido através do conector HDMI e enviado juntamente com os outros tipos de dados.
+%
+%	\begin{figure}[h!]
+%		\begin{center}
+%			\leavevmode
+%			\includegraphics[width=1.0\textwidth]{DDCnormal}
+%			\caption{Configuração DDC normal, retirada de \cite{R009}}
+%			\label{fig:DDCnormal}
+%		\end{center}
+%	\end{figure}
+%	
+%	\item \textbf{Conexão "\textit{through}"}
+%	
+%	\hspace{1.0em}Este tipo de conexão faz uma ligação direta do canal DDC entre o recetor e o transmissor inibindo a comunicação normal deste canal. Para fazer esta conexão é necessário um cabo DDC e fazer as conexões corretas. Esta situação está ilustrada na figura~\ref{fig:DDCthrough} na página~\pageref{fig:DDCthrough}.
+%	
+%		\begin{figure}[h!]
+%		\begin{center}
+%			\leavevmode
+%			\includegraphics[width=1.0\textwidth]{DDCthrough}
+%			\caption{Configuração DDC “\textit{through}”, retirada de \cite{R009}}
+%			\label{fig:DDCthrough}
+%		\end{center}
+%	\end{figure}
+%	
+%	\hspace{1.0em}Este tipo de configuração poderá ser utilizada numa fase inicial do projeto a ser realizado, visto que não exige comunicação bidirecional através dos transcetores (onde os restantes sinais serão transmitidos), e como tal vem facilitar a comunicação entre dispositivo de origem e de destino.
+%\end{enumerate}
 
 \section{Conexão de alta velocidade em série -> NOVO SUB-CAPITULO} \label{sec:conexaoSerie_new}
 
