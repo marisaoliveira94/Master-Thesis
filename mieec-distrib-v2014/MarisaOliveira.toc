@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {2.2.3}CEC - \textit {Consumer Electronics Control} }{11}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}ARC - \textit {Audio Return Channel} }{11}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}HEC - \textit {HDMI Ethernet Channel} }{11}{subsection.2.2.5}
-\contentsline {section}{\numberline {2.3}HDMI implementado sobre a FPGA}{11}{section.2.3}
+\contentsline {section}{\numberline {2.3}Transmiss\IeC {\~a}o de dados HDMI}{11}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Conex\IeC {\~a}o \IeC {\`a} FPGA XILINX VC7203 Virtex-7}{12}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Transmissor e Recetor}{13}{subsection.2.3.2}
 \contentsline {subsubsection}{\numberline {2.3.2.1}Recetor}{13}{subsubsection.2.3.2.1}

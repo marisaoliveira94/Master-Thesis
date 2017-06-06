@@ -47,6 +47,10 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
 \bibitem{R004}
 W.~contributors, ``audio and video interfaces and connectors,'' 2016.
 
+\bibitem{R030}
+Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
+  vol.~315, pp.~1--7, 2009.
+
 \bibitem{R026}
 Xilinx, ``{Platform Flash In-System},'' {\em Memory}, vol.~123, pp.~1--46,
   2006.

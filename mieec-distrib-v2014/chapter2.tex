@@ -38,63 +38,72 @@ Esta especificação do HDMI, tal como a anterior, está também apenas disponí
 
 Uma das principais características mais recentes das interfaces HDMI prende-se ao facto de permitir que sinais não sejam reproduzidos em dipositivos não autrizados. Isto é, através de um protocolo cujo nome já foi referido anteriormente, HDCP (\textit{High-Bandwith Digital Content Protection}), o sinal HDMI pode ser encriptado e posteriormente transmitido pela \textit{source}, protegendo assim a sua reprodução em dispositivos não autorizados. Esta tem vindo a tornar-se uma característica importante, visto que a reprodução ilegal de vídeos tem vindo a tornar-se reccorrente nos dias atuais.
 
-\section{HDMI implementado sobre a FPGA}\label{sec:HDMIinFPGA}
-A interface HDMI, tal como descrito no subcapítulo anterior, consiste numa interface que permite a transferência de sinais áudio e vídeo digitais entre dois dispositivos, e como tal será necessário um adaptador que permita a conexão entre os dois dispositivos e que ao mesmo tempo sirva como recurso para a codificação e descodificação do sinal HDMI. 
+\section{Transmissão de dados HDMI}\label{sec:HDMIinFPGA}
+A interface HDMI, tal como descrito no subcapítulo anterior, consiste numa interface que permite a transferência de sinais áudio e vídeo digitais entre dois dispositivos. Para que seja possivel a conexão entre dois dispositivos HDMI é necessário logo à partido que existam dois conectores HDMI, e ainda que o sinal que vem transportado no cabo seja descodificado para apenas serem transmitidos os dados referentes à imagem e ao som.   
 
-Assim sendo, existe \textit{hardware} disponível que consegue fazer as duas funções descritas, nomeadamente em \cite{R009}. Esta interface HDMI consiste num adaptador e descodificador do sinal HDMI para a FPGA, sendo que são necessárias uma placa para a transmissão e outra para a receção do sinal. Cada placa tem respetivamente dois transmissores e dois recetores independentes e faz uso dos conectores FMC para se conectar com a FPGA.
+O projeto recorre então à utilização de um tipo de \textit{hardware} capaz de cumprir as duas funções descritas, que são duas placas HDMI com o nome de TB-FMC-HDMI2.Ao todo são usadas duas placas, uma recetora do sinal HDMI (RX) e outra transmissora do sinal HDMI (TX) sendo que cada uma tem dois canais (RX0 e RX1, TX0 e TX1). No caso da placa recetora o sinal proveniente da fonte HDMI é recebido e, através dos conectores FMC, envia apenas os dados referentes à imagem e som. No caso da placa transmissora o processo é inverso, ou seja, os conectores FMC recebem os dados apenas referentes à imagem e ao som e a placa envia um sinal HDMI através do seu conector para o dispositivo final HDMI.
 
 \subsection{Conexão à FPGA XILINX VC7203 Virtex-7} \label{subsec:HDMIconexao} 
-Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visualiza-se a placa de desenvolvimento a ser utilizada no projeto com numeração para as suas diversas características, sendo que nesta fase se pretende perceber o que são os conectores FMC (\textit{FPGA Mezzanine Card}) e onde estão localizados nesta mesma placa.
-
+Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visualiza-se a placa de desenvolvimento a ser utilizada no projeto. Assinalado a tracejado vermelho é possível visualizar os 3 conectores FMC (\textit{FPGA Mezzanine Card}) que a placa VC7203 disponibiliza.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.86\textwidth]{fpga_vet}
+		\includegraphics{fpga_fmc_vet}
 		\caption{Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite{R008}}
 		\label{fig:fpgaVistaGeral}
 	\end{center}
 \end{figure}
 
-A numeração 27, 28 e 29 correspondem aos conectores FMC disponíveis na FPGA a ser utilizada neste projeto. O número 27 corresponde ao conector JA2, 28 corresponde ao JA3 e 29 corresponde ao JA4. Estes conectores são usados como entradas e saídas de uma ligação, que neste caso em especifico será a uma placa HDMI, pois permitem uma ligação de alta velocidade (até 10 Gb/s). Estes três conectores HPC (High Pin Count) são compostos por 10x40 posições que permitem uma comunicação de alta velocidade por uma I/O cujo tamanho é relativamente pequeno. 
+%%DIZER AQUI QUE SÃO ESTES CONECTORES QUE SE VÃO LIGAR A FPGA
+%%EXPLICAR EM QUE CONSISTEM OS CONECTORES FMC
+Os conectores assinalados na imagem desta placa tratam-se de conectores FMC HPC (\textit{High Pin Count}) e permitem conectar as placas HDMI com a FPGA. Segundo \cite{R030}, os conectores FMC implementam determinadas normas que permitem uma rápida transmissão de dados entre placas. Exitem dois tipos de conectores FMC : LPC (\textit{Low Pin Count}) que disponibiliza 160 pinos e ainda HPC (\textit{High Pin Count}) que dispõe de 400 pinos. Ainda segundo \cite{R030}, qualquer tipo dos conectores consegue alcançar uma velocidade de conexão de até 2 Gb/s para sinais com sinalização diferencial e única. Para além da rápida velocidade de transmissão, outra gande vantagem que a utilização deste tipo de conectores traz é número de conexões que permite (400 pinos no caso de HPC) para a pequena area que ocupam. 
+%%ESPECIFICAR QUANTO E QUE PARES SÃO DISPONIBILIZADOS
 
-\textbf{O conector JA2 (FMC1 HPC) permite a seguinte conectividade:}
-\begin{itemize}
-	\item 68 pares que podem ser definidos pelo utilizador:
-	\begin{itemize}
-		\item 34 pares LA
-		\item 17 pares HA
-		\item 17 pares HB
-	\end{itemize}
-	\item 4 sinais de relógio diferenciais
-\end{itemize}
-\textbf{O conector JA3 (FMC2 HPC) permite a seguinte conectividade:}
-\begin{itemize}
-	\item 68 pares que podem ser definidos pelo utilizador:
-	\begin{itemize}
-		\item 34 pares LA
-		\item 17 pares HA
-		\item 17 pares HB
-	\end{itemize}
-	\item 4 sinais de relógio diferenciais
-\end{itemize}
-\textbf{O conector JA2 (FMC1 HPC) permite a seguinte conectividade:}
-\begin{itemize}
-	\item 65 pares que podem ser definidos pelo utilizador:
-	\begin{itemize}
-		\item 34 pares LA
-		\item 16 pares HA
-		\item 15 pares HB
-	\end{itemize}
-	\item 4 sinais de relógio diferenciais
-\end{itemize}
+Em especifico nesta FPGA existem 3 conectores FMC (FMC1, FMC2 e FMC3) que permitem diferentes conectividades. Segundo \cite{R008}, o conector FMC1 dispões de 68 pares diferencias definidos pelo utilizador e ainda 4 sinais de relógio diferenciais. O mesmo acontece para para o conector FMC2. No entanto, o conector FMC3 apenas disponibiliza 65 pares diferencias que podem ser definidos pelo utilizador e 4 sinais de relógio diferencias.
 
 Estes serão os conectores a ser utilizados e mais à frente neste relatório será explicado como é que os sinais são transmitidos. 
+
+
+%A numeração 27, 28 e 29 correspondem aos conectores FMC disponíveis na FPGA a ser utilizada neste projeto. O número 27 corresponde ao conector JA2, 28 corresponde ao JA3 e 29 corresponde ao JA4. Estes conectores são usados como entradas e saídas de uma ligação, que neste caso em especifico será a uma placa HDMI, pois permitem uma ligação de alta velocidade (até 10 Gb/s). Estes três conectores HPC (High Pin Count) são compostos por 10x40 posições que permitem uma comunicação de alta velocidade por uma I/O cujo tamanho é relativamente pequeno. 
+%
+%\textbf{O conector JA2 (FMC1 HPC) permite a seguinte conectividade:}
+%\begin{itemize}
+%	\item 68 pares que podem ser definidos pelo utilizador:
+%	\begin{itemize}
+%		\item 34 pares LA
+%		\item 17 pares HA
+%		\item 17 pares HB
+%	\end{itemize}
+%	\item 4 sinais de relógio diferenciais
+%\end{itemize}
+%\textbf{O conector JA3 (FMC2 HPC) permite a seguinte conectividade:}
+%\begin{itemize}
+%	\item 68 pares que podem ser definidos pelo utilizador:
+%	\begin{itemize}
+%		\item 34 pares LA
+%		\item 17 pares HA
+%		\item 17 pares HB
+%	\end{itemize}
+%	\item 4 sinais de relógio diferenciais
+%\end{itemize}
+%\textbf{O conector JA2 (FMC1 HPC) permite a seguinte conectividade:}
+%\begin{itemize}
+%	\item 65 pares que podem ser definidos pelo utilizador:
+%	\begin{itemize}
+%		\item 34 pares LA
+%		\item 16 pares HA
+%		\item 15 pares HB
+%	\end{itemize}
+%	\item 4 sinais de relógio diferenciais
+%\end{itemize}
+
+
 
 \subsection{Transmissor e Recetor} \label{subsec:TXandRX}
 Este \textit{hardware}, TB-FMCH-HDMI2, está dividido em 2 placas: o recetor (RX) que recebe o sinal recebido pelo cabo HDMI, faz a descodificação e envia o sinal para a FPGA, e o transmissor (TX) que faz o processo inverso, isto é, recebe o sinal proveniente da FPGA e transmite-o para o cabo HDMI para que possa chegar ao dispositivo de destino. 
 \subsubsection{Recetor}\label{subsubsec:RX}
-Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor disponível.
+Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -111,7 +120,7 @@ As suas principais funções dividem-se nas seguintes:
 	\hspace{1.0em}A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integrado ADV7612BSWZ-P que recebe sinal HDMI e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (electrically erasable programmable read-only memory) que é usada para guardar dados EDID.
 	\item \textbf{Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}
 	
-	\hspace{1.0em}Após passarem pela FPGA embebida (configurada por \textit{default}) na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX}:
+	\hspace{1.0em}Após passarem pela FPGA embebida na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX} (para o caso em que a FPGA está configurada por \textit{default}):
 
 	\begin{table}[h!]
 		\centering
@@ -126,7 +135,7 @@ As suas principais funções dividem-se nas seguintes:
 			LA03\_P a LA32\_P    & \textit{Output}                & RX\#0\_P0 a RX\#0\_P29 & RX\#0 dados de vídeo de 0 a 29 \\ \hline
 			LA33\_P              & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
 			CLK0\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			CLK1\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
+			CLK1\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                      \\ \hline
 			LA00\_N\_CC          & \textit{Output}                & RX\#1\_VSYNC           & RX\#1\_VSYNC                   \\ \hline
 			LA01\_N\_CC          & \textit{Output}                & RX\#1\_HSYNC           & RX\#1\_HSYNC                   \\ \hline
 			LA02\_N              & \textit{Output}                & RX\#1\_DE              & RX\#1 data enable              \\ \hline
@@ -139,11 +148,16 @@ As suas principais funções dividem-se nas seguintes:
 			CLK3\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
 			HA00\_N a HA23\_N    & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
 		\end{tabular}
+		\centering
 		\caption{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX, adaptada de \cite{R009}}
 		\label{table:HDMIdataRX}
 	\end{table}
 
-\hspace{1.0em}Conclui-se que os dados presentes que são transmitidos para os conectores FMC, para além dos sinais de sincronização são essencialmente dados de vídeo, os do recetor 0 passados entre LA03\_P a LA32\_P e os do recetor 1 passados entre LA03\_N a LA32\_P. O sinail “\textit{data enable}” é um sinal que sinaliza a chegada de dados. HSYNC é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal VSYNC é a representação da sincronização horizontal, que faz o mesmo que HSYNC (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
+\hspace{1.0em}Através da analise da tabela \ref{table:HDMIdataRX} e do diagrama de blocos da placa na figura \ref{fig:HDMIblocosRX} conclui-se que o integrado ADV7612 é capaz de colocar na sua saída vários sinais (tanto referentes à imagem como ao som), no entanto esses sinais não são todos transmitidos para os conectores FMC. Isto acontece por causa da configuração presente na FPGA embebida que determina que sinais envia para os conectores. 
+
+\hspace{1.0em}Através da leitura de \cite{R016} conclui-se que a configuração presente na FPGA embebida para além de selecionar os dados a enviar para os conectores FMC, configura também alguns parâmetros do integrado ADV7612 que permitem que este reproduza sinais num determinado formato e com um determinado número de bits. 
+
+\hspace{1.0em} Para esta configuração são transmitidos para os conectores dados FMC referentes à imagem e sinais de sincronização do mesmo. Os dados da imagem são enviados do recetor 0 entre os pinos LA03\_P a LA32\_P, e do recetor 1  entre LA03\_N a LA32\_P. O sinal “\textit{data enable}” é um sinal que sinaliza a chegada de dados e está ativo quando estão a ser transmitidos os sinais referentes a cada pixel. \textit{HSYNC} é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal \textit{VSYNC} é a representação da sincronização horizontal, que faz o mesmo que \textit{HSYNC} (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
 
 \hspace{1.0em}Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura~\ref{fig:HDMIamostragemRX} na página~\pageref{fig:HDMIamostragemRX} ilustra esta situação.
 
