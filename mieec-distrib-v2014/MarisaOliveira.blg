@@ -24,4 +24,9 @@ Warning--empty year in R016
 Warning--empty publisher in R014
 Warning--empty publisher in R013
 Warning--empty journal in R030
-(There were 11 warnings)
+Warning--there's a number but no series in R017
+Warning--empty publisher in R017
+Warning--there's a number but no series in R018
+Warning--empty publisher in R018
+Warning--empty journal in R031
+(There were 16 warnings)

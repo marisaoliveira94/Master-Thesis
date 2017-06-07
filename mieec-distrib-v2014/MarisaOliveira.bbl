@@ -54,6 +54,14 @@ W.~contributors, ``Audio and video interfaces and connectors,'' 2016.
 Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
   vol.~315, 2009.
 
+\bibitem{R017}
+{Analog Devices}, {\em {ADV7511 Programming Guide}}.
+\newblock No.~March, 2012.
+
+\bibitem{R018}
+{Analog Devices}, {\em {ADV7511 Hardware user's guide}}.
+\newblock No.~July, 2011.
+
 \bibitem{R026}
 Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.
 
@@ -66,5 +74,9 @@ Xilinx, ``{Xilinx Platform Cable USB II},'' 2015.
 \bibitem{R024}
 C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification
   Techniques Using SystemVerilog},'' {\em Snug-2008}, 2008.
+
+\bibitem{R031}
+G.~Magnaye and J.~Snow, ``{Implementing SMPTE SDI Interfaces with 7 Series
+  Transceivers},'' vol.~1092, 2013.
 
 \end{thebibliography}

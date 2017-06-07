@@ -112,7 +112,7 @@ Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possí
 		\label{fig:HDMIblocosRX}
 	\end{center}
 \end{figure}
-As suas principais funções dividem-se nas seguintes:
+Através  de uma rápida observação deste diagrama é possivel concluir que se pode dividir as suas principais funções em duas partes que passa a ser descritas nos próximos sub-capitulos. 
 
 \subsubsection{Receção do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}
 	
@@ -172,30 +172,33 @@ Uma nota importante ainda sobre a passagem dos sinais através dos conectores FM
  
 
 
-Na figura~\ref{fig:rx} da página~\pageref{fig:rx} é possivel visualizar a placa TB-FMCH-HDMI2 RX referida anteriomente.
-\begin{figure}[h!]
-	\begin{center}
-		\leavevmode
-		\includegraphics{placa_HDMI_rx_vet}
-		\caption{TB-FMCH-HDMI2 RX, retirada de \cite{R009}}
-		\label{fig:rx}
-	\end{center}
-\end{figure}
-
 \subsection{Transmissor}\label{subsec:TX} 
 
 O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIblocosTX} na página~\pageref{fig:HDMIblocosTX}.
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics{diagramaBlocosTX_HDMI}
+		\includegraphics[width=1.0\textwidth]{diagramaBlocosTX_HDMI}
 		\caption{Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite{R009}}
 		\label{fig:HDMIblocosTX}
 	\end{center}
 \end{figure}
-Mais uma vez é possível dividir o diagrama em duas principais funções:
+Mais uma vez é possível dividir o diagrama em duas principais funções que passam a ser descritas.
 
 \subsubsection{Interface com o conector FMC (do conector FMC para a FPGA localizada na placa)}
+No caso do transmissor o processo é feito no sentido inverso, ou seja, os sinais são lidos dos conectores FMC da placa HDMI e são amostrados para a FPGA embebida na mesma na transição de 0 para 1 do sinal de relógio do HDMI, tal como ilustra a imagem \ref{fig:HDMIamostragemTX} da página \pageref{fig:HDMIamostragemTX} e depois são processados pela FPGA de maneiraa a serem enviados para o transmissor HDMI (ADV7511).
+
+	\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics{amostragem_TX_vet}
+		\caption{Amostragem dos dados provenientes do FMC no recetor, retirada de \cite{R009}}
+		\label{fig:HDMIamostragemTX}
+	\end{center}
+\end{figure}
+
+Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX} na página~\pageref{table:HDMIdataRX}, mais uma vez com a placa configurada por \textit{default}, e correspondem aos sinais que a placa transmissora deve receber para enviar para a FPGA.
+
 	\begin{table}[h!]
 		\centering
 		\begin{tabular}{|c|c|c|c|}
@@ -225,38 +228,18 @@ Mais uma vez é possível dividir o diagrama em duas principais funções:
 			\caption{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX, adaptada de \cite{R009}}
 			\label{table:HDMIdataTX}
 	\end{table}
-	
-Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX} na página~\pageref{table:HDMIdataRX}, mis uma vez com a placa configurada por \textit{default}.
-	
-Os dados capturados pela FPGA embebida na placa na transição de 0 para 1 do sinal de relógio do vídeo, tal como ilustra a figura~\ref{fig:HDMIamostragemTX} na página~\pageref{fig:HDMIamostragemTX}. Como tal, o sinal deve ser transferido na FPGA principal transição de 1 para 0 do sinal de relógio do vídeo. 
-	
-	
-	\begin{figure}[h!]
-		\begin{center}
-			\leavevmode
-			\includegraphics{amostragem_TX_vet}
-			\caption{Amostragem dos dados provenientes do FMC no recetor, retirada de \cite{R009}}
-			\label{fig:HDMIamostragemTX}
-		\end{center}
-	\end{figure}
-	
-	\subsubsection{Transmissor HDMI (da FPGA localizada na placa para ADV7511)}
-
-	
-Após passar pela FPGA embebida na placa o sinal passa pelo bloco ADV7511 para de seguida ser possível o seu envio pelo conector HDMI para o dispositivo de destino. 
 
 
 
-Na figura~\ref{fig:tx} da página~\pageref{fig:tx} é possivel visualizar a placa TB-FMCH-HDMI2 RX referida anteriomente.
+	
+	
 
-\begin{figure}[h!]
-	\begin{center}
-		\leavevmode
-		\includegraphics{placa_HDMI_tx_vet}
-		\caption{TB-FMCH-HDMI2 TX, retirada de \cite{R009}}
-		\label{fig:tx}
-	\end{center}
-\end{figure}
+	
+\subsubsection{Transmissor HDMI (da FPGA localizada na placa para ADV7511)}
+
+Os sinais são então processados de maneira a envia-los para o bloco ADV7511 localizado na placa. Através da analise dos documentos \cite{R017} e \cite{R018} conclui-se que para além dos dados de imagem e os seus sinais de controlo, são também enviados para o integrado ADV7511 alguns sinais de controlo que indicam ao integrado que tipo de formato de imagem são enviados, ou quantos números de bits tem, entre outros.De seguida, o ADV7511 converte o sinal para o poder enviar através do cabo HDMI para o dispositivo final. 
+
+
 
 %\subsubsection{Conexão DDC}\label{subsubsec:DDCconexao} 
 %

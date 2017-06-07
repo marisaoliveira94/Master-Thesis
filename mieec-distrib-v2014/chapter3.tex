@@ -6,6 +6,24 @@ Este capítulo descreve o trabalho realizado para cumprir a primeira parte do pr
 
 Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para receber os dados provenientes do cabo HDMI e fazer a sua seleção são utilizadas duas placas HDMI (TB-FMCH-HDMI2 RX E TB-FMCH-HDMI2 TX) que, através das suas entradas e saída FMC de alta velocidade, conseguem enviar para e receber da FPGA os sinais de imagem e som. Nas imagens \ref{fig:rx} e \ref{fig:tx} é possível visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituídas por conectores HDMI onde é recebido o sinal HDMI que de seguida é enviado para um recetor ou transmissor, ADV7612 no caso do recetor e ADV7511 no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FGPA embebida na placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de áudio e vídeo
 
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{placa_HDMI_rx_vet}
+		\caption{TB-FMCH-HDMI2 RX, retirada de \cite{R009}}
+		\label{fig:rx}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{placa_HDMI_tx_vet}
+		\caption{TB-FMCH-HDMI2 TX, retirada de \cite{R009}}
+		\label{fig:tx}
+	\end{center}
+\end{figure}
 As placas possuem ainda uma PROM (\textit{Programmable read-only memory}) XCF16PFSG48C de configuração reprogramável que permite armazenar o \textit{bitstream} que configura a FPGA embebida do modo que se pretende. É esta FPGA embebida que em cada placa (RX e TX) é responsável pela seleção e envio ou receção dos dados pretendidos para ou dos conectores FMC, e como tal é necessário que estejam configuradas para realizarem tais procedimentos. O recurso a estas memórias reconfiguráveis vem permitir uma fácil alteração da configuração da FPGA uma vez que, segundo \cite{R026}, estas memórias de leitura permitem não só armazenar os \textit{bitstreams} de configuração da FPGA, mas também reconfigurá-los, caso se pretenda, de uma forma fácil e eficiente.
 
 As reconfigurações destas memórias são realizadas através de um programador JTAG e ainda recorrendo a um \textit{software}. O \textit{software} utilizado neste projeto tem o nome de \textit{imPACT} e é disponibilizado pela \textit{Xilinx}. Após a conexão do conector JTAG à respectiva placa e ao computador (através de uma porta USB) é necessário inicializar o \textit{software} e programar a memória com o respetivo ficheiro pretendido. Em \cite{R025} são detalhadas informações acerca do programador utilizado e ainda sobre o procedimento para se reconfigurar as memórias. As reconfigurações realizadas neste projeto basearam-se nesse documento.
