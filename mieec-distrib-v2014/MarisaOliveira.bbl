@@ -1,12 +1,13 @@
 \begin{thebibliography}{10}
 
 \bibitem{R008}
-Xilinx and Inc, ``{VC7203 Virtex-7 FPGA GTX Transceiver Characterization Board
-  User Guide (UG957)},'' 2014.
+Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
+  Board User Guide (UG957)}}.
+\newblock 2014.
 
 \bibitem{R009}
 Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
-\newblock 2012.
+\newblock 2014.
 
 \bibitem{R012}
 D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
@@ -16,18 +17,20 @@ Xilinx and Inc, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for
   High-Speed Serial I/O Connectivity, White Paper},'' 2013.
 
 \bibitem{R011}
-Xilinx and Inc, ``{7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)},''
+Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}}.
+\newblock 2016.
 
 \bibitem{R016}
-{Analog Devices}, ``{ADV7612 Reference Manual},''
+A.~Devices, {\em {ADV7612 Reference Manual}}.
 
 \bibitem{R014}
-Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio support},''
-  pp.~1--59.
+Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio
+  support}}.
+\newblock 2014.
 
 \bibitem{R013}
-Inrevium, ``{TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support},''
-  pp.~1--56.
+Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support}}.
+\newblock 2015.
 
 \bibitem{R002}
 {Wikipedia Contributors}, ``{HDMI},'' 2016.
@@ -45,25 +48,23 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
   communications},'' {\em Journal of Applied Physics}, vol.~107, no.~11, 2010.
 
 \bibitem{R004}
-W.~contributors, ``audio and video interfaces and connectors,'' 2016.
+W.~contributors, ``Audio and video interfaces and connectors,'' 2016.
 
 \bibitem{R030}
 Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
-  vol.~315, pp.~1--7, 2009.
+  vol.~315, 2009.
 
 \bibitem{R026}
-Xilinx, ``{Platform Flash In-System},'' {\em Memory}, vol.~123, pp.~1--46,
-  2006.
+Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.
 
 \bibitem{R025}
-Xilinx, ``{Xilinx Platform Cable USB II},'' vol.~593, pp.~1--36, 2015.
+Xilinx, ``{Xilinx Platform Cable USB II},'' 2015.
 
 \bibitem{R027}
-P.~Semiconductors and B.~I. Timing, ``{I 2 S bus specification I 2 S bus
-  specification},'' no.~February 1986, pp.~1--7, 1996.
+{Philips Semiconductors}, ``{I 2 S bus specification},'' 1996.
 
 \bibitem{R024}
 C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification
-  Techniques Using SystemVerilog},'' {\em Snug-2008}, no.~Cdc, pp.~1--56, 2008.
+  Techniques Using SystemVerilog},'' {\em Snug-2008}, 2008.
 
 \end{thebibliography}

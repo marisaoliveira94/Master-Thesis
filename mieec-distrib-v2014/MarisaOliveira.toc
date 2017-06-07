@@ -14,16 +14,21 @@
 \contentsline {subsection}{\numberline {2.2.5}HEC - \textit {HDMI Ethernet Channel} }{11}{subsection.2.2.5}
 \contentsline {section}{\numberline {2.3}Transmiss\IeC {\~a}o de dados HDMI}{11}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Conex\IeC {\~a}o \IeC {\`a} FPGA XILINX VC7203 Virtex-7}{12}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Transmissor e Recetor}{13}{subsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.2.1}Recetor}{13}{subsubsection.2.3.2.1}
-\contentsline {subsubsection}{\numberline {2.3.2.2}Transmissor}{16}{subsubsection.2.3.2.2}
-\contentsline {section}{\numberline {2.4}Conex\IeC {\~a}o de alta velocidade em s\IeC {\'e}rie -> NOVO SUB-CAPITULO}{17}{section.2.4}
-\contentsline {section}{\numberline {2.5}Conex\IeC {\~a}o de alta velocidade em s\IeC {\'e}rie}{19}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Arquitetura de serializador e deserializador}{19}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Considera\IeC {\c c}\IeC {\~o}es na implementa\IeC {\c c}\IeC {\~a}o deste tipo de arquitetura}{20}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}Serializador e Deserializador dispon\IeC {\'\i }veis na FPGA}{23}{subsection.2.5.3}
-\contentsline {subsubsection}{\numberline {2.5.3.1}Transmissor}{24}{subsubsection.2.5.3.1}
-\contentsline {subsubsection}{\numberline {2.5.3.2}Recetor}{29}{subsubsection.2.5.3.2}
+\contentsline {subsection}{\numberline {2.3.2}Recetor}{13}{subsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Rece\IeC {\c c}\IeC {\~a}o do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}{14}{subsubsection.2.3.2.1}
+\contentsline {subsubsection}{\numberline {2.3.2.2}Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}{14}{subsubsection.2.3.2.2}
+\contentsline {subsection}{\numberline {2.3.3}Transmissor}{15}{subsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.3.1}Interface com o conector FMC (do conector FMC para a FPGA localizada na placa)}{15}{subsubsection.2.3.3.1}
+\contentsline {subsubsection}{\numberline {2.3.3.2}Transmissor HDMI (da FPGA localizada na placa para ADV7511)}{17}{subsubsection.2.3.3.2}
+\contentsline {section}{\numberline {2.4}Conex\IeC {\~a}o de alta velocidade em s\IeC {\'e}rie}{17}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Comunica\IeC {\c c}\IeC {\~o}es em paralelo VS comunica\IeC {\~o}es em s\IeC {\'e}rie}{18}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Considera\IeC {\c c}\IeC {\~o}es sobre as caracter\IeC {\'\i }sticas dos dados em s\IeC {\'e}rie}{18}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Arquitetura de serializador e deserializador}{18}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Considera\IeC {\c c}\IeC {\~o}es na implementa\IeC {\c c}\IeC {\~a}o deste tipo de arquitetura}{19}{subsection.2.4.4}
+\contentsline {section}{\numberline {2.5}Serializador e Deserializador dispon\IeC {\'\i }veis na FPGA}{22}{section.2.5}
+\contentsline {subsubsection}{\numberline {2.5.0.1}Transmissor}{24}{subsubsection.2.5.0.1}
+\contentsline {subsubsection}{\numberline {2.5.0.2}Recetor}{29}{subsubsection.2.5.0.2}
+\contentsline {section}{\numberline {2.6}Sincroniza\IeC {\c c}\IeC {\~a}o entre diferentes dominios de rel\IeC {\'o}gio}{37}{section.2.6}
 \contentsline {chapter}{\numberline {3}HDMI}{39}{chapter.3}
 \contentsline {section}{\numberline {3.1}\textit {Hardware} utilizado}{39}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Configura\IeC {\c c}\IeC {\~o}es da FPGA}{40}{subsection.3.1.1}

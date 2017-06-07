@@ -100,27 +100,27 @@ Estes serão os conectores a ser utilizados e mais à frente neste relatório se
 
 
 
-\subsection{Transmissor e Recetor} \label{subsec:TXandRX}
-Este \textit{hardware}, TB-FMCH-HDMI2, está dividido em 2 placas: o recetor (RX) que recebe o sinal recebido pelo cabo HDMI, faz a descodificação e envia o sinal para a FPGA, e o transmissor (TX) que faz o processo inverso, isto é, recebe o sinal proveniente da FPGA e transmite-o para o cabo HDMI para que possa chegar ao dispositivo de destino. 
-\subsubsection{Recetor}\label{subsubsec:RX}
+\subsection{Recetor} \label{subsec:RX}
+
 Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics{diagramaBlocosRX_hdmi}
+		\includegraphics[width=1.0\textwidth]{diagramaBlocosRX_hdmi}
 		\caption{Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite{R009}}
 		\label{fig:HDMIblocosRX}
 	\end{center}
 \end{figure}
 As suas principais funções dividem-se nas seguintes:
-\begin{enumerate}
-	\item \textbf{Receção do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}
+
+\subsubsection{Receção do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}
 	
-	\hspace{1.0em}A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integrado ADV7612BSWZ-P que recebe sinal HDMI e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (electrically erasable programmable read-only memory) que é usada para guardar dados EDID.
-	\item \textbf{Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}
+A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integrado ADV7612BSWZ-P que recebe sinal HDMI e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (electrically erasable programmable read-only memory) que é usada para guardar dados EDID.
 	
-	\hspace{1.0em}Após passarem pela FPGA embebida na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX} (para o caso em que a FPGA está configurada por \textit{default}):
+\subsubsection{Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}
+
+Após passarem pela FPGA embebida na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX} (para o caso em que a FPGA está configurada por \textit{default}):
 
 	\begin{table}[h!]
 		\centering
@@ -153,13 +153,13 @@ As suas principais funções dividem-se nas seguintes:
 		\label{table:HDMIdataRX}
 	\end{table}
 
-\hspace{1.0em}Através da analise da tabela \ref{table:HDMIdataRX} e do diagrama de blocos da placa na figura \ref{fig:HDMIblocosRX} conclui-se que o integrado ADV7612 é capaz de colocar na sua saída vários sinais (tanto referentes à imagem como ao som), no entanto esses sinais não são todos transmitidos para os conectores FMC. Isto acontece por causa da configuração presente na FPGA embebida que determina que sinais envia para os conectores. 
+Através da analise da tabela \ref{table:HDMIdataRX} e do diagrama de blocos da placa na figura \ref{fig:HDMIblocosRX} conclui-se que o integrado ADV7612 é capaz de colocar na sua saída vários sinais (tanto referentes à imagem como ao som), no entanto esses sinais não são todos transmitidos para os conectores FMC. Isto acontece por causa da configuração presente na FPGA embebida que determina que sinais envia para os conectores. 
 
-\hspace{1.0em}Através da leitura de \cite{R016} conclui-se que a configuração presente na FPGA embebida para além de selecionar os dados a enviar para os conectores FMC, configura também alguns parâmetros do integrado ADV7612 que permitem que este reproduza sinais num determinado formato e com um determinado número de bits. 
+Através da leitura de \cite{R016} conclui-se que a configuração presente na FPGA embebida para além de selecionar os dados a enviar para os conectores FMC, configura também alguns parâmetros do integrado ADV7612 que permitem que este reproduza sinais num determinado formato e com um determinado número de bits. 
 
-\hspace{1.0em} Para esta configuração são transmitidos para os conectores dados FMC referentes à imagem e sinais de sincronização do mesmo. Os dados da imagem são enviados do recetor 0 entre os pinos LA03\_P a LA32\_P, e do recetor 1  entre LA03\_N a LA32\_P. O sinal “\textit{data enable}” é um sinal que sinaliza a chegada de dados e está ativo quando estão a ser transmitidos os sinais referentes a cada pixel. \textit{HSYNC} é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal \textit{VSYNC} é a representação da sincronização horizontal, que faz o mesmo que \textit{HSYNC} (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
+Para esta configuração são transmitidos para os conectores dados FMC referentes à imagem e sinais de sincronização do mesmo. Os dados da imagem são enviados do recetor 0 entre os pinos LA03\_P a LA32\_P, e do recetor 1  entre LA03\_N a LA32\_P. O sinal “\textit{data enable}” é um sinal que sinaliza a chegada de dados e está ativo quando estão a ser transmitidos os sinais referentes a cada pixel. \textit{HSYNC} é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal \textit{VSYNC} é a representação da sincronização horizontal, que faz o mesmo que \textit{HSYNC} (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
 
-\hspace{1.0em}Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura~\ref{fig:HDMIamostragemRX} na página~\pageref{fig:HDMIamostragemRX} ilustra esta situação.
+Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura~\ref{fig:HDMIamostragemRX} na página~\pageref{fig:HDMIamostragemRX} ilustra esta situação.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -170,7 +170,7 @@ As suas principais funções dividem-se nas seguintes:
 	\end{center}
 \end{figure}
  
-\end{enumerate}
+
 
 Na figura~\ref{fig:rx} da página~\pageref{fig:rx} é possivel visualizar a placa TB-FMCH-HDMI2 RX referida anteriomente.
 \begin{figure}[h!]
@@ -182,7 +182,8 @@ Na figura~\ref{fig:rx} da página~\pageref{fig:rx} é possivel visualizar a plac
 	\end{center}
 \end{figure}
 
-\subsubsection{Transmissor}\label{subsubsec:RX} 
+\subsection{Transmissor}\label{subsec:TX} 
+
 O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIblocosTX} na página~\pageref{fig:HDMIblocosTX}.
 \begin{figure}[h!]
 	\begin{center}
@@ -193,9 +194,8 @@ O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIbl
 	\end{center}
 \end{figure}
 Mais uma vez é possível dividir o diagrama em duas principais funções:
-\begin{enumerate}
-	\item \textbf{Interface com o conector FMC (do conector FMC para a FPGA localizada na placa)}
-	
+
+\subsubsection{Interface com o conector FMC (do conector FMC para a FPGA localizada na placa)}
 	\begin{table}[h!]
 		\centering
 		\begin{tabular}{|c|c|c|c|}
@@ -226,9 +226,9 @@ Mais uma vez é possível dividir o diagrama em duas principais funções:
 			\label{table:HDMIdataTX}
 	\end{table}
 	
-	\hspace{1.0em}Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX} na página~\pageref{table:HDMIdataRX}, mis uma vez com a placa configurada por \textit{default}.
+Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX} na página~\pageref{table:HDMIdataRX}, mis uma vez com a placa configurada por \textit{default}.
 	
-	\hspace{1.0em}Os dados capturados pela FPGA embebida na placa na transição de 0 para 1 do sinal de relógio do vídeo, tal como ilustra a figura~\ref{fig:HDMIamostragemTX} na página~\pageref{fig:HDMIamostragemTX}. Como tal, o sinal deve ser transferido na FPGA principal transição de 1 para 0 do sinal de relógio do vídeo. 
+Os dados capturados pela FPGA embebida na placa na transição de 0 para 1 do sinal de relógio do vídeo, tal como ilustra a figura~\ref{fig:HDMIamostragemTX} na página~\pageref{fig:HDMIamostragemTX}. Como tal, o sinal deve ser transferido na FPGA principal transição de 1 para 0 do sinal de relógio do vídeo. 
 	
 	
 	\begin{figure}[h!]
@@ -240,13 +240,15 @@ Mais uma vez é possível dividir o diagrama em duas principais funções:
 		\end{center}
 	\end{figure}
 	
-	\item \textbf{Transmissor HDMI (da FPGA localizada na placa para ADV7511)}
-	
-	\hspace{1.0em}Após passar pela FPGA embebida na placa o sinal passa pelo bloco ADV7511 para de seguida ser possível o seu envio pelo conector HDMI para o dispositivo de destino. 
+	\subsubsection{Transmissor HDMI (da FPGA localizada na placa para ADV7511)}
 
-\end{enumerate}
+	
+Após passar pela FPGA embebida na placa o sinal passa pelo bloco ADV7511 para de seguida ser possível o seu envio pelo conector HDMI para o dispositivo de destino. 
+
+
 
 Na figura~\ref{fig:tx} da página~\pageref{fig:tx} é possivel visualizar a placa TB-FMCH-HDMI2 RX referida anteriomente.
+
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
@@ -290,9 +292,9 @@ Na figura~\ref{fig:tx} da página~\pageref{fig:tx} é possivel visualizar a plac
 %	\hspace{1.0em}Este tipo de configuração poderá ser utilizada numa fase inicial do projeto a ser realizado, visto que não exige comunicação bidirecional através dos transcetores (onde os restantes sinais serão transmitidos), e como tal vem facilitar a comunicação entre dispositivo de origem e de destino.
 %\end{enumerate}
 
-\section{Conexão de alta velocidade em série -> NOVO SUB-CAPITULO} \label{sec:conexaoSerie_new}
-
-A comunicação de dados de alta velocidade pode ser efetuada tanto em série como em paralelo, sendo que cada uma tem as suas devidas implicações. No caso das comunicações em paralelo é possivel atingir uma velocidade de comuncação maior, no entanto tem um custo mais elevado devido à necessidade de mais recursos físicos. Para além de um custo maior apresentam também 
+%\section{Conexão de alta velocidade em série -> NOVO SUB-CAPITULO} \label{sec:conexaoSerie_new}
+%
+%A comunicação de dados de alta velocidade pode ser efetuada tanto em série como em paralelo, sendo que cada uma tem as suas devidas implicações. No caso das comunicações em paralelo é possivel atingir uma velocidade de comuncação maior, no entanto tem um custo mais elevado devido à necessidade de mais recursos físicos. Para além de um custo maior apresentam também 
 
 
 
@@ -300,6 +302,10 @@ A comunicação de dados de alta velocidade pode ser efetuada tanto em série co
 A comunicação de dados de alta velocidade pode ser efetuada tanto em série como em paralelo, no entanto cada uma tem as suas implicações. No caso das comunicações em paralelo permitem uma velocidade de comunicação maior, em contrapartida tem um custo mais elevado devido à necessidade de mais recursos físicos e apresenta ainda problemas no que toca à diferença de tempos de chegada de dados e sinais de relógio (visto que estes podem chegar a tempos diferentes) e também no que toca à interferência entre canais. 
 
 Desta maneira, segundo \cite{R012}, comunicações em série têm vindo a substituir as comunicações em paralelo em ligações de alta velocidade. Apesar disso, as comunicações realizadas dentro dos circuitos integrados são normalmente realizadas em paralelo, visto que permite maior rapidez de comunicação, e como tal é necessário a utilização de serializadores e deserializadores no sentido de transformar os dados nos diferentes domínios em que são utilizados.
+
+\subsection{Comunicações em paralelo VS comunicaões em série}
+
+\subsection{Considerações sobre as características dos dados em série}
 
 \subsection{Arquitetura de serializador e deserializador}
 
@@ -380,7 +386,7 @@ Em \cite{R012} são apontados os principais desafios na implementação deste ti
 	\hspace{1.0em}Tal como referido anteriormente, a comunicação de sinais de alta velocidade pode sofrer diversas interferências durante a sua transmissão. Contudo, segundo \cite{R012}, após a equalização do sinal estas mesmas interferências são parcialmente compensadas permitindo assim uma recuperação dos dados transmitidos.  Para fazer a correta recuperação do sinal é necessário recorrer a um circuito que recupere inicialmente o sinal de relógio transmitido do emissor para que o sinal recuperado possa ser usado para recuperação dos dados transmitidos. Uma estrutura deste tipo de circuito será descrita mais à frente neste relatório.
 \end{enumerate}
 
-\subsection{Serializador e Deserializador disponíveis na FPGA}
+\section{Serializador e Deserializador disponíveis na FPGA}
 
 As FPGA de série 7 da XILINX têm disponíveis transcetores capazes de comunicação em série de alta velocidade, tal como é necessário neste projeto. Em específico, na FPGA XILINX VC7203 Virtex-7 estão disponíveis transcetores GTX que permitem uma velocidade de 10 Gb/s e que são os mais adequados para conexão à fibra ótica. Noutros modelos existem outros transcetores, como por exemplo GTZ (que permite até 28 Gb/s), GTH (que permite débitos até 13,1 Gb/s) e GTP (com débitos até 6,6 Gb/s). No entanto apenas serão abordados os transcetores GTX, visto que são os mais adequados para este tipo de comunicações.
 
@@ -754,3 +760,5 @@ O sinal de alta velocidade em série chega ao RX ao modulo PMA, passa por PCS e,
 
 	\hspace{1.0em}Após a análise dos recursos existentes já na FPGA a ser utilizada neste trabalho conclui-se que estes transcetores de alto débito permitem não só fazer a transmissão do sinal, mas também incluem técnicas de recuperação fiável dos mesmos dados transmitidos. Uma vez que estes transcetores são também bastantes flexíveis em termos de configurações tornará a implementação da transmissão dos dados pretendidos mais fácil numa fácil inicial, antes da utilização dos transcetores desenvolvidos pelo projeto iBrow. 
 \end{enumerate}
+
+\section{Sincronização entre diferentes dominios de relógio}
