@@ -62,6 +62,10 @@ Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
 {Analog Devices}, {\em {ADV7511 Hardware user's guide}}.
 \newblock No.~July, 2011.
 
+\bibitem{R032}
+A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
+\newblock 2005.
+
 \bibitem{R026}
 Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.
 
