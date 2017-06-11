@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.7)  11 JUN 2017 17:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.7)  12 JUN 2017 00:19
 entering extended mode
 **./MarisaOliveira.tex
 (MarisaOliveira.tex
@@ -1161,7 +1161,7 @@ s-converted-to.pdf figures/diagrama_inicial.eps>
 (epstopdf)             \includegraphics on input line 48.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/diagrama_inicial-eps-converted-to.pdf, id=472, 1173.38374pt x 408.5262
+<figures/diagrama_inicial-eps-converted-to.pdf, id=476, 1173.38374pt x 408.5262
 5pt>
 File: figures/diagrama_inicial-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/diagrama_inicial-eps-converted-to.pdf>
@@ -1184,7 +1184,7 @@ ed-to.pdf figures/1aparte.eps>
 (epstopdf)             \includegraphics on input line 66.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/1aparte-eps-converted-to.pdf, id=490, 998.73125pt x 331.2375pt>
+<figures/1aparte-eps-converted-to.pdf, id=494, 998.73125pt x 331.2375pt>
 File: figures/1aparte-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/1aparte-eps-converted-to.pdf>
@@ -1202,7 +1202,7 @@ d-to.pdf figures/2parte.eps>
 (epstopdf)             \includegraphics on input line 79.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/2parte-eps-converted-to.pdf, id=493, 506.89375pt x 408.52625pt>
+<figures/2parte-eps-converted-to.pdf, id=497, 506.89375pt x 408.52625pt>
 File: figures/2parte-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/2parte-eps-converted-to.pdf>
@@ -1297,7 +1297,7 @@ nverted-to.pdf figures/fpga_fmc_vet.eps>
 (epstopdf)             \includegraphics on input line 53.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fpga_fmc_vet-eps-converted-to.pdf, id=556, 434.62375pt x 291.0875pt>
+<figures/fpga_fmc_vet-eps-converted-to.pdf, id=560, 434.62375pt x 291.0875pt>
 File: figures/fpga_fmc_vet-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/fpga_fmc_vet-eps-converted-to.pdf>
@@ -1323,7 +1323,7 @@ mi-eps-converted-to.pdf figures/diagramaBlocosRX_hdmi.eps>
 (epstopdf)             \includegraphics on input line 111.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/diagramaBlocosRX_hdmi-eps-converted-to.pdf, id=575, 461.725pt x 377.41
+<figures/diagramaBlocosRX_hdmi-eps-converted-to.pdf, id=579, 461.725pt x 377.41
 pt>
 File: figures/diagramaBlocosRX_hdmi-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -1358,7 +1358,7 @@ ps-converted-to.pdf figures/amostragem_RX_vet.eps>
 (epstopdf)             \includegraphics on input line 171.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/amostragem_RX_vet-eps-converted-to.pdf, id=609, 333.245pt x 95.35625pt
+<figures/amostragem_RX_vet-eps-converted-to.pdf, id=613, 333.245pt x 95.35625pt
 >
 File: figures/amostragem_RX_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/amostragem_RX_vet-eps-converted-to.pdf>
@@ -1379,7 +1379,7 @@ MI-eps-converted-to.pdf figures/diagramaBlocosTX_HDMI.eps>
 (epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/diagramaBlocosTX_HDMI-eps-converted-to.pdf, id=614, 460.72125pt x 308.
+<figures/diagramaBlocosTX_HDMI-eps-converted-to.pdf, id=618, 460.72125pt x 308.
 15125pt>
 File: figures/diagramaBlocosTX_HDMI-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -1403,7 +1403,7 @@ ps-converted-to.pdf figures/amostragem_TX_vet.eps>
 (epstopdf)             \includegraphics on input line 198.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/amostragem_TX_vet-eps-converted-to.pdf, id=619, 319.1925pt x 95.35625p
+<figures/amostragem_TX_vet-eps-converted-to.pdf, id=623, 319.1925pt x 95.35625p
 t>
 File: figures/amostragem_TX_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/amostragem_TX_vet-eps-converted-to.pdf>
@@ -1455,7 +1455,7 @@ ed-to.pdf figures/ser_des.eps>
 (epstopdf)             \includegraphics on input line 374.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/ser_des-eps-converted-to.pdf, id=687, 290.08376pt x 158.5925pt>
+<figures/ser_des-eps-converted-to.pdf, id=691, 290.08376pt x 158.5925pt>
 File: figures/ser_des-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/ser_des-eps-converted-to.pdf>
@@ -1479,11 +1479,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 410.
  [20]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 449.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 451.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 454.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 454.
  [21]
 Package epstopdf Info: Source file: <figures/SIPO_PISO_vet.eps>
 (epstopdf)                    date: 2017-06-11 11:21:33
@@ -1494,20 +1494,20 @@ Package epstopdf Info: Source file: <figures/SIPO_PISO_vet.eps>
 (epstopdf)                    size: 25069 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/SIPO_PISO_vet-eps-c
 onverted-to.pdf figures/SIPO_PISO_vet.eps>
-(epstopdf)             \includegraphics on input line 459.
+(epstopdf)             \includegraphics on input line 461.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/SIPO_PISO_vet-eps-converted-to.pdf, id=721, 234.8775pt x 113.42375pt>
+<figures/SIPO_PISO_vet-eps-converted-to.pdf, id=725, 234.8775pt x 113.42375pt>
 File: figures/SIPO_PISO_vet-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/SIPO_PISO_vet-eps-converted-to.pdf>
 Package pdftex.def Info: figures/SIPO_PISO_vet-eps-converted-to.pdf used on inp
-ut line 459.
+ut line 461.
 (pdftex.def)             Requested size: 426.79135pt x 206.10095pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 468.
+(babel)             in language  on input line 470.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 468.
+(babel)             in language  on input line 470.
  [22 <./figures/SIPO_PISO_vet-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/PISO.eps>
 (epstopdf)                    date: 2017-06-11 17:22:45
@@ -1517,15 +1517,15 @@ Package epstopdf Info: Source file: <figures/PISO.eps>
 (epstopdf)                    size: 20306 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/PISO-eps-converted-
 to.pdf figures/PISO.eps>
-(epstopdf)             \includegraphics on input line 472.
+(epstopdf)             \includegraphics on input line 474.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/PISO-eps-converted-to.pdf, id=742, 545.03625pt x 170.6375pt>
+<figures/PISO-eps-converted-to.pdf, id=746, 545.03625pt x 170.6375pt>
 File: figures/PISO-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/PISO-eps-converted-to.pdf>
 Package pdftex.def Info: figures/PISO-eps-converted-to.pdf used on input line 4
-72.
+74.
 (pdftex.def)             Requested size: 341.43437pt x 106.89291pt.
 Package epstopdf Info: Source file: <figures/SIPO.eps>
 (epstopdf)                    date: 2017-06-11 17:21:53
@@ -1535,47 +1535,67 @@ Package epstopdf Info: Source file: <figures/SIPO.eps>
 (epstopdf)                    size: 26681 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/SIPO-eps-converted-
 to.pdf figures/SIPO.eps>
-(epstopdf)             \includegraphics on input line 488.
+(epstopdf)             \includegraphics on input line 485.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/SIPO-eps-converted-to.pdf, id=745, 506.89375pt x 239.89626pt>
+<figures/SIPO-eps-converted-to.pdf, id=749, 506.89375pt x 239.89626pt>
 File: figures/SIPO-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/SIPO-eps-converted-to.pdf>
 Package pdftex.def Info: figures/SIPO-eps-converted-to.pdf used on input line 4
-88.
+85.
 (pdftex.def)             Requested size: 341.43437pt x 161.59352pt.
+Package epstopdf Info: Source file: <figures/exemplo_serializer.eps>
+(epstopdf)                    date: 2017-06-11 23:47:40
+(epstopdf)                    size: 680234 bytes
+(epstopdf)             Output file: <figures/exemplo_serializer-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2017-06-11 23:48:41
+(epstopdf)                    size: 25008 bytes
+(epstopdf)             Command: <epstopdf --outfile=figures/exemplo_serializer-
+eps-converted-to.pdf figures/exemplo_serializer.eps>
+(epstopdf)             \includegraphics on input line 508.
+Package epstopdf Info: Output file is already uptodate.
+
+<figures/exemplo_serializer-eps-converted-to.pdf, id=754, 236.885pt x 155.58125
+pt>
+File: figures/exemplo_serializer-eps-converted-to.pdf Graphic file (type pdf)
+ <use figures/exemplo_serializer-eps-converted-to.pdf>
+Package pdftex.def Info: figures/exemplo_serializer-eps-converted-to.pdf used o
+n input line 508.
+(pdftex.def)             Requested size: 426.79135pt x 280.31664pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 498.
+(babel)             in language  on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 498.
- [23 <./figures/PISO-eps-converted-to.pdf> <./figures/SIPO-eps-converted-to.pdf
->]
+(babel)             in language  on input line 519.
+[23 <./figures/PISO-eps-converted-to.pdf> <./figures/SIPO-eps-converted-to.pdf>
+]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 517.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 517.
- [24]
+(babel)             in language  on input line 529.
+ [24 <./figures/exemplo_serializer-eps-converted-to.pdf>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 907.
+(babel)             in language  on input line 551.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 551.
+ [25]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 935.
 )
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 122.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 122.
- [25]
+ [26]
 \openout2 = `chapter3.aux'.
 
- (chapter3.tex
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
- [26
 
-
-
-]
+(chapter3.tex
 Cap\'{\i }tulo 3.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -1593,7 +1613,7 @@ ps-converted-to.pdf figures/placa_HDMI_rx_vet.eps>
 (epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/placa_HDMI_rx_vet-eps-converted-to.pdf, id=791, 461.725pt x 234.8775pt
+<figures/placa_HDMI_rx_vet-eps-converted-to.pdf, id=809, 461.725pt x 234.8775pt
 >
 File: figures/placa_HDMI_rx_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/placa_HDMI_rx_vet-eps-converted-to.pdf>
@@ -1616,7 +1636,7 @@ ps-converted-to.pdf figures/placa_HDMI_tx_vet.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/placa_HDMI_tx_vet-eps-converted-to.pdf, id=794, 460.72125pt x 235.8812
+<figures/placa_HDMI_tx_vet-eps-converted-to.pdf, id=812, 460.72125pt x 235.8812
 6pt>
 File: figures/placa_HDMI_tx_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/placa_HDMI_tx_vet-eps-converted-to.pdf>
@@ -1637,7 +1657,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 32.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 32.
-[27]
+[27
+
+
+
+]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 33.
 
@@ -1677,7 +1701,7 @@ rted-to.pdf figures/audio_i2s.eps>
 (epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/audio_i2s-eps-converted-to.pdf, id=864, 448.67625pt x 111.41624pt>
+<figures/audio_i2s-eps-converted-to.pdf, id=882, 448.67625pt x 111.41624pt>
 File: figures/audio_i2s-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/audio_i2s-eps-converted-to.pdf>
@@ -1733,7 +1757,7 @@ s-converted-to.pdf figures/exemplo_colorBar.eps>
 (epstopdf)             \includegraphics on input line 297.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_colorBar-eps-converted-to.pdf, id=932, 424.58624pt x 305.14pt>
+<figures/exemplo_colorBar-eps-converted-to.pdf, id=950, 424.58624pt x 305.14pt>
 File: figures/exemplo_colorBar-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/exemplo_colorBar-eps-converted-to.pdf>
 Package pdftex.def Info: figures/exemplo_colorBar-eps-converted-to.pdf used on 
@@ -1760,7 +1784,7 @@ nverted-to.pdf figures/colorBar_FSM.eps>
 (epstopdf)             \includegraphics on input line 310.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/colorBar_FSM-eps-converted-to.pdf, id=947, 387.4475pt x 273.02pt>
+<figures/colorBar_FSM-eps-converted-to.pdf, id=965, 387.4475pt x 273.02pt>
 File: figures/colorBar_FSM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/colorBar_FSM-eps-converted-to.pdf>
@@ -1797,7 +1821,7 @@ Package epstopdf Info: Source file: <figures/planA.eps>
 (epstopdf)             \includegraphics on input line 354.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planA-eps-converted-to.pdf, id=981, 689.57625pt x 356.33125pt>
+<figures/planA-eps-converted-to.pdf, id=999, 689.57625pt x 356.33125pt>
 File: figures/planA-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planA-eps-converted-to.pdf>
@@ -1829,7 +1853,7 @@ d-to.pdf figures/planB1.eps>
 (epstopdf)             \includegraphics on input line 403.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planB1-eps-converted-to.pdf, id=1014, 794.97pt x 388.45125pt>
+<figures/planB1-eps-converted-to.pdf, id=1032, 794.97pt x 388.45125pt>
 File: figures/planB1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planB1-eps-converted-to.pdf>
@@ -1861,7 +1885,7 @@ Package epstopdf Info: Source file: <figures/planC.eps>
 (epstopdf)             \includegraphics on input line 459.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planC-eps-converted-to.pdf, id=1051, 791.95876pt x 819.06pt>
+<figures/planC-eps-converted-to.pdf, id=1069, 791.95876pt x 819.06pt>
 File: figures/planC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planC-eps-converted-to.pdf>
@@ -2275,10 +2299,10 @@ Package rerunfilecheck Info: File `MarisaOliveira.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
  ) 
 Here is how much of TeX's memory you used:
- 9180 strings out of 493333
- 141159 string characters out of 3125802
- 274764 words of memory out of 3000000
- 12139 multiletter control sequences out of 15000+200000
+ 9189 strings out of 493333
+ 141456 string characters out of 3125802
+ 274859 words of memory out of 3000000
+ 12146 multiletter control sequences out of 15000+200000
  81679 words of font info for 101 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,16n,51p,1898b,562s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2300,9 +2324,9 @@ Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Marisa Oli
 veira/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Us
 ers/Marisa Oliveira/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on MarisaOliveira.pdf (98 pages, 1700519 bytes).
+Output written on MarisaOliveira.pdf (98 pages, 1726238 bytes).
 PDF statistics:
- 1682 PDF objects out of 1728 (max. 8388607)
- 264 named destinations out of 1000 (max. 500000)
- 498 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1701 PDF objects out of 1728 (max. 8388607)
+ 265 named destinations out of 1000 (max. 500000)
+ 503 words of extra memory for PDF output out of 10000 (max. 10000000)
 

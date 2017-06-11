@@ -444,7 +444,9 @@ Ao mesmo tempo, este tipo de dispositivos são normalmente um subsistema de um s
 	
 Outro requisito crítico na implementação deste tipo de arquiteturas é também a adaptação das impedâncias características do \textit{buffer} (de transmissão e receção) com a impedância característica da linha onde é transmitido o sinal. Isto porque, caso estas não estejam adaptadas ocorrerão reflexões no lado do transmissor ou do recetor (consoante a desadaptação) que não permitem a transmissão da potência total do sinal. No entanto, este requisito requer um grande consumo de potência, pois na prática os canais de transmissão têm uma impedância muito baixa. 
 
+
 \subsubsection*{Codificação dos sinais e sua importância}
+
 
 \subsubsection*{PISO (\textit{Parallel input – serial output}) e SIPO (\textit{serial input – parallel output})}
 
@@ -475,7 +477,7 @@ Em situações em que as taxas de débito são muito elevadas a utilização de 
 	\end{center}
 \end{figure}
 
-O serializador lê os dados os dados em paralelo a um sinal de relógio cuja frequência é mais baixa e após serem lidos (quando o sinal de escrita na arquitetura estiver desligado) então os sinais saem à cadência de um sinal de relógio múltiplo superior ao anteriormente mencionado. Neste caso como se tratam de palavra de 4 bits, será um sinal de relógio 4 vezes superior ao sinal a que são lidos os sinais.
+O serializador lê os dados os dados em paralelo a um sinal de relógio cuja frequência é mais baixa e após serem lidos (quando o sinal de escrita na arquitetura estiver desligado) então os sinais saem à cadência de um sinal de relógio múltiplo superior ao anteriormente mencionado, obtendo-se desta maneira um sinal em série de alta velocidade.
 
 	\begin{figure}[h!]
 	\begin{center}
@@ -486,18 +488,47 @@ O serializador lê os dados os dados em paralelo a um sinal de relógio cuja fre
 	\end{center}
 \end{figure}
 
+%The operation is as follows. Lets assume that all the flip-flops ( FFA to FFD ) have just been RESET ( CLEAR input ) and that all the outputs QA to QD are at logic level “0” ie, no parallel data output.
+%
+%If a logic “1” is connected to the DATA input pin of FFA then on the first clock pulse the output of FFA and therefore the resulting QA will be set HIGH to logic “1” with all the other outputs still remaining LOW at logic “0”. Assume now that the DATA input pin of FFA has returned LOW again to logic “0” giving us one data pulse or 0-1-0.
+%
+%The second clock pulse will change the output of FFA to logic “0” and the output of FFB and QB HIGH to logic “1” as its input D has the logic “1” level on it from QA. The logic “1” has now moved or been “shifted” one place along the register to the right as it is now at QA.
+%
+%When the third clock pulse arrives this logic “1” value moves to the output of FFC ( QC ) and so on until the arrival of the fifth clock pulse which sets all the outputs QA to QD back again to logic level “0” because the input to FFA has remained constant at logic level “0”.
+%
+%The effect of each clock pulse is to shift the data contents of each stage one place to the right, and this is shown in the following table until the complete data value of  0-0-0-1 is stored in the register. This data value can now be read directly from the outputs of QA to QD.
+%
+%Then the data has been converted from a serial data input signal to a parallel data output. The truth table and following waveforms show the propagation of the logic “1” through the register from left to right as follows.
+
+No caso do deserializador apresentado na imagem \ref{fig:sipo}, e segundo a fonte \cite{R034}, os dados que chegam em série a uma frequência determinada pelo sinal de relógio \textit{clock}, são movidos do registo A para o B e de seguida para o C e por fim para o D a essa mesma frequência (que corresponde à frequência de transmissão em série). Nas saías QA, QB, QC e QD obterão-se esses sinais, que chegaram ao inicio da cascada de registos em série, em paralelo fazendo a sua amostragem a uma frequência mais baixa (multipla da mais alta, tal como acontecia no serializador).
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{exemplo_serializer}
+		\caption{Exemplo de um serializador de 10 bits, retirado de \cite{R033}}
+		\label{fig:exemplo_de_33}
+	\end{center}
+\end{figure}
+
+Os autores de \cite{R033} utilizam este tipo de estrutura de serializador para obter uma ligação em série de 1.25 Gb/s. A arquitetura em questão é apresentada na imagem \ref{fig:exemplo_de_33} da página \pageref{fig:exemplo_de_33}.
+
+Neste caso em especifico, a cada ciclo de relógio de "\textit{word-cycle}" é lida uma palavra de 10 proveniente de um multiplexador para um registo com nome na imagem de "\textit{Register}". A saída deste modulo é então dividida em dois "\textit{shift-register}"  de 5 bits cada. Tal como a figura ilustra, os bits são separados de forma a que bits adjacentes não entrem em \textit{shift-registers} diferentes. A saída do primeiro \textit{shift-register} é as entrada do multiplexador de saída, enquanto que a saída do segundo \textit{shift-register} é a entrada de uma \textit{latch} que serve exatamente para atrasar meio ciclo de relógio a operação de alternação de registos em relação ao primeiro \textit{shift-register}. As saídas do multiplexador de saída são seleccionadas pela a alternância do sinal de relógio com frequência mais elevada, fazendo assim uma correta seleccção entre os bits adjacentes e obtendo a saída com a velocidade pretendida para este caso em especifico: 1.25 Gb/s. Este exemplo é aqui mencionado para que se possa perceber como é possivel tirar partido deste tipo de arquiteturas de serialização.
+%
+%The output of one of the shift-registers (SR-1) drives one input of the output multiplexer while the other one (SR-2) drives a latch. This latch drives the other multiplexer input and its purpose is to delay the data shifting operation by half a clock cycle in relation to the output of the first SR. Since the select input of the output multiplexer is driven by the shifting clock (600MHz), it correctly selects between adjacent bits and constructs the desired 1.2Gbit/s bit stream. This is represented schematically in the timing diagram of Figure 3.
 
 
-Os autores de \cite{R033} utilizam este tipo de serializadores nas suas implementações de serializadores. Vou explica-los assim muito por alto e se tiverem alguma figura alusiva vou colocar uma vez que ajuda a compreensão do funcionamento
+Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências cujo controlo e funcionamento será explicado em XXXXXX .
 
 
-Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências que serão de seguida mencionados.
-	
+
+
 \subsubsection*{Unidade de Multiplicação de Sinais de relógio (CMU – \textit{Clock Multiplier Unit})}
 	
-	\hspace{1.0em}O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor, segundo a fonte \cite{R012}. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. É comum que este sinal de relógio seja então partilhado entre o recetor e o transmissor, sendo que será necessário um bloco que faça o ajuste de fase deste sinal do lado do recetor. Este é necessário por causa do atraso introduzido pelo canal, que não é conhecido à priori e também devido ao ruído introduzido no canal que tornam a fase do sinal recebido bastante crítica para o desempenho do transcetor. Esta unidade é então responsável por tal procedimento.
+O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor, segundo a fonte \cite{R012}. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. É comum que este sinal de relógio seja então partilhado entre o recetor e o transmissor, sendo que será necessário um bloco que faça o ajuste de fase deste sinal do lado do recetor. Este é necessário por causa do atraso introduzido pelo canal, que não é conhecido à priori e também devido ao ruído introduzido no canal que tornam a fase do sinal recebido bastante crítica para o desempenho do transcetor. Esta unidade é então responsável por tal procedimento.
 	
- \subsubsection*{Equalização}
+
+\subsubsection*{Equalização}
 	
 O sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal no recetor. Como tal, existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria pode ser realizada através da utilização de canais de ligação de melhor qualidade. No entanto, esta opção traz custos acrescidos à ligação. 
 	
