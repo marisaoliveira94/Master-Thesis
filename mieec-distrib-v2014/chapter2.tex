@@ -1,4 +1,4 @@
-% !TeX spellcheck = <none>
+
 \chapter{Revisão Bibliográfica} \label{chap:chap2}
 
 Neste capítulo é realizada uma revisão bibliográfica das interfaces áudio e vídeo existentes, em específico do HDMI, também sobre métodos de codificação/descodificação de sinais HDMI numa FPGA e ainda sobre ligações de alta velocidade em série e cuidados que se deve ter com as mesmas.
@@ -464,7 +464,28 @@ O autor de \cite{R012} propõe 3 tipos de arquiteturas para este tipo de bloco q
 
 No circuito mais á esquerda, denominada de a) pelo autor de \cite{R012}, visualiza-se uma estrutura de um único andar, todavia esta é demasiado lenta devido às capacidades intrínsecas largas no nó de conversão. No circuito do centro, b), é representada uma topologia  heterogénea que se torna mais rápida que a apresentada em a). Já no último circuito apresentado na imagem (o da mais à direita), c), é é representada uma topologia em árvore binária que é a mais rápida segundo o autor de \cite{R012}. O autor reforça ainda a ideia de que a utilização de multiplexadores e des-mutiplexadores de 2:1 e 1:2 respectivamente são muito importantes para se obter uma arquitetura de funcionamento rápido. É de notar ainda que quando se utiliza uma arquitetura de serialização/deserialização em arvore binária, tal como o autor sugere, as portas de entrada do serializador terão dezenas de entradas, tal como as portas de saída do deserializador terão dezenas de saída, e por isso alguns pontos que necessitam de circuitos de velocidade elevada e outros que não. Para tal é necessário ter em atenção que tipo de circuitos são usados em cada etapa do serializador dada a sua necessidade de velocidade. O autor sugere a utilização de circuitos lógicos CML para as etpas que necessitam de trabalhar a altas velocidades, e CMOS para as que não necessitam de tanta velocidade.
 
-Em situações em que as taxas de débito são muito elevadas a utilização de \textit{shift registers} torna-se também bastante eficiente para implementar um serializador/deserializador com base em \textit{shift-registers}. Neste tipo de arquitetura o serializador lê os dados para um shift register quando este se encontra com o sinal de seleccção ativa, e quando este mesmo se desliga, então os dados são enviados a alta velocidade pelo cabo fisico. No caso do serializador, os dados que chegam a alta velocidade são amostrados shiftados a cada ciclo de relógio do sinal de alta velocidade, e um sinal de relógio com uma frequência mais baixa é de seguida usado para amostrar a saída de cada registo. 
+Em situações em que as taxas de débito são muito elevadas a utilização de \textit{shift registers} torna-se também bastante eficiente para implementar um serializador/deserializador. Na imagem \ref{fig:piso} da página \pageref{fig:piso} é possivel visualizar o exemplo de uma serializador com a base em shift-register de 4 bits e na imagem \ref{fig:sipo} da página \pageref{fig:piso} um deserializador com base na mesma arquitetura de 4 bits.
+
+	\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.8\textwidth]{PISO}
+		\caption{Arquitetura de um \textit{shift-register} serializador de 4 bits retirado de \cite{R034}}
+		\label{fig:piso}
+	\end{center}
+\end{figure}
+
+O serializador lê os dados os dados em paralelo a um sinal de relógio cuja frequência é mais baixa e após serem lidos (quando o sinal de escrita na arquitetura estiver desligado) então os sinais saem à cadência de um sinal de relógio múltiplo superior ao anteriormente mencionado. Neste caso como se tratam de palavra de 4 bits, será um sinal de relógio 4 vezes superior ao sinal a que são lidos os sinais.
+
+	\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.8\textwidth]{SIPO}
+		\caption{Arquitetura de um \textit{shift-register} serializador de 4 bits retirado de \cite{R034}}
+		\label{fig:sipo}
+	\end{center}
+\end{figure}
+
 
 
 Os autores de \cite{R033} utilizam este tipo de serializadores nas suas implementações de serializadores. Vou explica-los assim muito por alto e se tiverem alguma figura alusiva vou colocar uma vez que ajuda a compreensão do funcionamento

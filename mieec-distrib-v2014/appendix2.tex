@@ -1,7 +1,9 @@
 {\tiny \chapter{Ficheiros de restrições} \label{ap2:codigo}}
 
-\subsection{Transmissão de uma imagem gerada na FPGA} \label{ap2:planA}
-\subsubsection{Restrições Físicas} \label{ap2:planA_physical_cnstrs}
+\section{Transmissão de uma imagem gerada na FPGA} \label{ap2:planA}
+
+
+\section{Restrições Físicas} \label{ap2:planA_physical_cnstrs}
 
 set\_property PACKAGE\_PIN E18 [get\_ports clk\_n]
 
@@ -871,7 +873,7 @@ set\_property IOSTANDARD LVCMOS18 [get\_ports enable\_out]
 
 set\_property IOSTANDARD LVCMOS18 [get\_ports hsync\_in]
 
-\subsubsection{Restrições Temporais}\label{ap2:planC_timing_cnstrs}
+\subsection{Restrições Temporais}\label{ap2:planC_timing_cnstrs}
 
 create\_clock -period 5.000 [get\_ports clk\_n]
 

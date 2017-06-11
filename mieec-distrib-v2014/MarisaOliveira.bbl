@@ -16,6 +16,9 @@ A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
 \bibitem{R012}
 D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
 
+\bibitem{R034}
+E.~Tutorials, ``{The Shift Register}.''
+
 \bibitem{R016}
 A.~Devices, {\em {ADV7612 Reference Manual}}.
 
@@ -57,6 +60,11 @@ Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
 \bibitem{R018}
 {Analog Devices}, {\em {ADV7511 Hardware user's guide}}.
 \newblock No.~July, 2011.
+
+\bibitem{R033}
+P.~Moreira, J.~Christiansen, A.~Marchioro, E.~V.~D. Bij, K.~Kloukinas,
+  M.~Campbell, G.~Cervelli, and C.-e. Mic, ``{A 1 . 25Gbit / s Serializer for
+  LHC Data and Trigger Optical Links},''
 
 \bibitem{R026}
 Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.

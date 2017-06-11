@@ -42,6 +42,8 @@
 \BOOKMARK [1][-]{section.B.2}{B.2 Transmiss\343o de uma imagem entre dispositivos HDMI}{appendix.B}% 42
 \BOOKMARK [1][-]{section.B.3}{B.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.B}% 43
 \BOOKMARK [0][-]{appendix.C}{C Ficheiros de restri\347\365es}{}% 44
-\BOOKMARK [1][-]{subsection.C.0.1}{C.0.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 45
-\BOOKMARK [2][-]{subsection.C.0.2}{C.0.2 Transmiss\343o de imagem entre dispositivos HDMI}{subsection.C.0.1}% 46
-\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 47
+\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 45
+\BOOKMARK [1][-]{section.C.2}{C.2 Restri\347\365es F\355sicas}{appendix.C}% 46
+\BOOKMARK [2][-]{subsection.C.2.1}{C.2.1 Transmiss\343o de imagem entre dispositivos HDMI}{section.C.2}% 47
+\BOOKMARK [1][-]{section.C.3}{C.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 48
+\BOOKMARK [2][-]{subsection.C.3.1}{C.3.1 Restri\347\365es Temporais}{section.C.3}% 49

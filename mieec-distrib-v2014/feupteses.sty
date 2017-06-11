@@ -125,7 +125,8 @@
 \fi
 
 %% Make sure that report has been loaded
-\@ifundefined{chapter}{\@latexerr{The `feupteses' option should be used with the `report' document style}{}}{}
+\@ifundefined{chapter}{\@latexerr{The `feupteses' option should be used
+with the `report' document style}{}}{}
 
 \RequirePackage{ifpdf}
 \ifpdf
@@ -161,7 +162,7 @@
 \widowpenalty=6000
 
 \RequirePackage{mathptmx}	   % font times
-\RequirePackage[scaled]{courier}  % font courier
+\RequirePackage[scaled]{couriers}  % font courier
 \RequirePackage[scaled]{helvet}    % font helvetica
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{url}
