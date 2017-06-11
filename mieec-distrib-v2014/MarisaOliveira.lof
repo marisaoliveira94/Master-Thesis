@@ -10,16 +10,16 @@
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite {R009}\relax }}{16}{figure.caption.15}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Amostragem dos dados provenientes do FMC no recetor, retirada de \cite {R009}\relax }}{16}{figure.caption.16}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Arquitetura simples de um serializador e deserializador, retirada de \cite {R032}\relax }}{19}{figure.caption.19}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Arquitetura de PISO/SIPO, retirada de \cite {R012}\relax }}{22}{figure.caption.21}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Arquiteturas de PISO/SIPO, retirada de \cite {R012}\relax }}{22}{figure.caption.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces TB-FMCH-HDMI2 RX, retirada de \cite {R009}\relax }}{26}{figure.caption.23}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces TB-FMCH-HDMI2 TX, retirada de \cite {R009}\relax }}{26}{figure.caption.24}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{29}{figure.caption.27}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo modulo desenvolvido\relax }}{35}{figure.caption.34}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{36}{figure.caption.35}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{38}{figure.caption.36}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{40}{figure.caption.37}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{43}{figure.caption.38}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces TB-FMCH-HDMI2 RX, retirada de \cite {R009}\relax }}{26}{figure.caption.30}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces TB-FMCH-HDMI2 TX, retirada de \cite {R009}\relax }}{26}{figure.caption.31}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{29}{figure.caption.34}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo modulo desenvolvido\relax }}{35}{figure.caption.41}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{36}{figure.caption.42}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{38}{figure.caption.43}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{40}{figure.caption.44}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{43}{figure.caption.45}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -9,16 +9,12 @@ Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
 Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
 \newblock 2014.
 
+\bibitem{R032}
+A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
+\newblock 2005.
+
 \bibitem{R012}
 D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
-
-\bibitem{R010}
-Xilinx and Inc, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for
-  High-Speed Serial I/O Connectivity, White Paper},'' 2013.
-
-\bibitem{R011}
-Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}}.
-\newblock 2016.
 
 \bibitem{R016}
 A.~Devices, {\em {ADV7612 Reference Manual}}.
@@ -61,10 +57,6 @@ Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
 \bibitem{R018}
 {Analog Devices}, {\em {ADV7511 Hardware user's guide}}.
 \newblock No.~July, 2011.
-
-\bibitem{R032}
-A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
-\newblock 2005.
 
 \bibitem{R026}
 Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.

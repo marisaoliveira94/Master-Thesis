@@ -123,32 +123,35 @@ A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integr
 
 Após passarem pela FPGA embebida na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX} (para o caso em que a FPGA está configurada por \textit{default}):
 
-	\begin{table}[h!]
-		\centering
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			\textbf{Nome do pin} & \textit{\textbf{Input/0utput}} & \textbf{FPGA para FMC} & \textbf{RX para a FPGA}        \\ \hline
-			CLK0\_M2C\_P         & \textit{Output}                & RX\#0\_LLC             & RX\#0 sinal LLC                \\ \hline
-			CLK1\_M2C\_P         & \textit{Output}                & RX\#1\_LLC             & RX\#1 sinal LLC                \\ \hline
-			LA00\_P\_CC          & \textit{Output}                & RX\#0\_VSYNC           & RX\#0\_VSYNC                   \\ \hline
-			LA01\_P\_CC          & \textit{Output}                & RX\#0\_HSYNC           & RX\#0\_HSYNC                   \\ \hline
-			LA02\_P              & \textit{Output}                & RX\#0\_DE              & RX\#0 data enable              \\ \hline
-			LA03\_P a LA32\_P    & \textit{Output}                & RX\#0\_P0 a RX\#0\_P29 & RX\#0 dados de vídeo de 0 a 29 \\ \hline
-			LA33\_P              & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			CLK0\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			CLK1\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                      \\ \hline
-			LA00\_N\_CC          & \textit{Output}                & RX\#1\_VSYNC           & RX\#1\_VSYNC                   \\ \hline
-			LA01\_N\_CC          & \textit{Output}                & RX\#1\_HSYNC           & RX\#1\_HSYNC                   \\ \hline
-			LA02\_N              & \textit{Output}                & RX\#1\_DE              & RX\#1 data enable              \\ \hline
-			LA03\_N a LA32\_N    & \textit{Output}                & RX\#1\_P0 a RX\#1\_P29 & RX\#1 dados de vídeo de 0 a 29 \\ \hline
-			LA33\_P              & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			CLK2\_M2C\_P         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			CLK3\_M2C\_P         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			HA00\_P a HA23\_P    & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			CLK2\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			CLK3\_M2C\_N         & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-			HA00\_N a HA23\_N    & \textit{Input/Output}          & Não usado              & ----------                     \\ \hline
-		\end{tabular}
+\begin{table}[h!]
+		\fontfamily{cmr}\selectfont	
+			\centering
+			\resizebox{\textwidth}{!}{ 
+			
+			\begin{tabular}{@{}lllll@{}}
+			\toprule
+			{\textbf{Nome do Pin}} & {\textbf{\textit{Input/Output}}} & {\textbf{FPGA para FMC}}& {\textbf{FMC para FPGA}}       \\ \midrule  
+			CLK0\_M2C\_P         & \textit{Output}                & RX\#0\_LLC             & RX\#0 sinal LLC                \\ 
+			CLK1\_M2C\_P         & \textit{Output}                & RX\#1\_LLC             & RX\#1 sinal LLC                \\ 
+			LA00\_P\_CC          & \textit{Output}                & RX\#0\_VSYNC           & RX\#0\_VSYNC                   \\ 
+			LA01\_P\_CC          & \textit{Output}                & RX\#0\_HSYNC           & RX\#0\_HSYNC                   \\ 
+			LA02\_P              & \textit{Output}                & RX\#0\_DE              & RX\#0 data enable              \\ 
+			LA03\_P a LA32\_P    & \textit{Output}                & RX\#0\_P0 a RX\#0\_P29 & RX\#0 dados de vídeo de 0 a 29 \\ 
+			LA33\_P              & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			CLK0\_M2C\_N         & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			CLK1\_M2C\_N         & \textit{Input/Output}          & Não usado              & ---------                      \\ 
+			LA00\_N\_CC          & \textit{Output}                & RX\#1\_VSYNC           & RX\#1\_VSYNC                   \\ 
+			LA01\_N\_CC          & \textit{Output}                & RX\#1\_HSYNC           & RX\#1\_HSYNC                   \\ 
+			LA02\_N              & \textit{Output}                & RX\#1\_DE              & RX\#1 data enable              \\ 
+			LA03\_N a LA32\_N    & \textit{Output}                & RX\#1\_P0 a RX\#1\_P29 & RX\#1 dados de vídeo de 0 a 29 \\ 
+			LA33\_P              & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			CLK2\_M2C\_P         & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			CLK3\_M2C\_P         & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			HA00\_P a HA23\_P    & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			CLK2\_M2C\_N         & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			CLK3\_M2C\_N         & \textit{Input/Output}          & Não usado              & ---------                     \\ 
+			HA00\_N a HA23\_N    & \textit{Input/Output}          & Não usado              & ---------                     \\ \bottomrule	
+		\end{tabular}}		
 		\centering
 		\caption{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX, adaptada de \cite{R009}}
 		\label{table:HDMIdataRX}
@@ -200,39 +203,77 @@ No caso do transmissor o processo é feito no sentido inverso, ou seja, os sinai
 
 Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX} na página~\pageref{table:HDMIdataRX}, mais uma vez com a placa configurada por \textit{default}, e correspondem aos sinais que a placa transmissora deve receber para enviar para a FPGA.
 
-	\begin{table}[h!]
-		\centering
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			\textbf{Nome do pin} & \textbf{Input/0utput} & \textbf{FMC para FPGA} & \textbf{FPGA para TX}          \\ \hline
-			CLK0\_M2C\_P         & Input                 & TX\#0\_DCLK            & TX\#0 sinal DCLK               \\ \hline
-			CLK1\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ \hline
-			LA00\_P\_CC          & Input                 & TX\#0\_VSYNC           & TX\#0\_VSYNC                   \\ \hline
-			LA01\_P\_CC          & Input                 & TX\#0\_HSYNC           & TX\#0\_HSYNC                   \\ \hline
-			LA02\_P              & Input                 & TX\#0\_DE              & TX\#0 data enable              \\ \hline
-			LA03\_P a LA32\_P    & Input                 & TX\#0\_D0 a TX\#0\_D29 & TX\#0 dados de vídeo de 0 a 29 \\ \hline
-			LA33\_P              & Input/Output          & Não usado              & ----------                     \\ \hline
-			CLK0\_M2C\_N         & Input                 & TX\#1\_DCLK            & TX\#0 sinal DCLK               \\ \hline
-			CLK1\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ \hline
-			LA00\_N\_CC          & Input                 & TX\#1\_VSYNC           & TX\#1\_VSYNC                   \\ \hline
-			LA01\_N\_CC          & Input                 & TX\#1\_HSYNC           & TX\#1\_HSYNC                   \\ \hline
-			LA02\_N              & Output                & TX\#1\_DE              & TX\#1 data enable              \\ \hline
-			LA03\_N a LA32\_N    & Output                & TX\#1\_D0 a TX\#1\_D9  & TX\#1 dados de vídeo de 0 a 29 \\ \hline
-			LA33\_P              & Input/Output          & Não usado              & ----------                     \\ \hline
-			CLK2\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ \hline
-			CLK3\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ \hline
-			HA00\_P a HA23\_P    & Input/Output          & Não usado              & ----------                     \\ \hline
-			CLK2\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ \hline
-			CLK3\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ \hline
-			HA00\_N a HA23\_N    & Input/Output          & Não usado              & ----------                     \\ \hline
-		\end{tabular}
+
+
+\begin{table}[h!]
+	\fontfamily{cmr}\selectfont	
+	\centering
+	\resizebox{\textwidth}{!}{ 	
+		\begin{tabular}{@{}lllll@{}}
+			\toprule
+			\textbf{Nome do pin} & \textbf{Input/0utput} & \textbf{FMC para FPGA} & \textbf{FPGA para TX}          \\ \midrule
+			CLK0\_M2C\_P         & Input                 & TX\#0\_DCLK            & TX\#0 sinal DCLK               \\ 
+			CLK1\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
+			LA00\_P\_CC          & Input                 & TX\#0\_VSYNC           & TX\#0\_VSYNC                   \\ 
+			LA01\_P\_CC          & Input                 & TX\#0\_HSYNC           & TX\#0\_HSYNC                   \\ 
+			LA02\_P              & Input                 & TX\#0\_DE              & TX\#0 data enable              \\ 
+			LA03\_P a LA32\_P    & Input                 & TX\#0\_D0 a TX\#0\_D29 & TX\#0 dados de vídeo de 0 a 29 \\ 
+			LA33\_P              & Input/Output          & Não usado              & ----------                     \\ 
+			CLK0\_M2C\_N         & Input                 & TX\#1\_DCLK            & TX\#0 sinal DCLK               \\ 
+			CLK1\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
+			LA00\_N\_CC          & Input                 & TX\#1\_VSYNC           & TX\#1\_VSYNC                   \\ 
+			LA01\_N\_CC          & Input                 & TX\#1\_HSYNC           & TX\#1\_HSYNC                   \\ 
+			LA02\_N              & Output                & TX\#1\_DE              & TX\#1 data enable              \\ 
+			LA03\_N a LA32\_N    & Output                & TX\#1\_D0 a TX\#1\_D9  & TX\#1 dados de vídeo de 0 a 29 \\ 
+			LA33\_P              & Input/Output          & Não usado              & ----------                     \\ 
+			CLK2\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
+			CLK3\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
+			HA00\_P a HA23\_P    & Input/Output          & Não usado              & ----------                     \\ 
+			CLK2\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
+			CLK3\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
+			HA00\_N a HA23\_N    & Input/Output          & Não usado              & ----------                     \\ \bottomrule
+		\end{tabular}}
 			\caption{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX, adaptada de \cite{R009}}
 			\label{table:HDMIdataTX}
 	\end{table}
 
-
-
-	
+%
+%\newcolumntype{d}{D{.}{.}{2.3}}
+%\newcolumntype{C}{>{\centering}p}
+%	\begin{table}[]
+%		\caption{Comparison of Elements in Air on the Space Station and sea level on Earth}    
+%		\centering
+%		\begin{center}
+%			\begin{tabular}{p{1.25in}ddd}
+%				\toprule
+%				\multicolumn{1}{C{1.25in}}{Nome do Pin} & \multicolumn{1}{C{1in}}{Input/0utput} & \multicolumn{1}{C{1.25in}}{FMC para FPGA} &         \multicolumn{1}{C{1in}}{FPGA para TX}\\
+%				\midrule
+%				CLK0\_M2C\_P         & Input                 & TX\#0\_DCLK            & TX\#0 sinal DCLK               \\ 
+%				CLK1\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
+%				LA00\_P\_CC          & Input                 & TX\#0\_VSYNC           & TX\#0\_VSYNC                   \\ 
+%				LA01\_P\_CC          & Input                 & TX\#0\_HSYNC           & TX\#0\_HSYNC                   \\
+%				LA02\_P              & Input                 & TX\#0\_DE              & TX\#0 data enable              \\ 
+%				LA03\_P a LA32\_P    & Input                 &  \multicolumn{1}{C{1in}}{}TX\#0\_D0 a TX\#0\_D29} & TX\#0 dados de vídeo de 0 a 29 \\ 
+%				LA33\_P              & Input/Output          & Não usado              & ----------                     \\ 
+%				CLK0\_M2C\_N         & Input                 & TX\#1\_DCLK            & TX\#0 sinal DCLK               \\ 
+%				CLK1\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
+%				LA00\_N\_CC          & Input                 & TX\#1\_VSYNC           & TX\#1\_VSYNC                   \\ 
+%				LA01\_N\_CC          & Input                 & TX\#1\_HSYNC           & TX\#1\_HSYNC                   \\ 
+%				LA02\_N              & Output                & TX\#1\_DE              & TX\#1 data enable              \\ 
+%				LA03\_N a LA32\_N    & Output                & TX\#1\_D0 a TX\#1\_D9  & TX\#1 dados de vídeo de 0 a 29 \\ 
+%				LA33\_P              & Input/Output          & Não usado              & ----------                     \\ 
+%				CLK2\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
+%				CLK3\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
+%				HA00\_P a HA23\_P    & Input/Output          & Não usado              & ----------                     \\ 
+%				CLK2\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\
+%				CLK3\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
+%				HA00\_N a HA23\_N    & Input/Output          & Não usado              & ----------                     \\ 
+%				\bottomrule
+%			\end{tabular}
+%		\end{center}
+%		\label{default}
+%	\end{table}
+%	
 	
 
 	
@@ -392,6 +433,9 @@ Esta arquitetura aqui apresentada acaba por apresentar os blocos essenciais para
 %\subsubsection*{Considerações na implementação deste tipo de arquitetura}
 %Em \cite{R012} são apontados os principais desafios na implementação deste tipo de arquitetura que passarão a ser descritos brevemente e que têm de ter sidos em conta aquando a sua implementação.
 
+
+
+
 \subsubsection*{Restrições na utilização de circuitos de serializadores e deserializadores}
 	
 Quando se passa para a implementação de serializadores e deserializadores é necessário ter em conta algumas considerações relativamente aos circuitos utilizados. E segundo \cite{R012}, logo à partida existem grandes restrições no que toca aos circuitos utilizados nestes tipos de arquiteturas. Isto porque os sinais recebidos em paralelo são sinais digitais, contudo, quando estes sinais passam pelo canal de transmissão sofrem distorções e também lhes é adicionado ruído, o que leva a que o sinal recebido do lado do recetor seja um sinal analógico e que necessite de ser tratado como tal. A sua recuperação tem de ser então baseada na regeneração correta do sinal de relógio e também na amostragem apropriada. 
@@ -399,23 +443,32 @@ Quando se passa para a implementação de serializadores e deserializadores é n
 Ao mesmo tempo, este tipo de dispositivos são normalmente um subsistema de um sistema grande e usados em dispositivos portáteis, e como tal precisam de ter um baixo consumo de energia. Assim sendo, um dos primeiros grandes desafios desta implementação de serializador/deserializador, segundo \cite{R012}, é conseguir implementar circuitos digitais de alta velocidade e que ao mesmo tempo têm um baixo consumo de potência. Este mesmo autor apresenta duas principais técnicas utilizadas para alcançar tais objetivos que passam pela utilização de lógica CMOS que permitem a utilização a alta velocidade com baixo consumo de potência. 
 	
 Outro requisito crítico na implementação deste tipo de arquiteturas é também a adaptação das impedâncias características do \textit{buffer} (de transmissão e receção) com a impedância característica da linha onde é transmitido o sinal. Isto porque, caso estas não estejam adaptadas ocorrerão reflexões no lado do transmissor ou do recetor (consoante a desadaptação) que não permitem a transmissão da potência total do sinal. No entanto, este requisito requer um grande consumo de potência, pois na prática os canais de transmissão têm uma impedância muito baixa. 
-	
- \textbf{PISO (\textit{Parallel input – serial output}) e SIPO (\textit{serial input – parallel output})}
-	
-	\hspace{1.0em}Estes blocos são necessários para o correto funcionamento deste tipo de arquitetura uma vez que é responsável pela conversão dos dados que se fazem chegar em paralelo em série e vice-versa. Na figura~\ref{fig:PISO-SIPO} na página~\pageref{fig:PISO-SIPO} apresenta-se algumas topologias de PISO e SIPO apresentadas em \cite{R012}:
+
+\subsubsection*{Codificação dos sinais e sua importância}
+
+\subsubsection*{PISO (\textit{Parallel input – serial output}) e SIPO (\textit{serial input – parallel output})}
+
+Os blocos de serialização e deserialização da arquitetura têm uma grande importância no correto funcionamento de toda a arquitetura, isto porque, tal como o nome indica, estes convertem os dados em paralelo em série e vice-versa. Tal como já foi refeirdo anteriormente, o serializador recebe N dados a uma frequência de X, e transmite esses N dados a uma frequência de X*N. Por outro lado o deserializador, reduz a frequêncaia dos dados, convertendo-os em paralelo, para de seguida ser enviada para o resto da arquitetura para processamento desses mesmos dados. Por isso, é necessário tomar em atenção diversas características quanto à escolha destas arquieturas, tais como a sua latência.
+
+O autor de \cite{R012} propõe 3 tipos de arquiteturas para este tipo de bloco que são apresentadas na imagem ~\ref{fig:PISO-SIPO} na página~\pageref{fig:PISO-SIPO} e que passam a ser descritas as suas vantagens e desvantagens.
+
 
 	\begin{figure}[h!]
-		\begin{center}
-			\leavevmode
-			\includegraphics[width=1.0\textwidth]{arqPISO-SIPO}
-			\caption{Arquitetura de PISO/SIPO, retirada de \cite{R012}}
-			\label{fig:PISO-SIPO}
-		\end{center}
-	\end{figure}
-	
-	\hspace{1.0em}No circuito a) visualiza-se uma estrutura de um único andar que é demasiado lenta devido às capacidades intrínsecas largas no nó de conversão. O circuito b) representa uma topologia heterogénea que é mais rápida que a anterior, e no circuito c) está representada uma topologia de árvore binária que é a topologia mais rápida das apresentadas. 
-	
-	\hspace{1.0em}Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências que serão de seguida mencionados.
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{SIPO_PISO_vet}
+		\caption{Arquiteturas de PISO/SIPO, retirada de \cite{R012}}
+		\label{fig:PISO-SIPO}
+	\end{center}
+\end{figure}
+
+No circuito mais á esquerda, denominada de a) pelo autor de \cite{R012}, visualiza-se uma estrutura de um único andar, todavia esta é demasiado lenta devido às capacidades intrínsecas largas no nó de conversão. No circuito do centro, b), é representada uma topologia  heterogénea que se torna mais rápida que a apresentada em a). Já no último circuito apresentado na imagem (o da mais à direita), c), é é representada uma topologia em árvore binária que é a mais rápida segundo o autor de \cite{R012}. O autor reforça ainda a ideia de que a utilização de multiplexadores e des-mutiplexadores de 2:1 e 1:2 respectivamente são muito importantes para se obter uma arquitetura de funcionamento rápido. É de notar ainda que quando se utiliza uma arquitetura de serialização/deserialização em arvore binária, tal como o autor sugere, as portas de entrada do serializador terão dezenas de entradas, tal como as portas de saída do deserializador terão dezenas de saída, e por isso alguns pontos que necessitam de circuitos de velocidade elevada e outros que não. Para tal é necessário ter em atenção que tipo de circuitos são usados em cada etapa do serializador dada a sua necessidade de velocidade. O autor sugere a utilização de circuitos lógicos CML para as etpas que necessitam de trabalhar a altas velocidades, e CMOS para as que não necessitam de tanta velocidade.
+
+Em situações em que as taxas de débito são muito elevadas a utilização de \textit{shift registers} torna-se também bastante eficiente para implementar um serializador/deserializador. 
+
+
+
+Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências que serão de seguida mencionados.
 	
  \textbf{Unidade de Multiplicação de Sinais de relógio (CMU – \textit{Clock Multiplier Unit})}
 	
@@ -441,8 +494,14 @@ Outro requisito crítico na implementação deste tipo de arquiteturas é també
 	\hspace{1.0em}Tal como referido anteriormente, a comunicação de sinais de alta velocidade pode sofrer diversas interferências durante a sua transmissão. Contudo, segundo \cite{R012}, após a equalização do sinal estas mesmas interferências são parcialmente compensadas permitindo assim uma recuperação dos dados transmitidos.  Para fazer a correta recuperação do sinal é necessário recorrer a um circuito que recupere inicialmente o sinal de relógio transmitido do emissor para que o sinal recuperado possa ser usado para recuperação dos dados transmitidos. Uma estrutura deste tipo de circuito será descrita mais à frente neste relatório.
 
 
-\subsubsection*{Técnicas utilizadas para os serializadores funcionarem}
+\subsubsection*{Restrições dos sinais de relógio de referência das arquiteturas}
 
+\subsubsection*{Correcção do sinal de relógio}
+
+\subsubsection*{Sinalização Física}
+\subsubsection*{Pré-Enfase}
+\subsubsection*{Equalização de Linha}
+\subsubsection*{Criação de Protocolos}
 
 %\section{Serializador e Deserializador disponíveis na FPGA}
 %
