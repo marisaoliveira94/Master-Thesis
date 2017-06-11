@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.7)  11 JUN 2017 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.7)  11 JUN 2017 16:39
 entering extended mode
 **./MarisaOliveira.tex
 (MarisaOliveira.tex
@@ -1316,17 +1316,12 @@ File: figures/fpga_fmc_vet-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/fpga_fmc_vet-eps-converted-to.pdf>
 Package pdftex.def Info: figures/fpga_fmc_vet-eps-converted-to.pdf used on inpu
 t line 53.
-(pdftex.def)             Requested size: 434.62268pt x 291.08678pt.
-
-Overfull \hbox (7.83133pt too wide) in paragraph at lines 52--54
- [] 
- []
-
+(pdftex.def)             Requested size: 426.79135pt x 285.85896pt.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 63.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 63.
-[12 <./figures/fpga_fmc_vet-eps-converted-to.pdf>]
+ [12 <./figures/fpga_fmc_vet-eps-converted-to.pdf>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 104.
 Package epstopdf Info: Source file: <figures/diagramaBlocosRX_hdmi.eps>
@@ -1523,23 +1518,33 @@ Package pdftex.def Info: figures/SIPO_PISO_vet-eps-converted-to.pdf used on inp
 ut line 459.
 (pdftex.def)             Requested size: 426.79135pt x 206.10095pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 472.
+(babel)             in language  on input line 468.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 472.
+(babel)             in language  on input line 468.
  [22 <./figures/SIPO_PISO_vet-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `R033' on page 23 undefined on input line 470.
+
+
+LaTeX Warning: Citation `R033' on page 23 undefined on input line 471.
+
+
+Underfull \vbox (badness 4378) has occurred while \output is active []
+
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 487.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 487.
  [23]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 881.
+(babel)             in language  on input line 884.
 )
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 122.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 122.
- [24]
+
+[24]
 \openout2 = `chapter3.aux'.
 
  (chapter3.tex
@@ -1560,7 +1565,7 @@ ps-converted-to.pdf figures/placa_HDMI_rx_vet.eps>
 (epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/placa_HDMI_rx_vet-eps-converted-to.pdf, id=741, 461.725pt x 234.8775pt
+<figures/placa_HDMI_rx_vet-eps-converted-to.pdf, id=743, 461.725pt x 234.8775pt
 >
 File: figures/placa_HDMI_rx_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/placa_HDMI_rx_vet-eps-converted-to.pdf>
@@ -1583,7 +1588,7 @@ ps-converted-to.pdf figures/placa_HDMI_tx_vet.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/placa_HDMI_tx_vet-eps-converted-to.pdf, id=744, 460.72125pt x 235.8812
+<figures/placa_HDMI_tx_vet-eps-converted-to.pdf, id=746, 460.72125pt x 235.8812
 6pt>
 File: figures/placa_HDMI_tx_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/placa_HDMI_tx_vet-eps-converted-to.pdf>
@@ -1648,7 +1653,7 @@ rted-to.pdf figures/audio_i2s.eps>
 (epstopdf)             \includegraphics on input line 112.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/audio_i2s-eps-converted-to.pdf, id=815, 448.67625pt x 111.41624pt>
+<figures/audio_i2s-eps-converted-to.pdf, id=817, 448.67625pt x 111.41624pt>
 File: figures/audio_i2s-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/audio_i2s-eps-converted-to.pdf>
@@ -1704,7 +1709,7 @@ s-converted-to.pdf figures/exemplo_colorBar.eps>
 (epstopdf)             \includegraphics on input line 295.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_colorBar-eps-converted-to.pdf, id=883, 424.58624pt x 305.14pt>
+<figures/exemplo_colorBar-eps-converted-to.pdf, id=885, 424.58624pt x 305.14pt>
 File: figures/exemplo_colorBar-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/exemplo_colorBar-eps-converted-to.pdf>
 Package pdftex.def Info: figures/exemplo_colorBar-eps-converted-to.pdf used on 
@@ -1731,7 +1736,7 @@ nverted-to.pdf figures/colorBar_FSM.eps>
 (epstopdf)             \includegraphics on input line 308.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/colorBar_FSM-eps-converted-to.pdf, id=898, 387.4475pt x 273.02pt>
+<figures/colorBar_FSM-eps-converted-to.pdf, id=900, 387.4475pt x 273.02pt>
 File: figures/colorBar_FSM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/colorBar_FSM-eps-converted-to.pdf>
@@ -1768,7 +1773,7 @@ Package epstopdf Info: Source file: <figures/planA.eps>
 (epstopdf)             \includegraphics on input line 352.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planA-eps-converted-to.pdf, id=932, 689.57625pt x 356.33125pt>
+<figures/planA-eps-converted-to.pdf, id=934, 689.57625pt x 356.33125pt>
 File: figures/planA-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planA-eps-converted-to.pdf>
@@ -1800,7 +1805,7 @@ d-to.pdf figures/planB1.eps>
 (epstopdf)             \includegraphics on input line 401.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planB1-eps-converted-to.pdf, id=966, 794.97pt x 388.45125pt>
+<figures/planB1-eps-converted-to.pdf, id=968, 794.97pt x 388.45125pt>
 File: figures/planB1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planB1-eps-converted-to.pdf>
@@ -1832,7 +1837,7 @@ Package epstopdf Info: Source file: <figures/planC.eps>
 (epstopdf)             \includegraphics on input line 457.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planC-eps-converted-to.pdf, id=1002, 791.95876pt x 819.06pt>
+<figures/planC-eps-converted-to.pdf, id=1004, 791.95876pt x 819.06pt>
 File: figures/planC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planC-eps-converted-to.pdf>
@@ -2242,13 +2247,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 152.
 Package rerunfilecheck Info: File `MarisaOliveira.out' has not changed.
 (rerunfilecheck)             Checksum: F8AE1409084D6301C19A1F3BDF189E94;4076.
+
+
+LaTeX Warning: There were undefined references.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
  ) 
 Here is how much of TeX's memory you used:
- 9147 strings out of 493333
- 140502 string characters out of 3125802
+ 9151 strings out of 493333
+ 140536 string characters out of 3125802
  274469 words of memory out of 3000000
- 12117 multiletter control sequences out of 15000+200000
+ 12119 multiletter control sequences out of 15000+200000
  81679 words of font info for 101 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,16n,51p,1898b,562s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2270,9 +2279,9 @@ Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Marisa Oli
 veira/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Us
 ers/Marisa Oliveira/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on MarisaOliveira.pdf (96 pages, 1650886 bytes).
+Output written on MarisaOliveira.pdf (96 pages, 1651062 bytes).
 PDF statistics:
- 1638 PDF objects out of 1728 (max. 8388607)
- 256 named destinations out of 1000 (max. 500000)
+ 1635 PDF objects out of 1728 (max. 8388607)
+ 258 named destinations out of 1000 (max. 500000)
  472 words of extra memory for PDF output out of 10000 (max. 10000000)
 

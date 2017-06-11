@@ -50,7 +50,7 @@ Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visu
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics{fpga_fmc_vet}
+		\includegraphics[width=1.0\textwidth]{fpga_fmc_vet}
 		\caption{Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite{R008}}
 		\label{fig:fpgaVistaGeral}
 	\end{center}
@@ -464,21 +464,23 @@ O autor de \cite{R012} propõe 3 tipos de arquiteturas para este tipo de bloco q
 
 No circuito mais á esquerda, denominada de a) pelo autor de \cite{R012}, visualiza-se uma estrutura de um único andar, todavia esta é demasiado lenta devido às capacidades intrínsecas largas no nó de conversão. No circuito do centro, b), é representada uma topologia  heterogénea que se torna mais rápida que a apresentada em a). Já no último circuito apresentado na imagem (o da mais à direita), c), é é representada uma topologia em árvore binária que é a mais rápida segundo o autor de \cite{R012}. O autor reforça ainda a ideia de que a utilização de multiplexadores e des-mutiplexadores de 2:1 e 1:2 respectivamente são muito importantes para se obter uma arquitetura de funcionamento rápido. É de notar ainda que quando se utiliza uma arquitetura de serialização/deserialização em arvore binária, tal como o autor sugere, as portas de entrada do serializador terão dezenas de entradas, tal como as portas de saída do deserializador terão dezenas de saída, e por isso alguns pontos que necessitam de circuitos de velocidade elevada e outros que não. Para tal é necessário ter em atenção que tipo de circuitos são usados em cada etapa do serializador dada a sua necessidade de velocidade. O autor sugere a utilização de circuitos lógicos CML para as etpas que necessitam de trabalhar a altas velocidades, e CMOS para as que não necessitam de tanta velocidade.
 
-Em situações em que as taxas de débito são muito elevadas a utilização de \textit{shift registers} torna-se também bastante eficiente para implementar um serializador/deserializador. 
+Em situações em que as taxas de débito são muito elevadas a utilização de \textit{shift registers} torna-se também bastante eficiente para implementar um serializador/deserializador com base em \textit{shift-registers}. Neste tipo de arquitetura o serializador lê os dados para um shift register quando este se encontra com o sinal de seleccção ativa, e quando este mesmo se desliga, então os dados são enviados a alta velocidade pelo cabo fisico. No caso do serializador, os dados que chegam a alta velocidade são amostrados shiftados a cada ciclo de relógio do sinal de alta velocidade, e um sinal de relógio com uma frequência mais baixa é de seguida usado para amostrar a saída de cada registo. 
 
+
+Os autores de \cite{R033} utilizam este tipo de serializadores nas suas implementações de serializadores. Vou explica-los assim muito por alto e se tiverem alguma figura alusiva vou colocar uma vez que ajuda a compreensão do funcionamento
 
 
 Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências que serão de seguida mencionados.
 	
- \textbf{Unidade de Multiplicação de Sinais de relógio (CMU – \textit{Clock Multiplier Unit})}
+\subsubsection*{Unidade de Multiplicação de Sinais de relógio (CMU – \textit{Clock Multiplier Unit})}
 	
 	\hspace{1.0em}O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor, segundo a fonte \cite{R012}. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. É comum que este sinal de relógio seja então partilhado entre o recetor e o transmissor, sendo que será necessário um bloco que faça o ajuste de fase deste sinal do lado do recetor. Este é necessário por causa do atraso introduzido pelo canal, que não é conhecido à priori e também devido ao ruído introduzido no canal que tornam a fase do sinal recebido bastante crítica para o desempenho do transcetor. Esta unidade é então responsável por tal procedimento.
 	
- \textbf{Equalização}
+ \subsubsection*{Equalização}
 	
-	\hspace{1.0em}O sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal no recetor. Como tal, existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria pode ser realizada através da utilização de canais de ligação de melhor qualidade. No entanto, esta opção traz custos acrescidos à ligação. 
+O sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal no recetor. Como tal, existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria pode ser realizada através da utilização de canais de ligação de melhor qualidade. No entanto, esta opção traz custos acrescidos à ligação. 
 	
-	\hspace{1.0em}Por outro lado, também pode ser utilizada uma técnica de equalização que consegue obter bons resultados sem custos acrescidos à ligação. Ainda na mesma referência são apresentadas diferentes combinações de métodos de equalização que passam a ser brevemente descritos:
+Por outro lado, também pode ser utilizada uma técnica de equalização que consegue obter bons resultados sem custos acrescidos à ligação. Ainda na mesma referência são apresentadas diferentes combinações de métodos de equalização que passam a ser brevemente descritos:
 	
 	\begin{itemize}
 		\item Linear ou não-linear
@@ -491,7 +493,7 @@ Para que estes blocos funcionem é necessário que exista um sinal de relógio d
 
  \textbf{CDR (\textit{Clock Data Recovery})}
 	
-	\hspace{1.0em}Tal como referido anteriormente, a comunicação de sinais de alta velocidade pode sofrer diversas interferências durante a sua transmissão. Contudo, segundo \cite{R012}, após a equalização do sinal estas mesmas interferências são parcialmente compensadas permitindo assim uma recuperação dos dados transmitidos.  Para fazer a correta recuperação do sinal é necessário recorrer a um circuito que recupere inicialmente o sinal de relógio transmitido do emissor para que o sinal recuperado possa ser usado para recuperação dos dados transmitidos. Uma estrutura deste tipo de circuito será descrita mais à frente neste relatório.
+Tal como referido anteriormente, a comunicação de sinais de alta velocidade pode sofrer diversas interferências durante a sua transmissão. Contudo, segundo \cite{R012}, após a equalização do sinal estas mesmas interferências são parcialmente compensadas permitindo assim uma recuperação dos dados transmitidos.  Para fazer a correta recuperação do sinal é necessário recorrer a um circuito que recupere inicialmente o sinal de relógio transmitido do emissor para que o sinal recuperado possa ser usado para recuperação dos dados transmitidos. Uma estrutura deste tipo de circuito será descrita mais à frente neste relatório.
 
 
 \subsubsection*{Restrições dos sinais de relógio de referência das arquiteturas}
