@@ -22,28 +22,29 @@
 \BOOKMARK [1][-]{section.2.4}{2.4 Conex\343o de alta velocidade em s\351rie}{chapter.2}% 22
 \BOOKMARK [2][-]{subsection.2.4.1}{2.4.1 Comunica\347\365es em paralelo VS comunica\365es em s\351rie}{section.2.4}% 23
 \BOOKMARK [2][-]{subsection.2.4.2}{2.4.2 Considera\347\365es sobre arquiteturas de transmiss\343o de dados em s\351rie}{section.2.4}% 24
-\BOOKMARK [1][-]{section.2.5}{2.5 Sincroniza\347\343o entre diferentes dominios de rel\363gio}{chapter.2}% 25
-\BOOKMARK [0][-]{chapter.3}{3 HDMI}{}% 26
-\BOOKMARK [1][-]{section.3.1}{3.1 Hardware utilizado}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Configura\347\365es da FPGA}{section.3.1}% 28
-\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Configura\347\343o dos interruptores}{section.3.1}% 29
-\BOOKMARK [1][-]{section.3.2}{3.2 Arquiteturas Desenvolvidas}{chapter.3}% 30
-\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Transmiss\343o de uma imagem gerada na FPGA}{section.3.2}% 31
-\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Transmiss\343o de imagem entre dispositivos HDMI}{section.3.2}% 32
-\BOOKMARK [2][-]{subsection.3.2.3}{3.2.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{section.3.2}% 33
-\BOOKMARK [0][-]{chapter.4}{4 Transmiss\343o dos dados em s\351rie}{}% 34
-\BOOKMARK [0][-]{chapter.5}{5 Conclus\365es e Trabalho Futuro}{}% 35
-\BOOKMARK [0][-]{appendix.A}{A Descri\347\343o dos pinos das placas HDMI}{}% 36
-\BOOKMARK [1][-]{section.A.1}{A.1 Configura\347\343o por default}{appendix.A}% 37
-\BOOKMARK [1][-]{section.A.2}{A.2 Suporte de um canal de imagem e \341udio}{appendix.A}% 38
-\BOOKMARK [1][-]{section.A.3}{A.3 Suporte de dois canais de imagem melhorado}{appendix.A}% 39
-\BOOKMARK [0][-]{appendix.B}{B Localiza\347\365es das portas provenientes de TB-HDMI}{}% 40
-\BOOKMARK [1][-]{section.B.1}{B.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.B}% 41
-\BOOKMARK [1][-]{section.B.2}{B.2 Transmiss\343o de uma imagem entre dispositivos HDMI}{appendix.B}% 42
-\BOOKMARK [1][-]{section.B.3}{B.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.B}% 43
-\BOOKMARK [0][-]{appendix.C}{C Ficheiros de restri\347\365es}{}% 44
-\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 45
-\BOOKMARK [1][-]{section.C.2}{C.2 Restri\347\365es F\355sicas}{appendix.C}% 46
-\BOOKMARK [2][-]{subsection.C.2.1}{C.2.1 Transmiss\343o de imagem entre dispositivos HDMI}{section.C.2}% 47
-\BOOKMARK [1][-]{section.C.3}{C.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 48
-\BOOKMARK [2][-]{subsection.C.3.1}{C.3.1 Restri\347\365es Temporais}{section.C.3}% 49
+\BOOKMARK [1][-]{section.2.5}{2.5 Sa\355das em s\351rie de alta velocidade da FPGA VC7203}{chapter.2}% 25
+\BOOKMARK [1][-]{section.2.6}{2.6 Sincroniza\347\343o entre diferentes dominios de rel\363gio}{chapter.2}% 26
+\BOOKMARK [0][-]{chapter.3}{3 HDMI}{}% 27
+\BOOKMARK [1][-]{section.3.1}{3.1 Hardware utilizado}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Configura\347\365es da FPGA}{section.3.1}% 29
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Configura\347\343o dos interruptores}{section.3.1}% 30
+\BOOKMARK [1][-]{section.3.2}{3.2 Arquiteturas Desenvolvidas}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Transmiss\343o de uma imagem gerada na FPGA}{section.3.2}% 32
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Transmiss\343o de imagem entre dispositivos HDMI}{section.3.2}% 33
+\BOOKMARK [2][-]{subsection.3.2.3}{3.2.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{section.3.2}% 34
+\BOOKMARK [0][-]{chapter.4}{4 Transmiss\343o dos dados em s\351rie}{}% 35
+\BOOKMARK [0][-]{chapter.5}{5 Conclus\365es e Trabalho Futuro}{}% 36
+\BOOKMARK [0][-]{appendix.A}{A Descri\347\343o dos pinos das placas HDMI}{}% 37
+\BOOKMARK [1][-]{section.A.1}{A.1 Configura\347\343o por default}{appendix.A}% 38
+\BOOKMARK [1][-]{section.A.2}{A.2 Suporte de um canal de imagem e \341udio}{appendix.A}% 39
+\BOOKMARK [1][-]{section.A.3}{A.3 Suporte de dois canais de imagem melhorado}{appendix.A}% 40
+\BOOKMARK [0][-]{appendix.B}{B Localiza\347\365es das portas provenientes de TB-HDMI}{}% 41
+\BOOKMARK [1][-]{section.B.1}{B.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.B}% 42
+\BOOKMARK [1][-]{section.B.2}{B.2 Transmiss\343o de uma imagem entre dispositivos HDMI}{appendix.B}% 43
+\BOOKMARK [1][-]{section.B.3}{B.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.B}% 44
+\BOOKMARK [0][-]{appendix.C}{C Ficheiros de restri\347\365es}{}% 45
+\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 46
+\BOOKMARK [1][-]{section.C.2}{C.2 Restri\347\365es F\355sicas}{appendix.C}% 47
+\BOOKMARK [2][-]{subsection.C.2.1}{C.2.1 Transmiss\343o de imagem entre dispositivos HDMI}{section.C.2}% 48
+\BOOKMARK [1][-]{section.C.3}{C.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 49
+\BOOKMARK [2][-]{subsection.C.3.1}{C.3.1 Restri\347\365es Temporais}{section.C.3}% 50

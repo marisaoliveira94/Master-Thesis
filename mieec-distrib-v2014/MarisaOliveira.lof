@@ -10,19 +10,21 @@
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite {R009}\relax }}{16}{figure.caption.15}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Amostragem dos dados provenientes do FMC no recetor, retirada de \cite {R009}\relax }}{16}{figure.caption.16}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Arquitetura simples de um serializador e deserializador, retirada de \cite {R032}\relax }}{19}{figure.caption.19}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Arquiteturas de PISO/SIPO, retirada de \cite {R012}\relax }}{22}{figure.caption.23}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{23}{figure.caption.24}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{23}{figure.caption.25}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Exemplo de um serializador de 10 bits, retirado de \cite {R033}\relax }}{24}{figure.caption.26}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do alinhamento em s\IeC {\'e}rie quando encontrada a \textit {comma}, retirada de \cite {R011}\relax }}{24}{figure.caption.26}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do alinhamento em paralelo quando encontrada a \textit {comma}, retirada de \cite {R011}\relax }}{24}{figure.caption.27}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Arquiteturas de PISO/SIPO, retirada de \cite {R012}\relax }}{25}{figure.caption.29}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{26}{figure.caption.30}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{27}{figure.caption.31}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Exemplo de um serializador de 10 bits, retirado de \cite {R033}\relax }}{27}{figure.caption.32}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces TB-FMCH-HDMI2 RX, retirada de \cite {R009}\relax }}{28}{figure.caption.35}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces TB-FMCH-HDMI2 TX, retirada de \cite {R009}\relax }}{28}{figure.caption.36}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{31}{figure.caption.39}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo modulo desenvolvido\relax }}{37}{figure.caption.46}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{38}{figure.caption.47}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{40}{figure.caption.48}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{42}{figure.caption.49}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{45}{figure.caption.50}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces TB-FMCH-HDMI2 RX, retirada de \cite {R009}\relax }}{32}{figure.caption.41}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces TB-FMCH-HDMI2 TX, retirada de \cite {R009}\relax }}{32}{figure.caption.42}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{35}{figure.caption.45}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo modulo desenvolvido\relax }}{41}{figure.caption.52}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{42}{figure.caption.53}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{44}{figure.caption.54}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{46}{figure.caption.55}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{49}{figure.caption.56}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

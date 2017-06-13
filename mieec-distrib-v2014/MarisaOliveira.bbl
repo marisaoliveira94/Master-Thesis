@@ -13,11 +13,20 @@ Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
 A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
 \newblock 2005.
 
+\bibitem{R011}
+Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}}.
+\newblock 2016.
+
 \bibitem{R012}
 D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
 
 \bibitem{R034}
 E.~Tutorials, ``{The Shift Register}.''
+
+\bibitem{R033}
+P.~Moreira, J.~Christiansen, A.~Marchioro, E.~V.~D. Bij, K.~Kloukinas,
+  M.~Campbell, G.~Cervelli, and C.-e. Mic, ``{A 1 . 25Gbit / s Serializer for
+  LHC Data and Trigger Optical Links},''
 
 \bibitem{R016}
 A.~Devices, {\em {ADV7612 Reference Manual}}.
@@ -61,10 +70,9 @@ Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
 {Analog Devices}, {\em {ADV7511 Hardware user's guide}}.
 \newblock No.~July, 2011.
 
-\bibitem{R033}
-P.~Moreira, J.~Christiansen, A.~Marchioro, E.~V.~D. Bij, K.~Kloukinas,
-  M.~Campbell, G.~Cervelli, and C.-e. Mic, ``{A 1 . 25Gbit / s Serializer for
-  LHC Data and Trigger Optical Links},''
+\bibitem{R036}
+T.~Instruments, {\em {LVDS Owner ' s Manual}}.
+\newblock 2008.
 
 \bibitem{R026}
 Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.

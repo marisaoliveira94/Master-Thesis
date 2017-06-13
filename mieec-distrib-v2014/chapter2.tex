@@ -1,3 +1,4 @@
+% !TeX spellcheck = pt_BR
 
 \chapter{Revisão Bibliográfica} \label{chap:chap2}
 
@@ -399,6 +400,7 @@ Por outro lado, o deserializador tem de fazer todo o processo inverso que o bloc
 Existe ainda um bloco que é comum tanto ao serializador como ao deserializador que é o \textbf{\textit{Clock Manager}} que essencialmente é responsável pelos diversor processir que os sinais de relógio necessitarão: desde multiplicações de frequências, divisões e até mesmo recuperação do mesmo.
 
 Esta arquitetura aqui apresentada acaba por apresentar os blocos essenciais para o correcto funcionamento de um serializador e deserializador, no entanto existem outras características que podem ser adicionadas: desde os diferentes tipos de codificações possiveis, até códigos detetores e corretores de erros que podem ser adicionados à arquitura.
+
 %\begin{figure}[h!]
 %	\begin{center}
 %		\leavevmode
@@ -433,9 +435,6 @@ Esta arquitetura aqui apresentada acaba por apresentar os blocos essenciais para
 %\subsubsection*{Considerações na implementação deste tipo de arquitetura}
 %Em \cite{R012} são apontados os principais desafios na implementação deste tipo de arquitetura que passarão a ser descritos brevemente e que têm de ter sidos em conta aquando a sua implementação.
 
-
-
-
 \subsubsection*{Restrições na utilização de circuitos de serializadores e deserializadores}
 	
 Quando se passa para a implementação de serializadores e deserializadores é necessário ter em conta algumas considerações relativamente aos circuitos utilizados. E segundo \cite{R012}, logo à partida existem grandes restrições no que toca aos circuitos utilizados nestes tipos de arquiteturas. Isto porque os sinais recebidos em paralelo são sinais digitais, contudo, quando estes sinais passam pelo canal de transmissão sofrem distorções e também lhes é adicionado ruído, o que leva a que o sinal recebido do lado do recetor seja um sinal analógico e que necessite de ser tratado como tal. A sua recuperação tem de ser então baseada na regeneração correta do sinal de relógio e também na amostragem apropriada. 
@@ -446,6 +445,107 @@ Outro requisito crítico na implementação deste tipo de arquiteturas é també
 
 
 \subsubsection*{Codificação dos sinais e sua importância}
+
+O bloco de codificação de sinais insere-se nesta arquitetura do transmissor devido à sua importância relativamente à recuperação dos dados do lado do recetor. Estes blocos modificam os sinais para um formato que permite ao recetor recuperar os sinais de relógio mais facilmente garantindo que existe um número suficiente de transições entre zero e um. Segundo \cite{R032}, este bloco para além de fazer o que já foi descrito garante que existe um balanço entre zeros e uns na linha de transmissão (\textit{Direct Current Balance} - DC \textit{Balance}) e opcionalmente podem também implementar mecanismos de correção de sinal de relógio, sincronização de blocos e enventuais sinalização de canais (quando é usado mais do que um canal físico na transmissão).
+
+%Codificação 8B/10B
+Ainda segundo o autor de \cite{R032}, um dos esquemas de codificação e descodificação mais utilizados em diversos protocolos é 8B/10B. Este tipo de codificação converte palavras de 8 bits em 10 bits garantindo um número suficiente de transições entre zeros e uns nas palavras codificadas. Este mecanismo irá garantir que o sinal de relógio será corretamente recuperado do lado do recetor. Na tabela \ref{table:cod_8b_10b_ex} na página \pageref{table:cod_8b_10b_ex} é possível encontrar dois exemplos de codificação de palavras de 8 bits em 10 bits. Note-se que palavras que não apresentam transições entre zero e um (no caso da primeira linha da tabela) ou poucas (no caso da segunda linha da tabela) passam a ter transições suficientes para que o sinal de relógio possa ser recuperado do lado do recetor.
+
+\begin{table}[h!]
+	\centering
+
+	\begin{tabular}{@{}ll@{}}
+		\toprule
+		\multicolumn{1}{c}{\textbf{Palavra de 8 bits}} & \multicolumn{1}{c}{\textbf{Símbolo de 10 bits}} \\ \midrule
+		00000000                                       & 1001110100                                      \\
+		00000001                                       & 0111010100                                      \\ \bottomrule
+	\end{tabular}
+	
+	\caption{Exemplo de codificação 8B/10B, retirada de \cite{R032}}
+	\label{table:cod_8b_10b_ex}
+\end{table}
+
+%Importância da disparidade e DC Balance
+Este método de codificação garante que existe um balanço entre o número de zeros e uns na linha de transmissão de uma maneira particular, chamada disparidade. Afinal, a maneira mais fácil de garantir este balanço seria limitar os números de zeros e uns em cada palavra (5 zeros e 5 uns), que por acaso são os exemplos apresentados na tabela \ref{table:cod_8b_10b_ex}. Contudo esta restrição viria limitar o número de palavras de 10 bits possíveis de obter. Em vez disso, este método utiliza dois símbolos para palavra codificada. Isto é, para uma palavra de 8 bits codifica de duas maneiras possíveis em que, geralmente, uma tem 6 zeros e 4 uns e a outra tem 4 zeros e 6 uns. Essencialmente, para cada palavra de 8 bits há duas possibilidades de codificação e durante a transmissão das palavras a seleção é feita com base na necessidade de balanço de zeros e uns na linha. Geralmente os símbolos são reconhecidos por + e -.
+
+Outra vantagens da utilização deste tipo de codificação tem a ver com a detecção de erros do lado do recetor. Isto é,  este monitoriza o balanço de zeros e uns tendo em conta a disparidade e caso haja alguma violação nestas regras então o recetor é capaz de detetar a ocorrência de erros.
+
+\begin{table}[h!]
+	\centering
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		\multicolumn{1}{c}{\textbf{Hexadecimal}} & \multicolumn{1}{c}{\textbf{Palavra de 8 bits}} & \multicolumn{1}{c}{\textbf{Símbolo de 10 bits (-)}} & \multicolumn{1}{c}{\textbf{Símbolo de 10 bits (+)}} \\ \midrule
+		EA                                       & 11101010                                       & 0101011110                                          & 0101010001                                          \\
+		FF                                       & 11111111                                       & 1010110001                                          & 0101001110                                          \\
+		A4                                       & 10100100                                       & 1101011010                                          & 0010101010                                          \\ \bottomrule
+	\end{tabular}
+	}
+	\caption{Exemplo de palavras de 8 bits codificadas em 8B/10B, retirada de \cite{R032}}
+	\label{table:exemple_trans}
+\end{table}
+
+Na tabela \ref{table:exemple_trans} da página \pageref{table:exemple_trans} são apresentadas 3 palavras de 8 bits codificadas nas suas duas possibilidades. A palavra apresentada na 1ª linha, EA em hexadecimal, na sua codificação negativa apresenta 6 uns e 4 zeros, contudo na sua forma positiva apresenta 4 uns e 6 zeros. O mesmo acontece com a palavra apresentada na última linha. No entanto a palavra representada na 2ª linha apresenta o mesmo número de zeros e uns em ambos os formatos. Se hipoteticamente fosse necessário transmitir estas palavras seguidas, o codificador teria em atenção o balanço entre zeros e uns na linha de transmissão aquando a transmissão da palavra EA e A4 para que o mesmo fosse garantido.
+
+\subsubsection*{Alinhamento da transmissão}
+Uma função importante do deserializador, segundo o autor de \cite{R032} é o alinhamento dos dados que chegam em série. Por outras palavras, é importante que o deserializador reconheça os limites de uma determinada palavra transmitida. Para esse efeito são usados uns caracteres especiais que a codificação 8B/10B disponibiliza. Segundo \cite{R032}, este tipo de codificação dispõe de 12 caracteres que se codificam em 12 caracteres de controlo geralmente conhecidos por por \textit{K-characters}. Estes são geralmente usados para alinhamento e controlo devido às suas particulares características. Esses mesmos caracteres são apresentados na tabela \ref{table:caracteres_especiais_8b10b} da página \pageref{table:caracteres_especiais_8b10b}.
+
+\begin{table}[h!]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{@{}lllll@{}}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Nome}} & \multicolumn{1}{c}{\textbf{Hexadecimal}} & \multicolumn{1}{c}{\textbf{Palavra de 8 bits}} & \multicolumn{1}{c}{\textbf{Símbolo de 10 bits (+)}} & \multicolumn{1}{c}{\textbf{Símbolo de 10 bits (-)}} \\ \midrule
+			K28.0                             & 1C                                       & 00011100                                       & 0011110100                                          & 1100001011                                          \\
+			K28.1                             & 3C                                       & 00111100                                       & 0011111001                                          & 1100000110                                          \\
+			K28.2                             & 5C                                       & 01011100                                       & 0011110101                                          & 1100001010                                          \\
+			K28.3                             & 7C                                       & 01111100                                       & 0011110011                                          & 1100001100                                          \\
+			K28.4                             & 9C                                       & 10011100                                       & 0011110010                                          & 1100001101                                          \\
+			K28.5                             & BC                                       & 10111100                                       & 0011111010                                          & 1100000101                                          \\
+			K28.6                             & DC                                       & 11011100                                       & 0011110110                                          & 1100001001                                          \\
+			K28.7                             & FC                                       & 11111100                                       & 0011111000                                          & 1100000111                                          \\
+			K23.7                             & F7                                       & 11110111                                       & 1110101000                                          & 0001010111                                          \\
+			K27.7                             & FB                                       & 11111011                                       & 1101101000                                          & 0010010111                                          \\
+			K29.7                             & FD                                       & 11111101                                       & 1011101000                                          & 0100010111                                          \\
+			K30.7                             & FE                                       & 11111110                                       & 0111101000                                          & 1000010111                                          \\ \bottomrule
+		\end{tabular}%
+	}
+	\caption{Caracteres de controlo especificos da codificação 8B/10B, retirada de \cite{R032}}
+	\label{table:caracteres_especiais_8b10b}
+\end{table}
+
+Para conseguir alinhar, o recetor procurar por uma palavra de alinhamento, conhecida por "\textit{comma}" (virgula em português), e quando a encontra repõe os limites de alinhamento das palavras. Como esta procurar é continua, a partir da primeira detecção todas as palavras de alinhamento que forem detetadas encontrarão o alinhamento já feito. O valor deste símbolo que delimita as palavras (\textit{comma}) pode à partida ser definido no transcetor, contudo por vezes pode vir já pré-definido. A imagem 
+
+%\begin{figure}[h!]
+%	\begin{center}
+%		\leavevmode
+%		\includegraphics[width=0.8\textwidth]{align_vet}
+%		\caption{Exemplo de transmissão de dados codificados em 8B/10B, retirada de \cite{R032}}
+%		\label{fig:alinhamento_8B_10B}
+%	\end{center}
+%\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{serial_align_vet}
+		\caption{Ilustração do alinhamento em série quando encontrada a \textit{comma}, retirada de \cite{R011}}
+		\label{fig:alinhamento_serie}
+	\end{center}
+\end{figure}
+
+A imagem \ref{fig:alinhamento_serie} da página \pageref{fig:alinhamento_serie} ilustra o que acontece ao \textit{stream} de bits que chegam ao recetor em série. Aquando a detecção da palavra de alinhamento todos os dados que são retirados daí para a frente já se encontram alinhados pelo delimitação da palavra. Na figura \ref{fig:alinhamento_paralelo} da página \pageref{fig:alinhamento_paralelo} é ilustrado o mesmo exemplo mas em paralelo para melhor entendimento do processo de alinhamento. Todos os dados recebidos no recetor antes da palavra de alinhamento são considerados dados não alinhados.
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{paralel_align}
+		\caption{Ilustração do alinhamento em paralelo quando encontrada a \textit{comma}, retirada de \cite{R011}}
+		\label{fig:alinhamento_paralelo}
+	\end{center}
+\end{figure}
+
+Tal como o autor de \cite{R032} menciona, a palavra de alinhamento deve ser única e diferenciável de todos os outros dados que possam ser transmitidos. Este mesmo autor sugere que os caracteres especiais \textit{K-characters} mencionados na tabela \ref{table:caracteres_especiais_8b10b} sejam utilizados para tal efeito, sendo que os mais adquados são o K28.1, K28.5 ou K28.7, isto porque todos têm um padrão inicial de 7 bits de 1100000, que apenas é encontrado nestes caracteres. Tal padrão não é encontrado em nenhuma outra sequência ordenada de dados ou em qualquer outro \textit{K-character}, e por isso é ideal para o alinhamento. Este autor reforça ainda que quando um protocolo de comunicação está a ser contruído, como é o caso deste projeto, a maneira mais segura é "pedir emprestado" este tipo de sinais de controlo a protocolos bem conhecidos.
+
 
 
 \subsubsection*{PISO (\textit{Parallel input – serial output}) e SIPO (\textit{serial input – parallel output})}
@@ -488,17 +588,6 @@ O serializador lê os dados os dados em paralelo a um sinal de relógio cuja fre
 	\end{center}
 \end{figure}
 
-%The operation is as follows. Lets assume that all the flip-flops ( FFA to FFD ) have just been RESET ( CLEAR input ) and that all the outputs QA to QD are at logic level “0” ie, no parallel data output.
-%
-%If a logic “1” is connected to the DATA input pin of FFA then on the first clock pulse the output of FFA and therefore the resulting QA will be set HIGH to logic “1” with all the other outputs still remaining LOW at logic “0”. Assume now that the DATA input pin of FFA has returned LOW again to logic “0” giving us one data pulse or 0-1-0.
-%
-%The second clock pulse will change the output of FFA to logic “0” and the output of FFB and QB HIGH to logic “1” as its input D has the logic “1” level on it from QA. The logic “1” has now moved or been “shifted” one place along the register to the right as it is now at QA.
-%
-%When the third clock pulse arrives this logic “1” value moves to the output of FFC ( QC ) and so on until the arrival of the fifth clock pulse which sets all the outputs QA to QD back again to logic level “0” because the input to FFA has remained constant at logic level “0”.
-%
-%The effect of each clock pulse is to shift the data contents of each stage one place to the right, and this is shown in the following table until the complete data value of  0-0-0-1 is stored in the register. This data value can now be read directly from the outputs of QA to QD.
-%
-%Then the data has been converted from a serial data input signal to a parallel data output. The truth table and following waveforms show the propagation of the logic “1” through the register from left to right as follows.
 
 No caso do deserializador apresentado na imagem \ref{fig:sipo}, e segundo a fonte \cite{R034}, os dados que chegam em série a uma frequência determinada pelo sinal de relógio \textit{clock}, são movidos do registo A para o B e de seguida para o C e por fim para o D a essa mesma frequência (que corresponde à frequência de transmissão em série). Nas saías QA, QB, QC e QD obterão-se esses sinais, que chegaram ao inicio da cascada de registos em série, em paralelo fazendo a sua amostragem a uma frequência mais baixa (multipla da mais alta, tal como acontecia no serializador).
 
@@ -518,15 +607,37 @@ Neste caso em especifico, a cada ciclo de relógio de "\textit{word-cycle}" é l
 %The output of one of the shift-registers (SR-1) drives one input of the output multiplexer while the other one (SR-2) drives a latch. This latch drives the other multiplexer input and its purpose is to delay the data shifting operation by half a clock cycle in relation to the output of the first SR. Since the select input of the output multiplexer is driven by the shifting clock (600MHz), it correctly selects between adjacent bits and constructs the desired 1.2Gbit/s bit stream. This is represented schematically in the timing diagram of Figure 3.
 
 
-Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências cujo controlo e funcionamento será explicado em XXXXXX .
+Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências cujo controlo e funcionamento será explicado mais à frente neste relatório .
 
 
+\subsubsection*{Interfaces com a camada física}
+
+\subsubsection*{Sinalização Física}
+%Sinalização Diferencial Vs Sinalização única
 
 
-\subsubsection*{Unidade de Multiplicação de Sinais de relógio (CMU – \textit{Clock Multiplier Unit})}
-	
-O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor, segundo a fonte \cite{R012}. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. É comum que este sinal de relógio seja então partilhado entre o recetor e o transmissor, sendo que será necessário um bloco que faça o ajuste de fase deste sinal do lado do recetor. Este é necessário por causa do atraso introduzido pelo canal, que não é conhecido à priori e também devido ao ruído introduzido no canal que tornam a fase do sinal recebido bastante crítica para o desempenho do transcetor. Esta unidade é então responsável por tal procedimento.
-	
+A implementação da camada física dos serializadores e deserializadores de alta velocidade tomam uma forma universal baseada em interfaces eletricamente diferenciais, segundo \cite{R032}. Esta forma de transmissão consiste no envio de dois sinais que se complementam eletricamente relativamente a uma massa comum. A principal vantagem que esta metodologia de transmissão acarta consigo é a uma maior rejeição ao ruído em modo-comum uma vez que o sinal no recetor é obtido através da diferença entre as duas tensões dos sinais diferencias recebidos. Assim sendo, este tipo de transmissão torna-se vantajosa quando a interferência eletromagnética (EMI) ou a interferência de radio-frequência (RFI) se tornam problemáticas na transmissão, pois caso estas existam a sua interferência será em ambos os sinais (positivo e negativo) e a no recetor a diferença será a mesma, não afetando a recuperação dos dados transmitidos.
+
+Os métodos de implementação de sinalização diferencial podem variar em diversas características, como por exemplo o consumo de energia e tipo de aplicações em que podem ser implementadas. O autor de \cite{R032} menciona os três mais comuns:
+
+\begin{itemize}
+	\item \textbf{LVDS - \textit{Low-Voltage Differential Signaling}:} é uma técnica que opera a uma baixa potência e que atinge velocidades de transmissão até 3,125 Gb/s. 
+	\item \textbf{LVPELC - \textit{Low-Voltage Pseudo Emitter-Coupled Logic}}: é uma técnica que consume entre uma média e alta potência atigindo velocidades de transmissão superiores a 10 Gb/s.
+	\item \textbf{CML - \textit{Current Mode Logic}:} técnica que consome uma potência de valores médios, atingindo ainda assim velocidades de transmissão superiores a 10 Gb/s.
+\end{itemize}
+
+Os valores de consumo de potência e velocidades de transmissão para cada uma das técnicas apresentadas anteriormente foram retiradas da fonte \cite{R036}. Segundo o autor de \cite{R032} o método mais adquado para implementação em ligações cujas taxas de ligação rondam os Gb/s deve ser a CML.\begin{
+
+\subsubsection*{Requisitos de sinais de relógio de referência}
+
+O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. Segundo a fonte \cite{R012}, é comum que este sinal de relógio seja partilhado entre o recetor e o transmissor, havendo, contudo, a necessidade de ajuste de fase deste sinal do lado do recetor. Este ajuste de fase deve-se essencialmente por dois motivos: o atraso e ruído do canal. Por um lado, durante a transmissão é introduzido um atraso inerente no sinal que não é conhecido à priori, e por outro durante a transmissão também é introduzido ruído que torna a fase do sinal recebido bastante crítica para o desempenho do transcetor. 
+
+Assim sendo,tanto a fonte \cite{R032} como a fonte \cite{R012} reforçam a ideia de que o sinal de alta velocidade de referência possui requisitos muito particulares para o correto funcionamento do transcetor, uma vez que influencia fortemente o seu desempenho. Entre eles destacam-se o baixo ruído, elevada precisão e uma geração continua do mesmo. Um simples sinal gerado por um oscilador local não é suficiente para cumprir tais critérios, remata o autor de \cite{R012}. Desta maneira, é recomendado o uso de osciladores externos, capazes de serem reprogramados para determinadas frequências no sentido de se obter um sinal mais limpo e preciso. Tal será utilizado neste projeto através de um modulo disponível na FPGA VC7203 que será explicado com mais detalhe mais à frente neste relatório.
+
+
+\subsubsection*{Importância da criação e uso dos protocolos}
+
+
 
 \subsubsection*{Equalização}
 	
@@ -543,19 +654,16 @@ Por outro lado, também pode ser utilizada uma técnica de equalização que con
 
 	Assim sendo, existe um vasto conjunto de opções de equalização que estão diretamente relacionadas com o circuito CDR (\textit{Clock Data Recovery}), sendo que as mais importantes serão referidas mais à frente neste relatório. 
 
- \textbf{CDR (\textit{Clock Data Recovery})}
+\subsubsection*{Correcção do sinal de relógio}
 	
 Tal como referido anteriormente, a comunicação de sinais de alta velocidade pode sofrer diversas interferências durante a sua transmissão. Contudo, segundo \cite{R012}, após a equalização do sinal estas mesmas interferências são parcialmente compensadas permitindo assim uma recuperação dos dados transmitidos.  Para fazer a correta recuperação do sinal é necessário recorrer a um circuito que recupere inicialmente o sinal de relógio transmitido do emissor para que o sinal recuperado possa ser usado para recuperação dos dados transmitidos. Uma estrutura deste tipo de circuito será descrita mais à frente neste relatório.
 
 
-\subsubsection*{Restrições dos sinais de relógio de referência das arquiteturas}
 
-\subsubsection*{Correcção do sinal de relógio}
 
-\subsubsection*{Sinalização Física}
-\subsubsection*{Pré-Enfase}
-\subsubsection*{Equalização de Linha}
-\subsubsection*{Criação de Protocolos}
+
+
+
 
 %\section{Serializador e Deserializador disponíveis na FPGA}
 %
@@ -931,5 +1039,5 @@ Tal como referido anteriormente, a comunicação de sinais de alta velocidade po
 %
 %	\hspace{1.0em}Após a análise dos recursos existentes já na FPGA a ser utilizada neste trabalho conclui-se que estes transcetores de alto débito permitem não só fazer a transmissão do sinal, mas também incluem técnicas de recuperação fiável dos mesmos dados transmitidos. Uma vez que estes transcetores são também bastantes flexíveis em termos de configurações tornará a implementação da transmissão dos dados pretendidos mais fácil numa fácil inicial, antes da utilização dos transcetores desenvolvidos pelo projeto iBrow. 
 %\end{enumerate}
-
+\section{Saídas em série de alta velocidade da FPGA VC7203}
 \section{Sincronização entre diferentes dominios de relógio}
