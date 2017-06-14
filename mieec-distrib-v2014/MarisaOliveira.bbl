@@ -79,7 +79,7 @@ Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
 \newblock No.~July, 2011.
 
 \bibitem{R036}
-T.~Instruments, {\em {LVDS Owner ' s Manual}}.
+T.~Instruments, {\em {LVDS Owner's Manual}}.
 \newblock 2008.
 
 \bibitem{R028}
@@ -89,6 +89,12 @@ R.~Williams, ``{A Painless Guide To CRC Error Detection Algorithms},'' {\em
 \bibitem{R024}
 C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification
   Techniques Using SystemVerilog},'' {\em Snug-2008}, 2008.
+
+\bibitem{R038}
+{Analog Devices}, {\em {Data Sheet ADV7612}}.
+
+\bibitem{R039}
+{Analog Devices}, ``{Data Sheet ADV7511}.''
 
 \bibitem{R026}
 Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.
