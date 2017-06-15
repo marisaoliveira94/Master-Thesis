@@ -1,10 +1,10 @@
 {\tiny \chapter{Configurações dos interruptores das placas HDMI} \label{ap4:switches}}
 
-Este anexo contempla as diversas configurações possíveis dos interruptores presentes nas placas HDMI para as diversas configurações das mesmas.
+Este anexo contempla as diversas configurações possíveis dos interruptores presentes nas placas HDMI para as diferentes configurações das mesmas.
 
 \section{Configuração por omissão} \label{subsubsec:HDMIconfigdefault_switches}
 
-Quando as placas estão configuras de fábrica, relembra-se que as imagens transmitidas correspondem ao formato RGB de 30 bits (10 bits por cor). Como tal, a indicação que vem em \cite{R009} sobre as funções dos interruptores da placa HDMI recetora é muito pouca. Apenas é indicado que quando esta configuração está ativa os interruptores se devem encontrar tal como especifica a tabela \ref{table:HDMI_default_switches_RX} na página \pageref{table:HDMI_default_switches_RX}.
+Quando as placas estão configuradas de fábrica relembra-se que as imagens transmitidas correspondem ao formato RGB de 30 bits (10 bits por cor). Deste modo, a indicação que vem em \cite{R009} sobre as funções dos interruptores da placa HDMI recetora é muito pouca. Apenas é indicado que quando esta configuração está ativa os interruptores se devem encontrar tal como especifica a tabela \ref{table:HDMI_default_switches_RX} na página \pageref{table:HDMI_default_switches_RX}, adaptada de \cite{R009}.
 
 %\begin{table}[h!]
 %	\centering
@@ -40,117 +40,240 @@ Quando as placas estão configuras de fábrica, relembra-se que as imagens trans
 			\textbf{S1-7}                            & Não usado                           \\
 			\textbf{S1-8}                            & ON                                  \\ \bottomrule
 		\end{tabular}%
-	
-	\caption{Configuração dos interruptores da placa HDMI RX configurada por omissão, adaptada de \cite{R009}}
+	\captionsetup{width=0.3\linewidth}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada de fábrica}
 	\label{table:HDMI_default_switches_RX}
 \end{table}
 
-Relativamente à placa HDMI transmissora, é sabido que lhe chegam imagens no formato RGB de 10 bits, no entanto é possivel configurar o ADV7511 de tal forma que na sua saída o número de bits não seja limitado a 10. Para tal é necessário configurar os interruptores da forma que a tabela \ref{table:HDMI_default_switches_TX} indica.
+Relativamente à placa HDMI transmissora é sabido que lhe chegam imagens no formato RGB de 10 bits. Todavia é possível configurar o integrado ADV7511 de tal forma que na sua saída o número de bits não seja limitado a 10. Para tal é necessário configurar os interruptores da forma que a tabela \ref{table:HDMI_default_switches_TX} indica, adaptada de \cite{R009}.
+
+%\begin{table}[h!]
+%	\centering
+%	\begin{tabular}{|c|c|c|c|}
+%		\hline
+%		\textbf{Interruptor} & \multicolumn{3}{c|}{\textbf{Estado}} \\ \hline
+%		\textbf{S1-1}        & OFF        & ON         & ON         \\ \hline
+%		\textbf{S1-2}        & ON         & ON         & OFF        \\ \hline
+%		\textbf{S1-3}        & ON         & OFF        & ON        \\ \hline
+%		\textbf{S1-4}        & ON         & ON         & ON         \\ \hline
+%		\textbf{OUTPUT}      & 8 bits     & 10 bits    & 12 bits    \\ \hline
+%		\textbf{S1-5}        & \multicolumn{3}{c|}{OFF}             \\ \hline
+%		\textbf{S1-6}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
+%		\textbf{S1-7}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
+%		\textbf{S1-8}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
+%	\end{tabular}
+%	\caption{Configuração dos interruptores da placa HDMI RX configurada de fábrica, adaptada de \cite{R009}}
+%	\label{table:HDMI_default_switches_TX}
+%\end{table}
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		\textbf{Interruptor} & \multicolumn{3}{c|}{\textbf{Estado}} \\ \hline
-		\textbf{S1-1}        & OFF        & ON         & ON         \\ \hline
-		\textbf{S1-2}        & ON         & ON         & OFF        \\ \hline
-		\textbf{S1-3}        & ON         & OFF        & ON        \\ \hline
-		\textbf{S1-4}        & ON         & ON         & ON         \\ \hline
-		\textbf{OUTPUT}      & 8 bits     & 10 bits    & 12 bits    \\ \hline
-		\textbf{S1-5}        & \multicolumn{3}{c|}{OFF}             \\ \hline
-		\textbf{S1-6}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
-		\textbf{S1-7}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
-		\textbf{S1-8}        & \multicolumn{3}{c|}{Não usado}       \\ \hline
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		\multicolumn{1}{c}{\textbf{Interruptor}} & \multicolumn{3}{c}{\textbf{Estado}} \\ \midrule
+		\multicolumn{1}{l|}{\textbf{S1-1}} & OFF & ON & ON \\
+		\multicolumn{1}{l|}{\textbf{S1-2}} & ON & ON & OFF \\
+		\multicolumn{1}{l|}{\textbf{S1-3}} & ON & OFF & ON \\
+		\multicolumn{1}{l|}{\textbf{S1-4}} & ON & ON & ON \\
+		\multicolumn{1}{l|}{\textbf{\textit{Output}}} & 8 bits & 10 bits & 12 bits \\
+		\multicolumn{1}{l|}{\textbf{S1-5}} & \multicolumn{3}{l}{Não usado} \\
+		\multicolumn{1}{l|}{\textbf{S1-6}} & \multicolumn{3}{l}{Não usado} \\
+		\multicolumn{1}{l|}{\textbf{S1-7}} & \multicolumn{3}{l}{Não usado} \\
+		\multicolumn{1}{l|}{\textbf{S1-8}} & \multicolumn{3}{l}{Não usado} \\ \bottomrule
 	\end{tabular}
-	\caption{Configuração dos interruptores da placa HDMI RX configurada de fábrica, adaptada de \cite{R009}}
+	\captionsetup{width=0.45\linewidth}
+	\caption{Configuração dos interruptores da placa HDMI TX configurada de fábrica}
 	\label{table:HDMI_default_switches_TX}
 \end{table}
-\subsubsection{Suporte de um canal de imagem e áudio} \label {subsubsec:HDMIconfig+audio_switches}
 
-Quando se configuram as placas HDMI de forma a obter-se o suporte de áudio, então o formato da imagem transmitida também não é limitado a RGB. Desta maneira, o tabela \ref{table:HDMI_1ch+audio_switches_RX} indica como se devem configurar os interruptores de forma a obter-se na saída do ADV7612 as diversas possibilidades relativamente ao formato da imagem.
+
+\section{Suporte de um canal de imagem e áudio} \label {subsubsec:HDMIconfig+audio_switches}
+
+Quando se configuram as placas HDMI de forma a obter-se o suporte de imagem e som o formato da imagem transmitida também não é limitado ao RGB. Desta maneira, a tabela \ref{table:HDMI_1ch+audio_switches_RX} indica como se devem configurar os interruptores de forma a obter-se na saída do ADV7612 as diversas possibilidades relativamente ao formato da imagem e foi adaptada de \cite{R014}.
+
+%\begin{table}[h!]
+%	\centering
+%	\begin{tabular}{|c|c|c|c|c|c|c|}
+%		\hline
+%		\textbf{Interruptor}             & \multicolumn{6}{c|}{\textbf{Estado}}                                                                                                                                                                           \\ \hline
+%		\textbf{S1-1}                    & ON                                                        & OFF                                                       & ON                                                        & ON     & OFF     & ON      \\ \hline
+%		\textbf{S1-2}                    & ON                                                        & ON                                                        & OFF                                                       & ON     & ON      & OFF     \\ \hline
+%		\textbf{S1-3}                    & ON                                                        & ON                                                        & ON                                                        & OFF    & OFF     & OFF     \\ \hline
+%		\textbf{S1-4}                    & ON                                                        & ON                                                        & ON                                                        & ON     & ON      & ON      \\ \hline
+%		\multirow{2}{*}{\textbf{OUTPUT}} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & RGB    & RGB     & RGB     \\ \cline{2-7} 
+%		& 8 bits                                                    & 10 bits                                                   & 12 bits                                                   & 8 bits & 10 bits & 12 bits \\ \hline
+%		\textbf{S1-5}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+%		\textbf{S1-6}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+%		\textbf{S1-7}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+%		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
+%	\end{tabular}
+%	\caption{Configuração dos interruptores da placa HDMI RX configurada para um canal e suporte de áudio, adaptada de \cite{R014}}
+%	\label{table:HDMI_1ch+audio_switches_RX}
+%\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|}
-		\hline
-		\textbf{Interruptor}             & \multicolumn{6}{c|}{\textbf{Estado}}                                                                                                                                                                           \\ \hline
-		\textbf{S1-1}                    & ON                                                        & OFF                                                       & ON                                                        & ON     & OFF     & ON      \\ \hline
-		\textbf{S1-2}                    & ON                                                        & ON                                                        & OFF                                                       & ON     & ON      & OFF     \\ \hline
-		\textbf{S1-3}                    & ON                                                        & ON                                                        & ON                                                        & OFF    & OFF     & OFF     \\ \hline
-		\textbf{S1-4}                    & ON                                                        & ON                                                        & ON                                                        & ON     & ON      & ON      \\ \hline
-		\multirow{2}{*}{\textbf{OUTPUT}} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444/422\end{tabular} & RGB    & RGB     & RGB     \\ \cline{2-7} 
-		& 8 bits                                                    & 10 bits                                                   & 12 bits                                                   & 8 bits & 10 bits & 12 bits \\ \hline
-		\textbf{S1-5}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
-		\textbf{S1-6}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
-		\textbf{S1-7}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
-		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                                                                                                                                                                        \\ \hline
-	\end{tabular}
-	\caption{Configuração dos interruptores da placa HDMI RX configurada para um canal e suporte de áudio, adaptada de \cite{R014}}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{lllllll}
+			\hline
+			\multicolumn{1}{c}{\textbf{Interruptor}}               & \multicolumn{6}{c}{\textbf{Estado}}                                         \\ \hline
+			\multicolumn{1}{l|}{\textbf{S1-1}}                     & ON             & OFF           & ON            & ON     & OFF     & ON      \\
+			\multicolumn{1}{l|}{\textbf{S1-2}}                     & ON             & ON            & OFF           & ON     & ON      & OFF     \\
+			\multicolumn{1}{l|}{\textbf{S1-3}}                     & ON             & ON            & ON            & OFF    & OFF     & OFF     \\
+			\multicolumn{1}{l|}{\textbf{S1-4}}                     & ON             & ON            & ON            & ON     & ON      & ON      \\
+			\multicolumn{1}{l|}{\textbf{Formato \textit{output}}}           & YCbCr  444/422 & YCbCr 444/422 & YCbCr 444/422 & RGB    & RGB     & RGB     \\
+			\multicolumn{1}{l|}{\textbf{Número de bits de \textit{output}}} & 8 bits         & 10 bits       & 12 bits       & 8 bits & 10 bits & 12 bits \\
+			\multicolumn{1}{l|}{\textbf{S1-5}}                     & \multicolumn{6}{l}{ON}                                                      \\
+			\multicolumn{1}{l|}{\textbf{S1-6}}                     & \multicolumn{6}{l}{ON}                                                      \\
+			\multicolumn{1}{l|}{\textbf{S1-7}}                     & \multicolumn{6}{l}{ON}                                                      \\
+			\multicolumn{1}{l|}{\textbf{S1-8}}                     & \multicolumn{6}{l}{ON}                                                      \\ \hline
+		\end{tabular}	}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada para um canal e suporte de áudio}
 	\label{table:HDMI_1ch+audio_switches_RX}
 \end{table}
 
-À semelhança da placa recetora para esta configuração, também é possivel configurar o ADV7511 para se obter na sua saída diversos formatos de imagem. A tabela \ref{table:HDMI_1ch+audio_switches_TX} apresentada na página \pageref{table:HDMI_1ch+audio_switches_TX} indica essas mesmas combinações. 
+
+À semelhança da placa recetora para esta configuração também é possível configurar o ADV7511 para se obter na sua saída diversos formatos de imagem. A tabela \ref{table:HDMI_1ch+audio_switches_TX} apresentada na página \pageref{table:HDMI_1ch+audio_switches_TX} indica essas mesmas combinações e foi adaptada de \cite{R014}. 
+
+%\begin{table}[h!]
+%	\centering
+%	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+%		\hline
+%		\textbf{Interruptor}             & \multicolumn{9}{c|}{\textbf{Estado}}                                                                                                                                                                                                                                                                                                                                       \\ \hline
+%		\textbf{S1-1}                    & ON                                                    & OFF                                                   & ON                                                    & ON                                                    & OFF                                                   & ON                                                    & ON     & OFF     & ON      \\ \hline
+%		\textbf{S1-2}                    & ON                                                    & ON                                                    & OFF                                                   & ON                                                    & ON                                                    & OFF                                                   & ON     & ON      & OFF     \\ \hline
+%		\textbf{S1-3}                    & ON                                                    & ON                                                    & ON                                                    & OFF                                                   & OFF                                                   & OFF                                                   & ON     & ON      & ON      \\ \hline
+%		\textbf{S1-4}                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & OFF    & OFF     & OFF     \\ \hline
+%		\multirow{2}{*}{\textbf{OUTPUT}} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & RGB    & RGB     & RGB     \\ \cline{2-10} 
+%		& 8 bits                                                & 10 bits                                               & 12 bits                                               & 8 bits                                                & 10 bits                                               & 12 bits                                               & 8 bits & 10 bits & 12 bits \\ \hline
+%		\textbf{S1-5}                    & \multicolumn{9}{c|}{OFF}                                                                                                                                                                                                                                                                                                                                                   \\ \hline
+%		\textbf{S1-6}                    & \multicolumn{9}{c|}{Não usado}                                                                                                                                                                                                                                                                                                                                             \\ \hline
+%		\textbf{S1-7}                    & \multicolumn{9}{c|}{Não usado}                                                                                                                                                                                                                                                                                                                                             \\ \hline
+%		\textbf{S1-8}                    & \multicolumn{9}{c|}{ON}                                                                                                                                                                                                                                                                                                                                                    \\ \hline
+%	\end{tabular}
+%	\caption{Configuração dos interruptores da placa HDMI TX configurada para um canal e suporte de áudio, adaptada de \cite{R014}}
+%	\label{table:HDMI_1ch+audio_switches_TX}
+%\end{table}
+
+
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-		\hline
-		\textbf{Interruptor}             & \multicolumn{9}{c|}{\textbf{Estado}}                                                                                                                                                                                                                                                                                                                                       \\ \hline
-		\textbf{S1-1}                    & ON                                                    & OFF                                                   & ON                                                    & ON                                                    & OFF                                                   & ON                                                    & ON     & OFF     & ON      \\ \hline
-		\textbf{S1-2}                    & ON                                                    & ON                                                    & OFF                                                   & ON                                                    & ON                                                    & OFF                                                   & ON     & ON      & OFF     \\ \hline
-		\textbf{S1-3}                    & ON                                                    & ON                                                    & ON                                                    & OFF                                                   & OFF                                                   & OFF                                                   & ON     & ON      & ON      \\ \hline
-		\textbf{S1-4}                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & ON                                                    & OFF    & OFF     & OFF     \\ \hline
-		\multirow{2}{*}{\textbf{OUTPUT}} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   444\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & \begin{tabular}[c]{@{}c@{}}YCbCr\\   422\end{tabular} & RGB    & RGB     & RGB     \\ \cline{2-10} 
-		& 8 bits                                                & 10 bits                                               & 12 bits                                               & 8 bits                                                & 10 bits                                               & 12 bits                                               & 8 bits & 10 bits & 12 bits \\ \hline
-		\textbf{S1-5}                    & \multicolumn{9}{c|}{OFF}                                                                                                                                                                                                                                                                                                                                                   \\ \hline
-		\textbf{S1-6}                    & \multicolumn{9}{c|}{Não usado}                                                                                                                                                                                                                                                                                                                                             \\ \hline
-		\textbf{S1-7}                    & \multicolumn{9}{c|}{Não usado}                                                                                                                                                                                                                                                                                                                                             \\ \hline
-		\textbf{S1-8}                    & \multicolumn{9}{c|}{ON}                                                                                                                                                                                                                                                                                                                                                    \\ \hline
-	\end{tabular}
-	\caption{Configuração dos interruptores da placa HDMI TX configurada para um canal e suporte de áudio, adaptada de \cite{R014}}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{@{}llllllllll@{}}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Interruptor}} & \multicolumn{9}{c}{\textbf{Estado}} \\ \midrule
+			\multicolumn{1}{l|}{\textbf{S1-1}} & ON & OFF & ON & ON & OFF & ON & ON & OFF & ON \\
+			\multicolumn{1}{l|}{\textbf{S1-2}} & ON & ON & OFF & ON & ON & OFF & ON & ON & OFF \\
+			\multicolumn{1}{l|}{\textbf{S1-3}} & ON & ON & ON & OFF & OFF & OFF & ON & ON & ON \\
+			\multicolumn{1}{l|}{\textbf{S1-4}} & ON & ON & ON & ON & ON & ON & OFF & OFF & OFF \\
+			\multicolumn{1}{l|}{\textbf{Formato de \textit{output}}} & \begin{tabular}[c]{@{}l@{}}YCbCr \\ 444\end{tabular} & \begin{tabular}[c]{@{}l@{}}YCbCr\\  444\end{tabular} & \begin{tabular}[c]{@{}l@{}}YCbCr \\ 444\end{tabular} & \begin{tabular}[c]{@{}l@{}}YCbCr \\ 422\end{tabular} & \begin{tabular}[c]{@{}l@{}}YCbCr \\ 422\end{tabular} & \begin{tabular}[c]{@{}l@{}}YCbCr \\ 422\end{tabular} & RGB & RGB & RGB \\
+			\multicolumn{1}{l|}{\textbf{Número de bits de \textit{output}}} & 8 bits & 10 bits & 12 bits & 8 bits & 10 bits & 12 bits & 8 bits & 10 bits & 12 bits \\
+			\multicolumn{1}{l|}{\textbf{S1-5}} & \multicolumn{9}{l}{OFF} \\
+			\multicolumn{1}{l|}{\textbf{S1-6}} & \multicolumn{9}{l}{Não usado} \\
+			\multicolumn{1}{l|}{\textbf{S1-7}} & \multicolumn{9}{l}{Não usado} \\
+			\multicolumn{1}{l|}{\textbf{S1-8}} & \multicolumn{9}{l}{ON} \\ \bottomrule
+		\end{tabular}%
+	}
+	
+	\caption{Configuração dos interruptores da placa HDMI TX configurada para um canal e suporte de áudio}
 	\label{table:HDMI_1ch+audio_switches_TX}
 \end{table}
 
-\subsubsection{Suporte de dois canais de imagem melhorado} \label{subsubsec:HDMIconfigMelhorado_switches}
+\section{Suporte de dois canais de imagem melhorado} \label{subsubsec:HDMIconfigMelhorado_switches}
 
-Quando se reconfigura as placas para suportarem a versão de transmissão de dois canais melhorada, é necessário ter em conta que existe um canal (canal 0) que tem a possibilidade de transmitir imagens tanto no formato YCbCr como RGB, porém o canal 1 apenas o faz no formato RGB. Na tabela \ref{table:HDMI_2ch_melhoradp_RX} da página \pageref{table:HDMI_2ch_melhoradp_RX} são apresentadas as configurações dos interruptores que configuram o ADV7612 de forma a enviar diferentes formatos.
+Quando se reconfigura as placas para suportarem a versão de transmissão de dois canais melhorada é necessário ter em conta que existe um canal (canal 0) que tem a possibilidade de transmitir imagens tanto no formato YCbCr como RGB, porém o canal 1 apenas o faz no formato RGB. Na tabela \ref{table:HDMI_2ch_melhoradp_RX} da página \pageref{table:HDMI_2ch_melhoradp_RX} são apresentadas as configurações dos interruptores que configuram o ADV7612 de forma a enviar diferentes formatos, esta tabela foi adaptada \cite{R013}.
 
+%\begin{table}[h!]
+%	\centering
+%	\begin{tabular}{|c|c|c|c|c|}
+%		\hline
+%		\textbf{Interruptor}             & \multicolumn{4}{c|}{\textbf{Estado}}             \\ \hline
+%		\textbf{S1-1}                    & ON            & OFF           & ON     & OFF     \\ \hline
+%		\textbf{S1-2}                    & ON            & ON            & ON     & ON      \\ \hline
+%		\textbf{S1-3}                    & ON            & ON            & OFF    & OFF     \\ \hline
+%		\textbf{S1-4}                    & ON            & ON            & ON     & ON      \\ \hline
+%		\multirow{2}{*}{\textbf{OUTPUT}} & YCbCr 444/422 & YCbCr 444/422 & RGB    & RGB     \\ \cline{2-5} 
+%		& 8 bits        & 10 bits       & 8 bits & 10 bits \\ \hline
+%		\textbf{S1-5}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+%		\textbf{S1-6}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+%		\textbf{S1-7}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+%		\textbf{S1-8}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
+%	\end{tabular}
+%	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite{R013}}
+%	\label{table:HDMI_2ch_melhoradp_RX}
+%\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
 \begin{table}[h!]
 	\centering
-	
-	\begin{tabular}{|c|c|c|c|c|}
-		\hline
-		\textbf{Interruptor}             & \multicolumn{4}{c|}{\textbf{Estado}}             \\ \hline
-		\textbf{S1-1}                    & ON            & OFF           & ON     & OFF     \\ \hline
-		\textbf{S1-2}                    & ON            & ON            & ON     & ON      \\ \hline
-		\textbf{S1-3}                    & ON            & ON            & OFF    & OFF     \\ \hline
-		\textbf{S1-4}                    & ON            & ON            & ON     & ON      \\ \hline
-		\multirow{2}{*}{\textbf{OUTPUT}} & YCbCr 444/422 & YCbCr 444/422 & RGB    & RGB     \\ \cline{2-5} 
-		& 8 bits        & 10 bits       & 8 bits & 10 bits \\ \hline
-		\textbf{S1-5}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
-		\textbf{S1-6}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
-		\textbf{S1-7}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
-		\textbf{S1-8}                    & \multicolumn{4}{c|}{ON}                          \\ \hline
-	\end{tabular}
-	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite{R013}}
+%	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{lllll}
+			\hline
+			\multicolumn{1}{c}{\textbf{Interruptor}}               & \multicolumn{4}{c}{\textbf{Estado}}              \\ \hline
+			\multicolumn{1}{l|}{\textbf{S1-1}}                     & ON            & OFF           & ON     & OFF     \\
+			\multicolumn{1}{l|}{\textbf{S1-2}}                     & ON            & ON            & ON     & ON      \\
+			\multicolumn{1}{l|}{\textbf{S1-3}}                     & ON            & ON            & OFF    & OFF     \\
+			\multicolumn{1}{l|}{\textbf{S1-4}}                     & ON            & ON            & ON     & ON      \\
+			\multicolumn{1}{l|}{\textbf{Formato \textit{output}}}           & YCbCr 444/422 & YCbCr 444/422 & RGB    & RGB     \\
+			\multicolumn{1}{l|}{\textbf{Número de bits de \textit{output}}} & 8 bits        & 10 bits       & 8 bits & 10 bits \\
+			\multicolumn{1}{l|}{\textbf{S1-5}}                     & \multicolumn{4}{l}{ON}                           \\
+			\multicolumn{1}{l|}{\textbf{S1-6}}                     & \multicolumn{4}{l}{ON}                           \\
+			\multicolumn{1}{l|}{\textbf{S1-7}}                     & \multicolumn{4}{l}{ON}                           \\
+			\multicolumn{1}{l|}{\textbf{S1-8}}                     & \multicolumn{4}{l}{ON}                           \\ \hline
+		\end{tabular}%
+%	}
+	\captionsetup{width=0.9\linewidth}
+	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados}
 	\label{table:HDMI_2ch_melhoradp_RX}
 \end{table}
 
 Relativamente à placa HDMI transmissora, ambos os canais são capazes de suportar imagens em formato RGB ou YCbCr. A tabela \ref{table:HDMI_2ch_melhoradp_TX} da página \pageref{table:HDMI_2ch_melhoradp_TX} apresenta as combinações dos interruptores para se poder obter os diversos formatos na saída do ADV7511.
-\begin{table}[h!]
+%\begin{table}[h!]
+%	\centering
+%	\begin{tabular}{|c|c|c|c|c|c|c|}
+%		\hline
+%		\textbf{Interruptor}             & \multicolumn{6}{c|}{\textbf{Estado}}                             \\ \hline
+%		\textbf{S1-1}                    & ON        & OFF       & ON        & OFF       & ON     & OFF     \\ \hline
+%		\textbf{S1-2}                    & ON        & ON        & ON        & ON        & ON     & ON      \\ \hline
+%		\textbf{S1-3}                    & ON        & ON        & OFF       & OFF       & ON     & ON      \\ \hline
+%		\textbf{S1-4}                    & ON        & ON        & ON        & ON        & OFF    & OFF     \\ \hline
+%		\multirow{2}{*}{\textbf{OUTPUT}} & YCbCr 444 & YCbCr 444 & YCbCr 422 & YCbCr 422 & RGB    & RGB     \\ \cline{2-7} 
+%		& 8 bits    & 10 bits   & 8 bits    & 10 bits   & 8 bits & 10 bits \\ \hline
+%		\textbf{S1-5}                    & \multicolumn{6}{c|}{OFF}                                         \\ \hline
+%		\textbf{S1-6}                    & \multicolumn{6}{c|}{Não usado}                                   \\ \hline
+%		\textbf{S1-7}                    & \multicolumn{6}{c|}{Não usado}                                   \\ \hline
+%		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                          \\ \hline
+%	\end{tabular}
+%	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite{R013}}
+%	\label{table:HDMI_2ch_melhoradp_TX} 
+%\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{table}[]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|}
-		\hline
-		\textbf{Interruptor}             & \multicolumn{6}{c|}{\textbf{Estado}}                             \\ \hline
-		\textbf{S1-1}                    & ON        & OFF       & ON        & OFF       & ON     & OFF     \\ \hline
-		\textbf{S1-2}                    & ON        & ON        & ON        & ON        & ON     & ON      \\ \hline
-		\textbf{S1-3}                    & ON        & ON        & OFF       & OFF       & ON     & ON      \\ \hline
-		\textbf{S1-4}                    & ON        & ON        & ON        & ON        & OFF    & OFF     \\ \hline
-		\multirow{2}{*}{\textbf{OUTPUT}} & YCbCr 444 & YCbCr 444 & YCbCr 422 & YCbCr 422 & RGB    & RGB     \\ \cline{2-7} 
-		& 8 bits    & 10 bits   & 8 bits    & 10 bits   & 8 bits & 10 bits \\ \hline
-		\textbf{S1-5}                    & \multicolumn{6}{c|}{OFF}                                         \\ \hline
-		\textbf{S1-6}                    & \multicolumn{6}{c|}{Não usado}                                   \\ \hline
-		\textbf{S1-7}                    & \multicolumn{6}{c|}{Não usado}                                   \\ \hline
-		\textbf{S1-8}                    & \multicolumn{6}{c|}{ON}                                          \\ \hline
-	\end{tabular}
-	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados, adaptada de \cite{R013}}
-	\label{table:HDMI_2ch_melhoradp_TX} 
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{@{}lllllll@{}}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Interruptor}}               & \multicolumn{6}{c}{\textbf{Estado}}                              \\ \midrule
+			\multicolumn{1}{l|}{\textbf{S1-1}}                     & ON        & OFF       & ON        & OFF       & ON     & OFF     \\
+			\multicolumn{1}{l|}{\textbf{S1-2}}                     & ON        & ON        & ON        & ON        & ON     & ON      \\
+			\multicolumn{1}{l|}{\textbf{S1-3}}                     & ON        & ON        & OFF       & OFF       & ON     & ON      \\
+			\multicolumn{1}{l|}{\textbf{S1-4}}                     & ON        & ON        & ON        & ON        & OFF    & OFF     \\
+			\multicolumn{1}{l|}{\textbf{Formato \textit{output}}}           & YCbCr 444 & YCbCr 444 & YCbCr 422 & YCbCr 422 & RGB    & RGB     \\
+			\multicolumn{1}{l|}{\textbf{Número de bits de \textit{output}}} & 8 bits    & 10 bits   & 8 bits    & 10 bits   & 8 bits & 10 bits \\
+			\multicolumn{1}{l|}{\textbf{S1-5}}                     & \multicolumn{6}{l}{OFF}                                          \\
+			\multicolumn{1}{l|}{\textbf{S1-6}}                     & \multicolumn{6}{l}{Não usado}                                    \\
+			\multicolumn{1}{l|}{\textbf{S1-7}}                     & \multicolumn{6}{l}{Não usado}                                    \\
+			\multicolumn{1}{l|}{\textbf{S1-8}}                     & \multicolumn{6}{l}{ON}                                           \\ \bottomrule
+		\end{tabular}%
+	}
+	\caption{Configuração dos interruptores da placa HDMI TX configurada para dois canais melhorados}
+	\label{table:HDMI_2ch_melhoradp_TX}
 \end{table}

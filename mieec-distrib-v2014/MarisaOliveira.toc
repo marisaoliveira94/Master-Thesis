@@ -46,8 +46,8 @@
 \contentsline {section}{\numberline {A.3}Suporte de dois canais de imagem melhorado}{65}{section.A.3}
 \contentsline {chapter}{\numberline {B}Configura\IeC {\c c}\IeC {\~o}es dos interruptores das placas HDMI}{69}{appendix.B}
 \contentsline {section}{\numberline {B.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{69}{section.B.1}
-\contentsline {subsubsection}{\numberline {B.1.0.1}Suporte de um canal de imagem e \IeC {\'a}udio}{70}{subsubsection.B.1.0.1}
-\contentsline {subsubsection}{\numberline {B.1.0.2}Suporte de dois canais de imagem melhorado}{70}{subsubsection.B.1.0.2}
+\contentsline {section}{\numberline {B.2}Suporte de um canal de imagem e \IeC {\'a}udio}{70}{section.B.2}
+\contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{70}{section.B.3}
 \contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas provenientes de TB-HDMI}{73}{appendix.C}
 \contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{73}{section.C.1}
 \contentsline {section}{\numberline {C.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{74}{section.C.2}

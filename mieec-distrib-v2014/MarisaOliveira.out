@@ -42,13 +42,15 @@
 \BOOKMARK [1][-]{section.A.3}{A.3 Suporte de dois canais de imagem melhorado}{appendix.A}% 42
 \BOOKMARK [0][-]{appendix.B}{B Configura\347\365es dos interruptores das placas HDMI}{}% 43
 \BOOKMARK [1][-]{section.B.1}{B.1 Configura\347\343o por omiss\343o}{appendix.B}% 44
-\BOOKMARK [0][-]{appendix.C}{C Localiza\347\365es das portas provenientes de TB-HDMI}{}% 45
-\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 46
-\BOOKMARK [1][-]{section.C.2}{C.2 Transmiss\343o de uma imagem entre dispositivos HDMI}{appendix.C}% 47
-\BOOKMARK [1][-]{section.C.3}{C.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 48
-\BOOKMARK [0][-]{appendix.D}{D Ficheiros de restri\347\365es}{}% 49
-\BOOKMARK [1][-]{section.D.1}{D.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.D}% 50
-\BOOKMARK [1][-]{section.D.2}{D.2 Restri\347\365es F\355sicas}{appendix.D}% 51
-\BOOKMARK [2][-]{subsection.D.2.1}{D.2.1 Transmiss\343o de imagem entre dispositivos HDMI}{section.D.2}% 52
-\BOOKMARK [1][-]{section.D.3}{D.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.D}% 53
-\BOOKMARK [2][-]{subsection.D.3.1}{D.3.1 Restri\347\365es Temporais}{section.D.3}% 54
+\BOOKMARK [1][-]{section.B.2}{B.2 Suporte de um canal de imagem e \341udio}{appendix.B}% 45
+\BOOKMARK [1][-]{section.B.3}{B.3 Suporte de dois canais de imagem melhorado}{appendix.B}% 46
+\BOOKMARK [0][-]{appendix.C}{C Localiza\347\365es das portas provenientes de TB-HDMI}{}% 47
+\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 48
+\BOOKMARK [1][-]{section.C.2}{C.2 Transmiss\343o de uma imagem entre dispositivos HDMI}{appendix.C}% 49
+\BOOKMARK [1][-]{section.C.3}{C.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 50
+\BOOKMARK [0][-]{appendix.D}{D Ficheiros de restri\347\365es}{}% 51
+\BOOKMARK [1][-]{section.D.1}{D.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.D}% 52
+\BOOKMARK [1][-]{section.D.2}{D.2 Restri\347\365es F\355sicas}{appendix.D}% 53
+\BOOKMARK [2][-]{subsection.D.2.1}{D.2.1 Transmiss\343o de imagem entre dispositivos HDMI}{section.D.2}% 54
+\BOOKMARK [1][-]{section.D.3}{D.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.D}% 55
+\BOOKMARK [2][-]{subsection.D.3.1}{D.3.1 Restri\347\365es Temporais}{section.D.3}% 56
