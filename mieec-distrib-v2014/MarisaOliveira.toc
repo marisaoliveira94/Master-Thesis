@@ -38,27 +38,20 @@
 \contentsline {subsection}{\numberline {3.2.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{44}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{51}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{53}{subsection.3.2.3}
-\contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{57}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{59}{chapter.5}
-\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o dos pinos das placas HDMI}{63}{appendix.A}
-\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o por \textit {default}}{63}{section.A.1}
-\contentsline {section}{\numberline {A.2}Suporte de um canal de imagem e \IeC {\'a}udio}{64}{section.A.2}
-\contentsline {section}{\numberline {A.3}Suporte de dois canais de imagem melhorado}{65}{section.A.3}
-\contentsline {chapter}{\numberline {B}Configura\IeC {\c c}\IeC {\~o}es dos interruptores das placas HDMI}{69}{appendix.B}
-\contentsline {section}{\numberline {B.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{69}{section.B.1}
-\contentsline {section}{\numberline {B.2}Suporte de um canal de imagem e \IeC {\'a}udio}{70}{section.B.2}
-\contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{70}{section.B.3}
-\contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas provenientes de TB-HDMI}{73}{appendix.C}
-\contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{73}{section.C.1}
-\contentsline {section}{\numberline {C.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{74}{section.C.2}
-\contentsline {section}{\numberline {C.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{76}{section.C.3}
-\contentsline {chapter}{\numberline {D}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{81}{appendix.D}
-\contentsline {section}{\numberline {D.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{81}{section.D.1}
-\contentsline {section}{\numberline {D.2}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{81}{section.D.2}
-\contentsline {subsubsection}{\numberline {D.2.0.1}Restri\IeC {\c c}\IeC {\~o}es Temporais}{83}{subsubsection.D.2.0.1}
-\contentsline {subsection}{\numberline {D.2.1}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{83}{subsection.D.2.1}
-\contentsline {subsubsection}{\numberline {D.2.1.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{83}{subsubsection.D.2.1.1}
-\contentsline {subsubsection}{\numberline {D.2.1.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{87}{subsubsection.D.2.1.2}
-\contentsline {section}{\numberline {D.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{87}{section.D.3}
-\contentsline {subsubsection}{\numberline {D.3.0.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{87}{subsubsection.D.3.0.1}
-\contentsline {subsection}{\numberline {D.3.1}Restri\IeC {\c c}\IeC {\~o}es Temporais}{92}{subsection.D.3.1}
+\contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{59}{chapter.4}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es e Trabalho Futuro}{61}{chapter.5}
+\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o dos pinos das placas HDMI}{65}{appendix.A}
+\contentsline {chapter}{\numberline {B}Configura\IeC {\c c}\IeC {\~o}es dos interruptores das placas HDMI}{67}{appendix.B}
+\contentsline {section}{\numberline {B.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{67}{section.B.1}
+\contentsline {section}{\numberline {B.2}Suporte de um canal de imagem e \IeC {\'a}udio}{68}{section.B.2}
+\contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{68}{section.B.3}
+\contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas provenientes de TB-HDMI}{71}{appendix.C}
+\contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{71}{section.C.1}
+\contentsline {section}{\numberline {C.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{72}{section.C.2}
+\contentsline {section}{\numberline {C.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{72}{section.C.3}
+\contentsline {chapter}{\numberline {D}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{73}{appendix.D}
+\contentsline {section}{\numberline {D.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{73}{section.D.1}
+\contentsline {subsection}{\numberline {D.1.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{73}{subsection.D.1.1}
+\contentsline {subsection}{\numberline {D.1.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{74}{subsection.D.1.2}
+\contentsline {section}{\numberline {D.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{74}{section.D.2}
+\contentsline {section}{\numberline {D.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{74}{section.D.3}

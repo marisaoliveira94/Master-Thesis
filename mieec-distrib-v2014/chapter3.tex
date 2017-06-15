@@ -280,39 +280,75 @@ Nas entradas do bloco estão ligados 4 sinais sendo que dois deles correspondem 
 
 Relativamente às saídas do módulo é possível ver na imagem \ref{fig:planA} que estas se encontram diretamente ligadas à placa transmissora HDMI através dos conectores FMC. Estes sinais constituem um barramento de 30 bits que corresponde ao valor do píxel (\textit{pixel}), o sinal de sincronização horizontal (\textit{hsync}), o sinal de sincronização de vertical (\textit{vsync}) e ainda o sinal de dados ativos (\textit{enable}).
 
-Para além do desenvolvimento do código em Verilog é necessário que as portas do modulo de topo, no caso desta arquitetura do modulo "planoA\_top.v", estejam atribuidas a portas físicas da FPGA. Para tal é necessário definir onde estão as localizações das portas na FPGA (LOC) e criar um ficheiro de defina essas mesmas restrições fisicas. A tabela \ref{table:LOCplanA_simples} na página \pageref{table:LOCplanA_simples} indica quais as localizações fisicas de cada porta existente no modulo de topo. No caso das portas que se conectam com a placa HDMI transmissora, estão representadas de forma abreviada, no entanto na tabela \ref{table:locPlanAdetail} do anexo \ref{ap3:LOCs} é possivel encontrar todas as portas com mais detalhes e ainda com informação sobre a ligação à placa HDMI transmissora.
+Para além do desenvolvimento do código em Verilog é necessário que as portas do módulo de topo, no caso desta arquitetura do módulo "planoA\_top.v", estejam atribuídas a portas físicas da FPGA. Para isso é necessário definir onde estão as localizações das portas na FPGA (LOC) e criar um ficheiro que defina essas mesmas restrições físicas. A tabela \ref{table:LOCplanA_simples} na página \pageref{table:LOCplanA_simples} indica quais as localizações físicas de cada porta existente no módulo de topo. No caso das portas que se conectam com a placa HDMI transmissora estão representadas de forma abreviada. Mas na tabela \ref{table:locPlanAdetail} do anexo \ref{ap3:LOCs} é possível encontrar todas as portas com mais detalhes e ainda com informação sobre a ligação à placa HDMI transmissora.
 
-\begin{longtable}[h!]
-	{|c|c|c|c|}
-	\hline
+%\begin{longtable}[h!]
+%	{|c|c|c|c|}
+%	\hline
+%	\centering
+%%	\begin{tabular}
+%		\textbf{I/O} & \textbf{Sinal}        & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline  \endhead
+%		I            & clk\_p                & E19                  & 38                     \\ \hline
+%		I            & clk\_n                & E18                  & 38                     \\ \hline
+%		I            & reset                 & N41                  & 19                     \\ \hline
+%		I            & start                 & E42                  & 19                     \\ \hline
+%		O            & cll\_px               & E34                  & 35                     \\ \hline
+%		O            & enable                & K35                  & 34                     \\ \hline
+%		O            & vsync                 & L31                  & 34                     \\ \hline
+%		O            & hsync                 & M32                  & 34                     \\ \hline
+%		O            & pixel{[}0{]}a{[}29{]} & (Ver anexo)          & 34 e 35                \\ \hline
+%%	\end{tabular}
+%	\caption{Localização das portas de entrada e saída da arquitetura}
+%	\label{table:LOCplanA_simples}
+%\end{longtable}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{table}[h!]
 	\centering
-%	\begin{tabular}
-		\textbf{I/O} & \textbf{Sinal}        & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline  \endhead
-		I            & clk\_p                & E19                  & 38                     \\ \hline
-		I            & clk\_n                & E18                  & 38                     \\ \hline
-		I            & reset                 & N41                  & 19                     \\ \hline
-		I            & start                 & E42                  & 19                     \\ \hline
-		O            & cll\_px               & E34                  & 35                     \\ \hline
-		O            & enable                & K35                  & 34                     \\ \hline
-		O            & vsync                 & L31                  & 34                     \\ \hline
-		O            & hsync                 & M32                  & 34                     \\ \hline
-		O            & pixel{[}0{]}a{[}29{]} & (Ver anexo)          & 34 e 35                \\ \hline
-%	\end{tabular}
-	\caption{Localização das portas de entrada e saída da arquitetura}
+%	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{rlll}
+			\hline
+			\multicolumn{1}{c}{\textbf{}}         & \multicolumn{1}{c}{\textbf{Sinal}} & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} \\ \hline
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_p                             & E19                                      & 38                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_n                             & E18                                      & 38                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & reset                              & N41                                      & 19                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & start                              & E42                                      & 19                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & clk\_px                            & E34                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & enable                             & K35                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & hsync                              & M32                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & vsync                              & L31                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel[0] a pixel [29]                              & Ver anexo                                & 34 e 35                                    \\ \hline
+		\end{tabular}
+%	}
+	\captionsetup{width=0.75\linewidth}
+	\caption{Localização das portas de entrada e saída da arquitetura de transmissão de imagem gerada na FPGA para a placa HDMI transmissora}
 	\label{table:LOCplanA_simples}
-\end{longtable}
+\end{table}
 
-O ficheiro com estas restrições fisicas gerado após a atribuição das mesmas é apresentado no sub-capitulo \ref{ap2:planA_physical_cnstrs} do anexo \ref{ap2:codigo}. Para cada porta são atribuídas duas restrições: uma que indica a localização fisica na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que se tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
+O ficheiro com estas restrições físicas gerado após a atribuição das mesmas é apresentado na secção \ref{ap2:planA_physical_cnstrs} do anexo \ref{ap2:codigo}. Para cada porta são atribuídas duas restrições: uma que indica a localização física na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
 
-Para além destas restrições fisicas geradas, são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas no sub-capitulo \ref{ap2:planA_timing_cnstrs} do anexo \ref{ap2:codigo}. As retrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial existe um sinal com uma frequência de 200 MHz (periodo de 5ns). Isto porque este sinal de relógio é um sinal primário e como tal é importante que a ferramenta de implementação saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
+Para além destas restrições físicas geradas são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas na secção \ref{ap2:planA_timing_cnstrs} do anexo \ref{ap2:codigo}. As restrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial existe um sinal com uma frequência de 200 MHz (período de 5ns). Isto porque este sinal de relógio é um sinal primário e é importante que a ferramenta de implementação saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
 
-Após a definição de todas as restrições e escrita do cófigo em verilg, a arquitetura desenvolvida foi devidamente implementada na FPGA e testada obtendo-se o previsto.
+Após a definição de todas as restrições e escrita do código em Verilog, a arquitetura desenvolvida foi devidamente implementada na FPGA e testada utilizando-se o \textit{set-up} de teste visualizado na imagem \ref{fig:planA_sch} da página \pageref{fig:planA_sch}.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{planAsch}
+		\caption{\textit{Set-Up} de teste da arquitetura desenvolvida para transmissão de uma imagem gerada na FPGA para a placa HDMI transmissora}
+		\label{fig:planA_sch}
+	\end{center}
+\end{figure}
+
+Os resultados obtidos foram os esperados, a visualização de uma barra de cores no dispositivo HDMI de destino.
 
 \subsection{Transmissão de imagem entre dispositivos HDMI} \label{subsub:planB}
 
-Na arquitetura desenvolvida que é apresentada neste sub-capitulo são utilizadas as placas HDMI recetora e transmissora ambas configuradas por defeito e procede-se à transmissão de uma imagem entre dispositivos HDMI. O objetivo do desenvolvimento desta arquitetura consiste em obter uma ligação entre dois dispositivos ligados às placas HDMI de uma imagem RGB de 10 bits.
+Na arquitetura desenvolvida que é apresentada nesta subsecção são utilizadas as placas HDMI recetora e transmissora, ambas configuradas por omissão e procede-se à transmissão de uma imagem entre dispositivos HDMI. O objetivo do desenvolvimento desta arquitetura consiste em obter uma ligação entre dois dispositivos ligados às placas HDMI de uma imagem RGB de 10 bits.
 
-Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em especifico como é uma imagem \textit{FULL HD} é uma frequência de 148,5 MHz) os o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A imagem \ref{fig:planb1} da página \pageref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
+Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em específico como é uma imagem \textit{FULL HD} é uma frequência de 148,5 MHz) e o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A imagem \ref{fig:planb1} da página \pageref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -324,35 +360,92 @@ Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HD
 \end{figure}
 %--> ENTRADA E SAIDA
 
-É possivel visualizar que nesta arquitetura, tal como já acontecia na anterior, existem na sua saída os os sinais que são enviados para a placa HDMI transmisora e para além disso existem também os sinais provenientes da placa HDMI recetora. Também à semelhança da arquitetura descrita em \ref{subsub:planA} existem mais 4 sinais provenientes do exterior: o sinal de relógio diferencia de 200 MHz constituido pelo par positivo \textit{clock\_p} e pelo par negativo \textit{clock\_n}, e ainda o sinal \textit{start} que define o incio da transmissão da barra de cores em vez dos sinais provebientes da fonte HDMI e, por fim, o sinal de \textit{reset} que permite restabelecer os dados originais do sistema caso se pretenda.
+É possível visualizar que nesta arquitetura, tal como já acontecia na anterior, existe na sua saída os sinais que são enviados para a placa HDMI transmissora e para além disso na sua entrada existe também os sinais provenientes da placa HDMI recetora. Também à semelhança da arquitetura descrita em \ref{subsub:planA} existem mais 4 sinais provenientes do exterior: o sinal de relógio diferencial de 200 MHz constituído pelo par positivo \textit{clock\_p} e pelo par negativo \textit{clock\_n}, e ainda o sinal \textit{start} que define o início da transmissão da barra de cores em vez dos sinais provenientes da fonte HDMI e, por fim, o sinal de \textit{reset} que permite restabelecer os dados originais do sistema caso se pretenda.
 
 %--> FUNCIONAMENTO DA MESMA
-Os sinais que são recebidos à entrada são lidos para registos sincronos com o sinal de relógio proveniente da entrada (da placa HDMI recetora). Quando o sinal definido pelo utilizador \textit{start} está ativo os sinais seleccionados pelo multiplexador visivel na figura \ref{fig:planb1} são os sinais provenientes do modulo desenvolvido anteriormente que gera uma barra de cores. Esse mesmo sinal de start está ligado à entrada do bloco gerador da barra de cores para que quando ativo gere a imagem. Quando o sinal \textit{start} está desativo então obtém-se uma ligação entre as placas HDMI recetora e transmissora pois os sinais seleccionados pelo multiplexador são o sinais provenientes da entrada do modulo. Sempre que o sinal de \textit{reset} é ativo então todos os dados são repostos aos originais, como por exemplo os registos voltam ao estado original e também o bloco que produz a barra de cores.
+Os sinais que são recebidos à entrada são lidos para registos síncronos com o sinal de relógio proveniente da entrada (da placa HDMI recetora). Quando o sinal definido pelo utilizador \textit{start} está ativo, os sinais selecionados pelo multiplexador visível na figura \ref{fig:planb1} são os sinais provenientes do módulo desenvolvido anteriormente que gera uma barra de cores. Esse mesmo sinal de \textit{start} está ligado à entrada do bloco gerador da barra de cores para que quando ativo gere a imagem. Quando o sinal \textit{start} está inativo obtém-se uma ligação entre as placas HDMI recetora e transmissora pois os sinais selecionados pelo multiplexador são provenientes da entrada do módulo. Sempre que o sinal de \textit{reset} é ativo então todos os dados são repostos aos originais, como por exemplo, os registos voltam ao estado original e também o bloco que produz a barra de cores.
 
-A tabela \ref{table:LOCplanB_simples} na página \pageref{table:LOCplanB_simples} especifica as localizações fisicas da FPGA que foram atribuidas a cada porta do modulo desenvolvido e ainda o banco ao qual pertencem. As portas que fazem conexão com as placas HDMI transmissora e recetora são apresentadas nesta tabela de forma abreviada, no entanto na tabela \ref{table:LOCplanB_detail} do anexo \ref{ap3:LOCs} é possivel encontrar mais detalhamente as localizações dessas portas na FPGA bem como informação relativamente a esses sinais nas placas HDMI transmissora e recetora.
+A tabela \ref{table:LOCplanB_simples} na página \pageref{table:LOCplanB_simples} especifica as localizações físicas da FPGA que foram atribuídas a cada porta do módulo desenvolvido e ainda o banco ao qual pertencem. As portas que fazem conexão com as placas HDMI transmissora e recetora são apresentadas nesta tabela de forma abreviada. Contudo na tabela \ref{table:LOCplanB_detail} do anexo \ref{ap3:LOCs} é possível encontrar mais detalhamente as localizações dessas portas na FPGA bem como informação relativamente a esses sinais nas placas HDMI transmissora e recetora.
 
-\begin{longtable}[h!]
-	{|c|c|c|c|}
-	\hline
+%\begin{longtable}[h!]
+%	{|c|c|c|c|}
+%	\hline
+%	\centering
+%		\textbf{I/O} & \textbf{Sinal}              & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline \endhead
+%		I            & clk\_p                      & E19                  & 38                     \\ \hline
+%		I            & clk\_n                      & E18                  & 38                     \\ \hline
+%		I            & reset                       & N41                  & 19                     \\ \hline
+%		I            & start                       & E42                  & 19                     \\ \hline
+%		I            & clk\_px\_in                 & AJ32                 & 14                     \\ \hline
+%		I            & enable\_in                  & AN38                 & 15                     \\ \hline
+%		I            & vsync\_in                   & AU38                 & 15                     \\ \hline
+%		I            & hsync\_in                   & AU39                 & 15                     \\ \hline
+%		I            & pixel\_in{[}0{]} a {[}29{]} & (Ver anexo)          & 14 e 15                \\ \hline
+%		O            & clock\_px                   & E34                  & 35                     \\ \hline
+%		O            & enable                      & K35                  & 34                     \\ \hline
+%		O            & vsync                       & L31                  & 34                     \\ \hline
+%		O            & hsync                       & M32                  & 34                     \\ \hline
+%		O            & pixel{[}0{]}a{[}29{]}       & (Ver anexo)            & 34 e 35                \\ \hline
+%		\caption{Localização das entradas e saídas das portas da arquitetura}
+%	\label{table:LOCplanB_simples}
+%\end{longtable}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+%\begin{longtable}[h!]{rlll}
+%	
+%	\resizebox{\textwidth}{!}{%
+%		\begin{tabular}{rlll}
+%			\hline
+%			\centering
+%			\multicolumn{1}{c}{\textbf{}}         & \multicolumn{1}{c}{\textbf{Sinal}}    & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} \\ \hline \endhead
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_p                                & E19                                      & 38                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_n                                & E18                                      & 38                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & reset                                 & N41                                      & 19                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & start                                 & E42                                      & 19                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_px\_in                           & AJ32                                     & 14                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & enable\_in                            & AN38                                     & 15                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & vsync\_in                             & AU38                                     & 15                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & hsync\_in                             & AU39                                     & 15                                         \\
+%			\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}0{]} a pixel\_in{[}29{]} & Ver anexo                                & 14 e 15                                    \\
+%			\multicolumn{1}{r|}{\textbf{Saída}}   & clk\_px                               & E34                                      & 35                                         \\
+%			\multicolumn{1}{r|}{\textbf{Saída}}   & enable                                & K35                                      & 34                                         \\
+%			\multicolumn{1}{r|}{\textbf{Saída}}   & hsync                                 & M32                                      & 34                                         \\
+%			\multicolumn{1}{r|}{\textbf{Saída}}   & vsync                                 & L31                                      & 34                                         \\
+%			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}0{]} a pixel {[}29{]}        & Ver anexo                                & 34 e 35                                    \\ \hline
+%		\end{tabular}%
+%	}
+%	\caption{My caption}
+%	\label{my-label}
+%\end{longtable}
+\begin{table}[h!]
 	\centering
-		\textbf{I/O} & \textbf{Sinal}              & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline \endhead
-		I            & clk\_p                      & E19                  & 38                     \\ \hline
-		I            & clk\_n                      & E18                  & 38                     \\ \hline
-		I            & reset                       & N41                  & 19                     \\ \hline
-		I            & start                       & E42                  & 19                     \\ \hline
-		I            & clk\_px\_in                 & AJ32                 & 14                     \\ \hline
-		I            & enable\_in                  & AN38                 & 15                     \\ \hline
-		I            & vsync\_in                   & AU38                 & 15                     \\ \hline
-		I            & hsync\_in                   & AU39                 & 15                     \\ \hline
-		I            & pixel\_in{[}0{]} a {[}29{]} & (Ver anexo)          & 14 e 15                \\ \hline
-		O            & clock\_px                   & E34                  & 35                     \\ \hline
-		O            & enable                      & K35                  & 34                     \\ \hline
-		O            & vsync                       & L31                  & 34                     \\ \hline
-		O            & hsync                       & M32                  & 34                     \\ \hline
-		O            & pixel{[}0{]}a{[}29{]}       & (Ver anexo)            & 34 e 35                \\ \hline
-		\caption{Localização das entradas e saídas das portas da arquitetura}
+%	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{rlll}
+			\hline
+			\multicolumn{1}{c}{\textbf{}}         & \multicolumn{1}{c}{\textbf{Sinal}}    & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} \\ \hline
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_p                                & E19                                      & 38                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_n                                & E18                                      & 38                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & reset                                 & N41                                      & 19                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & start                                 & E42                                      & 19                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_px\_in                           & AJ32                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & enable\_in                            & AN38                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & vsync\_in                             & AU38                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & hsync\_in                             & AU39                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}0{]} a pixel\_in{[}29{]} & Ver anexo                                & 14 e 15                                    \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & clk\_px                               & E34                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & enable                                & K35                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & hsync                                 & M32                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & vsync                                 & L31                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}0{]} a pixel {[}29{]}        & Ver anexo                                & 34 e 35                                    \\ \hline
+		\end{tabular}%
+%	}
+	\captionsetup{width=0.80\linewidth}
+	\caption{Localização das entradas e saídas das portas da arquitetura de transmissão de uma imagem entre dispositivos HDMI}
 	\label{table:LOCplanB_simples}
-\end{longtable}
+\end{table}
+
 
 %--> CONSTRAINTS %
 

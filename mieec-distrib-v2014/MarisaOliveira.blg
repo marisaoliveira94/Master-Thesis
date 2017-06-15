@@ -10,6 +10,7 @@ A level-1 auxiliary file: chapter4.aux
 A level-1 auxiliary file: chapter5.aux
 The style file: ieeetr.bst
 A level-1 auxiliary file: appendix1.aux
+A level-1 auxiliary file: appendix4.aux
 A level-1 auxiliary file: appendix3.aux
 A level-1 auxiliary file: appendix2.aux
 Database file #1: myrefs.bib
@@ -24,8 +25,6 @@ Warning--empty year in R033
 Warning--empty journal in R010
 Warning--empty publisher in R016
 Warning--empty year in R016
-Warning--empty publisher in R014
-Warning--empty publisher in R013
 Warning--empty journal in R030
 Warning--there's a number but no series in R017
 Warning--empty publisher in R017
@@ -34,5 +33,7 @@ Warning--empty publisher in R018
 Warning--empty publisher in R036
 Warning--empty publisher in R038
 Warning--empty year in R038
+Warning--empty publisher in R014
+Warning--empty publisher in R013
 Warning--empty journal in R031
 (There were 22 warnings)
