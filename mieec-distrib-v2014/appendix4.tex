@@ -2,7 +2,7 @@
 
 Este anexo contempla as diversas configurações possíveis dos interruptores presentes nas placas HDMI para as diferentes configurações das mesmas.
 
-\section{Configuração por omissão} \label{subsubsec:HDMIconfigdefault_switches}
+\section{Configuração por omissão} \label{sec:HDMIconfigdefault_switches}
 
 Quando as placas estão configuradas de fábrica relembra-se que as imagens transmitidas correspondem ao formato RGB de 30 bits (10 bits por cor). Deste modo, a indicação que vem em \cite{R009} sobre as funções dos interruptores da placa HDMI recetora é muito pouca. Apenas é indicado que quando esta configuração está ativa os interruptores se devem encontrar tal como especifica a tabela \ref{table:HDMI_default_switches_RX} na página \pageref{table:HDMI_default_switches_RX}, adaptada de \cite{R009}.
 
@@ -87,7 +87,7 @@ Relativamente à placa HDMI transmissora é sabido que lhe chegam imagens no for
 \end{table}
 
 
-\section{Suporte de um canal de imagem e áudio} \label {subsubsec:HDMIconfig+audio_switches}
+\section{Suporte de um canal de imagem e áudio} \label {sec:HDMIconfig+audio_switches}
 
 Quando se configuram as placas HDMI de forma a obter-se o suporte de imagem e som o formato da imagem transmitida também não é limitado ao RGB. Desta maneira, a tabela \ref{table:HDMI_1ch+audio_switches_RX} indica como se devem configurar os interruptores de forma a obter-se na saída do ADV7612 as diversas possibilidades relativamente ao formato da imagem e foi adaptada de \cite{R014}.
 
@@ -181,7 +181,7 @@ Quando se configuram as placas HDMI de forma a obter-se o suporte de imagem e so
 	\label{table:HDMI_1ch+audio_switches_TX}
 \end{table}
 
-\section{Suporte de dois canais de imagem melhorado} \label{subsubsec:HDMIconfigMelhorado_switches}
+\section{Suporte de dois canais de imagem melhorado} \label{sec:HDMIconfigMelhorado_switches}
 
 Quando se reconfigura as placas para suportarem a versão de transmissão de dois canais melhorada é necessário ter em conta que existe um canal (canal 0) que tem a possibilidade de transmitir imagens tanto no formato YCbCr como RGB, porém o canal 1 apenas o faz no formato RGB. Na tabela \ref{table:HDMI_2ch_melhoradp_RX} da página \pageref{table:HDMI_2ch_melhoradp_RX} são apresentadas as configurações dos interruptores que configuram o ADV7612 de forma a enviar diferentes formatos, esta tabela foi adaptada \cite{R013}.
 

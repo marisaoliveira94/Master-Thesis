@@ -1,4 +1,4 @@
-{\tiny \chapter{Localizações das portas provenientes de TB-HDMI} \label{ap3:LOCs}}
+{\tiny \chapter{Localizações das portas conectadas às placas HDMI} \label{ap3:LOCs}}
 
 \section{Transmissão de uma imagem gerada na FPGA} \label{ap3:imagemFPGA_TX}
 
@@ -50,7 +50,7 @@
 %\end{longtable}
 %
 %
-
+A tabela \ref{table:locPlanAdetail} apresenta as portas de saída do módulo desenvolvido que faz a transmissão de uma imagem gerada na FPGA para a placa transmissora HDMI. São também identificados os nomes dessas mesmas ligações na placa HDMI transmissora.
 
 \begin{longtable}{@{}rllll@{}}
 			
@@ -102,10 +102,11 @@
 
 
 \section{Transmissão de uma imagem entre dispositivos HDMI} \label{ap3:imagem_RX_TX}
-%
+A tabela \ref{table:LOCplanB_detail} apresenta as portas de entrada do módulo desenvolvido que estão conectadas à placa HDMI recetora. A tabela \ref{table:locPlanAdetail}, apresentada neste mesmo anexo, identifica as portas de saída deste mesmo módulo conectadas à placa HDMI transmissora, uma vez que o nome das portas de saída e as suas localizações na FPGA são iguais para ambas as arquiteturas. Ambas as tabelas indicam também os nomes das ligações nas placas HDMI.
+
 %\begin{longtable}[]
 %	{|c|c|c|c|c|c|}
-%		\begin{tabular}
+%%		\begin{tabular}
 %	\hline
 %	\centering
 %	\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
@@ -178,12 +179,90 @@
 %	O            & pixel{[}28{]}     & F34                  & 35                     & TX\#0\_D28                                                              & LA31\_P                                                                \\ \hline
 %	O            & pixel{[}29{]}     & H33                  & 35                     & TX\#0\_D29                                                              & LA32\_P                                                                \\ \hline
 %                                            
-%		\end{tabular}
+%%		\end{tabular}
 %	\caption{Localização das portas de entrada e saída da arquitura de transmissão de uma imagem RGB de 10 bits entre as placas HDMI transmissora e recetora}
 %	\label{table:LOCplanB_detail}
 %\end{longtable}
-%
-%
+
+\begin{longtable}[h!]
+	{rllll}
+		\hline
+		\centering
+		\textbf{}                             & \multicolumn{1}{c}{\textbf{Sinal}} & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Nome na \\ placa HDMI\end{tabular}}} \\ \hline \endhead
+		\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_px\_in                        & AJ32                                     & 14                                         & RX\#0\_LLC                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & enable\_in                         & AN38                                     & 15                                         & RX\#0\_VSYNC                                                                               \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & vsync\_in                          & AU38                                     & 15                                         & RX\#0\_HSYNC                                                                               \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & hsync\_in                          & AU39                                     & 15                                         & RX\#0\_DE                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}0{]}                  & AM41                                     & 15                                         & RX\#0\_P0                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}1{]}                  & AR38                                     & 15                                         & RX\#0\_P1                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}2{]}                  & AN40                                     & 15                                         & RX\#0\_P2                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}3{]}                  & AR37                                     & 15                                         & RX\#0\_P3                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}4{]}                  & AM39                                     & 15                                         & RX\#0\_P4                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}5{]}                  & AP40                                     & 15                                         & RX\#0\_P5                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}6{]}                  & AP41                                     & 15                                         & RX\#0\_P6                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}7{]}                  & AT39                                     & 15                                         & RX\#0\_P7                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}8{]}                  & AR42                                     & 15                                         & RX\#0\_P8                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}9{]}                  & AW37                                     & 15                                         & RX\#0\_P9                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}10{]}                 & BA37                                     & 15                                         & RX\#0\_P10                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}11{]}                 & AW38                                     & 15                                         & RX\#0\_P11                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}12{]}                 & BB38                                     & 15                                         & RX\#0\_P12                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}13{]}                 & BA39                                     & 15                                         & RX\#0\_P13                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}14{]}                 & AK34                                     & 14                                         & RX\#0\_P14                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}15{]}                 & AJ33                                     & 14                                         & RX\#0\_P15                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}16{]}                 & AM36                                     & 14                                         & RX\#0\_P16                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}17{]}                 & AJ36                                     & 14                                         & RX\#0\_P17                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}18{]}                 & AP36                                     & 14                                         & RX\#0\_P18                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}19{]}                 & AK37                                     & 14                                         & RX\#0\_P19                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}20{]}                 & AN35                                     & 14                                         & RX\#0\_P20                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}21{]}                 & AL36                                     & 14                                         & RX\#0\_P21                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}22{]}                 & AG33                                     & 14                                         & RX\#0\_P22                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}23{]}                 & AK35                                     & 14                                         & RX\#0\_P23                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}24{]}                 & AH31                                     & 14                                         & RX\#0\_P24                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}25{]}                 & AH34                                     & 14                                         & RX\#0\_P25                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}26{]}                 & AM34                                     & 14                                         & RX\#0\_P26                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}27{]}                 & AM31                                     & 14                                         & RX\#0\_P27                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}28{]}                 & AM33                                     & 14                                         & RX\#0\_P28                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}29{]}                 & AL29                                     & 14                                         & RX\#0\_P29                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & clk\_px                            & E34                                      & 35                                         & TX\#0\_DCLK                                                                                \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & enable                             & K35                                      & 34                                         & TX\#0\_DE                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & hsync                              & M32                                      & 34                                         & TX\#0\_HSYNC                                                                               \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & vsync                              & L31                                      & 34                                         & TX\#0\_VSYNC                                                                               \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}0{]}                      & J32                                      & 34                                         & TX\#0\_D0                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}1{]}                      & K33                                      & 34                                         & TX\#0\_D1                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}2{]}                      & L34                                      & 34                                         & TX\#0\_D2                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}3{]}                      & M33                                      & 34                                         & TX\#0\_D3                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}4{]}                      & H34                                      & 34                                         & TX\#0\_D4                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}5{]}                      & K29                                      & 34                                         & TX\#0\_D5                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}6{]}                      & J30                                      & 34                                         & TX\#0\_D6                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}7{]}                      & L29                                      & 34                                         & TX\#0\_D7                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}8{]}                      & J31                                      & 34                                         & TX\#0\_D8                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}9{]}                      & M28                                      & 34                                         & TX\#0\_D9                                                                                  \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}10{]}                     & R28                                      & 34                                         & TX\#0\_D10                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}11{]}                     & N28                                      & 34                                         & TX\#0\_D11                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}12{]}                     & R30                                      & 34                                         & TX\#0\_D12                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}13{]}                     & U31                                      & 34                                         & TX\#0\_D13                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}14{]}                     & C35                                      & 35                                         & TX\#0\_D14                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}15{]}                     & D35                                      & 35                                         & TX\#0\_D15                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}16{]}                     & B36                                      & 35                                         & TX\#0\_D16                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}17{]}                     & B34                                      & 35                                         & TX\#0\_D17                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}18{]}                     & B39                                      & 35                                         & TX\#0\_D18                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}19{]}                     & A35                                      & 35                                         & TX\#0\_D19                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}20{]}                     & C38                                      & 35                                         & TX\#0\_D20                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}21{]}                     & B37                                      & 35                                         & TX\#0\_D21                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}22{]}                     & E32                                      & 35                                         & TX\#0\_D22                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}23{]}                     & B32                                      & 35                                         & TX\#0\_D23                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}24{]}                     & E33                                      & 35                                         & TX\#0\_D24                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}25{]}                     & C33                                      & 35                                         & TX\#0\_D25                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}26{]}                     & G32                                      & 35                                         & TX\#0\_D26                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}27{]}                     & F36                                      & 35                                         & TX\#0\_D27                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}28{]}                     & F34                                      & 35                                         & TX\#0\_D28                                                                                 \\
+%		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}29{]}                     & H33                                      & 35                                         & TX\#0\_D29                                                                                 \\ 
+	\hline
+	\captionsetup{width=0.95\linewidth}
+	\caption{Localização das portas de entrada da arquitetura provenientes da placa HDMI recetora para a transmissão de uma imagem entre dispositivos HDMI}
+	\label{table:LOCplanB_detail}
+\end{longtable}
+
 \section{Transmissão de imagem e som entre dispositivos HDMI} \label{ap3:imagem_som_RX_TX}
 %
 %\begin{longtable}[h!]

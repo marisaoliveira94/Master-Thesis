@@ -327,9 +327,11 @@ Para além do desenvolvimento do código em Verilog é necessário que as portas
 	\label{table:LOCplanA_simples}
 \end{table}
 
-O ficheiro com estas restrições físicas gerado após a atribuição das mesmas é apresentado na secção \ref{ap2:planA_physical_cnstrs} do anexo \ref{ap2:codigo}. Para cada porta são atribuídas duas restrições: uma que indica a localização física na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
+O ficheiro com estas restrições físicas gerado após a atribuição das mesmas é apresentado nas secções \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planA_especificas} do anexo \ref{ap2:codigo}. Em  \ref{ap:fisicas_paraHDMI} são apresentados as restrições referentes às saídas da arquitetura que se conectam à placa HDMI transmissora, e em \ref{ap:fisicas_planA_especificas} faz-se referência a todas as outras entradas e saídas desta mesma arquitetura.
 
-Para além destas restrições físicas geradas são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas na secção \ref{ap2:planA_timing_cnstrs} do anexo \ref{ap2:codigo}. As restrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial existe um sinal com uma frequência de 200 MHz (período de 5ns). Isto porque este sinal de relógio é um sinal primário e é importante que a ferramenta de implementação saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
+Para cada porta são atribuídas duas restrições: uma que indica a localização física na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
+
+Para além destas restrições físicas geradas são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas na secção \ref{ap:temporais_planA} do anexo \ref{ap2:codigo}. As restrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial existe um sinal com uma frequência de 200 MHz (período de 5ns). Isto porque este sinal de relógio é um sinal primário e é importante que a ferramenta de implementação saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
 
 Após a definição de todas as restrições e escrita do código em Verilog, a arquitetura desenvolvida foi devidamente implementada na FPGA e testada utilizando-se o \textit{set-up} de teste visualizado na imagem \ref{fig:planA_sch} da página \pageref{fig:planA_sch}.
 
@@ -354,7 +356,7 @@ Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HD
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{planB1}
-		\caption{Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI}
+		\caption{Diagrama de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI}
 		\label{fig:planb1}
 	\end{center}
 \end{figure}
@@ -449,17 +451,25 @@ A tabela \ref{table:LOCplanB_simples} na página \pageref{table:LOCplanB_simples
 
 %--> CONSTRAINTS %
 
-A atribuição destas mesmas localizações das portas gerou um ficheiro de restrições físicas que é apresentado na secção \ref{ap2:planB_physical_cnstrs} do anexo \ref{ap2:codigo}. Relativamente a estas retrições físicas, existem para cada porta do modulo duas restrições: uma que define a localização fisica e outra a norma da fisica, tal como já foi mencionado anteriormente. 
+A atribuição destas mesmas localizações das portas gerou um ficheiro de restrições físicas que é apresentado nas secções \ref{ap:fisicas_deHDMI}, \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planB_especificas}. A secção \ref{ap:fisicas_deHDMI} define as portas de entrada que estão conectadas à placa HDMI recetora. A secção \ref{ap:fisicas_paraHDMI} apresenta as restrições das portas de saída da arquitetura que se conectam à placa HDMI transmissora, e por fim a secção \ref{ap:fisicas_planB_especificas} apresenta as restrições das restantes portas de entrada e saída desta arquitetura. Relativamente a estas restrições físicas, existem para cada porta duas: uma que define a localização física e outra a norma da mesma, tal como já foi mencionado anteriormente. Todas estes ficheiros de restrições encontram-se no anexo \ref{ap2:codigo}.
 
-Quanto às restrições temporais aplicadas ao sistema são idênticas às mesmas aplicadas na arquitetura desenvolvida anteriormente e estáo presentes em \ref{ap2:planB_timing_cnstrs} no anexo \ref{ap2:codigo}.
+Quanto às restrições temporais aplicadas ao sistema são idênticas às que foram aplicadas na arquitetura desenvolvida anteriormente e estão presentes em \ref{ap:temporais_planB} no anexo \ref{ap2:codigo}.
 %--> RESULTADOS
 
-Após sintese e implementação do código desenvolvido em verilog juntamente com as restrições aplicadas, a FPGA foi programada com esta arquitetura e foram obtidos os resultados esperados: obteve-se uma transmissão de imagem entre dois dispositivos HDMI. Foi utilizado um computador com saída HDMI como fonte de imagem conectado a placa HDMI RX, e desta maneira obteve-se no dispositivo HDMI de destino, que neste caso foi um monitor com entrada HDMI, conectado à placa HDMI transmissora a imagem transmitida.
+Após síntese e implementação do código desenvolvido em Verilog juntamente com as restrições aplicadas, a FPGA foi programada com esta arquitetura e testada recorrendo-se a um \textit{set-up} de teste como ilustra a imagem \ref{fig:planb_sch} na página \pageref{fig:planb_sch}. Foi utilizado um computador portátil como fonte HDMI e conectou-se o mesmo à placa recetora. Como dispositivo final utilizou-se um monitor que foi conectado à placa transmissora através de um cabo HDMI também. Os resultados obtidos foram os esperados: transmissão de imagem entre os dois dispositivos.
 
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{planBsch}
+		\caption{\textit{Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI}
+		\label{fig:planb_sch}
+	\end{center}
+\end{figure}
 
 \subsection{Transmissão de imagem e som entre dispositivos HDMI}
 
-Após se obter uma ligação entre dois dispositivos HDMI de uma imagem, procedeu-se ao desenvolvimento de uma arquitetura capaz de trasmitir imagem e som. Para tal foi necessário reconfigurar as placas HDMI, tal como mencionado anteriormente, para a configuração que suporta apenas um canal mas que permite a transmissão de áudio em formato $I^{2}$S. As características desta configuração são apresentadas na secção \ref{subsubsec:HDMIconfig+audio} na página \pageref{subsubsec:HDMIconfig+audio} deste documento, mas é de notar que as imagens poderão ser transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados no sub-capitulo \ref{subsubsec:HDMIconfig+audio_switches}). Neste caso em especifico serão utilizados 12 bits por cor o que preferá um total de 36 bits por pixel.
+Após se obter uma ligação entre dois dispositivos HDMI de uma imagem procedeu-se ao desenvolvimento de uma arquitetura capaz de transmitir imagem e som. Para isso foi necessário reconfigurar as placas HDMI, tal como mencionado anteriormente, para a configuração que suporta apenas um canal mas que permite a transmissão de áudio em formato $I^{2}$S. As características desta configuração são apresentadas na subsecção \ref{subsubsec:HDMIconfig+audio} na página \pageref{subsubsec:HDMIconfig+audio} deste documento, mas é de notar que as imagens poderão ser transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados na secção \ref{sec:HDMIconfig+audio_switches} do anexo \ref{ap4:switches}). Neste caso específico são utilizados 12 bits por cor o que perfará um total de 36 bits por píxel.
 
 Na imagem \ref{fig:planC} na página \pageref{fig:planC} é ilustrado um diagrama de blocos da arquitetura desenvolvida para se realizar a transmissão de imagem e som entre dois dispositivos HDMI. 
 
@@ -473,60 +483,62 @@ Na imagem \ref{fig:planC} na página \pageref{fig:planC} é ilustrado um diagram
 \end{figure}
 
 %--> ENTRADA E SAIDA
-Através de uma breve observação do diagrama de blocos ilustrado é possivel concluir que existem mais portas tanto de entrada como de saída nesta arquitetura comparativamente às arquiteturas descritas previamente. Isto deve-se ao facto de agora haver a transmissão do som o que implica a transmissão de mais sinais. Assim sendo, na entrada encontram-se os sinais relativos às imagens à semelhança das arquiteturas anteriores: 36 bits de pixel, sinais de sincronização horizontal\textit{hsync} e vertical (\textit{vsync}) e ainda sinal que indica sinais de pixel ativos(\textit{enable}). Para além destes sinais provenientes da placa HDMI recetora, são recebidos os sinais referentes ao som: o sinal de relógio dos dados em série (\textit{sclk}), o sinal referente à seleccção do canal de audio esquerdo ou direto (\textit{lrclk}) e ainda os sinais que transportam os dados de som (de AP1 a AP4). Para além de dados de imagem e som há também um barramento de 2 bits que contém informação relativamente ao tipo de video que é transmitido (tal como já referido na secção \ref{subsubsec:HDMIconfig+audio}). Todos estes sinais que se encontram na entrada do modulo encontram-se também na saída pois é necessário enviar todos para a placa HDMI transmissora, no entanto o processo de transmissão dos mesmos passa a ser descrito.
+Através de uma breve observação do diagrama de blocos ilustrado é possível concluir que existem mais portas tanto de entrada como de saída nesta arquitetura comparativamente às arquiteturas descritas previamente. Isto deve-se ao facto de agora haver a transmissão do som o que implica a transmissão de mais sinais. Assim sendo, na entrada encontram-se os sinais relativos às imagens à semelhança das arquiteturas anteriores: \textit{pixel}, \textit{hsync}, \textit{vsync} e ainda \textit{enable}. Para além destes sinais provenientes da placa HDMI recetora são recebidos os sinais referentes ao som: o sinal de relógio dos dados em série (\textit{sclk}), o sinal referente à seleção do canal de áudio esquerdo ou direto (\textit{lrclk}) e ainda os sinais que transportam os dados de som (de AP1 a AP4). Para além de dados de imagem e som há também um barramento de 2 bits que contém informação relativamente ao tipo de vídeo que é transmitido (tal como já referido na subsecção \ref{subsubsec:HDMIconfig+audio}). Todos estes sinais que se encontram na entrada do módulo encontram-se também na saída pois estes são enviados para placa HDMI transmissora.
 
-Para além destes sinais provenientes e que são enviados para as palcas HDMI existem ainda mais portas do bloco. Existe o tipico sinal de relógio diferencia de 200 MHz definido na porta com \textit{clock\_p} pelo sinal positivo e como \textit{clock\_n} pelo sinal negativo. Este sinal de relógio proveniente do oscilador da FPGA serve como fonte para poder ser reproduzido o sinal de 148.5 MHz (frequência de uma imagem \textit{FULL HD}) que irá produzir a barra de cores no modulo "\textit{coloBar\_generator}". As outras três portas ainda não mencionadas são três sinais definidos pelo utilizador através de interruptores e botões. O sinal de \textit{reset} serve para repor todos os dados originais do sistema caso o utilizador pretenda. O sinal \textit{POWER} é o sinal que define a transmissão dos dados provenientes da placa HDMI recetora ou então da barra de cores, e o sinal \textit{MUTE} define a transmissão ou não dos sinais de som.
+Para além destes sinais provenientes e que são enviados para as palcas HDMI existem ainda mais portas do bloco. Existe o típico sinal de relógio diferencial de 200 MHz definido na porta com \textit{clock\_p} pelo sinal positivo e como \textit{clock\_n} pelo sinal negativo. Este tem a mesma função que na arquitetura anterior: gerar o sinal de relógio para o módulo que produz a barra de cores, tal como previamente descrito. 
+
+As outras três portas ainda não mencionadas são três sinais definidos pelo utilizador através de interruptores e botões: o sinal de \textit{reset} serve para repor todos os dados originais do sistema caso o utilizador pretenda, o sinal \textit{POWER} é o sinal que define a transmissão dos dados provenientes da placa HDMI recetora ou então a barra de cores e o sinal \textit{MUTE} define a transmissão ou não dos sinais de som.
 
 %% FUNCIONAMENTO DA MESMA
 
-Os sinais de entrada relativos à imagem, tal como nas arquiteturas anteriores, são lidos para registos síncronos com o sinal de relógio de imagem (que no caso desta demonstração será 148.5 MHz pois são transmitidas imagens em \textit{FULL HD}). Estes mesmo sinais são enviados para a placa HDMI transmissora caso o sinal \textit{POWER} esteja ativo. Este sinal é um sinal que quando está desativo em vez de enviar para as saídas do modulo os sinais recebidos da placa HDMI recetora, envia os dados provenientes do bloco que reproduz uma barra de cores.
+Os sinais de entrada relativos à imagem, tal como nas arquiteturas anteriores, são lidos para registos síncronos com o sinal de relógio de imagem (que no caso desta demonstração será 148,5 MHz pois são transmitidas imagens em \textit{FULL HD}). Estes mesmo sinais são enviados para a placa HDMI transmissora caso o sinal \textit{POWER} esteja ativo. Este sinal quando está inativo seleciona no multiplexador as saídas do bloco que produz uma barra de cores em vez dos sinais provenientes da placa HDMI recetora.
 
-Relativamente aos dados referentes ao som, estes são também lidos para registos síncronos com o sinal de relógio referente à imagem proveniente da fonte HDMI pois numa fase mais avançada do projeto tal simplificação virá facilitar a transmissão dos dados em série a alta velocidade. Porém é necessário ter em consideração que estes dados variam a uma taxa que não é síncrona com o sinal de relógio da imagem, pois este possui uma frequência de 148,5 MHz para uma imagem no formato \textit{FULL HD}, e os dados de som variam a uma frequência de 3,072 MHz (tal como mencionado no sub-capitulo \ref{subsubsec:HDMIconfig+audio}). Assim sendo é necessário tomar as devidas precauções quando se faz o cruzamento entre estes dois domínios de relógio para que não sejam captados dados dos registos quando estes se encontram num estado de meta-estabilidade. Assim sendo, tal como sugerido em \cite{R024}, são utilizados dois registos síncronos com o sinal de relógio referente à imagem para que não haja propagações de erros.
+Relativamente aos dados referentes ao som, estes são também lidos para registos síncronos com o sinal de relógio referente à imagem proveniente da fonte HDMI pois numa fase mais avançada do projeto esta simplificação virá facilitar a transmissão dos dados em série a alta velocidade. Porém, é necessário ter em consideração que estes dados variam a uma taxa que não é síncrona com o sinal de relógio da imagem, pois este possui uma frequência de 148,5 MHz para uma imagem no formato \textit{FULL HD} e os dados de som variam a uma frequência de 3,072 MHz (tal como mencionado na subsecção \ref{subsubsec:HDMIconfig+audio}). Assim sendo, apesar de o sinal de relógio do áudio ser mais lento do que o da imagem, é necessário tomar as devidas precauções quando se faz a passagem entre estes dois domínios de relógio para que não sejam captados dados dos registos quando estes se encontram num estado de meta-estabilidade. Tal como sugerido em \cite{R024}, são utilizados dois registos síncronos com o sinal de relógio referente à imagem para que não haja propagações de erros.
 
-O sinal de áudio enviado para as placas HDMI transmissora está dependente do valor do sinal de \textit{POWER} e \textit{MUTE}. Caso \textit{MUTE} esteja ativo o sinal de som não é transmitido e as entradas da placa HDMI são definidas com zero. O mesmo acontece quando o sinal de \textit{POWER} esteja desativo uma vez que indica que a transmissão da parte da placa HDMI recetora está desligada.
+O sinal de áudio enviado para as placas HDMI transmissora está dependente dos sinais de \textit{POWER} e \textit{MUTE}. Caso \textit{MUTE} esteja ativo o sinal de som não é transmitido e as entradas da placa HDMI são definidas com 0. O mesmo acontece quando o sinal de \textit{POWER} está inativo uma vez que indica que a transmissão da parte da placa HDMI recetora está desligada.
 
-Mais uma vez é necessário definir as localizações fisicas de cada porta de entrada e saída do modulo principal, e como tal é possivel encontrar descritas essas mesmas atribuições na tabela \ref{table:LOCplanC_simples} na página \pageref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que se conectam as placas HDMI são brevemente descritas, no entanto na tabela \ref{table:LOCplanC_detail} do anexo \ref{ap3:LOCs} essas mesmas conexões são descritas com mais detalhe.
+Mais uma vez é necessário definir as localizações físicas de cada porta de entrada e saída do módulo principal, que estão descritas na tabela \ref{table:LOCplanC_simples} na página \pageref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que conectam as placas HDMI são brevemente descritas e  na tabela \ref{table:LOCplanC_detail} do anexo \ref{ap3:LOCs} são descritas com mais detalhe.
 
-\begin{longtable}[h!]
-	{|c|c|c|c|}
-
-		\hline
-		\centering
-\textbf{I/O} & \textbf{Sinal}               & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline \endhead
-I            & clk\_p                       & E19                  & 38                     \\ \hline
-I            & clk\_n                       & E18                  & 38                     \\ \hline
-I            & reset                        & N41                  & 19                     \\ \hline
-I            & POWER                        & E42                  & 19                     \\ \hline
-I            & MUTE                         & G41                  & 19                     \\ \hline
-I            & clock\_p\_in                 & AJ32                 & 14                     \\ \hline
-I            & vsync\_in                    & AU38                 & 15                     \\ \hline
-I            & hsync\_in                    & AU39                 & 15                     \\ \hline
-I            & enable\_in                   & AN38                 & 15                     \\ \hline
-I            & pixel\_in{[}0{]} a {[}35{]}  & (Ver anexo)          & 14 e 15                \\ \hline
-I            & sclk\_in                     & AJ37                 & 14                     \\ \hline
-I            & lrclk\_in                    & AL35                 & 14                     \\ \hline
-I            & AP1\_in                      & AL37                 & 14                     \\ \hline
-I            & AP2\_in                      & AP35                 & 14                     \\ \hline
-I            & AP3\_in                      & AM37                 & 14                     \\ \hline
-I            & AP4\_in                      & AH33                 & 14                     \\ \hline
-I            & info\_in{[}0{]}              & AV38                 & 15                     \\ \hline
-I            & info\_in{[}1{]}              & AV39                 & 15                     \\ \hline
-O            & clock\_p\_out                & E34                  & 35                     \\ \hline
-O            & vsync\_out                   & L31                  & 34                     \\ \hline
-O            & hsync\_out                   & M32                  & 34                     \\ \hline
-O            & enable\_out                  & K35                  & 34                     \\ \hline
-O            & pixel\_out{[}0{]} a {[}35{]} & (Ver anexo)          & 34 e 35                \\ \hline
-O            & sclk\_out                    & A34                  & 35                     \\ \hline
-O            & lrclk\_out                   & B33                  & 35                     \\ \hline
-O            & AP1\_out                     & A36                  & 35                     \\ \hline
-O            & AP2\_out                     & C39                  & 35                     \\ \hline
-O            & AP3\_out                     & B38                  & 35                     \\ \hline
-O            & AP4\_out                     & D32                  & 35                     \\ \hline
-O            & info\_out{[}0{]}             & K32                  & 34                     \\ \hline
-O            & info\_out{[}1{]}             & L32                  & 34                     \\ \hline   
-	\caption{Localização das entradas e saídas das portas da arquitetura}
-	\label{table:LOCplanC_simples}	
-\end{longtable}
+%\begin{longtable}[h!]
+%	{|c|c|c|c|}
+%
+%		\hline
+%		\centering
+%\textbf{I/O} & \textbf{Sinal}               & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} \\ \hline \endhead
+%I            & clk\_p                       & E19                  & 38                     \\ \hline
+%I            & clk\_n                       & E18                  & 38                     \\ \hline
+%I            & reset                        & N41                  & 19                     \\ \hline
+%I            & POWER                        & E42                  & 19                     \\ \hline
+%I            & MUTE                         & G41                  & 19                     \\ \hline
+%I            & clock\_p\_in                 & AJ32                 & 14                     \\ \hline
+%I            & vsync\_in                    & AU38                 & 15                     \\ \hline
+%I            & hsync\_in                    & AU39                 & 15                     \\ \hline
+%I            & enable\_in                   & AN38                 & 15                     \\ \hline
+%I            & pixel\_in{[}0{]} a {[}35{]}  & (Ver anexo)          & 14 e 15                \\ \hline
+%I            & sclk\_in                     & AJ37                 & 14                     \\ \hline
+%I            & lrclk\_in                    & AL35                 & 14                     \\ \hline
+%I            & AP1\_in                      & AL37                 & 14                     \\ \hline
+%I            & AP2\_in                      & AP35                 & 14                     \\ \hline
+%I            & AP3\_in                      & AM37                 & 14                     \\ \hline
+%I            & AP4\_in                      & AH33                 & 14                     \\ \hline
+%I            & info\_in{[}0{]}              & AV38                 & 15                     \\ \hline
+%I            & info\_in{[}1{]}              & AV39                 & 15                     \\ \hline
+%O            & clock\_p\_out                & E34                  & 35                     \\ \hline
+%O            & vsync\_out                   & L31                  & 34                     \\ \hline
+%O            & hsync\_out                   & M32                  & 34                     \\ \hline
+%O            & enable\_out                  & K35                  & 34                     \\ \hline
+%O            & pixel\_out{[}0{]} a {[}35{]} & (Ver anexo)          & 34 e 35                \\ \hline
+%O            & sclk\_out                    & A34                  & 35                     \\ \hline
+%O            & lrclk\_out                   & B33                  & 35                     \\ \hline
+%O            & AP1\_out                     & A36                  & 35                     \\ \hline
+%O            & AP2\_out                     & C39                  & 35                     \\ \hline
+%O            & AP3\_out                     & B38                  & 35                     \\ \hline
+%O            & AP4\_out                     & D32                  & 35                     \\ \hline
+%O            & info\_out{[}0{]}             & K32                  & 34                     \\ \hline
+%O            & info\_out{[}1{]}             & L32                  & 34                     \\ \hline   
+%	\caption{Localização das entradas e saídas das portas da arquitetura}
+%	\label{table:LOCplanC_simples}	
+%\end{longtable}
 
 %--> CONSTRAINTS %
 

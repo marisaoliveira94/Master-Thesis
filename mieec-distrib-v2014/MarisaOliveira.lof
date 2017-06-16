@@ -31,8 +31,9 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{47}{figure.caption.52}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{49}{figure.caption.53}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Set-Up} de teste da arquitetura desenvolvida para transmiss\IeC {\~a}o de uma imagem gerada na FPGA para a placa HDMI transmissora\relax }}{51}{figure.caption.55}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagram de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{52}{figure.caption.56}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{54}{figure.caption.58}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{52}{figure.caption.56}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI\relax }}{53}{figure.caption.58}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{55}{figure.caption.59}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

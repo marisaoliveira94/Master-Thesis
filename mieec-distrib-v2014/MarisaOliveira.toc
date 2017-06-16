@@ -45,13 +45,16 @@
 \contentsline {section}{\numberline {B.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{67}{section.B.1}
 \contentsline {section}{\numberline {B.2}Suporte de um canal de imagem e \IeC {\'a}udio}{68}{section.B.2}
 \contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{68}{section.B.3}
-\contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas provenientes de TB-HDMI}{71}{appendix.C}
+\contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas conectadas \IeC {\`a}s placas HDMI}{71}{appendix.C}
 \contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{71}{section.C.1}
 \contentsline {section}{\numberline {C.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{72}{section.C.2}
-\contentsline {section}{\numberline {C.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{72}{section.C.3}
-\contentsline {chapter}{\numberline {D}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{73}{appendix.D}
-\contentsline {section}{\numberline {D.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{73}{section.D.1}
-\contentsline {subsection}{\numberline {D.1.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas}{73}{subsection.D.1.1}
-\contentsline {subsection}{\numberline {D.1.2}Restri\IeC {\c c}\IeC {\~o}es Temporais}{74}{subsection.D.1.2}
-\contentsline {section}{\numberline {D.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{74}{section.D.2}
-\contentsline {section}{\numberline {D.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{74}{section.D.3}
+\contentsline {section}{\numberline {C.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{73}{section.C.3}
+\contentsline {chapter}{\numberline {D}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{75}{appendix.D}
+\contentsline {section}{\numberline {D.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de sa\IeC {\'\i }da das arquiteturas que se conectam \IeC {\`a} placa HDMI transmissora}{75}{section.D.1}
+\contentsline {section}{\numberline {D.2}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada das arquiteturas que se conectam \IeC {\`a} placa HDMI recetora}{76}{section.D.2}
+\contentsline {section}{\numberline {D.3}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite uma imagem gerada na FPGA}{77}{section.D.3}
+\contentsline {section}{\numberline {D.4}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite uma imagem gerada na FPGA}{77}{section.D.4}
+\contentsline {section}{\numberline {D.5}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite imagem entre dispositivos HDMI}{77}{section.D.5}
+\contentsline {section}{\numberline {D.6}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite imagem entre dispositivos HDMI}{78}{section.D.6}
+\contentsline {section}{\numberline {D.7}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite imagem e som entre dispositivos HDMI}{78}{section.D.7}
+\contentsline {section}{\numberline {D.8}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite imagem e som entre dispositivos HDMI}{78}{section.D.8}
