@@ -4,38 +4,36 @@
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Diagrama geral da primeira parte problema\relax }}{5}{figure.caption.9}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Diagrama geral da segunda parte do problema\relax }}{6}{figure.caption.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite {R008}\relax }}{12}{figure.caption.11}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite {R009}\relax }}{13}{figure.caption.12}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Amostragem dos dados provenientes da FPGA no recetor, retirada de \cite {R009}\relax }}{15}{figure.caption.14}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite {R009}\relax }}{16}{figure.caption.15}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Amostragem dos dados provenientes do FMC no recetor, retirada de \cite {R009}\relax }}{16}{figure.caption.16}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Arquitetura simples de um serializador e deserializador, retirada de \cite {R032}\relax }}{19}{figure.caption.19}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do alinhamento em s\IeC {\'e}rie quando encontrada a \textit {comma}, retirada de \cite {R011}\relax }}{24}{figure.caption.26}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do alinhamento em paralelo quando encontrada a \textit {comma}, retirada de \cite {R011}\relax }}{24}{figure.caption.27}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Arquiteturas de PISO/SIPO, retirada de \cite {R012}\relax }}{25}{figure.caption.29}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{26}{figure.caption.30}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{27}{figure.caption.31}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Exemplo de um serializador de 10 bits, retirado de \cite {R033}\relax }}{27}{figure.caption.32}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Efeito da Interfer\IeC {\^e}ncia Inter-Simb\IeC {\'o}lica numa transmiss\IeC {\~a}o, adaptada de \cite {R032}\relax }}{28}{figure.caption.34}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica na FPGA dos GTX, retirada de \cite {R008}\relax }}{33}{figure.caption.40}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Conectores GTX localizados na FPGA, retirada de \cite {R008}\relax }}{34}{figure.caption.41}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Arquitetura geral dos transcetores, retirada de \cite {R010}\relax }}{35}{figure.caption.42}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o dos diferentes dominios de sinais de rel\IeC {\'o}gio no projeto\relax }}{36}{figure.caption.43}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Exemplo de metaestabilidade, adaptado de \cite {R037}\relax }}{37}{figure.caption.44}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Exemplo de metaestabilidade, retirado de \cite {R037}\relax }}{37}{figure.caption.45}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite {R008}\relax }}{10}{figure.caption.11}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite {R009}\relax }}{11}{figure.caption.12}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Amostragem dos dados provenientes da FPGA no recetor, retirada de \cite {R009}\relax }}{13}{figure.caption.14}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite {R009}\relax }}{13}{figure.caption.15}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Amostragem dos dados provenientes do FMC no recetor, retirada de \cite {R009}\relax }}{14}{figure.caption.16}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Arquitetura simples de um serializador e deserializador, retirada de \cite {R032}\relax }}{17}{figure.caption.19}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do alinhamento em s\IeC {\'e}rie quando encontrada a \textit {comma}, retirada de \cite {R011}\relax }}{21}{figure.caption.26}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do alinhamento em paralelo quando encontrada a \textit {comma}, retirada de \cite {R011}\relax }}{22}{figure.caption.27}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Arquiteturas de PISO/SIPO, retirada de \cite {R012}\relax }}{23}{figure.caption.29}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{23}{figure.caption.30}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Arquitetura de um \textit {shift-register} serializador de 4 bits retirado de \cite {R034}\relax }}{24}{figure.caption.31}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Exemplo de um serializador de 10 bits, retirado de \cite {R033}\relax }}{24}{figure.caption.32}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Efeito da Interfer\IeC {\^e}ncia Inter-Simb\IeC {\'o}lica numa transmiss\IeC {\~a}o, adaptada de \cite {R032}\relax }}{26}{figure.caption.34}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica na FPGA dos GTX, retirada de \cite {R008}\relax }}{30}{figure.caption.40}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Conectores GTX localizados na FPGA, retirada de \cite {R008}\relax }}{31}{figure.caption.41}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Arquitetura geral dos transcetores, retirada de \cite {R010}\relax }}{31}{figure.caption.42}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o dos diferentes dominios de sinais de rel\IeC {\'o}gio no projeto\relax }}{33}{figure.caption.43}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Exemplo de metaestabilidade, adaptado de \cite {R037}\relax }}{34}{figure.caption.44}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Exemplo de metaestabilidade, retirado de \cite {R037}\relax }}{34}{figure.caption.45}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces TB-FMCH-HDMI2 RX, retirada de \cite {R009}\relax }}{40}{figure.caption.46}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces TB-FMCH-HDMI2 TX, retirada de \cite {R009}\relax }}{40}{figure.caption.47}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{43}{figure.caption.50}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo m\IeC {\'o}dulo desenvolvido\relax }}{46}{figure.caption.51}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{47}{figure.caption.52}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{49}{figure.caption.53}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Set-Up} de teste da arquitetura desenvolvida para transmiss\IeC {\~a}o de uma imagem gerada na FPGA para a placa HDMI transmissora\relax }}{51}{figure.caption.55}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{52}{figure.caption.56}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI\relax }}{53}{figure.caption.58}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{55}{figure.caption.59}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces TB-FMCH-HDMI2 RX, retirada de \cite {R009}\relax }}{36}{figure.caption.46}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces TB-FMCH-HDMI2 TX, retirada de \cite {R009}\relax }}{36}{figure.caption.47}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S, retirada de \cite {R016}\relax }}{39}{figure.caption.50}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo m\IeC {\'o}dulo desenvolvido\relax }}{42}{figure.caption.51}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{43}{figure.caption.52}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{45}{figure.caption.53}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Set-Up} de teste da arquitetura desenvolvida para transmiss\IeC {\~a}o de uma imagem gerada na FPGA para a placa HDMI transmissora\relax }}{46}{figure.caption.55}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{47}{figure.caption.56}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI\relax }}{49}{figure.caption.58}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{50}{figure.caption.59}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

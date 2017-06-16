@@ -1,57 +1,63 @@
 {\tiny \chapter{Localizações das portas conectadas às placas HDMI} \label{ap3:LOCs}}
 
+Este anexo aborda todos os detalhes relativamente às arquiteturas que se conectam às placas HDMI. São detalhadas para as várias arquiteturas 
+desenvolvidas as suas conexões, tendo em conta que para algumas arquiteturas estas variam bastante, mas para outras as conexões são semelhantes.
+%
 \section{Transmissão de uma imagem gerada na FPGA} \label{ap3:imagemFPGA_TX}
+Esta secção contempla as ligações entre a arquitetura desenvolvida com a placa HDMI transmissora. Nesta arquitetura apenas se transmite uma imagem gerada pela a FPGA e por isso todas as suas conexões com a placa transmissora são de saída, tal como ilustra a tabela \ref{table:locPlanAdetail}. 
 
-
-%\begin{longtable}[h!]
-%	{|c|c|c|c|c|c|}
-%	\begin{tabular}
-%		\hline
-%		\centering
-%		\textbf{I/O} & \textbf{Sinal} & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{Nome na placa HDMI} & \textbf{PIN da placa HDMI} \\ \hline \endhead
-%		\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
-%		O            & clk\_px        & E34                  & 35                     & TX\#O\_DCLK               & CLK0\_M2C\_P         \\ \hline
-%		O            & enable         & K35                  & 34                     & TX\#0\_DE                 & LA02\_P              \\ \hline
-%		O            & vsync          & L31                  & 34                     & TX\#0\_VSYNC              & LA00\_P\_CC          \\ \hline
-%		O            & hsync          & M32                  & 34                     & TX\#0\_HSYNC              & LA01\_P\_CC          \\ \hline
-%		O            & pixel{[}0{]}   & J32                  & 34                     & TX\#0\_D0                 & LA03\_P              \\ \hline
-%		O            & pixel{[}1{]}   & K33                  & 34                     & TX\#0\_D1                 & LA04\_P              \\ \hline
-%		O            & pixel{[}2{]}   & L34                  & 34                     & TX\#0\_D2                 & LA05\_P              \\ \hline
-%		O            & pixel{[}3{]}   & M33                  & 34                     & TX\#0\_D3                 & LA06\_P              \\ \hline
-%		O            & pixel{[}4{]}   & H34                  & 34                     & TX\#0\_D4                 & LA07\_P              \\ \hline
-%		O            & pixel{[}5{]}   & K29                  & 34                     & TX\#0\_D5                 & LA08\_P              \\ \hline
-%		O            & pixel{[}6{]}   & J30                  & 34                     & TX\#0\_D6                 & LA09\_P              \\ \hline
-%		O            & pixel{[}7{]}   & L29                  & 34                     & TX\#0\_D7                 & LA10\_P              \\ \hline
-%		O            & pixel{[}8{]}   & J31                  & 34                     & TX\#0\_D8                 & LA11\_P              \\ \hline
-%		O            & pixel{[}9{]}   & M28                  & 34                     & TX\#0\_D9                 & LA12\_P              \\ \hline
-%		O            & pixel{[}10{]}  & R28                  & 34                     & TX\#0\_D10                & LA13\_P              \\ \hline
-%		O            & pixel{[}11{]}  & N28                  & 34                     & TX\#0\_D11                & LA14\_P              \\ \hline
-%		O            & pixel{[}12{]}  & R30                  & 34                     & TX\#0\_D12                & LA15\_P              \\ \hline
-%		O            & pixel{[}13{]}  & U31                  & 34                     & TX\#0\_D13                & LA16\_P              \\ \hline
-%		O            & pixel{[}14{]}  & C35                  & 35                     & TX\#0\_D14                & LA17\_P\_CC          \\ \hline
-%		O            & pixel{[}15{]}  & D35                  & 35                     & TX\#0\_D15                & LA18\_P\_CC          \\ \hline
-%		O            & pixel{[}16{]}  & B36                  & 35                     & TX\#0\_D16                & LA19\_P              \\ \hline
-%		O            & pixel{[}17{]}  & B34                  & 35                     & TX\#0\_D17                & LA20\_P              \\ \hline
-%		O            & pixel{[}18{]}  & B39                  & 35                     & TX\#0\_D18                & LA21\_P              \\ \hline
-%		O            & pixel{[}19{]}  & A35                  & 35                     & TX\#0\_D19                & LA22\_P              \\ \hline
-%		O            & pixel{[}20{]}  & C38                  & 35                     & TX\#0\_D20                & LA23\_P              \\ \hline
-%		O            & pixel{[}21{]}  & B37                  & 35                     & TX\#0\_D21                & LA24\_P              \\ \hline
-%		O            & pixel{[}22{]}  & E32                  & 35                     & TX\#0\_D22                & LA25\_P              \\ \hline
-%		O            & pixel{[}23{]}  & B32                  & 35                     & TX\#0\_D23                & LA26\_P              \\ \hline
-%		O            & pixel{[}24{]}  & E33                  & 35                     & TX\#0\_D24                & LA27\_P              \\ \hline
-%		O            & pixel{[}25{]}  & C33                  & 35                     & TX\#0\_D25                & LA28\_P              \\ \hline
-%		O            & pixel{[}26{]}  & G32                  & 35                     & TX\#0\_D26                & LA29\_P              \\ \hline
-%		O            & pixel{[}27{]}  & F36                  & 35                     & TX\#0\_D27                & LA30\_P              \\ \hline
-%		O            & pixel{[}28{]}  & F34                  & 35                     & TX\#0\_D28                & LA31\_P              \\ \hline
-%		O            & pixel{[}29{]}  & H33                  & 35                     & TX\#0\_D29                & LA32\_P              \\\hline	
-%	\end{tabular}
-%	\caption{Localização das portas de entrada e saída da arquitetura de transmisão de uma barra de cores para a placa HDMI transmissora}
-%	\label{table:locPlanAdetail}
-%\end{longtable}
+Esta tabela detalha todas as localizações físicas na FPGA de todas as portas de saída bem como a que banco de entradas/saídas pertencem. Para além disso, é também indicado o nome que essas mesmas saídas têm na placa HDMI transmissora.
 %
 %
-A tabela \ref{table:locPlanAdetail} apresenta as portas de saída do módulo desenvolvido que faz a transmissão de uma imagem gerada na FPGA para a placa transmissora HDMI. São também identificados os nomes dessas mesmas ligações na placa HDMI transmissora.
-
+%
+%%\begin{longtable}[h!]
+%%	{|c|c|c|c|c|c|}
+%%	\begin{tabular}
+%%		\hline
+%%		\centering
+%%		\textbf{I/O} & \textbf{Sinal} & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{Nome na placa HDMI} & \textbf{PIN da placa HDMI} \\ \hline \endhead
+%%		\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
+%%		O            & clk\_px        & E34                  & 35                     & TX\#O\_DCLK               & CLK0\_M2C\_P         \\ \hline
+%%		O            & enable         & K35                  & 34                     & TX\#0\_DE                 & LA02\_P              \\ \hline
+%%		O            & vsync          & L31                  & 34                     & TX\#0\_VSYNC              & LA00\_P\_CC          \\ \hline
+%%		O            & hsync          & M32                  & 34                     & TX\#0\_HSYNC              & LA01\_P\_CC          \\ \hline
+%%		O            & pixel{[}0{]}   & J32                  & 34                     & TX\#0\_D0                 & LA03\_P              \\ \hline
+%%		O            & pixel{[}1{]}   & K33                  & 34                     & TX\#0\_D1                 & LA04\_P              \\ \hline
+%%		O            & pixel{[}2{]}   & L34                  & 34                     & TX\#0\_D2                 & LA05\_P              \\ \hline
+%%		O            & pixel{[}3{]}   & M33                  & 34                     & TX\#0\_D3                 & LA06\_P              \\ \hline
+%%		O            & pixel{[}4{]}   & H34                  & 34                     & TX\#0\_D4                 & LA07\_P              \\ \hline
+%%		O            & pixel{[}5{]}   & K29                  & 34                     & TX\#0\_D5                 & LA08\_P              \\ \hline
+%%		O            & pixel{[}6{]}   & J30                  & 34                     & TX\#0\_D6                 & LA09\_P              \\ \hline
+%%		O            & pixel{[}7{]}   & L29                  & 34                     & TX\#0\_D7                 & LA10\_P              \\ \hline
+%%		O            & pixel{[}8{]}   & J31                  & 34                     & TX\#0\_D8                 & LA11\_P              \\ \hline
+%%		O            & pixel{[}9{]}   & M28                  & 34                     & TX\#0\_D9                 & LA12\_P              \\ \hline
+%%		O            & pixel{[}10{]}  & R28                  & 34                     & TX\#0\_D10                & LA13\_P              \\ \hline
+%%		O            & pixel{[}11{]}  & N28                  & 34                     & TX\#0\_D11                & LA14\_P              \\ \hline
+%%		O            & pixel{[}12{]}  & R30                  & 34                     & TX\#0\_D12                & LA15\_P              \\ \hline
+%%		O            & pixel{[}13{]}  & U31                  & 34                     & TX\#0\_D13                & LA16\_P              \\ \hline
+%%		O            & pixel{[}14{]}  & C35                  & 35                     & TX\#0\_D14                & LA17\_P\_CC          \\ \hline
+%%		O            & pixel{[}15{]}  & D35                  & 35                     & TX\#0\_D15                & LA18\_P\_CC          \\ \hline
+%%		O            & pixel{[}16{]}  & B36                  & 35                     & TX\#0\_D16                & LA19\_P              \\ \hline
+%%		O            & pixel{[}17{]}  & B34                  & 35                     & TX\#0\_D17                & LA20\_P              \\ \hline
+%%		O            & pixel{[}18{]}  & B39                  & 35                     & TX\#0\_D18                & LA21\_P              \\ \hline
+%%		O            & pixel{[}19{]}  & A35                  & 35                     & TX\#0\_D19                & LA22\_P              \\ \hline
+%%		O            & pixel{[}20{]}  & C38                  & 35                     & TX\#0\_D20                & LA23\_P              \\ \hline
+%%		O            & pixel{[}21{]}  & B37                  & 35                     & TX\#0\_D21                & LA24\_P              \\ \hline
+%%		O            & pixel{[}22{]}  & E32                  & 35                     & TX\#0\_D22                & LA25\_P              \\ \hline
+%%		O            & pixel{[}23{]}  & B32                  & 35                     & TX\#0\_D23                & LA26\_P              \\ \hline
+%%		O            & pixel{[}24{]}  & E33                  & 35                     & TX\#0\_D24                & LA27\_P              \\ \hline
+%%		O            & pixel{[}25{]}  & C33                  & 35                     & TX\#0\_D25                & LA28\_P              \\ \hline
+%%		O            & pixel{[}26{]}  & G32                  & 35                     & TX\#0\_D26                & LA29\_P              \\ \hline
+%%		O            & pixel{[}27{]}  & F36                  & 35                     & TX\#0\_D27                & LA30\_P              \\ \hline
+%%		O            & pixel{[}28{]}  & F34                  & 35                     & TX\#0\_D28                & LA31\_P              \\ \hline
+%%		O            & pixel{[}29{]}  & H33                  & 35                     & TX\#0\_D29                & LA32\_P              \\\hline	
+%%	\end{tabular}
+%%	\caption{Localização das portas de entrada e saída da arquitetura de transmisão de uma barra de cores para a placa HDMI transmissora}
+%%	\label{table:locPlanAdetail}
+%%\end{longtable}
+%%
+%%
+%
 \begin{longtable}{@{}rllll@{}}
 			
 			\hline
@@ -92,107 +98,112 @@ A tabela \ref{table:locPlanAdetail} apresenta as portas de saída do módulo des
 			\multicolumn{1}{r|}{\textbf{Saída}} & pixel {[}28{]}                     & F34                                      & 35                                         & TX\#0\_D28                                      \\
 			\multicolumn{1}{r|}{\textbf{Saída}} & pixel {[}29{]}                     & H33                                      & 35                                         & TX\#0\_D29                                      \\  
 			\hline 
-		
-	\caption{Localização das portas de entrada e saída da arquitetura de transmisão de uma barra de cores para a placa HDMI transmissora}
+	\captionsetup{width=0.88\linewidth}	
+	\caption{Localização das portas de saída da arquitetura que se conectam à placa HDMI transmissora}
 	\label{table:locPlanAdetail}
 \end{longtable}
-
-
-
-
-
+%
+%
+%
+%
+%
 \section{Transmissão de uma imagem entre dispositivos HDMI} \label{ap3:imagem_RX_TX}
-A tabela \ref{table:LOCplanB_detail} apresenta as portas de entrada do módulo desenvolvido que estão conectadas à placa HDMI recetora. A tabela \ref{table:locPlanAdetail}, apresentada neste mesmo anexo, identifica as portas de saída deste mesmo módulo conectadas à placa HDMI transmissora, uma vez que o nome das portas de saída e as suas localizações na FPGA são iguais para ambas as arquiteturas. Ambas as tabelas indicam também os nomes das ligações nas placas HDMI.
+%
+Nesta secção são detalhadas todas as portas de entrada e saída da arquitetura desenvolvida de transmissão de imagem entre dois dispositivos HDMI que se conectam às placas HDMI. 
+%
+A tabela \ref{table:LOCplanB_detail} apresenta todas as portas de entrada da arquitetura que estão conectadas à placa HDMI recetora. Indica as suas localizações físicas na FPGA, ao banco de entradas/saídas a que essas pertencem e ainda o nome que essas ligações correspondem na placa HDMI recetora. A tabela \ref{table:locPlanAdetail}, apresentada neste mesmo anexo, representa as portas de saída desta arquitetura que se conectam à placa HDMI transmissora detalhando toda a informação relativa às mesmas.
 
-%\begin{longtable}[]
-%	{|c|c|c|c|c|c|}
-%%		\begin{tabular}
-%	\hline
-%	\centering
-%	\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
-%	I            & clk\_px\_in       & AJ32                 & 14                     & RX\#0\_LLC                                                              & CLK0\_M2C\_P                                                           \\ \hline
-%	I            & enable\_in        & AN38                 & 15                     & RX\#0\_VSYNC                                                            & LA02\_P                                                                \\ \hline
-%	I            & vsync\_in         & AU38                 & 15                     & RX\#0\_HSYNC                                                            & LA00\_P\_CC                                                            \\ \hline
-%	I            & hsync\_in         & AU39                 & 15                     & RX\#0\_DE                                                               & LA01\_P\_CC                                                            \\ \hline
-%	I            & pixel\_in{[}0{]}  & AM41                 & 15                     & RX\#0\_P0                                                               & LA03\_P                                                                \\ \hline
-%	I            & pixel\_in{[}1{]}  & AR38                 & 15                     & RX\#0\_P1                                                               & LA04\_P                                                                \\ \hline
-%	I            & pixel\_in{[}2{]}  & AN40                 & 15                     & RX\#0\_P2                                                               & LA05\_P                                                                \\ \hline
-%	I            & pixel\_in{[}3{]}  & AR37                 & 15                     & RX\#0\_P3                                                               & LA06\_P                                                                \\ \hline
-%	I            & pixel\_in{[}4{]}  & AM39                 & 15                     & RX\#0\_P4                                                               & LA07\_P                                                                \\ \hline
-%	I            & pixel\_in{[}5{]}  & AP40                 & 15                     & RX\#0\_P5                                                               & LA08\_P                                                                \\ \hline
-%	I            & pixel\_in{[}6{]}  & AP41                 & 15                     & RX\#0\_P6                                                               & LA09\_P                                                                \\ \hline
-%	I            & pixel\_in{[}7{]}  & AT39                 & 15                     & RX\#0\_P7                                                               & LA10\_P                                                                \\ \hline
-%	I            & pixel\_in{[}8{]}  & AR42                 & 15                     & RX\#0\_P8                                                               & LA11\_P                                                                \\ \hline
-%	I            & pixel\_in{[}9{]}  & AW37                 & 15                     & RX\#0\_P9                                                               & LA12\_P                                                                \\ \hline
-%	I            & pixel\_in{[}10{]} & BA37                 & 15                     & RX\#0\_P10                                                              & LA13\_P                                                                \\ \hline
-%	I            & pixel\_in{[}11{]} & AW38                 & 15                     & RX\#0\_P11                                                              & LA14\_P                                                                \\ \hline
-%	I            & pixel\_in{[}12{]} & BB38                 & 15                     & RX\#0\_P12                                                              & LA15\_P                                                                \\ \hline
-%	I            & pixel\_in{[}13{]} & BA39                 & 15                     & RX\#0\_P13                                                              & LA16\_P                                                                \\ \hline
-%	I            & pixel\_in{[}14{]} & AK34                 & 14                     & RX\#0\_P14                                                              & LA17\_P\_CC                                                            \\ \hline
-%	I            & pixel\_in{[}15{]} & AJ33                 & 14                     & RX\#0\_P15                                                              & LA18\_P\_CC                                                            \\ \hline
-%	I            & pixel\_in{[}16{]} & AM36                 & 14                     & RX\#0\_P16                                                              & LA19\_P                                                                \\ \hline
-%	I            & pixel\_in{[}17{]} & AJ36                 & 14                     & RX\#0\_P17                                                              & LA20\_P                                                                \\ \hline
-%	I            & pixel\_in{[}18{]} & AP36                 & 14                     & RX\#0\_P18                                                              & LA21\_P                                                                \\ \hline
-%	I            & pixel\_in{[}19{]} & AK37                 & 14                     & RX\#0\_P19                                                              & LA22\_P                                                                \\ \hline
-%	I            & pixel\_in{[}20{]} & AN35                 & 14                     & RX\#0\_P20                                                              & LA23\_P                                                                \\ \hline
-%	I            & pixel\_in{[}21{]} & AL36                 & 14                     & RX\#0\_P21                                                              & LA24\_P                                                                \\ \hline
-%	I            & pixel\_in{[}22{]} & AG33                 & 14                     & RX\#0\_P22                                                              & LA25\_P                                                                \\ \hline
-%	I            & pixel\_in{[}23{]} & AK35                 & 14                     & RX\#0\_P23                                                              & LA26\_P                                                                \\ \hline
-%	I            & pixel\_in{[}24{]} & AH31                 & 14                     & RX\#0\_P24                                                              & LA27\_P                                                                \\ \hline
-%	I            & pixel\_in{[}25{]} & AH34                 & 14                     & RX\#0\_P25                                                              & LA28\_P                                                                \\ \hline
-%	I            & pixel\_in{[}26{]} & AM34                 & 14                     & RX\#0\_P26                                                              & LA29\_P                                                                \\ \hline
-%	I            & pixel\_in{[}27{]} & AM31                 & 14                     & RX\#0\_P27                                                              & LA30\_P                                                                \\ \hline
-%	I            & pixel\_in{[}28{]} & AM33                 & 14                     & RX\#0\_P28                                                              & LA31\_P                                                                \\ \hline
-%	I            & pixel\_in{[}29{]} & AL29                 & 14                     & RX\#0\_P29                                                              & LA32\_P                                                                \\ \hline
-%	O            & clk\_px           & E34                  & 35                     & TX\#O\_DCLK                                                             & CLK0\_M2C\_P                                                           \\ \hline
-%	O            & enable            & K35                  & 34                     & TX\#0\_DE                                                               & LA02\_P                                                                \\ \hline
-%	O            & vsync             & L31                  & 34                     & TX\#0\_VSYNC                                                            & LA00\_P\_CC                                                            \\ \hline
-%	O            & hsync             & M32                  & 34                     & TX\#0\_HSYNC                                                            & LA01\_P\_CC                                                            \\ \hline
-%	O            & pixel{[}0{]}      & J32                  & 34                     & TX\#0\_D0                                                               & LA03\_P                                                                \\ \hline
-%	O            & pixel{[}1{]}      & K33                  & 34                     & TX\#0\_D1                                                               & LA04\_P                                                                \\ \hline
-%	O            & pixel{[}2{]}      & L34                  & 34                     & TX\#0\_D2                                                               & LA05\_P                                                                \\ \hline
-%	O            & pixel{[}3{]}      & M33                  & 34                     & TX\#0\_D3                                                               & LA06\_P                                                                \\ \hline
-%	O            & pixel{[}4{]}      & H34                  & 34                     & TX\#0\_D4                                                               & LA07\_P                                                                \\ \hline
-%	O            & pixel{[}5{]}      & K29                  & 34                     & TX\#0\_D5                                                               & LA08\_P                                                                \\ \hline
-%	O            & pixel{[}6{]}      & J30                  & 34                     & TX\#0\_D6                                                               & LA09\_P                                                                \\ \hline
-%	O            & pixel{[}7{]}      & L29                  & 34                     & TX\#0\_D7                                                               & LA10\_P                                                                \\ \hline
-%	O            & pixel{[}8{]}      & J31                  & 34                     & TX\#0\_D8                                                               & LA11\_P                                                                \\ \hline
-%	O            & pixel{[}9{]}      & M28                  & 34                     & TX\#0\_D9                                                               & LA12\_P                                                                \\ \hline
-%	O            & pixel{[}10{]}     & R28                  & 34                     & TX\#0\_D10                                                              & LA13\_P                                                                \\ \hline
-%	O            & pixel{[}11{]}     & N28                  & 34                     & TX\#0\_D11                                                              & LA14\_P                                                                \\ \hline
-%	O            & pixel{[}12{]}     & R30                  & 34                     & TX\#0\_D12                                                              & LA15\_P                                                                \\ \hline
-%	O            & pixel{[}13{]}     & U31                  & 34                     & TX\#0\_D13                                                              & LA16\_P                                                                \\ \hline
-%	O            & pixel{[}14{]}     & C35                  & 35                     & TX\#0\_D14                                                              & LA17\_P\_CC                                                            \\ \hline
-%	O            & pixel{[}15{]}     & D35                  & 35                     & TX\#0\_D15                                                              & LA18\_P\_CC                                                            \\ \hline
-%	O            & pixel{[}16{]}     & B36                  & 35                     & TX\#0\_D16                                                              & LA19\_P                                                                \\ \hline
-%	O            & pixel{[}17{]}     & B34                  & 35                     & TX\#0\_D17                                                              & LA20\_P                                                                \\ \hline
-%	O            & pixel{[}18{]}     & B39                  & 35                     & TX\#0\_D18                                                              & LA21\_P                                                                \\ \hline
-%	O            & pixel{[}19{]}     & A35                  & 35                     & TX\#0\_D19                                                              & LA22\_P                                                                \\ \hline
-%	O            & pixel{[}20{]}     & C38                  & 35                     & TX\#0\_D20                                                              & LA23\_P                                                                \\ \hline
-%	O            & pixel{[}21{]}     & B37                  & 35                     & TX\#0\_D21                                                              & LA24\_P                                                                \\ \hline
-%	O            & pixel{[}22{]}     & E32                  & 35                     & TX\#0\_D22                                                              & LA25\_P                                                                \\ \hline
-%	O            & pixel{[}23{]}     & B32                  & 35                     & TX\#0\_D23                                                              & LA26\_P                                                                \\ \hline
-%	O            & pixel{[}24{]}     & E33                  & 35                     & TX\#0\_D24                                                              & LA27\_P                                                                \\ \hline
-%	O            & pixel{[}25{]}     & C33                  & 35                     & TX\#0\_D25                                                              & LA28\_P                                                                \\ \hline
-%	O            & pixel{[}26{]}     & G32                  & 35                     & TX\#0\_D26                                                              & LA29\_P                                                                \\ \hline
-%	O            & pixel{[}27{]}     & F36                  & 35                     & TX\#0\_D27                                                              & LA30\_P                                                                \\ \hline
-%	O            & pixel{[}28{]}     & F34                  & 35                     & TX\#0\_D28                                                              & LA31\_P                                                                \\ \hline
-%	O            & pixel{[}29{]}     & H33                  & 35                     & TX\#0\_D29                                                              & LA32\_P                                                                \\ \hline
-%                                            
-%%		\end{tabular}
-%	\caption{Localização das portas de entrada e saída da arquitura de transmissão de uma imagem RGB de 10 bits entre as placas HDMI transmissora e recetora}
-%	\label{table:LOCplanB_detail}
-%\end{longtable}
-
+%% tabela \ref{table:LOCplanB_detail} apresenta as portas de entrada do módulo desenvolvido que estão conectadas à placa HDMI recetora. A tabela \ref{table:locPlanAdetail}, apresentada neste mesmo anexo, identifica as portas de saída deste mesmo módulo conectadas à placa HDMI transmissora, uma vez que o nome das portas de saída e as suas localizações na FPGA são iguais para ambas as arquiteturas. Ambas as tabelas indicam também os nomes das ligações nas placas HDMI.
+%
+%%\begin{longtable}[]
+%%	{|c|c|c|c|c|c|}
+%%%		\begin{tabular}
+%%	\hline
+%%	\centering
+%%	\textbf{I/O} & \textbf{Sinal}    & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} & \textbf{\begin{tabular}[c]{@{}c@{}}Nome na placa\\   HDMI\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PIN da placa\\   HDMI\end{tabular}} \\ \hline \endhead
+%%	I            & clk\_px\_in       & AJ32                 & 14                     & RX\#0\_LLC                                                              & CLK0\_M2C\_P                                                           \\ \hline
+%%	I            & enable\_in        & AN38                 & 15                     & RX\#0\_VSYNC                                                            & LA02\_P                                                                \\ \hline
+%%	I            & vsync\_in         & AU38                 & 15                     & RX\#0\_HSYNC                                                            & LA00\_P\_CC                                                            \\ \hline
+%%	I            & hsync\_in         & AU39                 & 15                     & RX\#0\_DE                                                               & LA01\_P\_CC                                                            \\ \hline
+%%	I            & pixel\_in{[}0{]}  & AM41                 & 15                     & RX\#0\_P0                                                               & LA03\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}1{]}  & AR38                 & 15                     & RX\#0\_P1                                                               & LA04\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}2{]}  & AN40                 & 15                     & RX\#0\_P2                                                               & LA05\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}3{]}  & AR37                 & 15                     & RX\#0\_P3                                                               & LA06\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}4{]}  & AM39                 & 15                     & RX\#0\_P4                                                               & LA07\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}5{]}  & AP40                 & 15                     & RX\#0\_P5                                                               & LA08\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}6{]}  & AP41                 & 15                     & RX\#0\_P6                                                               & LA09\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}7{]}  & AT39                 & 15                     & RX\#0\_P7                                                               & LA10\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}8{]}  & AR42                 & 15                     & RX\#0\_P8                                                               & LA11\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}9{]}  & AW37                 & 15                     & RX\#0\_P9                                                               & LA12\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}10{]} & BA37                 & 15                     & RX\#0\_P10                                                              & LA13\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}11{]} & AW38                 & 15                     & RX\#0\_P11                                                              & LA14\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}12{]} & BB38                 & 15                     & RX\#0\_P12                                                              & LA15\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}13{]} & BA39                 & 15                     & RX\#0\_P13                                                              & LA16\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}14{]} & AK34                 & 14                     & RX\#0\_P14                                                              & LA17\_P\_CC                                                            \\ \hline
+%%	I            & pixel\_in{[}15{]} & AJ33                 & 14                     & RX\#0\_P15                                                              & LA18\_P\_CC                                                            \\ \hline
+%%	I            & pixel\_in{[}16{]} & AM36                 & 14                     & RX\#0\_P16                                                              & LA19\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}17{]} & AJ36                 & 14                     & RX\#0\_P17                                                              & LA20\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}18{]} & AP36                 & 14                     & RX\#0\_P18                                                              & LA21\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}19{]} & AK37                 & 14                     & RX\#0\_P19                                                              & LA22\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}20{]} & AN35                 & 14                     & RX\#0\_P20                                                              & LA23\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}21{]} & AL36                 & 14                     & RX\#0\_P21                                                              & LA24\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}22{]} & AG33                 & 14                     & RX\#0\_P22                                                              & LA25\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}23{]} & AK35                 & 14                     & RX\#0\_P23                                                              & LA26\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}24{]} & AH31                 & 14                     & RX\#0\_P24                                                              & LA27\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}25{]} & AH34                 & 14                     & RX\#0\_P25                                                              & LA28\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}26{]} & AM34                 & 14                     & RX\#0\_P26                                                              & LA29\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}27{]} & AM31                 & 14                     & RX\#0\_P27                                                              & LA30\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}28{]} & AM33                 & 14                     & RX\#0\_P28                                                              & LA31\_P                                                                \\ \hline
+%%	I            & pixel\_in{[}29{]} & AL29                 & 14                     & RX\#0\_P29                                                              & LA32\_P                                                                \\ \hline
+%%	O            & clk\_px           & E34                  & 35                     & TX\#O\_DCLK                                                             & CLK0\_M2C\_P                                                           \\ \hline
+%%	O            & enable            & K35                  & 34                     & TX\#0\_DE                                                               & LA02\_P                                                                \\ \hline
+%%	O            & vsync             & L31                  & 34                     & TX\#0\_VSYNC                                                            & LA00\_P\_CC                                                            \\ \hline
+%%	O            & hsync             & M32                  & 34                     & TX\#0\_HSYNC                                                            & LA01\_P\_CC                                                            \\ \hline
+%%	O            & pixel{[}0{]}      & J32                  & 34                     & TX\#0\_D0                                                               & LA03\_P                                                                \\ \hline
+%%	O            & pixel{[}1{]}      & K33                  & 34                     & TX\#0\_D1                                                               & LA04\_P                                                                \\ \hline
+%%	O            & pixel{[}2{]}      & L34                  & 34                     & TX\#0\_D2                                                               & LA05\_P                                                                \\ \hline
+%%	O            & pixel{[}3{]}      & M33                  & 34                     & TX\#0\_D3                                                               & LA06\_P                                                                \\ \hline
+%%	O            & pixel{[}4{]}      & H34                  & 34                     & TX\#0\_D4                                                               & LA07\_P                                                                \\ \hline
+%%	O            & pixel{[}5{]}      & K29                  & 34                     & TX\#0\_D5                                                               & LA08\_P                                                                \\ \hline
+%%	O            & pixel{[}6{]}      & J30                  & 34                     & TX\#0\_D6                                                               & LA09\_P                                                                \\ \hline
+%%	O            & pixel{[}7{]}      & L29                  & 34                     & TX\#0\_D7                                                               & LA10\_P                                                                \\ \hline
+%%	O            & pixel{[}8{]}      & J31                  & 34                     & TX\#0\_D8                                                               & LA11\_P                                                                \\ \hline
+%%	O            & pixel{[}9{]}      & M28                  & 34                     & TX\#0\_D9                                                               & LA12\_P                                                                \\ \hline
+%%	O            & pixel{[}10{]}     & R28                  & 34                     & TX\#0\_D10                                                              & LA13\_P                                                                \\ \hline
+%%	O            & pixel{[}11{]}     & N28                  & 34                     & TX\#0\_D11                                                              & LA14\_P                                                                \\ \hline
+%%	O            & pixel{[}12{]}     & R30                  & 34                     & TX\#0\_D12                                                              & LA15\_P                                                                \\ \hline
+%%	O            & pixel{[}13{]}     & U31                  & 34                     & TX\#0\_D13                                                              & LA16\_P                                                                \\ \hline
+%%	O            & pixel{[}14{]}     & C35                  & 35                     & TX\#0\_D14                                                              & LA17\_P\_CC                                                            \\ \hline
+%%	O            & pixel{[}15{]}     & D35                  & 35                     & TX\#0\_D15                                                              & LA18\_P\_CC                                                            \\ \hline
+%%	O            & pixel{[}16{]}     & B36                  & 35                     & TX\#0\_D16                                                              & LA19\_P                                                                \\ \hline
+%%	O            & pixel{[}17{]}     & B34                  & 35                     & TX\#0\_D17                                                              & LA20\_P                                                                \\ \hline
+%%	O            & pixel{[}18{]}     & B39                  & 35                     & TX\#0\_D18                                                              & LA21\_P                                                                \\ \hline
+%%	O            & pixel{[}19{]}     & A35                  & 35                     & TX\#0\_D19                                                              & LA22\_P                                                                \\ \hline
+%%	O            & pixel{[}20{]}     & C38                  & 35                     & TX\#0\_D20                                                              & LA23\_P                                                                \\ \hline
+%%	O            & pixel{[}21{]}     & B37                  & 35                     & TX\#0\_D21                                                              & LA24\_P                                                                \\ \hline
+%%	O            & pixel{[}22{]}     & E32                  & 35                     & TX\#0\_D22                                                              & LA25\_P                                                                \\ \hline
+%%	O            & pixel{[}23{]}     & B32                  & 35                     & TX\#0\_D23                                                              & LA26\_P                                                                \\ \hline
+%%	O            & pixel{[}24{]}     & E33                  & 35                     & TX\#0\_D24                                                              & LA27\_P                                                                \\ \hline
+%%	O            & pixel{[}25{]}     & C33                  & 35                     & TX\#0\_D25                                                              & LA28\_P                                                                \\ \hline
+%%	O            & pixel{[}26{]}     & G32                  & 35                     & TX\#0\_D26                                                              & LA29\_P                                                                \\ \hline
+%%	O            & pixel{[}27{]}     & F36                  & 35                     & TX\#0\_D27                                                              & LA30\_P                                                                \\ \hline
+%%	O            & pixel{[}28{]}     & F34                  & 35                     & TX\#0\_D28                                                              & LA31\_P                                                                \\ \hline
+%%	O            & pixel{[}29{]}     & H33                  & 35                     & TX\#0\_D29                                                              & LA32\_P                                                                \\ \hline
+%%                                            
+%%%		\end{tabular}
+%%	\caption{Localização das portas de entrada e saída da arquitura de transmissão de uma imagem RGB de 10 bits entre as placas HDMI transmissora e recetora}
+%%	\label{table:LOCplanB_detail}
+%%\end{longtable}
+%
 \begin{longtable}[h!]
 	{rllll}
 		\hline
 		\centering
 		\textbf{}                             & \multicolumn{1}{c}{\textbf{Sinal}} & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Nome na \\ placa HDMI\end{tabular}}} \\ \hline \endhead
 		\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_px\_in                        & AJ32                                     & 14                                         & RX\#0\_LLC                                                                                 \\
-		\multicolumn{1}{r|}{\textbf{Entrada}} & enable\_in                         & AN38                                     & 15                                         & RX\#0\_VSYNC                                                                               \\
-		\multicolumn{1}{r|}{\textbf{Entrada}} & vsync\_in                          & AU38                                     & 15                                         & RX\#0\_HSYNC                                                                               \\
-		\multicolumn{1}{r|}{\textbf{Entrada}} & hsync\_in                          & AU39                                     & 15                                         & RX\#0\_DE                                                                                  \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & enable\_in                         & AN38                                     & 15                                         & RX\#0\_DE                                                                               \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & vsync\_in                          & AU38                                     & 15                                         & RX\#0\_VSYNC                                                                               \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & hsync\_in                          & AU39                                     & 15                                         & RX\#0\_HSYNC                                                                                  \\
 		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}0{]}                  & AM41                                     & 15                                         & RX\#0\_P0                                                                                  \\
 		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}1{]}                  & AR38                                     & 15                                         & RX\#0\_P1                                                                                  \\
 		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}2{]}                  & AN40                                     & 15                                         & RX\#0\_P2                                                                                  \\
@@ -258,117 +269,164 @@ A tabela \ref{table:LOCplanB_detail} apresenta as portas de entrada do módulo d
 %		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}28{]}                     & F34                                      & 35                                         & TX\#0\_D28                                                                                 \\
 %		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}29{]}                     & H33                                      & 35                                         & TX\#0\_D29                                                                                 \\ 
 	\hline
-	\captionsetup{width=0.95\linewidth}
-	\caption{Localização das portas de entrada da arquitetura provenientes da placa HDMI recetora para a transmissão de uma imagem entre dispositivos HDMI}
+	\captionsetup{width=0.85\linewidth}
+	\caption{Localização das portas de entrada da arquitetura provenientes da placa HDMI recetora}
 	\label{table:LOCplanB_detail}
 \end{longtable}
-
+%
 \section{Transmissão de imagem e som entre dispositivos HDMI} \label{ap3:imagem_som_RX_TX}
+%%
+%%\begin{longtable}[h!]
+%%	{|c|c|c|c|c|c|}
+%%
+%%
+%%	\hline
+%%	\centering
+%%		\textbf{I/O} & \textbf{Sinal}     & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} &\textbf{\begin{tabular}[c]{@{}c@{}}Nome na \\ placa HDMI\end{tabular}}       & \textbf{\begin{tabular}[c]{@{}c@{}}PIN na \\ placa HDMI\end{tabular}} \\ \hline \endhead
+%%		I            & clock\_p\_in       & AJ32                 & AJ32                   & RX\#0\_LLC                        & CLK0\_M2C\_P               \\ \hline
+%%		I            & vsync\_in          & AU38                 & AU38                   & RX\#0\_VSYNC                      & LA00\_P\_CC                \\ \hline
+%%		I            & hsync\_in          & AU39                 & AU39                   & RX\#0\_HSYNC                      & LA01\_P\_CC                \\ \hline
+%%		I            & enable\_in         & AN38                 & AN38                   & RX\#0\_DE                         & LA02\_P                    \\ \hline
+%%		I            & pixel\_in{[}0{]}   & AM41                 & AM41                   & RX\#0\_P0                         & LA03\_P                    \\ \hline
+%%		I            & pixel\_in{[}1{]}   & AR38                 & AR38                   & RX\#0\_P1                         & LA04\_P                    \\ \hline
+%%		I            & pixel\_in{[}2{]}   & AN40                 & AN40                   & RX\#0\_P2                         & LA05\_P                    \\ \hline
+%%		I            & pixel\_in{[}3{]}   & AR37                 & AR37                   & RX\#0\_P3                         & LA06\_P                    \\ \hline
+%%		I            & pixel\_in{[}4{]}   & AM39                 & AM39                   & RX\#0\_P4                         & LA07\_P                    \\ \hline
+%%		I            & pixel\_in{[}5{]}   & AP40                 & AP40                   & RX\#0\_P5                         & LA08\_P                    \\ \hline
+%%		I            & pixel\_in{[}6{]}   & AP41                 & AP41                   & RX\#0\_P6                         & LA09\_P                    \\ \hline
+%%		I            & pixel\_in{[}7{]}   & AT39                 & AT39                   & RX\#0\_P7                         & LA10\_P                    \\ \hline
+%%		I            & pixel\_in{[}8{]}   & AR42                 & AR42                   & RX\#0\_P8                         & LA11\_P                    \\ \hline
+%%		I            & pixel\_in{[}9{]}   & AW37                 & AW37                   & RX\#0\_P9                         & LA12\_P                    \\ \hline
+%%		I            & pixel\_in{[}10{]}  & BA37                 & BA37                   & RX\#0\_P10                        & LA13\_P                    \\ \hline
+%%		I            & pixel\_in{[}11{]}  & AW38                 & AW38                   & RX\#0\_P11                        & LA14\_P                    \\ \hline
+%%		I            & pixel\_in{[}12{]}  & BB38                 & BB38                   & RX\#0\_P12                        & LA15\_P                    \\ \hline
+%%		I            & pixel\_in{[}13{]}  & BA39                 & BA39                   & RX\#0\_P13                        & LA16\_P                    \\ \hline
+%%		I            & pixel\_in{[}14{]}  & AK34                 & AK34                   & RX\#0\_P14                        & LA17\_P\_CC                \\ \hline
+%%		I            & pixel\_in{[}15{]}  & AJ33                 & AJ33                   & RX\#0\_P15                        & LA18\_P\_CC                \\ \hline
+%%		I            & pixel\_in{[}16{]}  & AM36                 & AM36                   & RX\#0\_P16                        & LA19\_P                    \\ \hline
+%%		I            & pixel\_in{[}17{]}  & AJ36                 & AJ36                   & RX\#0\_P17                        & LA20\_P                    \\ \hline
+%%		I            & pixel\_in{[}18{]}  & AP36                 & AP36                   & RX\#0\_P18                        & LA21\_P                    \\ \hline
+%%		I            & pixel\_in{[}19{]}  & AK37                 & AK37                   & RX\#0\_P19                        & LA22\_P                    \\ \hline
+%%		I            & pixel\_in{[}20{]}  & AN35                 & AN35                   & RX\#0\_P20                        & LA23\_P                    \\ \hline
+%%		I            & pixel\_in{[}21{]}  & AL36                 & AL36                   & RX\#0\_P21                        & LA24\_P                    \\ \hline
+%%		I            & pixel\_in{[}22{]}  & AG33                 & AG33                   & RX\#0\_P22                        & LA25\_P                    \\ \hline
+%%		I            & pixel\_in{[}23{]}  & AK35                 & AK35                   & RX\#0\_P23                        & LA26\_P                    \\ \hline
+%%		I            & pixel\_in{[}24{]}  & AH31                 & AH31                   & RX\#0\_P24                        & LA27\_P                    \\ \hline
+%%		I            & pixel\_in{[}25{]}  & AH34                 & AH34                   & RX\#0\_P25                        & LA28\_P                    \\ \hline
+%%		I            & pixel\_in{[}26{]}  & AM34                 & AM34                   & RX\#0\_P26                        & LA29\_P                    \\ \hline
+%%		I            & pixel\_in{[}27{]}  & AM31                 & AM31                   & RX\#0\_P27                        & LA30\_P                    \\ \hline
+%%		I            & pixel\_in{[}28{]}  & AM33                 & AM33                   & RX\#0\_P28                        & LA31\_P                    \\ \hline
+%%		I            & pixel\_in{[}29{]}  & AL29                 & AL29                   & RX\#0\_P29                        & LA32\_P                    \\ \hline
+%%		I            & pixel\_in{[}30{]}  & AJ31                 & AJ31                   & RX\#0\_P30                        & LA27\_N                    \\ \hline
+%%		I            & pixel\_in{[}31{]}  & AJ35                 & AJ35                   & RX\#0\_P31                        & LA28\_N                    \\ \hline
+%%		I            & pixel\_in{[}32{]}  & AN34                 & AN34                   & RX\#0\_P32                        & LA29\_N                    \\ \hline
+%%		I            & pixel\_in{[}33{]}  & AM32                 & AM32                   & RX\#0\_P33                        & LA30\_N                    \\ \hline
+%%		I            & pixel\_in{[}34{]}  & AN33                 & AN33                   & RX\#0\_P34                        & LA31\_N                    \\ \hline
+%%		I            & pixel\_in{[}35{]}  & AL30                 & AL30                   & RX\#0\_P35                        & LA32\_N                    \\ \hline
+%%		I            & sclk\_in           & AJ37                 & AJ37                   & RX\#0\_SCLK                       & LA20\_N                    \\ \hline
+%%		I            & AP1\_in            & AL37                 & AL37                   & RX\#0\_AP1                        & LA22\_N                    \\ \hline
+%%		I            & AP2\_in            & AP35                 & AP35                   & RX\#0\_AP2                        & LA23\_N                    \\ \hline
+%%		I            & AP3\_in            & AM37                 & AM37                   & RX\#0\_AP3                        & LA24\_N                    \\ \hline
+%%		I            & AP4\_in            & AH33                 & AH33                   & RX\#0\_AP4                        & LA25\_N                    \\ \hline
+%%		I            & lrclk\_in          & AL35                 & AL35                   & RX\#0\_AP5                        & LA19\_N                    \\ \hline
+%%		I            & info\_in{[}0{]}    & AV38                 & AV38                   &\begin{tabular}[c]{@{}c@{}}RX\#0\_Input \\ video status{[}0{]}\end{tabular}  & LA00\_N\_CC                \\ \hline
+%%		I            & info\_in{[}1{]}    & AV39                 & AV39                   & \begin{tabular}[c]{@{}c@{}}RX\#0\_Input \\ video status{[}1{]}\end{tabular}  & LA01\_N\_CC                \\ \hline
+%%		O            & clock\_px      & E34                  & 35                     & TX\#0\_DCLK                       & CLK0\_M2C\_P               \\ \hline
+%%		O            & vsync         & L31                  & 34                     & TX\#0\_VSYNC                      & LA00\_P\_CC                \\ \hline
+%%		O            & hsync         & M32                  & 34                     & TX\#0\_HSYNC                      & LA01\_P\_CC                \\ \hline
+%%		O            & enable        & K35                  & 34                     & TX\#0\_DE                         & LA02\_P                    \\ \hline
+%%		O            & pixel{[}0{]}  & J32                  & 34                     & TX\#0\_D0                         & LA03\_P                    \\ \hline
+%%		O            & pixel{[}1{]}  & K33                  & 34                     & TX\#0\_D1                         & LA04\_P                    \\ \hline
+%%		O            & pixel{[}2{]}  & L34                  & 34                     & TX\#0\_D2                         & LA05\_P                    \\ \hline
+%%		O            & pixel{[}3{]}  & M33                  & 34                     & TX\#0\_D3                         & LA06\_P                    \\ \hline
+%%		O            & pixel{[}4{]}  & H34                  & 34                     & TX\#0\_D4                         & LA07\_P                    \\ \hline
+%%		O            & pixel{[}5{]}  & K29                  & 34                     & TX\#0\_D5                         & LA08\_P                    \\ \hline
+%%		O            & pixel{[}6{]}  & J30                  & 34                     & TX\#0\_D6                         & LA09\_P                    \\ \hline
+%%		O            & pixel{[}7{]}  & L29                  & 34                     & TX\#0\_D7                         & LA10\_P                    \\ \hline
+%%		O            & pixel{[}8{]}  & J31                  & 34                     & TX\#0\_D8                         & LA11\_P                    \\ \hline
+%%		O            & pixel{[}9{]}  & M28                  & 34                     & TX\#0\_D9                         & LA12\_P                    \\ \hline
+%%		O            & pixel{[}10{]} & R28                  & 34                     & TX\#0\_D10                        & LA13\_P                    \\ \hline
+%%		O            & pixel{[}11{]} & N28                  & 34                     & TX\#0\_D11                        & LA14\_P                    \\ \hline
+%%		O            & pixel{[}12{]} & R30                  & 34                     & TX\#0\_D12                        & LA15\_P                    \\ \hline
+%%		O            & pixel{[}13{]} & U31                  & 34                     & TX\#0\_D13                        & LA16\_P                    \\ \hline
+%%		O            & pixel{[}14{]} & C35                  & 35                     & TX\#0\_D14                        & LA17\_P\_CC                \\ \hline
+%%		O            & pixel{[}15{]} & D35                  & 35                     & TX\#0\_D15                        & LA18\_P\_CC                \\ \hline
+%%		O            & pixel{[}16{]} & B36                  & 35                     & TX\#0\_D16                        & LA19\_P                    \\ \hline
+%%		O            & pixel{[}17{]} & B34                  & 35                     & TX\#0\_D17                        & LA20\_P                    \\ \hline
+%%		O            & pixel{[}18{]} & B39                  & 35                     & TX\#0\_D18                        & LA21\_P                    \\ \hline
+%%		O            & pixel{[}19{]} & A35                  & 35                     & TX\#0\_D19                        & LA22\_P                    \\ \hline
+%%		O            & pixel{[}20{]} & C38                  & 35                     & TX\#0\_D20                        & LA23\_P                    \\ \hline
+%%		O            & pixel{[}21{]} & B37                  & 35                     & TX\#0\_D21                        & LA24\_P                    \\ \hline
+%%		O            & pixel{[}22{]} & E32                  & 35                     & TX\#0\_D22                        & LA25\_P                    \\ \hline
+%%		O            & pixel{[}23{]} & B32                  & 35                     & TX\#0\_D23                        & LA26\_P                    \\ \hline
+%%		O            & pixel{[}24{]} & E33                  & 35                     & TX\#0\_D24                        & LA27\_P                    \\ \hline
+%%		O            & pixel{[}25{]} & C33                  & 35                     & TX\#0\_D25                        & LA28\_P                    \\ \hline
+%%		O            & pixel{[}26{]} & G32                  & 35                     & TX\#0\_D26                        & LA29\_P                    \\ \hline
+%%		O            & pixel{[}27{]} & F36                  & 35                     & TX\#0\_D27                        & LA30\_P                    \\ \hline
+%%		O            & pixel{[}28{]} & F34                  & 35                     & TX\#0\_D28                        & LA31\_P                    \\ \hline
+%%		O            & pixel{[}29{]} & H33                  & 35                     & TX\#0\_D29                        & LA32\_P                    \\ \hline
+%%		O            & pixel{[}30{]} & D33                  & 35                     & TX\#0\_D30                        & LA27\_N                    \\ \hline
+%%		O            & pixel{[}31{]} & C34                  & 35                     & TX\#0\_D31                        & LA28\_N                    \\ \hline
+%%		O            & pixel{[}32{]} & F32                  & 35                     & TX\#0\_D32                        & LA29\_N                    \\ \hline
+%%		O            & pixel{[}33{]} & F37                  & 35                     & TX\#0\_D33                        & LA30\_N                    \\ \hline
+%%		O            & pixel{[}34{]} & F35                  & 35                     & TX\#0\_D34                        & LA31\_N                    \\ \hline
+%%		O            & pixel{[}35{]} & G33                  & 35                     & TX\#0\_D35                        & LA32\_N                    \\ \hline
+%%		O            & sclk\_out          & A34                  & 35                     & TX\#0\_SCLK                       & LA20\_N                    \\ \hline
+%%		O            & AP1\_out           & A36                  & 35                     & TX\#0\_AP1                        & LA22\_N                    \\ \hline
+%%		O            & AP2\_out           & C39                  & 35                     & TX\#0\_AP2                        & LA23\_N                    \\ \hline
+%%		O            & AP3\_out           & B38                  & 35                     & TX\#0\_AP3                        & LA24\_N                    \\ \hline
+%%		O            & AP4\_out           & D32                  & 35                     & TX\#0\_AP4                        & LA25\_N                    \\ \hline
+%%		O            & lrclk\_out         & B33                  & 35                     & TX\#0\_AP5                        & LA26\_N                    \\ \hline
+%%		O            & info\_out{[}0{]}   & K32                  & 34                     &\begin{tabular}[c]{@{}c@{}}TX\#0\_output \\ video status{[}0{]}\end{tabular} & LA00\_N\_CC                \\ \hline
+%%		O            & info\_out{[}1{]}   & L32                  & 34                     & \begin{tabular}[c]{@{}c@{}}TX\#0\_output \\ video status{[}1{]}\end{tabular} & LA01\_N\_CC                \\ \hline
+%%
+%%	\caption{Localização das portas de entrada e saída da arquitura de transmissão de imagem e som entre as placas HDMI transmissora e recetora}
+%%	\label{table:LOCplanC_detail}
+%%\end{longtable}
 %
-%\begin{longtable}[h!]
-%	{|c|c|c|c|c|c|}
-%
-%
-%	\hline
-%	\centering
-%		\textbf{I/O} & \textbf{Sinal}     & \textbf{LOC na FPGA} & \textbf{Banco na FPGA} &\textbf{\begin{tabular}[c]{@{}c@{}}Nome na \\ placa HDMI\end{tabular}}       & \textbf{\begin{tabular}[c]{@{}c@{}}PIN na \\ placa HDMI\end{tabular}} \\ \hline \endhead
-%		I            & clock\_p\_in       & AJ32                 & AJ32                   & RX\#0\_LLC                        & CLK0\_M2C\_P               \\ \hline
-%		I            & vsync\_in          & AU38                 & AU38                   & RX\#0\_VSYNC                      & LA00\_P\_CC                \\ \hline
-%		I            & hsync\_in          & AU39                 & AU39                   & RX\#0\_HSYNC                      & LA01\_P\_CC                \\ \hline
-%		I            & enable\_in         & AN38                 & AN38                   & RX\#0\_DE                         & LA02\_P                    \\ \hline
-%		I            & pixel\_in{[}0{]}   & AM41                 & AM41                   & RX\#0\_P0                         & LA03\_P                    \\ \hline
-%		I            & pixel\_in{[}1{]}   & AR38                 & AR38                   & RX\#0\_P1                         & LA04\_P                    \\ \hline
-%		I            & pixel\_in{[}2{]}   & AN40                 & AN40                   & RX\#0\_P2                         & LA05\_P                    \\ \hline
-%		I            & pixel\_in{[}3{]}   & AR37                 & AR37                   & RX\#0\_P3                         & LA06\_P                    \\ \hline
-%		I            & pixel\_in{[}4{]}   & AM39                 & AM39                   & RX\#0\_P4                         & LA07\_P                    \\ \hline
-%		I            & pixel\_in{[}5{]}   & AP40                 & AP40                   & RX\#0\_P5                         & LA08\_P                    \\ \hline
-%		I            & pixel\_in{[}6{]}   & AP41                 & AP41                   & RX\#0\_P6                         & LA09\_P                    \\ \hline
-%		I            & pixel\_in{[}7{]}   & AT39                 & AT39                   & RX\#0\_P7                         & LA10\_P                    \\ \hline
-%		I            & pixel\_in{[}8{]}   & AR42                 & AR42                   & RX\#0\_P8                         & LA11\_P                    \\ \hline
-%		I            & pixel\_in{[}9{]}   & AW37                 & AW37                   & RX\#0\_P9                         & LA12\_P                    \\ \hline
-%		I            & pixel\_in{[}10{]}  & BA37                 & BA37                   & RX\#0\_P10                        & LA13\_P                    \\ \hline
-%		I            & pixel\_in{[}11{]}  & AW38                 & AW38                   & RX\#0\_P11                        & LA14\_P                    \\ \hline
-%		I            & pixel\_in{[}12{]}  & BB38                 & BB38                   & RX\#0\_P12                        & LA15\_P                    \\ \hline
-%		I            & pixel\_in{[}13{]}  & BA39                 & BA39                   & RX\#0\_P13                        & LA16\_P                    \\ \hline
-%		I            & pixel\_in{[}14{]}  & AK34                 & AK34                   & RX\#0\_P14                        & LA17\_P\_CC                \\ \hline
-%		I            & pixel\_in{[}15{]}  & AJ33                 & AJ33                   & RX\#0\_P15                        & LA18\_P\_CC                \\ \hline
-%		I            & pixel\_in{[}16{]}  & AM36                 & AM36                   & RX\#0\_P16                        & LA19\_P                    \\ \hline
-%		I            & pixel\_in{[}17{]}  & AJ36                 & AJ36                   & RX\#0\_P17                        & LA20\_P                    \\ \hline
-%		I            & pixel\_in{[}18{]}  & AP36                 & AP36                   & RX\#0\_P18                        & LA21\_P                    \\ \hline
-%		I            & pixel\_in{[}19{]}  & AK37                 & AK37                   & RX\#0\_P19                        & LA22\_P                    \\ \hline
-%		I            & pixel\_in{[}20{]}  & AN35                 & AN35                   & RX\#0\_P20                        & LA23\_P                    \\ \hline
-%		I            & pixel\_in{[}21{]}  & AL36                 & AL36                   & RX\#0\_P21                        & LA24\_P                    \\ \hline
-%		I            & pixel\_in{[}22{]}  & AG33                 & AG33                   & RX\#0\_P22                        & LA25\_P                    \\ \hline
-%		I            & pixel\_in{[}23{]}  & AK35                 & AK35                   & RX\#0\_P23                        & LA26\_P                    \\ \hline
-%		I            & pixel\_in{[}24{]}  & AH31                 & AH31                   & RX\#0\_P24                        & LA27\_P                    \\ \hline
-%		I            & pixel\_in{[}25{]}  & AH34                 & AH34                   & RX\#0\_P25                        & LA28\_P                    \\ \hline
-%		I            & pixel\_in{[}26{]}  & AM34                 & AM34                   & RX\#0\_P26                        & LA29\_P                    \\ \hline
-%		I            & pixel\_in{[}27{]}  & AM31                 & AM31                   & RX\#0\_P27                        & LA30\_P                    \\ \hline
-%		I            & pixel\_in{[}28{]}  & AM33                 & AM33                   & RX\#0\_P28                        & LA31\_P                    \\ \hline
-%		I            & pixel\_in{[}29{]}  & AL29                 & AL29                   & RX\#0\_P29                        & LA32\_P                    \\ \hline
-%		I            & pixel\_in{[}30{]}  & AJ31                 & AJ31                   & RX\#0\_P30                        & LA27\_N                    \\ \hline
-%		I            & pixel\_in{[}31{]}  & AJ35                 & AJ35                   & RX\#0\_P31                        & LA28\_N                    \\ \hline
-%		I            & pixel\_in{[}32{]}  & AN34                 & AN34                   & RX\#0\_P32                        & LA29\_N                    \\ \hline
-%		I            & pixel\_in{[}33{]}  & AM32                 & AM32                   & RX\#0\_P33                        & LA30\_N                    \\ \hline
-%		I            & pixel\_in{[}34{]}  & AN33                 & AN33                   & RX\#0\_P34                        & LA31\_N                    \\ \hline
-%		I            & pixel\_in{[}35{]}  & AL30                 & AL30                   & RX\#0\_P35                        & LA32\_N                    \\ \hline
-%		I            & sclk\_in           & AJ37                 & AJ37                   & RX\#0\_SCLK                       & LA20\_N                    \\ \hline
-%		I            & AP1\_in            & AL37                 & AL37                   & RX\#0\_AP1                        & LA22\_N                    \\ \hline
-%		I            & AP2\_in            & AP35                 & AP35                   & RX\#0\_AP2                        & LA23\_N                    \\ \hline
-%		I            & AP3\_in            & AM37                 & AM37                   & RX\#0\_AP3                        & LA24\_N                    \\ \hline
-%		I            & AP4\_in            & AH33                 & AH33                   & RX\#0\_AP4                        & LA25\_N                    \\ \hline
-%		I            & lrclk\_in          & AL35                 & AL35                   & RX\#0\_AP5                        & LA19\_N                    \\ \hline
-%		I            & info\_in{[}0{]}    & AV38                 & AV38                   &\begin{tabular}[c]{@{}c@{}}RX\#0\_Input \\ video status{[}0{]}\end{tabular}  & LA00\_N\_CC                \\ \hline
-%		I            & info\_in{[}1{]}    & AV39                 & AV39                   & \begin{tabular}[c]{@{}c@{}}RX\#0\_Input \\ video status{[}1{]}\end{tabular}  & LA01\_N\_CC                \\ \hline
-%		O            & clock\_px      & E34                  & 35                     & TX\#0\_DCLK                       & CLK0\_M2C\_P               \\ \hline
-%		O            & vsync         & L31                  & 34                     & TX\#0\_VSYNC                      & LA00\_P\_CC                \\ \hline
-%		O            & hsync         & M32                  & 34                     & TX\#0\_HSYNC                      & LA01\_P\_CC                \\ \hline
-%		O            & enable        & K35                  & 34                     & TX\#0\_DE                         & LA02\_P                    \\ \hline
-%		O            & pixel{[}0{]}  & J32                  & 34                     & TX\#0\_D0                         & LA03\_P                    \\ \hline
-%		O            & pixel{[}1{]}  & K33                  & 34                     & TX\#0\_D1                         & LA04\_P                    \\ \hline
-%		O            & pixel{[}2{]}  & L34                  & 34                     & TX\#0\_D2                         & LA05\_P                    \\ \hline
-%		O            & pixel{[}3{]}  & M33                  & 34                     & TX\#0\_D3                         & LA06\_P                    \\ \hline
-%		O            & pixel{[}4{]}  & H34                  & 34                     & TX\#0\_D4                         & LA07\_P                    \\ \hline
-%		O            & pixel{[}5{]}  & K29                  & 34                     & TX\#0\_D5                         & LA08\_P                    \\ \hline
-%		O            & pixel{[}6{]}  & J30                  & 34                     & TX\#0\_D6                         & LA09\_P                    \\ \hline
-%		O            & pixel{[}7{]}  & L29                  & 34                     & TX\#0\_D7                         & LA10\_P                    \\ \hline
-%		O            & pixel{[}8{]}  & J31                  & 34                     & TX\#0\_D8                         & LA11\_P                    \\ \hline
-%		O            & pixel{[}9{]}  & M28                  & 34                     & TX\#0\_D9                         & LA12\_P                    \\ \hline
-%		O            & pixel{[}10{]} & R28                  & 34                     & TX\#0\_D10                        & LA13\_P                    \\ \hline
-%		O            & pixel{[}11{]} & N28                  & 34                     & TX\#0\_D11                        & LA14\_P                    \\ \hline
-%		O            & pixel{[}12{]} & R30                  & 34                     & TX\#0\_D12                        & LA15\_P                    \\ \hline
-%		O            & pixel{[}13{]} & U31                  & 34                     & TX\#0\_D13                        & LA16\_P                    \\ \hline
-%		O            & pixel{[}14{]} & C35                  & 35                     & TX\#0\_D14                        & LA17\_P\_CC                \\ \hline
-%		O            & pixel{[}15{]} & D35                  & 35                     & TX\#0\_D15                        & LA18\_P\_CC                \\ \hline
-%		O            & pixel{[}16{]} & B36                  & 35                     & TX\#0\_D16                        & LA19\_P                    \\ \hline
-%		O            & pixel{[}17{]} & B34                  & 35                     & TX\#0\_D17                        & LA20\_P                    \\ \hline
-%		O            & pixel{[}18{]} & B39                  & 35                     & TX\#0\_D18                        & LA21\_P                    \\ \hline
-%		O            & pixel{[}19{]} & A35                  & 35                     & TX\#0\_D19                        & LA22\_P                    \\ \hline
-%		O            & pixel{[}20{]} & C38                  & 35                     & TX\#0\_D20                        & LA23\_P                    \\ \hline
-%		O            & pixel{[}21{]} & B37                  & 35                     & TX\#0\_D21                        & LA24\_P                    \\ \hline
-%		O            & pixel{[}22{]} & E32                  & 35                     & TX\#0\_D22                        & LA25\_P                    \\ \hline
-%		O            & pixel{[}23{]} & B32                  & 35                     & TX\#0\_D23                        & LA26\_P                    \\ \hline
-%		O            & pixel{[}24{]} & E33                  & 35                     & TX\#0\_D24                        & LA27\_P                    \\ \hline
-%		O            & pixel{[}25{]} & C33                  & 35                     & TX\#0\_D25                        & LA28\_P                    \\ \hline
-%		O            & pixel{[}26{]} & G32                  & 35                     & TX\#0\_D26                        & LA29\_P                    \\ \hline
-%		O            & pixel{[}27{]} & F36                  & 35                     & TX\#0\_D27                        & LA30\_P                    \\ \hline
-%		O            & pixel{[}28{]} & F34                  & 35                     & TX\#0\_D28                        & LA31\_P                    \\ \hline
-%		O            & pixel{[}29{]} & H33                  & 35                     & TX\#0\_D29                        & LA32\_P                    \\ \hline
-%		O            & pixel{[}30{]} & D33                  & 35                     & TX\#0\_D30                        & LA27\_N                    \\ \hline
-%		O            & pixel{[}31{]} & C34                  & 35                     & TX\#0\_D31                        & LA28\_N                    \\ \hline
-%		O            & pixel{[}32{]} & F32                  & 35                     & TX\#0\_D32                        & LA29\_N                    \\ \hline
-%		O            & pixel{[}33{]} & F37                  & 35                     & TX\#0\_D33                        & LA30\_N                    \\ \hline
-%		O            & pixel{[}34{]} & F35                  & 35                     & TX\#0\_D34                        & LA31\_N                    \\ \hline
-%		O            & pixel{[}35{]} & G33                  & 35                     & TX\#0\_D35                        & LA32\_N                    \\ \hline
-%		O            & sclk\_out          & A34                  & 35                     & TX\#0\_SCLK                       & LA20\_N                    \\ \hline
-%		O            & AP1\_out           & A36                  & 35                     & TX\#0\_AP1                        & LA22\_N                    \\ \hline
-%		O            & AP2\_out           & C39                  & 35                     & TX\#0\_AP2                        & LA23\_N                    \\ \hline
-%		O            & AP3\_out           & B38                  & 35                     & TX\#0\_AP3                        & LA24\_N                    \\ \hline
-%		O            & AP4\_out           & D32                  & 35                     & TX\#0\_AP4                        & LA25\_N                    \\ \hline
-%		O            & lrclk\_out         & B33                  & 35                     & TX\#0\_AP5                        & LA26\_N                    \\ \hline
-%		O            & info\_out{[}0{]}   & K32                  & 34                     &\begin{tabular}[c]{@{}c@{}}TX\#0\_output \\ video status{[}0{]}\end{tabular} & LA00\_N\_CC                \\ \hline
-%		O            & info\_out{[}1{]}   & L32                  & 34                     & \begin{tabular}[c]{@{}c@{}}TX\#0\_output \\ video status{[}1{]}\end{tabular} & LA01\_N\_CC                \\ \hline
-%
-%	\caption{Localização das portas de entrada e saída da arquitura de transmissão de imagem e som entre as placas HDMI transmissora e recetora}
-%	\label{table:LOCplanC_detail}
-%\end{longtable}
+Nesta secção são apresentadas todas as portas de entrada e saída da arquitetura que permite a transmissão de imagem e som entre dispositivos HDMI. Na tabela \ref{table:LOCplanB_detail} são apresentadas algumas portas de entrada desta arquitetura que correspondem aos bits do sinal de píxel entre e 0 e 29, o seu sinal de relógio e ainda os sinais de controlo referentes à imagem. As restantes portas de entrada desta arquitetura são apresentadas na tabela \ref{table:LOCplanC_detail} que correspondem essencialmente aos bits do sinal de pixel entre 30 e 35, os sinais relativos ao som (\textit{sclk}, \textit{lrclk} e dados de som) e ainda os dois bits relativos à informação do vídeo que é transmitido.
+
+Algumas das saídas desta mesma arquitetura são apresentadas nas tabelas \ref{table:locPlanAdetail} que correspondem aos bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e ainda os sinais de controlo da imagem (\textit{vsync}, \textit{hsync} e \textit{enable}). Os restantes sinais de saída da arquitetura que se conectam à placa HDMI transmissora são apresentados na tabela \ref{table:LOCplanC_detail} e correspondem aos bits do sinal de píxel entre 30 e 35, os sinais referentes ao som e ainda os dois bits relativos à informação do vídeo transmitido.
+
+Todas as tabelas aqui mencionadas apresentam as localizações físicas na FPGA de cada porta, o banco de entradas/saídas a que pertencem e ainda os nomes correspondentes de cada sinal nas placas HDMI (tanto transmissora como recetora).
+
+
+\begin{longtable}[h!]
+	{rllll}
+		\hline
+		\centering
+		\textbf{}                             & \multicolumn{1}{c}{\textbf{Sinal}} & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Nome na \\ placa HDMI\end{tabular}}} \\ \hline \endhead
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}30{]}                 & AJ31                                     & 14                                         & RX\#0\_P30                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}31{]}                 & AJ35                                     & 14                                         & RX\#0\_P31                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}32{]}                 & AN34                                     & 14                                         & RX\#0\_P32                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}33{]}                 & AM32                                     & 14                                         & RX\#0\_P33                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}34{]}                 & AN33                                     & 14                                         & RX\#0\_P34                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}35{]}                 & AL30                                     & 14                                         & RX\#0\_P35                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & sclk\_in                           & AJ37                                     & 14                                         & RX\#0\_SCLK                                                                                \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & lrclk\_in                          & AL35                                     & 14                                         & RX\#0\_AP5                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & AP1\_in                            & AL37                                     & 14                                         & RX\#0\_AP1                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & AP2\_in                            & AP35                                     & 14                                         & RX\#0\_AP2                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & AP3\_in                            & AM37                                     & 14                                         & RX\#0\_AP3                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & AP4\_in                            & AH33                                     & 14                                         & RX\#0\_AP4                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & info\_in {[}0{]}                   & AV38                                     & 15                                         & \begin{tabular}[c]{@{}l@{}}RX\#0\_Input\\   video status{[}0{]}\end{tabular}               \\
+		\multicolumn{1}{r|}{\textbf{Entrada}} & info\_in {[}1{]}                   & AV39                                     & 15                                         & \begin{tabular}[c]{@{}l@{}}RX\#0\_Input\\  video status{[}1{]}\end{tabular}                \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}30{]}                     & D33                                      & 35                                         & TX\#0\_D30                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}31{]}                     & C34                                      & 35                                         & TX\#0\_D31                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}32{]}                     & F32                                      & 35                                         & TX\#0\_D32                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}33{]}                     & F37                                      & 35                                         & TX\#0\_D33                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}34{]}                     & F35                                      & 35                                         & TX\#0\_D34                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}35{]}                     & G33                                      & 35                                         & TX\#0\_D35                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & sclk\_out                          & A34                                      & 35                                         & TX\#0\_SCLK                                                                                \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & lrclk\_out                         & B33                                      & 35                                         & TX\#0\_AP5                                                                                 \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & AP1\_out                           & A36                                      & 35                                         & TX\#0\_AP1                                                                                \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & AP2\_out                           & C39                                      & 35                                         & TX\#0\_AP2                                                                                \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & AP3\_out                           & 	B38                                      & 35                                         & TX\#0\_AP3                                                                                \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & AP4\_out                           & D32                                      & 35                                         & TX\#0\_AP4                                                                                \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & info\_out {[}0{]}                  & K32                                      & 34                                         & \begin{tabular}[c]{@{}l@{}}TX\#0\_output\\   video status{[}0{]}\end{tabular}              \\
+		\multicolumn{1}{r|}{\textbf{Saída}}   & info\_out {[}1{]}                  & L32                                      & 34                                         & \begin{tabular}[c]{@{}l@{}}TX\#0\_output\\   video status{[}1{]}\end{tabular}              \\ \hline
+
+	\captionsetup{width=0.85\linewidth}
+	\caption{Localização de algumas portas de entrada e saída da arquitetura de transmissão de imagem e som entre as placas HDMI transmissora e recetora}
+	\label{table:LOCplanC_detail}
+\end{longtable}
+

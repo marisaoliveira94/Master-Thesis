@@ -6,8 +6,6 @@ A level-1 auxiliary file: abbrevs.aux
 A level-1 auxiliary file: chapter1.aux
 A level-1 auxiliary file: chapter2.aux
 A level-1 auxiliary file: chapter3.aux
-A level-1 auxiliary file: chapter4.aux
-A level-1 auxiliary file: chapter5.aux
 The style file: ieeetr.bst
 A level-1 auxiliary file: appendix1.aux
 A level-1 auxiliary file: appendix4.aux
@@ -35,5 +33,4 @@ Warning--empty publisher in R038
 Warning--empty year in R038
 Warning--empty publisher in R014
 Warning--empty publisher in R013
-Warning--empty journal in R031
-(There were 22 warnings)
+(There were 21 warnings)

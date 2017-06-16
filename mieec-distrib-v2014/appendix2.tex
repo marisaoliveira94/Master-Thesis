@@ -70,7 +70,7 @@ set\_property PACKAGE\_PIN F34 [get\_ports {pixel[28]}]
 
 set\_property PACKAGE\_PIN H33 [get\_ports {pixel[29]}]
 
-set\_property IOSTANDARD LVCMOS18 [get\_ports clk\_out]
+set\_property IOSTANDARD LVCMOS18 [get\_ports clk\_px]
 
 set\_property IOSTANDARD LVCMOS18 [get\_ports enable]
 
@@ -304,10 +304,131 @@ set\_property IOSTANDARD DIFF\_HSTL\_II\_18 [get\_ports clk\_n]
 	create\_clock -period 5.000 [get\_ports clk\_p]}
 
 \section{Restrições Físicas relativas às portas de entrada e saída exclusivas da arquitetura que transmite imagem e som entre dispositivos HDMI}\label{ap:fisicas_planC_especificas}
+%outras
+
+set\_property PACKAGE\_PIN E19 [get\_ports clock\_p]
+
+set\_property PACKAGE\_PIN N41 [get\_ports reset]
+
+set\_property PACKAGE\_PIN E42 [get\_ports POWER]
+
+set\_property PACKAGE\_PIN G41 [get\_ports MUTE]
+
+set\_property IOSTANDARD DIFF\_HSTL\_II\_18 [get\_ports clock\_p]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports reset]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports POWER]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports MUTE]
+
+%%Entrada
+set\_property PACKAGE\_PIN AJ31 [get\_ports {pixel\_in[30]}]
+
+set\_property PACKAGE\_PIN AJ35 [get\_ports {pixel\_in[31]}]
+
+set\_property PACKAGE\_PIN AN34 [get\_ports {pixel\_in[32]}]
+
+set\_property PACKAGE\_PIN AM32 [get\_ports {pixel\_in[33]}]
+
+set\_property PACKAGE\_PIN AN33 [get\_ports {pixel\_in[34]}]
+
+set\_property PACKAGE\_PIN AL30 [get\_ports {pixel\_in[35]}]
+
+set\_property PACKAGE\_PIN AV38 [get\_ports {info\_in[0]}]
+
+set\_property PACKAGE\_PIN AV39 [get\_ports {info\_in[1]}]
+
+set\_property PACKAGE\_PIN AL37 [get\_ports AP1\_in]
+
+set\_property PACKAGE\_PIN AP35 [get\_ports AP2\_in]
+
+set\_property PACKAGE\_PIN AM37 [get\_ports AP3\_in]
+
+set\_property PACKAGE\_PIN AH33 [get\_ports AP4\_in]
+
+set\_property PACKAGE\_PIN AL35 [get\_ports lrclk\_in]
+
+set\_property PACKAGE\_PIN AJ37 [get\_ports sclk\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[30]}]
+
+...
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel\_in[35]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {info\_in[0]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {info\_in[1]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP1\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP2\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP3\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP4\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports lrclk\_in]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports sclk\_in]
+
+
+%%Saída
+set\_property PACKAGE\_PIN D33 [get\_ports {pixel[30]}]
+
+set\_property PACKAGE\_PIN C34 [get\_ports {pixel[31]}]
+
+set\_property PACKAGE\_PIN F32 [get\_ports {pixel[32]}]
+
+set\_property PACKAGE\_PIN F37 [get\_ports {pixel[33]}]
+
+set\_property PACKAGE\_PIN F35 [get\_ports {pixel[34]}]
+
+set\_property PACKAGE\_PIN G33 [get\_ports {pixel[35]}]
+
+set\_property PACKAGE\_PIN L32 [get\_ports {info\_out[1]}] %ok
+
+set\_property PACKAGE\_PIN K32 [get\_ports {info\_out[0]}] %ok
+
+set\_property PACKAGE\_PIN A36 [get\_ports AP1\_out] %A36
+
+set\_property PACKAGE\_PIN C39 [get\_ports AP2\_out] %c39
+
+set\_property PACKAGE\_PIN B38 [get\_ports AP3\_out] %ok
+
+set\_property PACKAGE\_PIN D32 [get\_ports AP4\_out] %ok
+
+set\_property PACKAGE\_PIN B33 [get\_ports lrclk\_out] %ok
+
+set\_property PACKAGE\_PIN A34 [get\_ports sclk\_out] %ok
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[30]}]
+
+...
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports {pixel[35]}]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP1\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP2\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP3\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports AP4\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports lrclk\_out]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports sclk\_out]
+
+
 
 \section{Restrições Temporais relativas à arquitetura que transmite imagem e som entre dispositivos HDMI} \label{ap:temporais_planC}
-	
+\small{
+	create\_clock -period 5.000 [get\_ports clk\_n]
 
+	create\_clock -period 5.000 [get\_ports clk\_p]	
+}
 
 
 
