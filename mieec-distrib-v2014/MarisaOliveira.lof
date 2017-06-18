@@ -35,8 +35,9 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI\relax }}{49}{figure.caption.58}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{50}{figure.caption.59}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitetura do transmissor GTX, retirada de \cite {R011}\relax }}{56}{figure.caption.60}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Arquitetura do recetor GTX, retirada de \cite {R011}\relax }}{56}{figure.caption.61}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitetura do transmissor GTX, retirada de \cite {R011}\relax }}{54}{figure.caption.60}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Exemplo simplificado de transmiss\IeC {\~a}o com diferentes usos de \textit {datapath}\relax }}{56}{figure.caption.63}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Arquitetura do recetor GTX, retirada de \cite {R011}\relax }}{57}{figure.caption.64}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

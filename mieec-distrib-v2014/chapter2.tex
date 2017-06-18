@@ -444,7 +444,7 @@ Ao mesmo tempo, este tipo de dispositivos são normalmente um subsistema de um s
 Outro requisito crítico na implementação deste tipo de arquiteturas é também a adaptação das impedâncias características do \textit{buffer} (de transmissão e receção) com a impedância característica da linha onde é transmitido o sinal. Isto porque, caso estas não estejam adaptadas ocorrerão reflexões no lado do transmissor ou do recetor (consoante a desadaptação) que não permitem a transmissão da potência total do sinal. No entanto, este requisito requer um grande consumo de potência, pois na prática os canais de transmissão têm uma impedância muito baixa. 
 
 
-\subsubsection*{Codificação dos sinais e sua importância}
+\subsubsection*{Codificação dos sinais e sua importância} \label{subsub:cod_impor}
 
 O bloco de codificação de sinais insere-se nesta arquitetura do transmissor devido à sua importância relativamente à recuperação dos dados do lado do recetor. Estes blocos modificam os sinais para um formato que permite ao recetor recuperar os sinais de relógio mais facilmente garantindo que existe um número suficiente de transições entre zero e um. Segundo \cite{R032}, este bloco para além de fazer o que já foi descrito garante que existe um balanço entre zeros e uns na linha de transmissão (\textit{Direct Current Balance} - DC \textit{Balance}) e opcionalmente podem também implementar mecanismos de correção de sinal de relógio, sincronização de blocos e enventuais sinalização de canais (quando é usado mais do que um canal físico na transmissão).
 

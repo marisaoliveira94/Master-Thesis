@@ -101,6 +101,10 @@ Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio
 \bibitem{R027}
 {Philips Semiconductors}, ``{I 2 S bus specification},'' 1996.
 
+\bibitem{R022}
+Xilinx, {\em {7 series FPGAs Transceivers Wizard v3.5}}.
+\newblock 2015.
+
 \bibitem{R013}
 Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support}}.
 \newblock 2015.
