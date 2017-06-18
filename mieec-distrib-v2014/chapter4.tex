@@ -12,7 +12,7 @@ Na figura \ref{fig:gtx_tx_arq} da página \pageref{fig:gtx_tx_arq} visualiza-se 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=1.0\textwidth]{tx_gtx_arq}
+		\includegraphics[width=0.75\textwidth]{tx_gtx_arq}
 		\caption{Arquitetura do transmissor GTX, retirada de \cite{R011}}
 		\label{fig:gtx_tx_arq}
 	\end{center}
@@ -112,50 +112,142 @@ Este bloco permite que os sinais em paralelo sejam codificados de 8 bits para 10
 
 As características deste tipo de codificação, as suas vantagens e importância foram já abordadas na subsecção com o título "Codificação dos sinais e sua importância" em \ref{subsub:cod_impor} no capítulo \ref{chap:chap2}.
 
-\subsection{Gerador de padrões pseudo-aleatórios}
+%\subsection{Gerador de padrões pseudo-aleatórios}
+%
+%A geração de sequência pseudo-aleatórias é bastante utilizada em sistemas de telecomunicações para testar a integridade do sinal de ligações de grande velocidade, segundo \cite{R011}. Apesar de estas mesmas sequências parecerem aleatórias à primeira vista, na realidade apresentam determinadas características que são utilizadas para medir a qualidade da ligação. Este bloco do transmissor é responsável por esta ação. 
 
-A geração de sequência pseudoaleatórias é bastante utilizada em sistemas de telecomunicações para testar a integridade do sinal de ligações de grande velocidade, segundo \cite{R011}. Apesar de estas mesmas sequências parecerem aleatórias à primeira vista, na realidade apresentam determinadas características que são utilizadas para medir a qualidade da ligação. Este bloco do transmissor é responsável por esta ação. 
+\subsection{Interface entre os diferentes domínios de relógio do transmissor}
 
-\subsection{\textit{Driver} do Transmissor}
+Já foi referido anteriormente que para o correto funcionamento do transmissor GTX opera com pelo menos dois sinais de relógio diferentes : TXUSRCLK and TXUSRCLK2. O segundo é o sinal de relógio de sincronização principal entre os dados provenientes da FPGA e o transmissor, e o primeiro é o sinal de relógio utilizado para a lógica do bloco PMA.
 
-\subsection{Interface com a camada física}
-
-\section{Recetor} \label{sec_rx_gtx}
+Contudo, o bloco PMA utiliza dois sinais de relógio internamente para o seu correto funcionamento: TXUSRCLK (como já foi mencionado) e ainda XCLK. Ambos os sinais trabalham para os dados em paralelo. Na figura \ref{fig:clk_domains_tx} ilustra os diferentes domínios de relógio presentes no transmissor GTX.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=1.0\textwidth]{rx_gtx_arq}
+		\includegraphics[width=0.75\textwidth]{clk_domain_cross_gtx_tx}
+		\caption{Diferentes domínios de relógio do transmissor, retirada de \cite{R011}}
+		\label{fig:clk_domains_tx}
+	\end{center}
+\end{figure}
+
+Quando os dados se cruzam entre os domínios TXUSRCLK e XCLK é necessário que para além de terem a mesma frequência, todos os as diferenças de fase que possam existir estejam resolvidas, e por isso existem dois blocos responsáveis por tal que apresentam os seus prós e contras: \textit{buffer} ou bloco de alinhamento de fase. Independentemente da escolha de um ou de outro, a utilização de um deles é obrigatória e torna-se importante conhecer as suas vantagens e desvantagens, pois tal escolha afeta o funcionamento global do sistema, segundo \cite{R011}.
+
+Por um lado, a utilização de um \textit{buffer} é mais fácil e ainda assim é robusta, por outro o bloco de alinhamento de fase exige a utilização de mais lógica e restrições de sinais de relógio adicionais. Quando a latência se torna um ponto importante do sistema, então a utilização do \textit{buffer} deve ser posta de lado, visto que o bloco de alinhamento de fase utiliza menos registos obtendo assim uma latência menor. Por outro lado, quando se utilizam várias transmissões em transcetores diferentes à mesma velocidade, o bloco de alinhamento de fase tem a vantagem de diminuir o atraso entre as mesmas. No entanto, isto é apenas uma curiosidade visto que tal não é utilizado no projeto.
+
+\subsection{Interface com a camada física} 
+Após a serialização dos dados no bloco PISO da figura \ref{fig:gtx_tx_arq} da página \pageref{fig:gtx_tx_arq} os sinais são transmitidos para a camada física através de um \textit{driver} reconfigurável. Esta interface dispões de várias características que permitem manter a integridade do sinal, que passam de seguida a ser brevemente apresentadas:
+\begin{itemize}
+	\item \textbf{Sinalização Diferencial:} para diminuir eventuais interferências no sinal durante a sua transmissão no cabo físico, tal como mencionado na subsecção com o título "Sinalização Física" em \ref{subsub:sinalizacao_fisica} no capítulo \ref{chap:chap2}.
+	\item \textbf{Pré-ênfase:} para de certa maneira preparar o sinal transmitido para um canal ruidoso, tal como referido na subsecção com o título "Interfaces com a camada física" em \ref{subsub:pre_enfase_equalizacao} no capítulo \ref{chap:chap2}.
+	\item \textbf{Resistências de interface com o cabo calibráveis:} para que a impedância característica da linha esteja adaptada com a interface, evitando assim eventuais reflexões dos sinais, tal como mencionado em na subsecção com o título "Restrições na utilização de circuitos de serializadores e deserializadores" em \ref{subsub:restricoes_circuitos} do capítulo \ref{chap:chap2}.
+\end{itemize}
+
+
+\section{Recetor} \label{sec_rx_gtx}
+Na figura \ref{fig:gtx_rx_arq} na página \pageref{fig:gtx_rx_arq} é possível visualizar a arquitetura do recetor GTX. Este inclui diversos blocos que permitem a correta recuperação do sinal, sendo que o funcionamento dos principais já foram mencionados na subsecção \ref{serial_theory} do capítulo \ref{chap:chap2}, contudo passarão de seguida a ser brevemente descritos nas próximas subsecções. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.9\textwidth]{rx_gtx_arq}
 		\caption{Arquitetura do recetor GTX, retirada de \cite{R011}}
 		\label{fig:gtx_rx_arq}
 	\end{center}
-\end{figure}	
-
-\subsection{Analog Front-End}	
+\end{figure}
 	
+
+\subsection{Interface com a camada física}
+
+A interface o cabo físico do recetor possui duas características que se tornam importantes para a recuperação do sinal:
+\begin{itemize}
+	\item \textbf{Tensão de terminação configurável:} Esta característica é importante quando a referência do sinal diferencial é variável do lado do transmissor, o que permite recuperar bem diferencial do lado do transmissor.
+	\item \textbf{Resistências de interface com o cabo configuráveis:} tal como acontecia do lado do transmissor, esta característica torna-se importante para que a linha de transmissão esteja adaptada ao recetor, evitando assim eventuais reflexões do sinal para a sua correta recuperação.
+
+
+\end{itemize}
+
+
 \subsection{Equalização}
 
-\subsection{CDR}
+Na subsecção com o nome de "Interfaces com a camada física" em \ref{subsub:pre_enfase_equalizacao} do capítulo \ref{chap:chap2} foi abordada a importância da utilização de filtros equalizadores para tentar compensar a atenuação e distorção que sinal sofre durante a sua transmissão no canal físico. O recetor GTX disponibiliza dois tipos de equalizadores adaptativos que devem ser escolhidos consoante as necessidades de consumo de potência do circuito \textit{versus} perdas do canal físico de transmissão.
 
-\subsection{Pattern Checker}
+Segundo \cite{R011}, para canais cujas perdas não são muito significativas e o consumo de potência torna-se uma característica crítica do circuito existe um filtro adaptativo otimizado para tal com o nome de LPM (\textit{Low-power mode}). Ainda segundo esta fonte o uso deste tipo de equalizador é recomendado para aplicações com débitos até 11,2 Gb/S de curto alcance, e com perdas por canal até 12 dB à frequência de \textit{Nyquist}.
 
-\subsection{Byte and Word Alignament}
 
-\subsection{Elastic Buffer}
+Para canais cujas perdas tornam-se significativas existe disponível um filtro adaptativo com o nome de\textit{ Decision Feedback Equalizer} (DFE). Este é um filtro que utiliza a realimentação de símbolos detetados para produzir uma estimação da saída do canal. Segundo \cite{R011}, este equalizador é utilizado para ligações de média distância cujas perdas do canal rondam os 8 dB ou mais à frequência de \textit{Nyquist}. Contudo é necessário ter em conta as vantagens e desvantagens da utilização deste tipo de filtros no recetor que passam de seguida a ser descritas:
 
-\subsection{Clock Correction}
+\textbf{Vantagens da utilização deste tipo de equalizador:}
+\begin{itemize}
+	\item Efetua a equalização sem amplificação do ruído ou eventuais interferências.
+	\item Pode também fazer correções de reflexões causadas pelas descontinuidades do canal. 
+	\item É vantajosa a sua utilização quando as interferências são preocupantes.
+\end{itemize}
 
-\subsection{Interface com a FPGA}
+\textbf{Cuidados a ter na utilização deste tipo de equalizador:}
+\begin{itemize}
+	\item Este tipo de equalização deve ser cuidadosa quando não existe codificação de dados, uma vez que pode levar à não equalização ideal do sinal recebido (pois o filtro pode não se auto adaptar aos dados recebidos).
+\end{itemize}
+
+Conhecendo agora os prós e contras dos dois equalizadores disponíveis no recetor GTX conclui-se que numa fase inicial do projeto em que nao se pretende usar codificação, e uma ligação curta não faz sentido usar um equalizador DFE, mas sim um equalizador LPM. Todavia, numa fase mais avançada do projeto, que envolva codificação e também a inserção dos sinais em ligações longas e/ou ruidosas, faz mais sentido usar um filtro DFE adaptado para tal. 
+\subsection{CDR - \textit{Clock And Data Recovery}}
+
+No recetor GTX, existe um bloco responsável por uma característica muito importante de um transcetor: recuperação de sinal de relógio e dados. Segundo \cite{R011}, esse circuito faz a recuperação do relógio e dos dados através do \textit{stream} de dados que recebe. A figura \ref{fig:cdr_arq} da página \pageref{fig:cdr_arq} ilustra esse mesmo bloco.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{cdr_arq_vet}
+		\caption{Arquitetura do circuito de recuperação de sinal de relógio e dados, retirada de \cite{R011}}
+		\label{fig:cdr_arq}
+	\end{center}
+\end{figure}
+
+Os dados recebidos passam pelo equalizador e de seguida são capturados por um “\textit{data sampler}” e um “\textit{edge sampler}”. O “\textit{edge sampler}” captura a fase do sinal recebido em série quando este está na sua região de transição, enquanto que o “\textit{data sampler}” captura a fase do mesmo sinal a meio do olho dos dados, tal como ilustra a figura \ref{fig:exmple_cdr} da página \pageref{fig:exmple_cdr}.  Estas duas fases são de seguida enviadas para a máquina de estados do CDR para que esta consiga determinar a fase dos sinais que chegam e ao mesmo tempo controlar os interpoladores de fase (PIs). 
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.5\textwidth]{exemplo_cdr}
+		\captionsetup{width=0.5\linewidth}
+		\caption{Exemplo das amostras de fase retiradas do circuito, retirada de \cite{R011}}
+		\label{fig:exmple_cdr}
+	\end{center}
+\end{figure}
+
+Na figura \ref{fig:exmple_cdr} E0, E1 e E2 correspondem ás amostras retiradas pelo "\textit{edge sampler}" e D0 e D1 às amostras retiradas pelo "\textit{data sampler}".
+A tracejado na figura \ref{fig:cdr_arq} visualiza-se o sinal de relógio recuperado com o nome de "\textit{Recovered Clock}" e os dados recuperados em série saem no sinal "\textit{RXDATA}".
+
+
+\subsection{Alinhamento de Palavras}
+
+O bloco de alinhamento de palavras é feito antes da deserialização dos sinais, isto porque é necessário definir os limites das palavras antes destes serem convertidos para dados em paralelo. O método de alinhamento de palavras, os caracteres especiais existentes para aplicação neste método e ainda a sua importância foram já abordados na subsecção com o título "Alinhamento da transmissão" em \ref{subsub:alinhamento} no capítulo \ref{chap:chap2}.
+
+Nesta subsecção serão abordadas as características que este bloco do recetor possui e ainda como se pode tirar partido das mesmas aquando a sua utilização. O bloco possibilita a escolha da palavra de alinhamento, pode ser uma utilizada em protocolos bastantes conhecidos, já como referido anteriormente e até pode mesmo ser a combinação de duas palavras com uma determinada máscara. Contudo, por uma questão de simplificação, o projeto utiliza apenas uma palavra de alinhamento bem conhecida que será definida quando for apresentado desenvolvimento do mesmo.
+
+Apesar de existirem \textit{flags} disponibilizadas pelo bloco de alinhamento que indicam o estado do mesmo, o autor de \cite{R011} alerta que para uma linha de transmissão cuja taxa de débito seja superior a 5 Gb/s, o bloco pode alinhar a palavra falsamente e por isso ativar a \textit{flag} que indica que a palavra está alinhada mesmo que não estando. Isto implica que seja desenvolvido e aplicado um sistema que verifique se a palavra se encontra alinhada ou não.
+
+%%Alinhamento Manual
+Este bloco possibilita ainda um alinhamento manual das palavras movendo os dados em paralelo m
+
+%\subsection{Elastic Buffer}
+%
+%\subsection{Clock Correction}
+%
+%\subsection{Interface com a FPGA}
 	
-\section{Estrutura dos pacotes}
+%\section{Estrutura dos pacotes}
+%
+%\section{Velocidades de transmissão possiveis de alcançar no projeto}
+%
+%\section{Arquitetura para formar tramas}
+%
+%\section{Estrutura do GTX}
+%
+%\section{Arquitetura para recuperar as tramas}
 
-\section{Velocidades de transmissão possiveis de alcançar no projeto}
 
-\section{Arquitetura para formar tramas}
-
-\section{Estr}
-
-\section{Arquitetura para recuperar as tramas}
 	
 	
 	

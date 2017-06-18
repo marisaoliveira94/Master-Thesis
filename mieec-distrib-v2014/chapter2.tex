@@ -435,7 +435,7 @@ Esta arquitetura aqui apresentada acaba por apresentar os blocos essenciais para
 %\subsubsection*{Considerações na implementação deste tipo de arquitetura}
 %Em \cite{R012} são apontados os principais desafios na implementação deste tipo de arquitetura que passarão a ser descritos brevemente e que têm de ter sidos em conta aquando a sua implementação.
 
-\subsubsection*{Restrições na utilização de circuitos de serializadores e deserializadores}
+\subsubsection*{Restrições na utilização de circuitos de serializadores e deserializadores} \label{subsub:restricoes_circuitos}
 	
 Quando se passa para a implementação de serializadores e deserializadores é necessário ter em conta algumas considerações relativamente aos circuitos utilizados. E segundo \cite{R012}, logo à partida existem grandes restrições no que toca aos circuitos utilizados nestes tipos de arquiteturas. Isto porque os sinais recebidos em paralelo são sinais digitais, contudo, quando estes sinais passam pelo canal de transmissão sofrem distorções e também lhes é adicionado ruído, o que leva a que o sinal recebido do lado do recetor seja um sinal analógico e que necessite de ser tratado como tal. A sua recuperação tem de ser então baseada na regeneração correta do sinal de relógio e também na amostragem apropriada. 
 	
@@ -486,8 +486,8 @@ Outra vantagens da utilização deste tipo de codificação tem a ver com a dete
 \end{table}
 
 Na tabela \ref{table:exemple_trans} da página \pageref{table:exemple_trans} são apresentadas 3 palavras de 8 bits codificadas nas suas duas possibilidades. A palavra apresentada na 1ª linha, EA em hexadecimal, na sua codificação negativa apresenta 6 uns e 4 zeros, contudo na sua forma positiva apresenta 4 uns e 6 zeros. O mesmo acontece com a palavra apresentada na última linha. No entanto a palavra representada na 2ª linha apresenta o mesmo número de zeros e uns em ambos os formatos. Se hipoteticamente fosse necessário transmitir estas palavras seguidas, o codificador teria em atenção o balanço entre zeros e uns na linha de transmissão aquando a transmissão da palavra EA e A4 para que o mesmo fosse garantido.
-
-\subsubsection*{Alinhamento da transmissão}
+ 
+\subsubsection*{Alinhamento da transmissão} \label{subsub:alinhamento}
 Uma função importante do deserializador, segundo o autor de \cite{R032} é o alinhamento dos dados que chegam em série. Por outras palavras, é importante que o deserializador reconheça os limites de uma determinada palavra transmitida. Para esse efeito são usados uns caracteres especiais que a codificação 8B/10B disponibiliza. Segundo \cite{R032}, este tipo de codificação dispõe de 12 caracteres que se codificam em 12 caracteres de controlo geralmente conhecidos por por \textit{K-characters}. Estes são geralmente usados para alinhamento e controlo devido às suas particulares características. Esses mesmos caracteres são apresentados na tabela \ref{table:caracteres_especiais_8b10b} da página \pageref{table:caracteres_especiais_8b10b}.
 
 \begin{table}[h!]
@@ -610,7 +610,7 @@ Neste caso em especifico, a cada ciclo de relógio de "\textit{word-cycle}" é l
 Para que estes blocos funcionem é necessário que exista um sinal de relógio de alta frequência (à taxa de débito do canal em série) e um sinal de baixa frequência também (para a os dados em paralelo). O sinal de relógio mais alto é usado para amostrar na saída os dados provenientes do sinal em paralelo e ao mesmo tempo para amostrar os dados recebidos em série. O sinal de frequência mais baixo, é utilizado para colocar na saída os dados que são amostrados do sinal em série. Deste modo, é necessário a utilização de multiplicadores de sinal de relógio e divisores de frequências cujo controlo e funcionamento será explicado mais à frente neste relatório .
 
 
-\subsubsection*{Interfaces com a camada física}
+\subsubsection*{Interfaces com a camada física} \label{subsub:pre_enfase_equalizacao}
 
 As interfaces com as camadas físicas em ambos os lados da transmissão (recetor e transmissor) incluem circuitos analógicos que permitem transmitir e receber sianais diferenciais. Contudo o sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal. Por isso existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria poderia ser facilmente obtida através da utilização de canais de ligação de melhor qualidade. No entanto esta opção traz custos acrescidos à ligação. 
 
@@ -665,7 +665,7 @@ Segundo \cite{R032}, os equalizadores ativos fixos são melhores para sistemas c
 %Assim sendo, existe um vasto conjunto de opções de equalização que estão diretamente relacionadas com o circuito CDR (\textit{Clock Data Recovery}), sendo que as mais importantes serão referidas mais à frente neste relatório. 
 
 
-\subsubsection*{Sinalização Física}
+\subsubsection*{Sinalização Física} \label{subsub:sinalizacao_fisica}
 %Sinalização Diferencial Vs Sinalização única
 
 
@@ -817,7 +817,7 @@ Tal como referido em \ref{sec:descrição_objetivos} o projeto está dividido em
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{diagrama_dominios}
-			\caption{Representação dos diferentes dominios de sinais de relógio no projeto}
+		\caption{Representação dos diferentes domínios de sinais de relógio no projeto}
 		\label{fig:dominios_diferentes}
 	\end{center}
 \end{figure}

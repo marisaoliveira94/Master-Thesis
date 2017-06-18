@@ -20,7 +20,7 @@
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica na FPGA dos GTX, retirada de \cite {R008}\relax }}{30}{figure.caption.40}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Conectores GTX localizados na FPGA, retirada de \cite {R008}\relax }}{31}{figure.caption.41}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Arquitetura geral dos transcetores, retirada de \cite {R010}\relax }}{31}{figure.caption.42}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o dos diferentes dominios de sinais de rel\IeC {\'o}gio no projeto\relax }}{33}{figure.caption.43}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o dos diferentes dom\IeC {\'\i }nios de sinais de rel\IeC {\'o}gio no projeto\relax }}{33}{figure.caption.43}
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Exemplo de metaestabilidade, adaptado de \cite {R037}\relax }}{34}{figure.caption.44}
 \contentsline {figure}{\numberline {2.19}{\ignorespaces Exemplo de metaestabilidade, retirado de \cite {R037}\relax }}{34}{figure.caption.45}
 \addvspace {10\p@ }
@@ -37,7 +37,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitetura do transmissor GTX, retirada de \cite {R011}\relax }}{54}{figure.caption.60}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Exemplo simplificado de transmiss\IeC {\~a}o com diferentes usos de \textit {datapath}\relax }}{56}{figure.caption.63}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Arquitetura do recetor GTX, retirada de \cite {R011}\relax }}{57}{figure.caption.64}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Diferentes dom\IeC {\'\i }nios de rel\IeC {\'o}gio do transmissor, retirada de \cite {R011}\relax }}{57}{figure.caption.64}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Arquitetura do recetor GTX, retirada de \cite {R011}\relax }}{58}{figure.caption.65}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Arquitetura do circuito de recupera\IeC {\c c}\IeC {\~a}o de sinal de rel\IeC {\'o}gio e dados, retirada de \cite {R011}\relax }}{60}{figure.caption.66}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo das amostras de fase retiradas do circuito, retirada de \cite {R011}\relax }}{60}{figure.caption.67}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
