@@ -1,4 +1,4 @@
-% !TeX spellcheck = pt_BR
+% !TeX spellcheck = <none>
 
 \chapter{Revisão Bibliográfica} \label{chap:chap2}
 
@@ -52,7 +52,7 @@ Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visu
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{fpga_fmc_vet}
-		\caption{Vista Geral da FPGA VC7203 Virtex-7 retirada de \cite{R008}}
+		\caption[Vista Geral da FPGA VC7203 Virtex-7]{Vista Geral da FPGA VC7203 Virtex-7 (retirada de \cite{R008})}
 		\label{fig:fpgaVistaGeral}
 	\end{center}
 \end{figure}
@@ -110,7 +110,7 @@ Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possí
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{diagramaBlocosRX_hdmi}
-		\caption{Diagrama de blocos de TB-FMCH-HDMI2 RX retirado de \cite{R009}}
+		\caption[Diagrama de blocos de TB-FMCH-HDMI2 RX]{Diagrama de blocos de TB-FMCH-HDMI2 RX ()retirado de \cite{R009})}
 		\label{fig:HDMIblocosRX}
 	\end{center}
 \end{figure}
@@ -154,7 +154,7 @@ Após passarem pela FPGA embebida na placa são passados os seguintes sinais pre
 			HA00\_N a HA23\_N    & \textit{Input/Output}          & Não usado              & ---------                     \\ \bottomrule	
 		\end{tabular}}		
 		\centering
-		\caption{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX, adaptada de \cite{R009}}
+		\caption[Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX]{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX (adaptada de \cite{R009})}
 		\label{table:HDMIdataRX}
 	\end{table}
 
@@ -170,7 +170,7 @@ Uma nota importante ainda sobre a passagem dos sinais através dos conectores FM
 	\begin{center}
 		\leavevmode
 		\includegraphics{amostragem_RX_vet}
-		\caption{Amostragem dos dados provenientes da FPGA no recetor, retirada de \cite{R009}}
+		\caption[Amostragem dos dados provenientes da FPGA no recetor]{Amostragem dos dados provenientes da FPGA no recetor (retirada de \cite{R009})}
 		\label{fig:HDMIamostragemRX}
 	\end{center}
 \end{figure}
@@ -184,7 +184,7 @@ O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIbl
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{diagramaBlocosTX_HDMI}
-		\caption{Diagrama de blocos de TB-FMCH-HDMI2 TX retirado de \cite{R009}}
+		\caption[Diagrama de blocos de TB-FMCH-HDMI2 TX]{Diagrama de blocos de TB-FMCH-HDMI2 TX (retirado de \cite{R009})}
 		\label{fig:HDMIblocosTX}
 	\end{center}
 \end{figure}
@@ -197,7 +197,7 @@ No caso do transmissor o processo é feito no sentido inverso, ou seja, os sinai
 	\begin{center}
 		\leavevmode
 		\includegraphics{amostragem_TX_vet}
-		\caption{Amostragem dos dados provenientes do FMC no recetor, retirada de \cite{R009}}
+		\caption[Amostragem dos dados provenientes do FMC no recetor]{Amostragem dos dados provenientes do FMC no recetor (retirada de \cite{R009})}
 		\label{fig:HDMIamostragemTX}
 	\end{center}
 \end{figure}
@@ -234,7 +234,7 @@ Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{tab
 			CLK3\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
 			HA00\_N a HA23\_N    & Input/Output          & Não usado              & ----------                     \\ \bottomrule
 		\end{tabular}}
-			\caption{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX, adaptada de \cite{R009}}
+			\caption[Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX]{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX (adaptada de \cite{R009})}
 			\label{table:HDMIdataTX}
 	\end{table}
 
@@ -373,7 +373,7 @@ Na figura \ref{fig:arquiteturaSER} na página \pageref{fig:arquiteturaSER} é ap
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{ser_des}
-		\caption{Arquitetura simples de um serializador e deserializador, retirada de \cite{R032}}
+		\caption[Arquitetura simples de um serializador e deserializador]{Arquitetura simples de um serializador e deserializador (retirada de \cite{R032})}
 		\label{fig:arquiteturaSER}
 	\end{center}
 \end{figure}
@@ -461,7 +461,7 @@ Ainda segundo o autor de \cite{R032}, um dos esquemas de codificação e descodi
 		00000001                                       & 0111010100                                      \\ \bottomrule
 	\end{tabular}
 	
-	\caption{Exemplo de codificação 8B/10B, retirada de \cite{R032}}
+	\caption[Exemplo de codificação 8B/10B]{Exemplo de codificação 8B/10B (retirada de \cite{R032})}
 	\label{table:cod_8b_10b_ex}
 \end{table}
 
@@ -481,7 +481,7 @@ Outra vantagens da utilização deste tipo de codificação tem a ver com a dete
 		A4                                       & 10100100                                       & 1101011010                                          & 0010101010                                          \\ \bottomrule
 	\end{tabular}
 	}
-	\caption{Exemplo de palavras de 8 bits codificadas em 8B/10B, retirada de \cite{R032}}
+	\caption[Exemplo de palavras de 8 bits codificadas em 8B/10B]{Exemplo de palavras de 8 bits codificadas em 8B/10B (retirada de \cite{R032})}
 	\label{table:exemple_trans}
 \end{table}
 
@@ -510,7 +510,7 @@ Uma função importante do deserializador, segundo o autor de \cite{R032} é o a
 			K30.7                             & FE                                       & 11111110                                       & 0111101000                                          & 1000010111                                          \\ \bottomrule
 		\end{tabular}%
 	}
-	\caption{Caracteres de controlo especificos da codificação 8B/10B, retirada de \cite{R032}}
+	\caption[Caracteres de controlo especificos da codificação 8B/10B]{Caracteres de controlo especificos da codificação 8B/10B (retirada de \cite{R032})}
 	\label{table:caracteres_especiais_8b10b}
 \end{table}
 
@@ -529,7 +529,7 @@ Para conseguir alinhar, o recetor procurar por uma palavra de alinhamento, conhe
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{serial_align_vet}
-		\caption{Ilustração do alinhamento em série quando encontrada a \textit{comma}, retirada de \cite{R011}}
+		\caption[Ilustração do alinhamento em série quando encontrada a \textit{comma}]{Ilustração do alinhamento em série quando encontrada a \textit{comma} (retirada de \cite{R011})}
 		\label{fig:alinhamento_serie}
 	\end{center}
 \end{figure}
@@ -539,7 +539,7 @@ A imagem \ref{fig:alinhamento_serie} da página \pageref{fig:alinhamento_serie} 
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{paralel_align}
-		\caption{Ilustração do alinhamento em paralelo quando encontrada a \textit{comma}, retirada de \cite{R011}}
+		\caption[Ilustração do alinhamento em paralelo quando encontrada a \textit{comma}]{Ilustração do alinhamento em paralelo quando encontrada a \textit{comma} (retirada de \cite{R011})}
 		\label{fig:alinhamento_paralelo}
 	\end{center}
 \end{figure}
@@ -559,7 +559,7 @@ O autor de \cite{R012} propõe 3 tipos de arquiteturas para este tipo de bloco q
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{SIPO_PISO_vet}
-		\caption{Arquiteturas de PISO/SIPO, retirada de \cite{R012}}
+		\caption[Arquiteturas de PISO/SIPO]{Arquiteturas de PISO/SIPO (retirada de \cite{R012})}
 		\label{fig:PISO-SIPO}
 	\end{center}
 \end{figure}
@@ -572,7 +572,7 @@ Em situações em que as taxas de débito são muito elevadas a utilização de 
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.8\textwidth]{PISO}
-		\caption{Arquitetura de um \textit{shift-register} serializador de 4 bits retirado de \cite{R034}}
+		\caption[Arquitetura de um \textit{shift-register} serializador de 4 bits]{Arquitetura de um \textit{shift-register} serializador de 4 bits (retirado de \cite{R034})}
 		\label{fig:piso}
 	\end{center}
 \end{figure}
@@ -583,7 +583,7 @@ O serializador lê os dados os dados em paralelo a um sinal de relógio cuja fre
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.8\textwidth]{SIPO}
-		\caption{Arquitetura de um \textit{shift-register} serializador de 4 bits retirado de \cite{R034}}
+		\caption[Arquitetura de um \textit{shift-register} deserializador de 4 bits]{Arquitetura de um \textit{shift-register} serializador de 4 bits (retirado de \cite{R034})}
 		\label{fig:sipo}
 	\end{center}
 \end{figure}
@@ -595,7 +595,7 @@ No caso do deserializador apresentado na imagem \ref{fig:sipo}, e segundo a font
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.75\textwidth]{exemplo_serializer}
-		\caption{Exemplo de um serializador de 10 bits, retirado de \cite{R033}}
+		\caption[Exemplo de um serializador de 10 bits]{Exemplo de um serializador de 10 bits (retirado de \cite{R033})}
 		\label{fig:exemplo_de_33}
 	\end{center}
 \end{figure}
@@ -623,7 +623,7 @@ Durante a transmissão no canal físico é normal haver o fenómeno de interfer�
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.75\textwidth]{ISI_vet}
-		\caption{Efeito da Interferência Inter-Simbólica numa transmissão, adaptada de \cite{R032}}
+		\caption[Efeito da Interferência Inter-Simbólica numa transmissão]{Efeito da Interferência Inter-Simbólica numa transmissão (adaptada de \cite{R032})}
 		\label{fig:isi}
 	\end{center}
 \end{figure}
@@ -733,7 +733,7 @@ Na figura \ref{fig:loc_gtx} na página \pageref{fig:loc_gtx} é possível visual
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.9\textwidth]{loc_gtx_vet}
-		\caption{Localização física na FPGA dos GTX, retirada de \cite{R008}}
+		\caption[Localização física na FPGA dos GTX]{Localização física na FPGA dos GTX (retirada de \cite{R008})}
 		\label{fig:loc_gtx}
 	\end{center}
 \end{figure}
@@ -746,7 +746,7 @@ Cada GTX é composto por quatro transmissores e quatro recetores. É possivel vi
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.75\textwidth]{gtx_fisico}
-		\caption{Conectores GTX localizados na FPGA, retirada de \cite{R008}}
+		\caption[Conectores GTX localizados na FPGA]{Conectores GTX localizados na FPGA (retirada de \cite{R008})}
 		\label{fig:gtx_fis}
 	\end{center}
 \end{figure}
@@ -757,7 +757,7 @@ Apesar de em cada GTX estarem disponíveis quatro transmissores/recetores, o pro
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{geral_arq_trans}
-		\caption{Arquitetura geral dos transcetores, retirada de \cite{R010}}
+		\caption[Arquitetura geral dos transcetores]{Arquitetura geral dos transcetores (retirada de \cite{R010})}
 		\label{fig:gtx_geral_arq}
 	\end{center}
 \end{figure}
@@ -841,21 +841,21 @@ Quando alguma transição viola o T{\tiny SU} ou T{\tiny H} então a saída não
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{meta_stable}
-		\caption{Exemplo de metaestabilidade, adaptado de \cite{R037}}
+		\caption[Exemplo de metaestabilidade]{Exemplo de metaestabilidade (adaptado de \cite{R037})}
 		\label{fig:metaestabilidade}
 	\end{center}
 \end{figure}
 
 Visto que é possível prever antecipadamente que este tipo de problemas ocorrerão durante o desenvolvimento do projeto, é então necessário levá-los em conta e procurar metódos que os possam resolver.
 
-Segundo \cite{R037} e \cite{R024}, para a correcção de problemas de metaestabilidade são tipicamente usadas cadeias de registos sincronização no domínio de relógio de destino para que o sinal seja re-sincronizado nesse mesmo domínio Isto permitirá que os registos tenham mais tempo para resolver eventuais estados de meta-estabilidade para um valor estável antes do valor ser usado no domínio de destino.  O tempo disponivel entre os caminhos de registo para registo é o tempo disponível para o sinal metaestável estabilizar. A imagem \ref{fig:sincronizacao} da página \pageref{fig:sincronizacao} ilustra uma cadeia de registo de sincronização.
+Segundo \cite{R037} e \cite{R024}, para a correcção de problemas de metaestabilidade são tipicamente usadas cadeias de registos sincronização no domínio de relógio de destino para que o sinal seja re-sincronizado nesse mesmo domínio Isto permitirá que os registos tenham mais tempo para resolver eventuais estados de meta-estabilidade para um valor estável antes do valor ser usado no domínio de destino.  O tempo disponivel entre os caminhos de registo para registo é o tempo disponível para o sinal metaestável estabilizar. A imagem \ref{fig:sincronizacao} da página \pageref{fig:sincronizacao} ilustra uma cadeia de registos de sincronização.
 
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.8\textwidth]{sincronizacao_vet}
-		\caption{Exemplo de metaestabilidade, retirado de \cite{R037}}
+		\caption[Exemplo de cadeia de registos de sincronização]{Exemplo de cadeia de registos de sincronização (retirado de \cite{R037})}
 		\label{fig:sincronizacao}
 	\end{center}
 \end{figure}

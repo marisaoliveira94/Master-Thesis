@@ -1,3 +1,4 @@
+
 \chapter{Transmissão dos dados em série}\label{chap:chap4}
 
 Este capítulo aborda o trabalho realizado na segunda parte do projeto, tal como definido em ~\ref{sec:descrição_objetivos}. Esta parte do projeto consiste em transmitir em paralelo para o transmissor GTX existente na FPGA VC7203 que ,através da sua arquitetura, serializa os dados e envia-os através de um cabo físico. Esse mesmo cabo conectado ao recetor GTX irá deserializar para que sejam convertidos novamente para dados em paralelo.
@@ -13,7 +14,7 @@ Na figura \ref{fig:gtx_tx_arq} da página \pageref{fig:gtx_tx_arq} visualiza-se 
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{tx_gtx_arq}
-		\caption{Arquitetura do transmissor GTX, retirada de \cite{R011}}
+		\caption[Arquitetura do transmissor GTX]{Arquitetura do transmissor GTX (retirada de \cite{R011})}
 		\label{fig:gtx_tx_arq}
 	\end{center}
 \end{figure}
@@ -48,7 +49,7 @@ Para se perceber melhor como o tamanho da porta desta interface pode variar é a
 			\multicolumn{1}{r|}{Não}                        & 1 (4 byte)                                       & 40                                           & 80                                                \\ \hline
 		\end{tabular}%
 	}
-	\caption{Tamanhos possíveis para a interface da FPGA com o GTX transmissor, adaptada de \cite{R011}}
+	\caption[Tamanhos possíveis para a interface da FPGA com o GTX transmissor]{Tamanhos possíveis para a interface da FPGA com o GTX transmissor (adaptada de \cite{R011})}
 	\label{table:tx_interface}
 \end{table}
 
@@ -73,7 +74,7 @@ Por um lado, o sinal de relógio \textit{TXUSRCLK2} é o principal sinal de sinc
 			64, 80 (bits)                                     & 1 (4 byte)                                       & $F_{TXUSRCLK} = F_{TXUSRCLK2} * 2$                                  \\ \hline
 		\end{tabular}%
 	}
-	\caption{Relação entre as frequências dos sinais de relógio \textit{TXUSRCLK2} e \textit{TXUSRCLK}, adaptada de \cite{R011}}
+	\caption[Relação entre as frequências dos sinais de relógio \textit{TXUSRCLK2} e \textit{TXUSRCLK}]{Relação entre as frequências dos sinais de relógio \textit{TXUSRCLK2} e \textit{TXUSRCLK} (adaptada de \cite{R011})}
 	\label{table:freq_tx}
 \end{table}
 
@@ -191,34 +192,35 @@ Para canais cujas perdas tornam-se significativas existe disponível um filtro a
 \end{itemize}
 
 Conhecendo agora os prós e contras dos dois equalizadores disponíveis no recetor GTX conclui-se que numa fase inicial do projeto em que nao se pretende usar codificação, e uma ligação curta não faz sentido usar um equalizador DFE, mas sim um equalizador LPM. Todavia, numa fase mais avançada do projeto, que envolva codificação e também a inserção dos sinais em ligações longas e/ou ruidosas, faz mais sentido usar um filtro DFE adaptado para tal. 
-\subsection{CDR - \textit{Clock And Data Recovery}}
 
-No recetor GTX, existe um bloco responsável por uma característica muito importante de um transcetor: recuperação de sinal de relógio e dados. Segundo \cite{R011}, esse circuito faz a recuperação do relógio e dos dados através do \textit{stream} de dados que recebe. A figura \ref{fig:cdr_arq} da página \pageref{fig:cdr_arq} ilustra esse mesmo bloco.
-
-\begin{figure}[h!]
-	\begin{center}
-		\leavevmode
-		\includegraphics[width=1.0\textwidth]{cdr_arq_vet}
-		\caption{Arquitetura do circuito de recuperação de sinal de relógio e dados, retirada de \cite{R011}}
-		\label{fig:cdr_arq}
-	\end{center}
-\end{figure}
-
-Os dados recebidos passam pelo equalizador e de seguida são capturados por um “\textit{data sampler}” e um “\textit{edge sampler}”. O “\textit{edge sampler}” captura a fase do sinal recebido em série quando este está na sua região de transição, enquanto que o “\textit{data sampler}” captura a fase do mesmo sinal a meio do olho dos dados, tal como ilustra a figura \ref{fig:exmple_cdr} da página \pageref{fig:exmple_cdr}.  Estas duas fases são de seguida enviadas para a máquina de estados do CDR para que esta consiga determinar a fase dos sinais que chegam e ao mesmo tempo controlar os interpoladores de fase (PIs). 
-
-
-\begin{figure}[h!]
-	\begin{center}
-		\leavevmode
-		\includegraphics[width=0.5\textwidth]{exemplo_cdr}
-		\captionsetup{width=0.5\linewidth}
-		\caption{Exemplo das amostras de fase retiradas do circuito, retirada de \cite{R011}}
-		\label{fig:exmple_cdr}
-	\end{center}
-\end{figure}
-
-Na figura \ref{fig:exmple_cdr} E0, E1 e E2 correspondem ás amostras retiradas pelo "\textit{edge sampler}" e D0 e D1 às amostras retiradas pelo "\textit{data sampler}".
-A tracejado na figura \ref{fig:cdr_arq} visualiza-se o sinal de relógio recuperado com o nome de "\textit{Recovered Clock}" e os dados recuperados em série saem no sinal "\textit{RXDATA}".
+%\subsection{CDR - \textit{Clock And Data Recovery}}
+%
+%No recetor GTX, existe um bloco responsável por uma característica muito importante de um transcetor: recuperação de sinal de relógio e dados. Segundo \cite{R011}, esse circuito faz a recuperação do relógio e dos dados através do \textit{stream} de dados que recebe. A figura \ref{fig:cdr_arq} da página \pageref{fig:cdr_arq} ilustra esse mesmo bloco.
+%
+%\begin{figure}[h!]
+%	\begin{center}
+%		\leavevmode
+%		\includegraphics[width=1.0\textwidth]{cdr_arq_vet}
+%		\caption{Arquitetura do circuito de recuperação de sinal de relógio e dados, retirada de \cite{R011}}
+%		\label{fig:cdr_arq}
+%	\end{center}
+%\end{figure}
+%
+%%Os dados recebidos passam pelo equalizador e de seguida são capturados por um “\textit{data sampler}” e um “\textit{edge sampler}”. O “\textit{edge sampler}” captura a fase do sinal recebido em série quando este está na sua região de transição, enquanto que o “\textit{data sampler}” captura a fase do mesmo sinal a meio do olho dos dados, tal como ilustra a figura \ref{fig:exmple_cdr} da página \pageref{fig:exmple_cdr}.  Estas duas fases são de seguida enviadas para a máquina de estados do CDR para que esta consiga determinar a fase dos sinais que chegam e ao mesmo tempo controlar os interpoladores de fase (PIs). 
+%
+%
+%\begin{figure}[h!]
+%	\begin{center}
+%		\leavevmode
+%		\includegraphics[width=0.5\textwidth]{exemplo_cdr}
+%		\captionsetup{width=0.5\linewidth}
+%		\caption{Exemplo das amostras de fase retiradas do circuito, retirada de \cite{R011}}
+%		\label{fig:exmple_cdr}
+%	\end{center}
+%\end{figure}
+%
+%Na figura \ref{fig:exmple_cdr} E0, E1 e E2 correspondem ás amostras retiradas pelo "\textit{edge sampler}" e D0 e D1 às amostras retiradas pelo "\textit{data sampler}".
+%A tracejado na figura \ref{fig:cdr_arq} visualiza-se o sinal de relógio recuperado com o nome de "\textit{Recovered Clock}" e os dados recuperados em série saem no sinal "\textit{RXDATA}".
 
 
 \subsection{Alinhamento de Palavras} \label{subsub:align}
@@ -270,37 +272,41 @@ Quando os dados são transmitidos de um domínio para o outro todas as diferenç
 
 Por um lado, segundo \cite{R011}, o \textit{buffer} é uma estrutura robusta e de fácil operação, enquanto que o bloco de alinhamento de fase exige mais lógica e restrições relativamente às fontes de relógio. Por outro lado, o uso do \textit{buffer} implica uma latência maior visto que o bloco de alinhamento de fase foi concebido para diminuir a latência total do sistema. 
 
-Relativamente à inicialização, o buffer tem a capacidade de se inicializar imediatamente, enquanto que o circuito de alinhamento de fase tem de esperar que todos os sinais de relógio estabilizem para poder conseguir operar corretamente. Quanto à correção do sinal de relógio, o uso do\textit{ elastic buffer} é obrigatório, enquanto que quando se utiliza o bloco de alinhamento de palavras, este exige que a lógica de correção do sinal de relógio seja feita fora do transcetor.
+Relativamente à inicialização, o \textit{buffer} tem a capacidade de se inicializar imediatamente, enquanto que o circuito de alinhamento de fase tem de esperar que todos os sinais de relógio estabilizem para poder conseguir operar corretamente. Quanto à correção do sinal de relógio, o uso do\textit{ elastic buffer} é obrigatório, enquanto que quando se utiliza o bloco de alinhamento de palavras, este exige que a lógica de correção do sinal de relógio seja feita fora do transcetor.
 
-Assim sendo, o uso do bloco de alinhamento torna-se útil quando a latência é um requisito crítico do sistema, todavia o uso do \textit{buffer} não requer correção de sinal de relógio externa ao transcetor o que simplifica bastante o sistema. Concluindo, numa fase inicial do projeto o \textit{buffer} é utilizado apesar de apresentar a desvantagem da latência.
+Assim sendo, o uso do bloco de alinhamento torna-se útil quando a latência é um requisito crítico do sistema, todavia o uso do \textit{buffer} não requer correção de sinal de relógio externa ao transcetor o que simplifica bastante o sistema. É uma boa opção numa fase inicial do projeto utilizar um \textit{buffer} para fazer as correções de fase , pois, apesar de introduzir um pouco de latência no circuito, não exige lógica externa ao transcetor para correção do sinal de relógio.
 
+\subsection{Interface com a FPGA}
 
-\subsection{Clock Correction}
+Este é o bloco responsável pela conexão entre os dados do recetor com o resto da FPGA. Toda a lógica desenvolvida na FPGA deve receber os dados provenientes do recetor pela porta "RXDATA" lendo-os ao flanco positivo do sinal de relógio "RXUSRCLK2". O tamanho desta porta depende de vários fatores internos do recetor, tal como acontecia no transmissor,  como por exemplo se a codificação está ativa ou não e ainda qual o tamanho do \textit{datapath} usado (2 ou 4 byte). As diferentes possibilidades de larguras da porta de RXDATA assemelham-se ás da largura da porta de entrada do transmissor (TXDATA)e por isso é possível encontrá-las na tabela \ref{table:tx_interface} na página \pageref{table:tx_interface}.
 
+Também à semelhança do transmissor existem dois sinais de relógio necessários para o correto funcionamento do recetor: RXUSRCLK e RXUSRCLK2. O segundo já foi mencionado como o sinal de relógio de sincronização entre o recetor e a lógica da FPGA, e o sinal de relógio RXUSRCLK é o sinal interno para a lógica do bloco PCS (que lida com os dados em paralelo). O valor deste relógio depende da velocidade de transmissão do canal e do tamanho interno do \textit{datapath} usados e é possível calcular o seu valor através da equação presente em \ref{eq:lineRate} na página \pageref{eq:lineRate}.
 
-	
-Este bloco é responsável por evitar o \textit{overflow} ou \textit{underflow} do buffer, isto porque o \textit{buffer} faz a ponte de ligação entre dois domínios de sinal de relógio que apesar de serem muito idênticos nunca serão iguais. Como tal, haverá sempre uma ligeira diferença de fase entre os dois sinais causando acumulação que podem levar a um \textit{overflow} ou \textit{underflow} a não ser que seja corrigido. 
+A relação entre estes dois sinais de relógio mencionados (RXUSRCLK e RXUSRCLK2), é bem definida e depende do tamanho da porta RXDATA e do tamanho do \textit{datapath} usado.  A relação entre estes dois sinais de relógio do recetor é idêntica à do transmissor e por isso é possivel encontrar essas mesmas relações na tabela \ref{table:freq_tx} na página \pageref{table:freq_tx}.
 
-Para fazer esta correção, cada transmissor envia periodicamente um ou mais caracteres especiais que permitem que o recetor os elimine ou replique no \textit{buffer} consoante a necessidade. Através da remoção desses caracteres quando o \textit{buffer} está muito cheio e a sua replicação quando o \textit{buffer} está vazio o recetor previne o \textit{oveflow} ou \textit{underflow}. 
+Segundo \cite{R011}, é de notar que quando é o mesmo oscilador a fornecer o sinal de relógio de referência para o transmissor e para o recetor, que para além dos sinais de relógio de saída do recetor serem gerados com base no sinal de relógio de referência, podem ainda ser usados os sinais de relógio de saída do transmissor para o recetor e vice-versa.
 
+\section{Analise das características de transmissão}
 
-%\subsection{Interface com a FPGA}
-	
-%\section{Estrutura dos pacotes}
-%
-%\section{Velocidades de transmissão possiveis de alcançar no projeto}
-%
-%\section{Arquitetura para formar tramas}
-%
-%\section{Estrutura do GTX}
-%
-%\section{Arquitetura para recuperar as tramas}
+Nesta secção são abordadas as diferentes características de transmissão possíveis de obter (velocidades de transmissão, tamanho de tramas entre outras) tendo em conta as restrições dos GTX, de maneira a otimizar a transmissão.
+
+O projeto pode ser abordado de várias maneiras, desde a restringir a largura de banda que a transmissão em série pode ocupar até mesmo limitar o número de bits por tramas que se pretende transmitir.
+
+No sentido de simplificar o projeto e torná-lo eficiente em termos lógicos (evitar o uso de FIFO), e visto que uma imagem HDMI é transmitida a  
 
 
-	
-	
-	
-	
+Para se obter algumas conclusões relativamente a este \textit{trade-off} efetuou-se alguns cálculos tendo em conta as restrições da largura da porta do GTX, a utilização de codificação ou não do sinal e ainda a equação apresentada em \ref{eq:lineRate}. Esses resultados são apresentados na tabela XXXXXXXX.
+
+
+
+
+%%dizer quais as possiveis velocidades teórticas se podem obter 
+%\section{Estrtutura do GTX}
+%%indicar entradas e saídas do GTX e o que são
+%\section{Arquiteturas Desenvolvidas}
+%%Dizer que para simplificar se fez isto isto e isto
+%\subsection{Abordagem Inicial}
+%\subsection{Definição de Tramas e Pacotes}
 	
 	
 	

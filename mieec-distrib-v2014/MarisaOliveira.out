@@ -43,11 +43,11 @@
 \BOOKMARK [1][-]{section.4.2}{4.2 Recetor}{chapter.4}% 43
 \BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Interface com a camada f\355sica}{section.4.2}% 44
 \BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Equaliza\347\343o}{section.4.2}% 45
-\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 CDR - Clock And Data Recovery}{section.4.2}% 46
-\BOOKMARK [2][-]{subsection.4.2.4}{4.2.4 Alinhamento de Palavras}{section.4.2}% 47
-\BOOKMARK [2][-]{subsection.4.2.5}{4.2.5 Descodificador 8B/10B}{section.4.2}% 48
-\BOOKMARK [2][-]{subsection.4.2.6}{4.2.6 Interfaces entre os diferentes dom\355nios de sinal rel\363gio do recetor}{section.4.2}% 49
-\BOOKMARK [2][-]{subsection.4.2.7}{4.2.7 Clock Correction}{section.4.2}% 50
+\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 Alinhamento de Palavras}{section.4.2}% 46
+\BOOKMARK [2][-]{subsection.4.2.4}{4.2.4 Descodificador 8B/10B}{section.4.2}% 47
+\BOOKMARK [2][-]{subsection.4.2.5}{4.2.5 Interfaces entre os diferentes dom\355nios de sinal rel\363gio do recetor}{section.4.2}% 48
+\BOOKMARK [2][-]{subsection.4.2.6}{4.2.6 Interface com a FPGA}{section.4.2}% 49
+\BOOKMARK [1][-]{section.4.3}{4.3 Analise das caracter\355sticas de transmiss\343o}{chapter.4}% 50
 \BOOKMARK [0][-]{appendix.A}{A Descri\347\343o das portas das placas HDMI}{}% 51
 \BOOKMARK [1][-]{section.A.1}{A.1 Configura\347\343o por omiss\343o}{appendix.A}% 52
 \BOOKMARK [1][-]{section.A.2}{A.2 Suporte de um canal de imagem e \341udio}{appendix.A}% 53

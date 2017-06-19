@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: MarisaOliveira.aux
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: MarisaOliveira.aux
 A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: acknows.aux
 A level-1 auxiliary file: quote.aux
@@ -35,4 +37,45 @@ Warning--empty year in R038
 Warning--empty publisher in R014
 Warning--empty publisher in R022
 Warning--empty publisher in R013
+You've used 28 entries,
+            1876 wiz_defined-function locations,
+            625 strings with 6131 characters,
+and the built_in function-call counts, 4490 in all, are:
+= -- 368
+> -- 200
+< -- 0
++ -- 83
+- -- 55
+* -- 265
+:= -- 673
+add.period$ -- 34
+call.type$ -- 28
+change.case$ -- 15
+chr.to.int$ -- 0
+cite$ -- 50
+duplicate$ -- 234
+empty$ -- 528
+format.name$ -- 55
+if$ -- 1073
+int.to.chr$ -- 0
+int.to.str$ -- 28
+missing$ -- 33
+newline$ -- 97
+num.names$ -- 28
+pop$ -- 162
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 88
+stack$ -- 0
+substring$ -- 52
+swap$ -- 35
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 22
+while$ -- 35
+width$ -- 30
+write$ -- 218
 (There were 22 warnings)
