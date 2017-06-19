@@ -4,7 +4,7 @@ Este capítulo aborda o trabalho realizado na segunda parte do projeto, tal como
 
 Este processo de serialização e deserialização exige muitos cuidados e aplicações de determinados métodos que permitam manter a integridade do sinal durante a transmissão do mesmo, já como explicado em no capítulo 2 em \ref{serial_theory}. Todavia nesse mesmo capítulo, em \ref{sub:arqGTX} foi já abordado que FPGA VC7203 possui entradas e saídas de alta velocidade com arquiteturas que possuem blocos que permitem a implementação destes mecanismos. Na imagem \ref{fig:gtx_geral_arq} da página \pageref{fig:gtx_geral_arq} visualiza-se uma arquitetura geral dos transcetores, mas estes serão descritos com mais detalhe neste capítulo.
 
-Este capítulo começa por abordar as arquiteturas transmissora e recetora com mais detalhe e quais as características que são vantajosas a este projeto. De seguida serão contempladas as arquiteturas desenvolvidas e explicadas todas as decisões no seu desenvolvimento.
+Este capítulo começa por abordar as arquiteturas transmissora e recetora com mais detalhe, quais as características que são vantajosas a este projeto e ainda analisar as vantagens de desvantagens de algumas para poder fazer uma melhor escolha para o projeto. De seguida serão contempladas as arquiteturas desenvolvidas e explicadas todas as decisões no seu desenvolvimento.
 
 \section{Transmissor} \label{sec:tx_gtx}
 
@@ -12,7 +12,7 @@ Na figura \ref{fig:gtx_tx_arq} da página \pageref{fig:gtx_tx_arq} visualiza-se 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.75\textwidth]{tx_gtx_arq}
+		\includegraphics[width=1.0\textwidth]{tx_gtx_arq}
 		\caption{Arquitetura do transmissor GTX, retirada de \cite{R011}}
 		\label{fig:gtx_tx_arq}
 	\end{center}
@@ -116,22 +116,22 @@ As características deste tipo de codificação, as suas vantagens e importânci
 %
 %A geração de sequência pseudo-aleatórias é bastante utilizada em sistemas de telecomunicações para testar a integridade do sinal de ligações de grande velocidade, segundo \cite{R011}. Apesar de estas mesmas sequências parecerem aleatórias à primeira vista, na realidade apresentam determinadas características que são utilizadas para medir a qualidade da ligação. Este bloco do transmissor é responsável por esta ação. 
 
-\subsection{Interface entre os diferentes domínios de relógio do transmissor}
+\subsection{Interface entre os diferentes domínios de sinal de relógio do transmissor}
 
-Já foi referido anteriormente que para o correto funcionamento do transmissor GTX opera com pelo menos dois sinais de relógio diferentes : TXUSRCLK and TXUSRCLK2. O segundo é o sinal de relógio de sincronização principal entre os dados provenientes da FPGA e o transmissor, e o primeiro é o sinal de relógio utilizado para a lógica do bloco PMA.
+Já foi referido anteriormente que para o correto funcionamento do transmissor GTX opera com pelo menos dois sinais de relógio diferentes : TXUSRCLK and TXUSRCLK2. O segundo é o sinal de relógio de sincronização principal entre os dados provenientes da FPGA e o transmissor, e o primeiro é o sinal de relógio utilizado para a lógica do bloco PCS.
 
-Contudo, o bloco PMA utiliza dois sinais de relógio internamente para o seu correto funcionamento: TXUSRCLK (como já foi mencionado) e ainda XCLK. Ambos os sinais trabalham para os dados em paralelo. Na figura \ref{fig:clk_domains_tx} ilustra os diferentes domínios de relógio presentes no transmissor GTX.
+Contudo, o bloco PCS utiliza dois sinais de relógio internamente para o seu correto funcionamento: TXUSRCLK (como já foi mencionado) e ainda XCLK (sinal de relógio dos dados em paralelo do bloco PMA). A figura \ref{fig:clk_domains_tx} ilustra os diferentes domínios de relógio presentes no transmissor GTX.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.75\textwidth]{clk_domain_cross_gtx_tx}
+		\includegraphics[width=1.0\textwidth]{clk_domain_cross_gtx_tx}
 		\caption{Diferentes domínios de relógio do transmissor, retirada de \cite{R011}}
 		\label{fig:clk_domains_tx}
 	\end{center}
 \end{figure}
 
-Quando os dados se cruzam entre os domínios TXUSRCLK e XCLK é necessário que para além de terem a mesma frequência, todos os as diferenças de fase que possam existir estejam resolvidas, e por isso existem dois blocos responsáveis por tal que apresentam os seus prós e contras: \textit{buffer} ou bloco de alinhamento de fase. Independentemente da escolha de um ou de outro, a utilização de um deles é obrigatória e torna-se importante conhecer as suas vantagens e desvantagens, pois tal escolha afeta o funcionamento global do sistema, segundo \cite{R011}.
+Quando os dados se cruzam entre os domínios TXUSRCLK e XCLK é necessário que para além de terem frequências semelhantes, as diferenças de fase que possam existir estejam resolvidas, e por isso existem dois blocos responsáveis por tal que apresentam os seus prós e contras: \textit{buffer} ou bloco de alinhamento de fase. Independentemente da escolha de um ou de outro, a utilização de um deles é obrigatória e torna-se importante conhecer as suas vantagens e desvantagens, pois tal escolha afeta o funcionamento global do sistema, segundo \cite{R011}.
 
 Por um lado, a utilização de um \textit{buffer} é mais fácil e ainda assim é robusta, por outro o bloco de alinhamento de fase exige a utilização de mais lógica e restrições de sinais de relógio adicionais. Quando a latência se torna um ponto importante do sistema, então a utilização do \textit{buffer} deve ser posta de lado, visto que o bloco de alinhamento de fase utiliza menos registos obtendo assim uma latência menor. Por outro lado, quando se utilizam várias transmissões em transcetores diferentes à mesma velocidade, o bloco de alinhamento de fase tem a vantagem de diminuir o atraso entre as mesmas. No entanto, isto é apenas uma curiosidade visto que tal não é utilizado no projeto.
 
@@ -150,7 +150,8 @@ Na figura \ref{fig:gtx_rx_arq} na página \pageref{fig:gtx_rx_arq} é possível 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.9\textwidth]{rx_gtx_arq}
+		\includegraphics[width=1.0\textwidth]{rx_gtx_arq}
+		\centering
 		\caption{Arquitetura do recetor GTX, retirada de \cite{R011}}
 		\label{fig:gtx_rx_arq}
 	\end{center}
@@ -220,7 +221,7 @@ Na figura \ref{fig:exmple_cdr} E0, E1 e E2 correspondem ás amostras retiradas p
 A tracejado na figura \ref{fig:cdr_arq} visualiza-se o sinal de relógio recuperado com o nome de "\textit{Recovered Clock}" e os dados recuperados em série saem no sinal "\textit{RXDATA}".
 
 
-\subsection{Alinhamento de Palavras}
+\subsection{Alinhamento de Palavras} \label{subsub:align}
 
 O bloco de alinhamento de palavras é feito antes da deserialização dos sinais, isto porque é necessário definir os limites das palavras antes destes serem convertidos para dados em paralelo. O método de alinhamento de palavras, os caracteres especiais existentes para aplicação neste método e ainda a sua importância foram já abordados na subsecção com o título "Alinhamento da transmissão" em \ref{subsub:alinhamento} no capítulo \ref{chap:chap2}.
 
@@ -229,12 +230,60 @@ Nesta subsecção serão abordadas as características que este bloco do recetor
 Apesar de existirem \textit{flags} disponibilizadas pelo bloco de alinhamento que indicam o estado do mesmo, o autor de \cite{R011} alerta que para uma linha de transmissão cuja taxa de débito seja superior a 5 Gb/s, o bloco pode alinhar a palavra falsamente e por isso ativar a \textit{flag} que indica que a palavra está alinhada mesmo que não estando. Isto implica que seja desenvolvido e aplicado um sistema que verifique se a palavra se encontra alinhada ou não.
 
 %%Alinhamento Manual
-Este bloco possibilita ainda um alinhamento manual das palavras movendo os dados em paralelo m
 
-%\subsection{Elastic Buffer}
-%
-%\subsection{Clock Correction}
-%
+Este bloco dispõe de uma opção de alinhamento manual que vem substituir o automático, o que pode ser bastante útil em casos em que o transcetor alinha falsamente uma palavra. Na imagem \ref{fig:rxslide_example} na página \pageref{fig:rxslide_example} é possível visualizar o exemplo de alinhamento manual das palavras no recetor que passa a ser brevemente descrito.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{rxslide_example}
+		\captionsetup{width=1.0\linewidth}
+		\caption{Exemplo de um alinhamento manual da palavra, retirada de \cite{R011}}
+		\label{fig:rxslide_example}
+	\end{center}
+\end{figure}
+
+Este processo de alinhamento manual é conhecido pelo nome de "\textit{RXSLIDE}" e é usado para mover a palavra em 1 bit. O sinal "RXSLIDE" deve estar ativo apenas um ciclo de relógio de RXUSRCLK2 e de seguida deve ser inativo. Segundo, \cite{R011} deve-se esperar pelo menos 32 ciclos de relógio para que esta operação seja realizada outra vez.  
+
+\subsection{Descodificador 8B/10B}
+
+Tal como no transmissor, este bloco é responsável pela descodificação 8B/10B caso esta tenha sido realizada do lado do transmissor. Esta operação é realizada depois da conversão dos dados para paralelo e é de notar que a utilização deste bloco aumenta a latência de todo o sistema.
+
+Numa fase inicial do projeto, a utilização deste bloco (tanto do lado do transmissor como do recetor) é posta de lado no sentido de simplificar o projeto e também de diminuir a latência do sistema.   
+
+\subsection{Interfaces entre os diferentes domínios de sinal relógio do recetor}
+
+Tal como acontecia no transmissor, o recetor opera a diferentes domínios de sinal de relógio. Particularmente no bloco PCS existem dois domínios de relógio para os dados em paralelo críticos: RXUSRCLK e XCLK(o sinal de relógio dos dados em paralelo do bloco PMA). A imagem \ref{fig:dominios_rx} ilustra os diferentes domínios de relógio presentes no recetor.
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{dominios_rx}
+		\captionsetup{width=1.0\linewidth}
+		\caption{Ilustração dos diferentes domínios de relógio no recetor, retirada de \cite{R011}}
+		\label{fig:dominios_rx}
+	\end{center}
+\end{figure}
+
+Quando os dados são transmitidos de um domínio para o outro todas as diferenças de fase entre os sinais de relógio devem estar resolvidas e a frequência não deve variara muito, e por isso deve-se recorrer ao uso de um dos dois seguintes blocos: \textit{elastic buffer} ou bloco de alinhamento de fase. Ambos os blocos resolvem as diferenças de fase entre os dois domínios, no entanto apresentam as suas vantagens e desvantagens que serão de seguida abordadas para se concluir qual deve ser utilizado no projeto.
+
+Por um lado, segundo \cite{R011}, o \textit{buffer} é uma estrutura robusta e de fácil operação, enquanto que o bloco de alinhamento de fase exige mais lógica e restrições relativamente às fontes de relógio. Por outro lado, o uso do \textit{buffer} implica uma latência maior visto que o bloco de alinhamento de fase foi concebido para diminuir a latência total do sistema. 
+
+Relativamente à inicialização, o buffer tem a capacidade de se inicializar imediatamente, enquanto que o circuito de alinhamento de fase tem de esperar que todos os sinais de relógio estabilizem para poder conseguir operar corretamente. Quanto à correção do sinal de relógio, o uso do\textit{ elastic buffer} é obrigatório, enquanto que quando se utiliza o bloco de alinhamento de palavras, este exige que a lógica de correção do sinal de relógio seja feita fora do transcetor.
+
+Assim sendo, o uso do bloco de alinhamento torna-se útil quando a latência é um requisito crítico do sistema, todavia o uso do \textit{buffer} não requer correção de sinal de relógio externa ao transcetor o que simplifica bastante o sistema. Concluindo, numa fase inicial do projeto o \textit{buffer} é utilizado apesar de apresentar a desvantagem da latência.
+
+
+\subsection{Clock Correction}
+
+
+	
+Este bloco é responsável por evitar o \textit{overflow} ou \textit{underflow} do buffer, isto porque o \textit{buffer} faz a ponte de ligação entre dois domínios de sinal de relógio que apesar de serem muito idênticos nunca serão iguais. Como tal, haverá sempre uma ligeira diferença de fase entre os dois sinais causando acumulação que podem levar a um \textit{overflow} ou \textit{underflow} a não ser que seja corrigido. 
+
+Para fazer esta correção, cada transmissor envia periodicamente um ou mais caracteres especiais que permitem que o recetor os elimine ou replique no \textit{buffer} consoante a necessidade. Através da remoção desses caracteres quando o \textit{buffer} está muito cheio e a sua replicação quando o \textit{buffer} está vazio o recetor previne o \textit{oveflow} ou \textit{underflow}. 
+
+
 %\subsection{Interface com a FPGA}
 	
 %\section{Estrutura dos pacotes}

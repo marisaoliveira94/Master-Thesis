@@ -35,12 +35,14 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI\relax }}{49}{figure.caption.58}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{50}{figure.caption.59}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitetura do transmissor GTX, retirada de \cite {R011}\relax }}{54}{figure.caption.60}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Exemplo simplificado de transmiss\IeC {\~a}o com diferentes usos de \textit {datapath}\relax }}{56}{figure.caption.63}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Diferentes dom\IeC {\'\i }nios de rel\IeC {\'o}gio do transmissor, retirada de \cite {R011}\relax }}{57}{figure.caption.64}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Arquitetura do recetor GTX, retirada de \cite {R011}\relax }}{58}{figure.caption.65}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Arquitetura do circuito de recupera\IeC {\c c}\IeC {\~a}o de sinal de rel\IeC {\'o}gio e dados, retirada de \cite {R011}\relax }}{60}{figure.caption.66}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo das amostras de fase retiradas do circuito, retirada de \cite {R011}\relax }}{60}{figure.caption.67}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitetura do transmissor GTX, retirada de \cite {R011}\relax }}{56}{figure.caption.60}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Exemplo simplificado de transmiss\IeC {\~a}o com diferentes usos de \textit {datapath}\relax }}{58}{figure.caption.63}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Diferentes dom\IeC {\'\i }nios de rel\IeC {\'o}gio do transmissor, retirada de \cite {R011}\relax }}{59}{figure.caption.64}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Arquitetura do recetor GTX, retirada de \cite {R011}\relax }}{61}{figure.caption.65}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Arquitetura do circuito de recupera\IeC {\c c}\IeC {\~a}o de sinal de rel\IeC {\'o}gio e dados, retirada de \cite {R011}\relax }}{62}{figure.caption.66}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Exemplo das amostras de fase retiradas do circuito, retirada de \cite {R011}\relax }}{62}{figure.caption.67}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Exemplo de um alinhamento manual da palavra, retirada de \cite {R011}\relax }}{63}{figure.caption.68}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos diferentes dom\IeC {\'\i }nios de rel\IeC {\'o}gio no recetor, retirada de \cite {R011}\relax }}{64}{figure.caption.69}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

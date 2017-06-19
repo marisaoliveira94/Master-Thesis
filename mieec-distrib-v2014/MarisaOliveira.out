@@ -38,31 +38,34 @@
 \BOOKMARK [1][-]{section.4.1}{4.1 Transmissor}{chapter.4}% 38
 \BOOKMARK [2][-]{subsection.4.1.1}{4.1.1 Interface com a FPGA}{section.4.1}% 39
 \BOOKMARK [2][-]{subsection.4.1.2}{4.1.2 Codificador 8B/10B}{section.4.1}% 40
-\BOOKMARK [2][-]{subsection.4.1.3}{4.1.3 Interface entre os diferentes dom\355nios de rel\363gio do transmissor}{section.4.1}% 41
+\BOOKMARK [2][-]{subsection.4.1.3}{4.1.3 Interface entre os diferentes dom\355nios de sinal de rel\363gio do transmissor}{section.4.1}% 41
 \BOOKMARK [2][-]{subsection.4.1.4}{4.1.4 Interface com a camada f\355sica}{section.4.1}% 42
 \BOOKMARK [1][-]{section.4.2}{4.2 Recetor}{chapter.4}% 43
 \BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Interface com a camada f\355sica}{section.4.2}% 44
 \BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Equaliza\347\343o}{section.4.2}% 45
 \BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 CDR - Clock And Data Recovery}{section.4.2}% 46
 \BOOKMARK [2][-]{subsection.4.2.4}{4.2.4 Alinhamento de Palavras}{section.4.2}% 47
-\BOOKMARK [0][-]{appendix.A}{A Descri\347\343o das portas das placas HDMI}{}% 48
-\BOOKMARK [1][-]{section.A.1}{A.1 Configura\347\343o por omiss\343o}{appendix.A}% 49
-\BOOKMARK [1][-]{section.A.2}{A.2 Suporte de um canal de imagem e \341udio}{appendix.A}% 50
-\BOOKMARK [1][-]{section.A.3}{A.3 Suporte de dois canais de imagem melhorado}{appendix.A}% 51
-\BOOKMARK [0][-]{appendix.B}{B Configura\347\365es dos interruptores das placas HDMI}{}% 52
-\BOOKMARK [1][-]{section.B.1}{B.1 Configura\347\343o por omiss\343o}{appendix.B}% 53
-\BOOKMARK [1][-]{section.B.2}{B.2 Suporte de um canal de imagem e \341udio}{appendix.B}% 54
-\BOOKMARK [1][-]{section.B.3}{B.3 Suporte de dois canais de imagem melhorado}{appendix.B}% 55
-\BOOKMARK [0][-]{appendix.C}{C Localiza\347\365es das portas conectadas \340s placas HDMI}{}% 56
-\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 57
-\BOOKMARK [1][-]{section.C.2}{C.2 Transmiss\343o de uma imagem entre dispositivos HDMI}{appendix.C}% 58
-\BOOKMARK [1][-]{section.C.3}{C.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 59
-\BOOKMARK [0][-]{appendix.D}{D Ficheiros de restri\347\365es}{}% 60
-\BOOKMARK [1][-]{section.D.1}{D.1 Restri\347\365es F\355sicas relativas \340s portas de sa\355da das arquiteturas que se conectam \340 placa HDMI transmissora}{appendix.D}% 61
-\BOOKMARK [1][-]{section.D.2}{D.2 Restri\347\365es F\355sicas relativas \340s portas de entrada das arquiteturas que se conectam \340 placa HDMI recetora}{appendix.D}% 62
-\BOOKMARK [1][-]{section.D.3}{D.3 Restri\347\365es F\355sicas relativas \340s portas de entrada e sa\355da exclusivas da arquitetura que transmite uma imagem gerada na FPGA}{appendix.D}% 63
-\BOOKMARK [1][-]{section.D.4}{D.4 Restri\347\365es Temporais relativas \340 arquitetura que transmite uma imagem gerada na FPGA}{appendix.D}% 64
-\BOOKMARK [1][-]{section.D.5}{D.5 Restri\347\365es F\355sicas relativas \340s portas de entrada e sa\355da exclusivas da arquitetura que transmite imagem entre dispositivos HDMI}{appendix.D}% 65
-\BOOKMARK [1][-]{section.D.6}{D.6 Restri\347\365es Temporais relativas \340 arquitetura que transmite imagem entre dispositivos HDMI}{appendix.D}% 66
-\BOOKMARK [1][-]{section.D.7}{D.7 Restri\347\365es F\355sicas relativas \340s portas de entrada e sa\355da exclusivas da arquitetura que transmite imagem e som entre dispositivos HDMI}{appendix.D}% 67
-\BOOKMARK [1][-]{section.D.8}{D.8 Restri\347\365es Temporais relativas \340 arquitetura que transmite imagem e som entre dispositivos HDMI}{appendix.D}% 68
+\BOOKMARK [2][-]{subsection.4.2.5}{4.2.5 Descodificador 8B/10B}{section.4.2}% 48
+\BOOKMARK [2][-]{subsection.4.2.6}{4.2.6 Interfaces entre os diferentes dom\355nios de sinal rel\363gio do recetor}{section.4.2}% 49
+\BOOKMARK [2][-]{subsection.4.2.7}{4.2.7 Clock Correction}{section.4.2}% 50
+\BOOKMARK [0][-]{appendix.A}{A Descri\347\343o das portas das placas HDMI}{}% 51
+\BOOKMARK [1][-]{section.A.1}{A.1 Configura\347\343o por omiss\343o}{appendix.A}% 52
+\BOOKMARK [1][-]{section.A.2}{A.2 Suporte de um canal de imagem e \341udio}{appendix.A}% 53
+\BOOKMARK [1][-]{section.A.3}{A.3 Suporte de dois canais de imagem melhorado}{appendix.A}% 54
+\BOOKMARK [0][-]{appendix.B}{B Configura\347\365es dos interruptores das placas HDMI}{}% 55
+\BOOKMARK [1][-]{section.B.1}{B.1 Configura\347\343o por omiss\343o}{appendix.B}% 56
+\BOOKMARK [1][-]{section.B.2}{B.2 Suporte de um canal de imagem e \341udio}{appendix.B}% 57
+\BOOKMARK [1][-]{section.B.3}{B.3 Suporte de dois canais de imagem melhorado}{appendix.B}% 58
+\BOOKMARK [0][-]{appendix.C}{C Localiza\347\365es das portas conectadas \340s placas HDMI}{}% 59
+\BOOKMARK [1][-]{section.C.1}{C.1 Transmiss\343o de uma imagem gerada na FPGA}{appendix.C}% 60
+\BOOKMARK [1][-]{section.C.2}{C.2 Transmiss\343o de uma imagem entre dispositivos HDMI}{appendix.C}% 61
+\BOOKMARK [1][-]{section.C.3}{C.3 Transmiss\343o de imagem e som entre dispositivos HDMI}{appendix.C}% 62
+\BOOKMARK [0][-]{appendix.D}{D Ficheiros de restri\347\365es}{}% 63
+\BOOKMARK [1][-]{section.D.1}{D.1 Restri\347\365es F\355sicas relativas \340s portas de sa\355da das arquiteturas que se conectam \340 placa HDMI transmissora}{appendix.D}% 64
+\BOOKMARK [1][-]{section.D.2}{D.2 Restri\347\365es F\355sicas relativas \340s portas de entrada das arquiteturas que se conectam \340 placa HDMI recetora}{appendix.D}% 65
+\BOOKMARK [1][-]{section.D.3}{D.3 Restri\347\365es F\355sicas relativas \340s portas de entrada e sa\355da exclusivas da arquitetura que transmite uma imagem gerada na FPGA}{appendix.D}% 66
+\BOOKMARK [1][-]{section.D.4}{D.4 Restri\347\365es Temporais relativas \340 arquitetura que transmite uma imagem gerada na FPGA}{appendix.D}% 67
+\BOOKMARK [1][-]{section.D.5}{D.5 Restri\347\365es F\355sicas relativas \340s portas de entrada e sa\355da exclusivas da arquitetura que transmite imagem entre dispositivos HDMI}{appendix.D}% 68
+\BOOKMARK [1][-]{section.D.6}{D.6 Restri\347\365es Temporais relativas \340 arquitetura que transmite imagem entre dispositivos HDMI}{appendix.D}% 69
+\BOOKMARK [1][-]{section.D.7}{D.7 Restri\347\365es F\355sicas relativas \340s portas de entrada e sa\355da exclusivas da arquitetura que transmite imagem e som entre dispositivos HDMI}{appendix.D}% 70
+\BOOKMARK [1][-]{section.D.8}{D.8 Restri\347\365es Temporais relativas \340 arquitetura que transmite imagem e som entre dispositivos HDMI}{appendix.D}% 71

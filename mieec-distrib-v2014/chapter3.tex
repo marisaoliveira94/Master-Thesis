@@ -497,7 +497,9 @@ Relativamente aos dados referentes ao som, estes são também lidos para registo
 
 O sinal de áudio enviado para as placas HDMI transmissora está dependente dos sinais de \textit{POWER} e \textit{MUTE}. Caso \textit{MUTE} esteja ativo o sinal de som não é transmitido e as entradas da placa HDMI são definidas com 0. O mesmo acontece quando o sinal de \textit{POWER} está inativo uma vez que indica que a transmissão da parte da placa HDMI recetora está desligada.
 
-Mais uma vez é necessário definir as localizações físicas de cada porta de entrada e saída do módulo principal, que estão descritas na tabela \ref{table:LOCplanC_simples} na página \pageref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que conectam as placas HDMI são brevemente descritos e na secção \ref{ap3:imagem_som_RX_TX} do anexo \ref{ap3:LOCs} são descritos com mais detalhe.
+Mais uma vez é necessário definir as localizações físicas de cada porta de entrada e saída do módulo principal, que estão descritas na tabela \ref{table:LOCplanC_simples} na página \pageref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que conectam as placas HDMI são brevemente descritos e na secção \ref{ap3:imagem_som_RX_TX} do anexo \ref{ap3:LOCs} são descritos com mais detalhe.\\
+
+
 
 %\begin{longtable}[h!]
 %	{|c|c|c|c|}
@@ -540,49 +542,49 @@ Mais uma vez é necessário definir as localizações físicas de cada porta de 
 %	\label{table:LOCplanC_simples}	
 %\end{longtable}
 
-%\begin{longtable}[h!]
-%		{rlll}	
-%			\hline
-%			\centering
-%
-%			\multicolumn{1}{c}{\textbf{ }}         & \multicolumn{1}{c}{\textbf{Sinal}}    & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} \\ \hline \endhead
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_p                                & E19                                      & 38                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_n                                & E18                                      & 38                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & reset                                 & N41                                      & 19                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & POWER                                 & E42                                      & 19                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & MUTE                                  & G41                                      & 19                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_px\_in                           & AJ32                                     & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & enable\_in                            & AN38                                     & 15                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & vsync\_in                             & AU38                                     & 15                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & hsync\_in                             & AU39                                     & 15                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}0{]} a pixel\_in{[}29{]} & Ver anexo                                & 14 e 15                                    \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in{[}30{]} a pixel\_in{[}35{]} & Ver anexo                                & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & sclk\_in                              & AJ37                                     & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & lrclk\_in                             & AL35                                     & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & AP1\_in                               & AL37                                     & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & AP2\_in                               & AP35                                     & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & AP3\_in                               & AM37                                     & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & AP4\_in                               & AH33                                     & 14                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & info\_in {[}0{]}                      & AV38                                     & 15                                         \\
-%			\multicolumn{1}{r|}{\textbf{Entrada}} & info\_in {[}1{]}                      & AV39                                     & 15                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & clk\_px                               & E34                                      & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & enable                                & K35                                      & 34                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & hsync                                 & M32                                      & 34                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & vsync                                 & L31                                      & 34                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}0{]} a pixel {[}29{]}        & Ver anexo                                & 34 e 35                                    \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}30{]} a pixel {[}35{]}       & Ver anexo                                & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & sclk\_out                             & A34                                      & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & lrclk\_out                            & B33                                      & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & AP1\_out                              & A36                                      & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & AP2\_out                              & C39                                      & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & AP3\_out                              & B38                                      & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & AP4\_out                              & D32                                      & 35                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & info\_out {[}0{]}                     & K32                                      & 34                                         \\
-%			\multicolumn{1}{r|}{\textbf{Saída}}   & info\_out {[}1{]}                     & L32                                      & 34                                         \\ \hline
-%	\captionsetup{width=0.81\linewidth}
-%	\caption{Localização das entradas e saídas das portas da arquitetura que transmite som e imagem entre dispositivos HDMI}
-%	\label{table:LOCplanC_simples}
-%\end{longtable}
+\begin{longtable}[h!]
+		{rlll}	
+			\hline
+			\centering
+
+			\multicolumn{1}{c}{\textbf{ }}         & \multicolumn{1}{c}{\textbf{Sinal}}    & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} \\ \hline \endhead
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_p                                & E19                                      & 38                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_n                                & E18                                      & 38                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & reset                                 & N41                                      & 19                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & POWER                                 & E42                                      & 19                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & MUTE                                  & G41                                      & 19                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & clk\_px\_in                           & AJ32                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & enable\_in                            & AN38                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & vsync\_in                             & AU38                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & hsync\_in                             & AU39                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in {[}0{]} a pixel\_in{[}29{]} & Ver anexo                                & 14 e 15                                    \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & pixel\_in{[}30{]} a pixel\_in{[}35{]} & Ver anexo                                & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & sclk\_in                              & AJ37                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & lrclk\_in                             & AL35                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & AP1\_in                               & AL37                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & AP2\_in                               & AP35                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & AP3\_in                               & AM37                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & AP4\_in                               & AH33                                     & 14                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & info\_in {[}0{]}                      & AV38                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Entrada}} & info\_in {[}1{]}                      & AV39                                     & 15                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & clk\_px                               & E34                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & enable                                & K35                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & hsync                                 & M32                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & vsync                                 & L31                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}0{]} a pixel {[}29{]}        & Ver anexo                                & 34 e 35                                    \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel {[}30{]} a pixel {[}35{]}       & Ver anexo                                & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & sclk\_out                             & A34                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & lrclk\_out                            & B33                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & AP1\_out                              & A36                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & AP2\_out                              & C39                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & AP3\_out                              & B38                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & AP4\_out                              & D32                                      & 35                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & info\_out {[}0{]}                     & K32                                      & 34                                         \\
+			\multicolumn{1}{r|}{\textbf{Saída}}   & info\_out {[}1{]}                     & L32                                      & 34                                         \\ \hline
+	\captionsetup{width=0.81\linewidth}
+	\caption{Localização das entradas e saídas das portas da arquitetura que transmite som e imagem entre dispositivos HDMI}
+	\label{table:LOCplanC_simples}
+\end{longtable}
 
 
 %--> CONSTRAINTS %
