@@ -27,20 +27,22 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Placa HDMI recetora TB-FMCH-HDMI2 RX}}{40}{figure.caption.46}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Placa HDMI transmissora TB-FMCH-HDMI2 TX}}{40}{figure.caption.47}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S}}{43}{figure.caption.50}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo m\IeC {\'o}dulo desenvolvido\relax }}{46}{figure.caption.51}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{47}{figure.caption.52}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{49}{figure.caption.53}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Set-Up} de teste da arquitetura desenvolvida para transmiss\IeC {\~a}o de uma imagem gerada na FPGA para a placa HDMI transmissora\relax }}{51}{figure.caption.55}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{52}{figure.caption.56}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI\relax }}{53}{figure.caption.58}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{55}{figure.caption.59}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo m\IeC {\'o}dulo desenvolvido\relax }}{46}{figure.caption.52}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{46}{figure.caption.53}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de blocos de arquitetura implementada utilizando um bloco gerador de barra de cores\relax }}{49}{figure.caption.54}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Set-Up} de teste da arquitetura desenvolvida para transmiss\IeC {\~a}o de uma imagem gerada na FPGA para a placa HDMI transmissora\relax }}{51}{figure.caption.57}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{52}{figure.caption.59}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Set-up} de teste para as arquiteturas transmissoras de dados entre dispositivos HDMI\relax }}{53}{figure.caption.62}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{55}{figure.caption.64}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitetura do transmissor GTX}}{60}{figure.caption.60}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Exemplo simplificado de transmiss\IeC {\~a}o com diferentes usos de \textit {datapath}\relax }}{62}{figure.caption.63}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Diferentes dom\IeC {\'\i }nios de rel\IeC {\'o}gio do transmissor, retirada de \cite {R011}\relax }}{63}{figure.caption.64}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Arquitetura do recetor GTX, retirada de \cite {R011}\relax }}{65}{figure.caption.65}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Exemplo de um alinhamento manual da palavra, retirada de \cite {R011}\relax }}{67}{figure.caption.66}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o dos diferentes dom\IeC {\'\i }nios de rel\IeC {\'o}gio no recetor, retirada de \cite {R011}\relax }}{68}{figure.caption.67}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitetura do transmissor GTX}}{60}{figure.caption.66}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Exemplo simplificado de transmiss\IeC {\~a}o com diferentes usos de \textit {datapath}}}{62}{figure.caption.69}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Diferentes dom\IeC {\'\i }nios de sinal de rel\IeC {\'o}gio do transmissor}}{63}{figure.caption.70}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Arquitetura do recetor GTX}}{65}{figure.caption.71}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Exemplo de um alinhamento manual da palavra}}{67}{figure.caption.72}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Diferentes dom\IeC {\'\i }nios de sinal de rel\IeC {\'o}gio no recetor}}{68}{figure.caption.73}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Estrutura geral do m\IeC {\'o}dulo GTX gerado no \textit {software} VIVADO}}{71}{figure.caption.75}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

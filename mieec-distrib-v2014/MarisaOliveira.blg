@@ -9,6 +9,7 @@ A level-1 auxiliary file: chapter1.aux
 A level-1 auxiliary file: chapter2.aux
 A level-1 auxiliary file: chapter3.aux
 A level-1 auxiliary file: chapter4.aux
+A level-1 auxiliary file: chapter5.aux
 The style file: ieeetr.bst
 A level-1 auxiliary file: appendix1.aux
 A level-1 auxiliary file: appendix4.aux
@@ -16,57 +17,58 @@ A level-1 auxiliary file: appendix3.aux
 A level-1 auxiliary file: appendix2.aux
 Database file #1: myrefs.bib
 Warning--empty publisher in R008
+Warning--empty journal in R030
 Warning--empty publisher in R009
-Warning--empty publisher in R032
-Warning--empty publisher in R011
-Warning--empty journal in R012
-Warning--empty year in R012
-Warning--empty journal in R033
-Warning--empty year in R033
-Warning--empty journal in R010
 Warning--empty publisher in R016
 Warning--empty year in R016
-Warning--empty journal in R030
 Warning--there's a number but no series in R017
 Warning--empty publisher in R017
 Warning--there's a number but no series in R018
 Warning--empty publisher in R018
+Warning--empty publisher in R032
+Warning--empty journal in R012
+Warning--empty year in R012
+Warning--empty publisher in R011
+Warning--empty journal in R033
+Warning--empty year in R033
 Warning--empty publisher in R036
+Warning--empty journal in R010
 Warning--empty publisher in R038
 Warning--empty year in R038
 Warning--empty publisher in R014
 Warning--empty publisher in R022
+Warning--empty journal in R031
 Warning--empty publisher in R013
-You've used 28 entries,
+You've used 29 entries,
             1876 wiz_defined-function locations,
-            625 strings with 6131 characters,
-and the built_in function-call counts, 4490 in all, are:
-= -- 368
-> -- 200
+            631 strings with 6248 characters,
+and the built_in function-call counts, 4643 in all, are:
+= -- 380
+> -- 208
 < -- 0
-+ -- 83
-- -- 55
-* -- 265
-:= -- 673
-add.period$ -- 34
-call.type$ -- 28
-change.case$ -- 15
++ -- 86
+- -- 57
+* -- 276
+:= -- 698
+add.period$ -- 35
+call.type$ -- 29
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 50
-duplicate$ -- 234
-empty$ -- 528
-format.name$ -- 55
-if$ -- 1073
+cite$ -- 52
+duplicate$ -- 243
+empty$ -- 545
+format.name$ -- 57
+if$ -- 1108
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 33
-newline$ -- 97
-num.names$ -- 28
-pop$ -- 162
+int.to.str$ -- 29
+missing$ -- 34
+newline$ -- 100
+num.names$ -- 29
+pop$ -- 167
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 88
+skip$ -- 90
 stack$ -- 0
 substring$ -- 52
 swap$ -- 35
@@ -74,8 +76,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 22
-while$ -- 35
-width$ -- 30
-write$ -- 218
-(There were 22 warnings)
+warning$ -- 23
+while$ -- 36
+width$ -- 31
+write$ -- 226
+(There were 23 warnings)

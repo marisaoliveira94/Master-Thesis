@@ -1,44 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{R008}
-Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
-  Board User Guide (UG957)}}.
-\newblock 2014.
-
-\bibitem{R009}
-Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
-\newblock 2014.
-
-\bibitem{R032}
-A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
-\newblock 2005.
-
-\bibitem{R011}
-Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}}.
-\newblock 2016.
-
-\bibitem{R012}
-D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
-
-\bibitem{R034}
-E.~Tutorials, ``{The Shift Register}.''
-
-\bibitem{R033}
-P.~Moreira, J.~Christiansen, A.~Marchioro, E.~V.~D. Bij, K.~Kloukinas,
-  M.~Campbell, G.~Cervelli, and C.-e. Mic, ``{A 1 . 25Gbit / s Serializer for
-  LHC Data and Trigger Optical Links},''
-
-\bibitem{R010}
-Xilinx and Inc, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for
-  High-Speed Serial I/O Connectivity, White Paper},'' 2013.
-
-\bibitem{R037}
-Altera, ``{Understanding Metastability in FPGAs},'' {\em White Paper},
-  no.~July, pp.~1--6, 2009.
-
-\bibitem{R016}
-A.~Devices, {\em {ADV7612 Reference Manual}}.
-
 \bibitem{R002}
 {Wikipedia Contributors}, ``{HDMI},'' 2016.
 
@@ -57,9 +18,21 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
 \bibitem{R004}
 W.~contributors, ``Audio and video interfaces and connectors,'' 2016.
 
+\bibitem{R008}
+Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
+  Board User Guide (UG957)}}.
+\newblock 2014.
+
 \bibitem{R030}
 Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
   vol.~315, 2009.
+
+\bibitem{R009}
+Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
+\newblock 2014.
+
+\bibitem{R016}
+A.~Devices, {\em {ADV7612 Reference Manual}}.
 
 \bibitem{R017}
 {Analog Devices}, {\em {ADV7511 Programming Guide}}.
@@ -69,6 +42,25 @@ Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
 {Analog Devices}, {\em {ADV7511 Hardware user's guide}}.
 \newblock No.~July, 2011.
 
+\bibitem{R032}
+A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
+\newblock 2005.
+
+\bibitem{R012}
+D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
+
+\bibitem{R011}
+Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}}.
+\newblock 2016.
+
+\bibitem{R034}
+E.~Tutorials, ``{The Shift Register}.''
+
+\bibitem{R033}
+P.~Moreira, J.~Christiansen, A.~Marchioro, E.~V.~D. Bij, K.~Kloukinas,
+  M.~Campbell, G.~Cervelli, and C.-e. Mic, ``{A 1 . 25Gbit / s Serializer for
+  LHC Data and Trigger Optical Links},''
+
 \bibitem{R036}
 T.~Instruments, {\em {LVDS Owner's Manual}}.
 \newblock 2008.
@@ -77,9 +69,17 @@ T.~Instruments, {\em {LVDS Owner's Manual}}.
 R.~Williams, ``{A Painless Guide To CRC Error Detection Algorithms},'' {\em
   Rocksoft Pty Ltd.}, p.~34, 1993.
 
+\bibitem{R010}
+Xilinx and Inc, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for
+  High-Speed Serial I/O Connectivity, White Paper},'' 2013.
+
 \bibitem{R024}
 C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification
   Techniques Using SystemVerilog},'' {\em Snug-2008}, 2008.
+
+\bibitem{R037}
+Altera, ``{Understanding Metastability in FPGAs},'' {\em White Paper},
+  no.~July, pp.~1--6, 2009.
 
 \bibitem{R038}
 {Analog Devices}, {\em {Data Sheet ADV7612}}.
@@ -104,6 +104,10 @@ Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio
 \bibitem{R022}
 Xilinx, {\em {7 series FPGAs Transceivers Wizard v3.5}}.
 \newblock 2015.
+
+\bibitem{R031}
+G.~Magnaye and J.~Snow, ``{Implementing SMPTE SDI Interfaces with 7 Series
+  Transceivers},'' vol.~1092, 2013.
 
 \bibitem{R013}
 Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support}}.

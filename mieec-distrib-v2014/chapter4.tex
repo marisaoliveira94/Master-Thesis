@@ -98,7 +98,7 @@ Se por outro lado, se optar por um \textit{datapath} interno de 2 byte, então s
  	\begin{center}
  		\leavevmode
  		\includegraphics[width=0.75\textwidth]{exemplo_datapath}
- 		\caption{Exemplo simplificado de transmissão com diferentes usos de \textit{datapath}}
+ 		\caption[Exemplo simplificado de transmissão com diferentes usos de \textit{datapath}]{Exemplo simplificado de transmissão com diferentes usos de \textit{datapath}}
  		\label{fig:exemplo_datapaths}
  	\end{center}
  \end{figure}
@@ -127,7 +127,7 @@ Contudo, o bloco PCS utiliza dois sinais de relógio internamente para o seu cor
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{clk_domain_cross_gtx_tx}
-		\caption{Diferentes domínios de relógio do transmissor, retirada de \cite{R011}}
+		\caption[Diferentes domínios de sinal de relógio do transmissor]{Diferentes domínios de sinal de relógio do transmissor (retirada de \cite{R011})}
 		\label{fig:clk_domains_tx}
 	\end{center}
 \end{figure}
@@ -145,7 +145,7 @@ Após a serialização dos dados no bloco PISO da figura \ref{fig:gtx_tx_arq} da
 \end{itemize}
 
 
-\section{Recetor} \label{sec_rx_gtx}
+\section{Recetor} \label{sec:_rx_gtx}
 Na figura \ref{fig:gtx_rx_arq} na página \pageref{fig:gtx_rx_arq} é possível visualizar a arquitetura do recetor GTX. Este inclui diversos blocos que permitem a correta recuperação do sinal, sendo que o funcionamento dos principais já foram mencionados na subsecção \ref{serial_theory} do capítulo \ref{chap:chap2}, contudo passarão de seguida a ser brevemente descritos nas próximas subsecções. 
 
 \begin{figure}[h!]
@@ -153,7 +153,7 @@ Na figura \ref{fig:gtx_rx_arq} na página \pageref{fig:gtx_rx_arq} é possível 
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{rx_gtx_arq}
 		\centering
-		\caption{Arquitetura do recetor GTX, retirada de \cite{R011}}
+		\caption[Arquitetura do recetor GTX]{Arquitetura do recetor GTX, (retirada de \cite{R011})}
 		\label{fig:gtx_rx_arq}
 	\end{center}
 \end{figure}
@@ -240,7 +240,7 @@ Este bloco dispõe de uma opção de alinhamento manual que vem substituir o aut
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{rxslide_example}
 		\captionsetup{width=1.0\linewidth}
-		\caption{Exemplo de um alinhamento manual da palavra, retirada de \cite{R011}}
+		\caption[Exemplo de um alinhamento manual da palavra]{Exemplo de um alinhamento manual da palavra (retirada de \cite{R011})}
 		\label{fig:rxslide_example}
 	\end{center}
 \end{figure}
@@ -263,7 +263,7 @@ Tal como acontecia no transmissor, o recetor opera a diferentes domínios de sin
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{dominios_rx}
 		\captionsetup{width=1.0\linewidth}
-		\caption{Ilustração dos diferentes domínios de relógio no recetor, retirada de \cite{R011}}
+		\caption[Diferentes domínios de sinal de relógio no recetor]{Diferentes domínios de sinal de relógio no recetor (retirada de \cite{R011})}
 		\label{fig:dominios_rx}
 	\end{center}
 \end{figure}
@@ -286,26 +286,127 @@ A relação entre estes dois sinais de relógio mencionados (RXUSRCLK e RXUSRCLK
 
 Segundo \cite{R011}, é de notar que quando é o mesmo oscilador a fornecer o sinal de relógio de referência para o transmissor e para o recetor, que para além dos sinais de relógio de saída do recetor serem gerados com base no sinal de relógio de referência, podem ainda ser usados os sinais de relógio de saída do transmissor para o recetor e vice-versa.
 
-\section{Analise das características de transmissão}
+\section{Análise das características de transmissão}
 
 Nesta secção são abordadas as diferentes características de transmissão possíveis de obter (velocidades de transmissão, tamanho de tramas entre outras) tendo em conta as restrições dos GTX, de maneira a otimizar a transmissão.
 
-O projeto pode ser abordado de várias maneiras, desde a restringir a largura de banda que a transmissão em série pode ocupar até mesmo limitar o número de bits por tramas que se pretende transmitir.
+O projeto pode ser abordado de várias maneiras, desde a restringir a largura de banda base da transmissão até mesmo limitar o número de bits por tramas  a transmitir. No sentido de simplificar o projeto e torná-lo eficiente em termos lógicos restringiu-se a cadência de entrada dos dados no transcetor para $148,5\ MHz$, pois assim não é necessário o uso de memórias, por exemplo FIFO, para armazenar dados antes da sua entrada nos transcetores.
 
-No sentido de simplificar o projeto e torná-lo eficiente em termos lógicos (evitar o uso de FIFO), e visto que uma imagem HDMI é transmitida a  
-
-
-Para se obter algumas conclusões relativamente a este \textit{trade-off} efetuou-se alguns cálculos tendo em conta as restrições da largura da porta do GTX, a utilização de codificação ou não do sinal e ainda a equação apresentada em \ref{eq:lineRate}. Esses resultados são apresentados na tabela XXXXXXXX.
+Com esta restrição, e para se retirar algumas conclusões relativamente à otimização de transmissão dos dados em série, efetuaram-se cálculos para as diferentes larguras na porta de dados, com a utilização de codificação ou não através da equação apresentada em \ref{eq:lineRate} da página \pageref{eq:lineRate}. Esses resultados estão apresentados na tabela \ref{table:line_rates} na página \pageref{table:line_rates}.
 
 
+\begin{table}[h!]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{@{}lllllll@{}}
+			\toprule
+			\textbf{\begin{tabular}[c]{@{}l@{}}Interface\\ com a \\ FPGA\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Codificação \\ 8B/10B\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Tamanho \\ do Datapath\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Tamanho \\ interno \\ do datapath\end{tabular}} & \textbf{$F_{TXUSRCLK} $} & \textbf{$F_{TXUSRCLK2}$} & \textbf{\begin{tabular}[c]{@{}l@{}}Velocidade \\ em série\end{tabular}} \\ \toprule
+			\multirow{2}{*}{16}                                                        & Sim                                                                    & 2 byte                                                                  & 20                                                                                 & 148, 5 MHz             & 148, 5 MHz              & 2,97 Gb/s                                                               \\
+			& Não                                                                    & 2 byte                                                                  & 16                                                                                 & 148,5 MHz              & 148,5 MHz               & 2,376 Gb/s                                                              \\ \hline
+			20                                                                         & Não                                                                    & 2 byte                                                                  & 20                                                                                 & 148,5 MHz              & 148,5 MHz               & 2,97 Gb/s                                                               \\ \hline
+			\multirow{4}{*}{32}                                                        & Sim                                                                    & 2 byte                                                                  & 20                                                                                 & 297 MHz                & 148,5 MHz               & 5,94 Gb/s                                                               \\
+			& Não                                                                    & 2 byte                                                                  & 16                                                                                 & 297 MHz                & 148,5 MHz               & 4,752 Gb/s                                                              \\
+			& Sim                                                                    & 4 byte                                                                  & 40                                                                                 & 148,5 MHz              & 148,5 MHz               & 5,94 Gb/s                                                               \\
+			& Não                                                                    & 4 byte                                                                  & 32                                                                                 & 148,5 MHz              & 148,5 MHz               & 4,752 Gb/s                                                              \\ \hline
+			\multirow{2}{*}{40}                                                        & Não                                                                    & 2 byte                                                                  & 20                                                                                 & 297 MHz                & 148,5 MHz               & 5,94 Gb/s                                                               \\
+			& Não                                                                    & 4 byte                                                                  & 40                                                                                 & 148,5 MHz              & 148,5 MHz               & 5,94 Gb/s                                                               \\ \hline
+			\multirow{2}{*}{64}                                                        & Sim                                                                    & 4 byte                                                                  & 40                                                                                 & 297 MHz                & 148,5 MHz               & 11,88 Gb/s                                                              \\
+			& Não                                                                    & 4 byte                                                                  & 32                                                                                 & 297 MHz                & 148,5 MHz               & 9,5 Gb/s                                                                \\ \hline
+			80                                                                         & Não                                                                    & 4 byte                                                                  & 40                                                                                 & 297 MHz                & 148,5 MHz               & 11,88 Gb/s                                                              \\ \toprule
+		\end{tabular}%
+	}
+	\caption[Débitos de transmissão atingíveis para diferentes larguras de porta de entrada do transcetor]{Débitos de transmissão atingíveis para diferentes larguras de porta de entrada do transcetor}
+	\label{table:line_rates}
+\end{table}
 
 
-%%dizer quais as possiveis velocidades teórticas se podem obter 
-%\section{Estrtutura do GTX}
-%%indicar entradas e saídas do GTX e o que são
-%\section{Arquiteturas Desenvolvidas}
-%%Dizer que para simplificar se fez isto isto e isto
-%\subsection{Abordagem Inicial}
+Através de uma rápida observação da tabela \ref{table:line_rates}, constata-se que fixando a taxa de amostragem do sinal à entrada do transmissor é possível obter diversas taxas de transmissão para diferentes larguras da porta da interface do transmissor com a FPGA. O projeto pode utilizar diferentes larguras de tramas a transmitir, consoante a transmissão que é realizada: uma transmissão apenas de imagem não necessita de transmitir tantos dados como uma transmissão de imagem e som, e por isso obtém-se diferentes velocidades de transmissão.
+
+A escolha da largura das tramas a ser transmitido bem como a motivação para tal serão abordados aquando a apresentação de cada arquitetura transmitida.
+
+\section{Estrutura do transcetor GTX}
+
+Esta secção apresenta a estrutura geral do IP disponibilizado pela \textit{Xilinx} gerado no \textit{software} VIVADO, mais em concreto todas as suas entradas e saídas,  no sentido de se poder perceber todas as características do mesmo antes de se expor as arquiteturas desenvolvidas.  Para gerar este módulo existe uma interface do \textit{software} VIVADO que permite configurar as diversas características do transmissor e do recetor GTX apresentadas nas secções \ref{sec:tx_gtx} e \ref{sec:_rx_gtx} respetivamente deste capítulo. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{gtx_wrapper}
+		\captionsetup{width=1.0\linewidth}
+		\caption[Estrutura geral do módulo GTX  gerado no \textit{software} VIVADO]{Estrutura geral do módulo GTX gerado no \textit{software} VIVADO}
+		\label{fig:gtx_wrapper}
+	\end{center}
+\end{figure}
+
+Na imagem \ref{fig:gtx_wrapper} da página  \pageref{fig:gtx_wrapper} visualiza-se a estrutura geral do IP GTX gerado pelo \textit{software} VIVADO. O módulo de topo representado na imagem é constituído por diversos sub-módulos, tal como indica o manual da interface que gera este IP referenciado em \cite{R022}. Contudo, esses sub-módulos são de gestão interna do transcetor e como tal não são relevantes para o projeto. Por esse motivo, nesta imagem apenas são apresentadas as portas de entrada e saída de maior importância para o projeto, que passam de seguida a ser detalhadas:
+
+\begin{itemize}
+	\item \textbf{GTREFCLK\_PAD\_N\_IN e GTREFCLK\_PAD\_P\_IN}:  Entrada do sinal de relógio diferencial externo de referência.
+	
+	\item \textbf{SYSCLK\_IN}: Entrada do sinal de relógio a que o resto da arquitetura opera, ou seja, o sinal de relógio de todos os outros blocos da arquitetura que não o GTX.
+	
+	\item \textbf{RXN\_IN e RXP\_IN}: Par diferencial de entrada do recetor  dos dados em série.
+	
+	\item \textbf{TXN\_OUT e TXP\_OUT}: Par diferencial de saída do transmissor dos dados em série.
+
+	\item \textbf{DRP\_CLK\_IN\_P e DRP\_CLK\_IN\_N}: Entrada do par diferencial externo para a interface DRP (\textit{Dynamic Reconfiguration Port}). 
+	
+	\item \textbf{TX\_DATA\_IN}: Entrada dos dados em paralelo a serem serializados.
+	
+	\item \textbf{RX\_DATA\_OUT}: Saída dos dados em paralelo depois de recebidos e deserializados. 
+	
+	\item \textbf{TXUSRCLK2}: Sinal de relógio de amostragem dos dados para o transmissor.
+	
+	\item \textbf{RXUSRCLK2}: Sinal de relógio de amostragem dos dados provenientes do recetor.
+	
+	\item \textbf{RXSLIDE}: Entrada do sinal que ativa o alinhamento manual do recetor.
+	
+	\item \textbf{SYS\_RESET}: Sinal de \textit{reset} ativado pelas máquinas de estados do recetor e transmissor
+	
+\end{itemize}
+%%explicar que as portas que estão conectadas pq serao necessários aqueles blocos
+
+Através da observação da imagem \ref{fig:gtx_wrapper} é possivel ver que a entrada TX\_DATA\_IN e a saída RX\_DATA\_OUT estão conectadas a dois blocos: um bloco gerador de tramas a enviar para o transmissor e um bloco que verifica as tramas que chegam do recetor. O funcionamento destes blocos pode variar de arquitetura para arquitetura, contudo em todas estes blocos operarão aos sinais de relógio TXUSRCLK2 e RXUSRCLK2 e são obrigatórios para o correto funcionamento do sistema globalmente.  Todos os outros sinais não estão diretamente conectados a nenhuma entrada nem saída porque podem variar entre as arquiteturas.
+
+%%explicar o que é a interface DRP e q nao vai ser usada
+A interface DRP é uma característica do transcetor que até agora não foi abordada porque não é utilizada no projeto. Esta interface permite configurar dinamicamente algumas características dos transcetores, o que é útil em alguns projetos. Apesar de não ser utilizada neste projeto, é impossível desativar esta característica na interface do \textit{software} que gera o módulo GTX, e por esse motivo está aqui brevemente apresentada.
+
+%%explicar o porquê do RXSLIDE
+É de notar ainda que a porta RXSLIDE apresentada na imagem \ref{fig:gtx_wrapper} da página \pageref{fig:gtx_wrapper} é uma porta que pode não existir se assim se pretender. Todavia optou-se por ativar estar porta pois é esta que ativa o alinhamento manual das palavras recebidas, e tal como mencionado em 
+\ref{subsub:align} na página \pageref{subsub:align} deste mesmo capítulo, esta opção de alinhamento manual pode vir a ser útil para transmissões cuja taxa de é superior a 5 Gb/s. 
+
+%CONCLUIR_ESTA_SECÇÃO
+
+
+
+
+
+
+%\section{Arquiteturas Desenvolvidas para a transmissão de dados em série}
+%%%Dizer que para simplificar se fez isto isto e isto
+%Nesta secção serão abordadas as arquiteturas desenvolvidas para a transmissão de dados em série, explicando todas as decisões tomadas para se obter o produto final. 
+%
+%\subsection{Abordagem inicial}
+%
+%Numa fase inicial do projeto optou-se por abordar de uma maneira simples a transmissão dos dados em série, sem o recurso à definição de todas a tramas do pacote a serem. Tal decisão foi tomada, ciente da importância das tramas num protocolo de comunicação, pois o IP GTX disponibilizado pela \textit{Xilinx} é muito complexo e completo e foi necessário uma familiarização com o mesmo.
+%
+%\subsubsection{Transmissão de uma barra de cores gerada na FPGA em série}
+%
+%A arquitetura desenvolvida in
+%
+%
+%\subsubsection*{Concepção e Desenvolvimento}
+%
+%\subsubsection*{Resultados}
+
+
+
+
+
+
+
+
+
 %\subsection{Definição de Tramas e Pacotes}
 	
 	

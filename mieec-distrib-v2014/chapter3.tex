@@ -192,6 +192,8 @@ Nesta secção passam a ser descritas as arquiteturas desenvolvidas e implementa
 
 Numa fase inicial do projeto optou-se por simplificar a transmissão e utilizou-se apenas a placa transmissora HDMI configurada por omissão. Construiu-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utilizou-se essa imagem para ser transmitida pelos conectores FMC.
 
+\subsubsection*{Concepção e Desenvolvimento}
+
 O bloco gerador de uma barra de cores foi adaptado de uma arquitetura disponibilizado pela \textit{Inrenvium} aquando a compra das placas. Apesar de ter sido ligeiramente adaptado para este caso em específico, este baseia-se essencialmente numa máquina de estados que vai contando as linhas e as colunas para que possa enviar não só os valores das cores de cada píxel, mas também os sinais de controlo como a sincronização vertical (\textit{vsync}), a sincronização horizontal(\textit{hsync}) e ainda os valor de pixeis ativos (\textit{enable}).
 
 Para que se entenda mais facilmente como e quando se transmitem os sinais de controlo da imagem e também o valor dos píxeis é demonstrado na imagem \ref{fig:colorBar_exemple} na página \pageref{fig:colorBar_exemple} um exemplo de transmissão de uma imagem gerada na FPGA. Antes de passar para descrição da geração da imagem passam a ser descritos os acrónimos apresentados na figura:
@@ -221,7 +223,7 @@ Para gerar uma imagem em \textit{FULL HD} cuja resolução é 1920x1080 píxeis,
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=1.0\textwidth]{colorBar_FSM}
+		\includegraphics[width=0.8\textwidth]{colorBar_FSM}
 		\caption{Máquina de estados para gerar uma barra de cores}
 		\label{fig:colorBar_fsm}
 	\end{center}
@@ -322,7 +324,7 @@ Para além do desenvolvimento do código em Verilog é necessário que as portas
 			\multicolumn{1}{r|}{\textbf{Saída}}   & pixel[0] a pixel [29]                              & Ver anexo                                & 34 e 35                                    \\ \hline
 		\end{tabular}
 %	}
-	\captionsetup{width=0.75\linewidth}
+%	\captionsetup{width=0.75\linewidth}
 	\caption{Localização das portas de entrada e saída da arquitetura de transmissão de imagem gerada na FPGA para a placa HDMI transmissora}
 	\label{table:LOCplanA_simples}
 \end{table}
@@ -333,12 +335,14 @@ Para cada porta são atribuídas duas restrições: uma que indica a localizaç�
 
 Para além destas restrições físicas geradas são também geradas duas restrições temporais quanto aos sinais de relógio à entrada apresentadas na secção \ref{ap:temporais_planA} do anexo \ref{ap2:codigo}. As restrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial existe um sinal com uma frequência de 200 MHz (período de 5ns). Isto porque este sinal de relógio é um sinal primário e é importante que a ferramenta de implementação saiba o seu valor para poder garantir que toda a arquitetura cumpre os requisitos temporais.
 
+\subsubsection*{Resultados}
+
 Após a definição de todas as restrições e escrita do código em Verilog, a arquitetura desenvolvida foi devidamente implementada na FPGA e testada utilizando-se o \textit{set-up} de teste visualizado na imagem \ref{fig:planA_sch} da página \pageref{fig:planA_sch}.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=1.0\textwidth]{planAsch}
+		\includegraphics[width=0.8\textwidth]{planAsch}
 		\caption{\textit{Set-Up} de teste da arquitetura desenvolvida para transmissão de uma imagem gerada na FPGA para a placa HDMI transmissora}
 		\label{fig:planA_sch}
 	\end{center}
@@ -349,6 +353,8 @@ Os resultados obtidos foram os esperados, a visualização de uma barra de cores
 \subsection{Transmissão de imagem entre dispositivos HDMI} \label{subsub:planB}
 
 Na arquitetura desenvolvida que é apresentada nesta subsecção são utilizadas as placas HDMI recetora e transmissora, ambas configuradas por omissão e procede-se à transmissão de uma imagem entre dispositivos HDMI. O objetivo do desenvolvimento desta arquitetura consiste em obter uma ligação entre dois dispositivos ligados às placas HDMI de uma imagem RGB de 10 bits.
+
+\subsubsection*{Concepção e Desenvolvimento}
 
 Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em específico como é uma imagem \textit{FULL HD} é uma frequência de 148,5 MHz) e o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A imagem \ref{fig:planb1} da página \pageref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
 
@@ -456,13 +462,15 @@ A atribuição destas mesmas localizações das portas gerou um ficheiro de rest
 Quanto às restrições temporais aplicadas ao sistema são idênticas às que foram aplicadas na arquitetura desenvolvida anteriormente e estão presentes em \ref{ap:temporais_planB} no anexo \ref{ap2:codigo}.
 %--> RESULTADOS
 
+\subsubsection*{Resultados}
+
 Após síntese e implementação do código desenvolvido em Verilog juntamente com as restrições aplicadas, a FPGA foi programada com esta arquitetura e testada recorrendo-se a um \textit{set-up} de teste como ilustra a imagem \ref{fig:planb_sch} na página \pageref{fig:planb_sch}. Foi utilizado um computador portátil como fonte HDMI e conectou-se o mesmo à placa recetora. Como dispositivo final utilizou-se um monitor que foi conectado à placa transmissora através de um cabo HDMI também. Os resultados obtidos foram os esperados: transmissão de imagem entre os dois dispositivos.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{planBsch}
-		\caption{\textit{Set-up} de teste para a arquitetura transmissora de imagem entre dispositivos HDMI}
+		\caption{\textit{Set-up} de teste para as arquiteturas transmissoras de dados entre dispositivos HDMI}
 		\label{fig:planb_sch}
 	\end{center}
 \end{figure}
@@ -470,6 +478,8 @@ Após síntese e implementação do código desenvolvido em Verilog juntamente c
 \subsection{Transmissão de imagem e som entre dispositivos HDMI}
 
 Após se obter uma ligação entre dois dispositivos HDMI de uma imagem procedeu-se ao desenvolvimento de uma arquitetura capaz de transmitir imagem e som. Para isso foi necessário reconfigurar as placas HDMI, tal como mencionado anteriormente, para a configuração que suporta apenas um canal mas que permite a transmissão de áudio em formato $I^{2}$S. As características desta configuração são apresentadas na subsecção \ref{subsubsec:HDMIconfig+audio} na página \pageref{subsubsec:HDMIconfig+audio} deste documento, mas é de notar que as imagens poderão ser transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados na secção \ref{sec:HDMIconfig+audio_switches} do anexo \ref{ap4:switches}). Neste caso específico são utilizados 12 bits por cor o que perfará um total de 36 bits por píxel.
+
+\subsubsection*{Concepção e Desenvolvimento}
 
 Na imagem \ref{fig:planC} na página \pageref{fig:planC} é ilustrado um diagrama de blocos da arquitetura desenvolvida para se realizar a transmissão de imagem e som entre dois dispositivos HDMI. 
 
@@ -591,9 +601,11 @@ Mais uma vez é necessário definir as localizações físicas de cada porta de 
 
 Para que a ferramenta de implementação reconheça as localizações físicas da FPGA às quais são atribuídas as portas do bloco é gerado um ficheiro de restrições físicas semelhantes aos ficheiros gerados para as outras arquiteturas apresentadas até agora neste documento. 
 
-Esse ficheiro pode ser encontrado nas secções \ref{ap:fisicas_paraHDMI}, \ref{ap:fisicas_deHDMI} e ainda em \ref{ap:fisicas_planC_especificas} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_paraHDMI} é possível encontrar as restrições físicas relativas a algumas portas de saída do módulo, nomeadamente os bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e ainda os sinais de controlo. Na secção \ref{ap:fisicas_deHDMI} encontram-se as restrições físicas de algumas portas de entrada desta arquitetura provenientes da fonte HDMI. Essas portas correspondem, mais uma vez, aos bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e os respetivos sinais de controlo. Por fim, em \ref{ap:fisicas_planC_especificas} encontram-se as restrições físicas referentes às restantes portas de entrada e saída da arquitetura que se conectam às placas e não foram contempladas e também relativamente às outras portas do módulo que não se conectam às placas HDMI. 
+O conteúdo do ficheiro pode ser encontrado nas secções \ref{ap:fisicas_paraHDMI}, \ref{ap:fisicas_deHDMI} e ainda em \ref{ap:fisicas_planC_especificas} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_paraHDMI} é possível encontrar as restrições físicas relativas a algumas portas de saída do módulo, nomeadamente os bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e ainda os sinais de controlo. Na secção \ref{ap:fisicas_deHDMI} encontram-se as restrições físicas de algumas portas de entrada desta arquitetura provenientes da fonte HDMI. Essas portas correspondem, mais uma vez, aos bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e os respetivos sinais de controlo. Por fim, em \ref{ap:fisicas_planC_especificas} encontram-se as restrições físicas referentes às restantes portas de entrada e saída da arquitetura que se conectam às placas e não foram contempladas e também relativamente às outras portas do módulo que não se conectam às placas HDMI. 
 
 Também à semelhança das arquiteturas anteriormente descritas foram geradas duas restrições temporais relativamente ao sinal de relógio diferencial à entrada que definem que na entrada existe um sinal com uma frequência de 200 MHz. Estas são apresentadas em \ref{ap:temporais_planC} no anexo \ref{ap2:codigo}.
+
+\subsubsection*{Resultados}
 
 %--> RESULTADOS
 %%POR IMAGEM DO SET_UP
