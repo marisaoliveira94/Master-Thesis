@@ -43,6 +43,11 @@
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Diferentes dom\IeC {\'\i }nios de sinal de rel\IeC {\'o}gio no recetor}}{68}{figure.caption.73}
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Estrutura geral do m\IeC {\'o}dulo GTX gerado no \textit {software} VIVADO}}{71}{figure.caption.75}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama de blocos geral da arquitetura que transmite uma barra de cores em s\IeC {\'e}rie}}{74}{figure.caption.77}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Bloco de sincroniza\IeC {\c c}\IeC {\~a}o de dados}}{77}{figure.caption.82}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Estrutura das tramas geradas}}{78}{figure.caption.84}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Momentos de transmiss\IeC {\~a}o de diferentes tramas}}{79}{figure.caption.85}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Alinhamento das tramas no transcetor}}{80}{figure.caption.87}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

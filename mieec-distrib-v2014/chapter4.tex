@@ -117,7 +117,7 @@ As características deste tipo de codificação, as suas vantagens e importânci
 %
 %A geração de sequência pseudo-aleatórias é bastante utilizada em sistemas de telecomunicações para testar a integridade do sinal de ligações de grande velocidade, segundo \cite{R011}. Apesar de estas mesmas sequências parecerem aleatórias à primeira vista, na realidade apresentam determinadas características que são utilizadas para medir a qualidade da ligação. Este bloco do transmissor é responsável por esta ação. 
 
-\subsection{Interface entre os diferentes domínios de sinal de relógio do transmissor}
+\subsection{Interface entre os diferentes domínios de sinal de relógio do transmissor} \label{subsub:tx_buffer}
 
 Já foi referido anteriormente que para o correto funcionamento do transmissor GTX opera com pelo menos dois sinais de relógio diferentes : TXUSRCLK and TXUSRCLK2. O segundo é o sinal de relógio de sincronização principal entre os dados provenientes da FPGA e o transmissor, e o primeiro é o sinal de relógio utilizado para a lógica do bloco PCS.
 
@@ -170,28 +170,31 @@ A interface o cabo físico do recetor possui duas características que se tornam
 \end{itemize}
 
 
-\subsection{Equalização}
+\subsection{Equalização} \label{subsub:rx_equalização}
 
 Na subsecção com o nome de "Interfaces com a camada física" em \ref{subsub:pre_enfase_equalizacao} do capítulo \ref{chap:chap2} foi abordada a importância da utilização de filtros equalizadores para tentar compensar a atenuação e distorção que sinal sofre durante a sua transmissão no canal físico. O recetor GTX disponibiliza dois tipos de equalizadores adaptativos que devem ser escolhidos consoante as necessidades de consumo de potência do circuito \textit{versus} perdas do canal físico de transmissão.
 
 Segundo \cite{R011}, para canais cujas perdas não são muito significativas e o consumo de potência torna-se uma característica crítica do circuito existe um filtro adaptativo otimizado para tal com o nome de LPM (\textit{Low-power mode}). Ainda segundo esta fonte o uso deste tipo de equalizador é recomendado para aplicações com débitos até 11,2 Gb/S de curto alcance, e com perdas por canal até 12 dB à frequência de \textit{Nyquist}.
 
 
-Para canais cujas perdas tornam-se significativas existe disponível um filtro adaptativo com o nome de\textit{ Decision Feedback Equalizer} (DFE). Este é um filtro que utiliza a realimentação de símbolos detetados para produzir uma estimação da saída do canal. Segundo \cite{R011}, este equalizador é utilizado para ligações de média distância cujas perdas do canal rondam os 8 dB ou mais à frequência de \textit{Nyquist}. Contudo é necessário ter em conta as vantagens e desvantagens da utilização deste tipo de filtros no recetor que passam de seguida a ser descritas:
-
-\textbf{Vantagens da utilização deste tipo de equalizador:}
+Para canais cujas perdas tornam-se significativas existe disponível um filtro adaptativo com o nome de\textit{ Decision Feedback Equalizer} (DFE). 
+%Este é um filtro que utiliza a realimentação de símbolos detetados para produzir uma estimação da saída do canal. 
+Segundo \cite{R011}, este equalizador é utilizado para ligações de média distância cujas perdas do canal rondam os 8 dB ou mais à frequência de \textit{Nyquist}. Para além disso, a utilização deste tipo de equalizador traz as seguintes vantagens adicionais:
 \begin{itemize}
 	\item Efetua a equalização sem amplificação do ruído ou eventuais interferências.
 	\item Pode também fazer correções de reflexões causadas pelas descontinuidades do canal. 
 	\item É vantajosa a sua utilização quando as interferências são preocupantes.
 \end{itemize}
 
-\textbf{Cuidados a ter na utilização deste tipo de equalizador:}
-\begin{itemize}
-	\item Este tipo de equalização deve ser cuidadosa quando não existe codificação de dados, uma vez que pode levar à não equalização ideal do sinal recebido (pois o filtro pode não se auto adaptar aos dados recebidos).
-\end{itemize}
+%\textbf{Cuidados a ter na utilização deste tipo de equalizador:}
+%\begin{itemize}
+%	\item Este tipo de equalização deve ser cuidadosa quando não existe codificação de dados, uma vez que pode levar à não equalização ideal do sinal recebido (pois o filtro pode não se auto adaptar aos dados recebidos).
+%\end{itemize}
 
-Conhecendo agora os prós e contras dos dois equalizadores disponíveis no recetor GTX conclui-se que numa fase inicial do projeto em que nao se pretende usar codificação, e uma ligação curta não faz sentido usar um equalizador DFE, mas sim um equalizador LPM. Todavia, numa fase mais avançada do projeto, que envolva codificação e também a inserção dos sinais em ligações longas e/ou ruidosas, faz mais sentido usar um filtro DFE adaptado para tal. 
+Tendo em conta as vantagens dos dois equalizadores disponíveis no recetor GTX, verifica-se que a utilização de cada um deles pode ser utilizada em circunstâncias diferentes: numa fase inicial pode ser utilizado um equalizador DFE, apesar de gastar mais energia, contudo a utilização de um equalizador LPM reduz o consumo. Todavia, numa fase mais avançada do projeto, que envolva a inserção dos sinais em ligações longas e/ou ruidosas, faz mais sentido usar um filtro DFE adaptado para tal. 
+
+%
+%Conhecendo agora os prós e contras dos dois equalizadores disponíveis no recetor GTX conclui-se que numa fase inicial do projeto em que nao se pretende usar codificação, e uma ligação curta não faz sentido usar um equalizador DFE, mas sim um equalizador LPM. T
 
 %\subsection{CDR - \textit{Clock And Data Recovery}}
 %
@@ -253,7 +256,7 @@ Tal como no transmissor, este bloco é responsável pela descodificação 8B/10B
 
 Numa fase inicial do projeto, a utilização deste bloco (tanto do lado do transmissor como do recetor) é posta de lado no sentido de simplificar o projeto e também de diminuir a latência do sistema.   
 
-\subsection{Interfaces entre os diferentes domínios de sinal relógio do recetor}
+\subsection{Interfaces entre os diferentes domínios de sinal relógio do recetor} \label{subsub:rx_buffer}
 
 Tal como acontecia no transmissor, o recetor opera a diferentes domínios de sinal de relógio. Particularmente no bloco PCS existem dois domínios de relógio para os dados em paralelo críticos: RXUSRCLK e XCLK(o sinal de relógio dos dados em paralelo do bloco PMA). A imagem \ref{fig:dominios_rx} ilustra os diferentes domínios de relógio presentes no recetor.
 
@@ -361,7 +364,7 @@ Na imagem \ref{fig:gtx_wrapper} da página  \pageref{fig:gtx_wrapper} visualiza-
 	
 	\item \textbf{RXSLIDE}: Entrada do sinal que ativa o alinhamento manual do recetor.
 	
-	\item \textbf{SYS\_RESET}: Sinal de \textit{reset} ativado pelas máquinas de estados do recetor e transmissor
+	\item \textbf{SYS\_RESET}: Sinal de \textit{reset} ativado pelas máquinas de estados do recetor e transmissor.
 	
 \end{itemize}
 %%explicar que as portas que estão conectadas pq serao necessários aqueles blocos
@@ -373,7 +376,7 @@ A interface DRP é uma característica do transcetor que até agora não foi abo
 
 %%explicar o porquê do RXSLIDE
 É de notar ainda que a porta RXSLIDE apresentada na imagem \ref{fig:gtx_wrapper} da página \pageref{fig:gtx_wrapper} é uma porta que pode não existir se assim se pretender. Todavia optou-se por ativar estar porta pois é esta que ativa o alinhamento manual das palavras recebidas, e tal como mencionado em 
-\ref{subsub:align} na página \pageref{subsub:align} deste mesmo capítulo, esta opção de alinhamento manual pode vir a ser útil para transmissões cuja taxa de é superior a 5 Gb/s. 
+\ref{subsub:align} na página \pageref{subsub:align} deste mesmo capítulo, esta opção de alinhamento manual pode vir a ser útil para transmissões cuja taxa de é superior a 5 Gb/s. Através da análise da tabela \ref{table:line_rates} verifica-se que maior parte das taxas de débito calculadas para tramas com 32 bits ou mais são superiores a 5 Gb/s e como tal, é de esperar que tal venha a ser necessário.
 
 %CONCLUIR_ESTA_SECÇÃO
 
