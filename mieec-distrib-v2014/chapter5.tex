@@ -97,7 +97,7 @@ Por este motivo, este bloco de sincronização é apenas constituído por dois r
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
-		\includegraphics[width=0.6\textwidth]{sync_block}
+		\includegraphics[width=0.5\textwidth]{sync_block_from_HDMI}
 		\captionsetup{width=1.0\linewidth}
 		\caption[Bloco de sincronização de dados]{Bloco de sincronização de dados}
 		\label{fig:sync_block}
@@ -162,7 +162,7 @@ Assim sendo, consoante os dados que recebe nas suas entradas (\textit{pixel}, \t
   
 %%Explicar porque existe
 
-Este bloco é responsável pela re-organização das tramas recebidas que são recebidas à cadência RXUSRCLK2. Apesar de poder parecer que com o alinhamento interno as tramas chegariam ao recetor tal como são enviadas do transmissor, mesmo com o alinhamento interno ideal, tal não acontece. As tramas são sim alinhadas consoante determinada palavra de alinhamento, no entanto não significa que a trama recebida é exatamente à trama enviada. 
+Este bloco é responsável pela re-organização das tramas recebidas que são recebidas à cadência RXUSRCLK2. Apesar de poder parecer que com o alinhamento interno as tramas chegariam ao recetor tal como são enviadas do transmissor, mesmo com o alinhamento interno ideal, tal não acontece. As tramas são alinhadas para um determinado limite assim que o recetor encontra as palavra de alinhamento, no entanto não significa que a trama recebida é exatamente à trama enviada. 
 
 O que o alinhamento interno faz, segundo \cite{R022} e \cite{R011}, quando deteta a palavra de alinhamento é assumir que dessa palavra para a frente são dados válidos, tal como explicado anteriormente, e alinhar os dados para um determinado limite. Esse limite pode ser selecionado aquando a criação do módulo na interface especifica para tal, e o que foi escolhido é que alinha os dados para o byte mais próximo. Apesar de não se estar a lidar com codificação, o bloco de alinhamento das palavras considera que 1 byte são 10 bits (pois com a codificação 8B/10B codifica 8 bits em 10 bits) porque o \textit{datapath} é de 40 bits, e por isso quando deteta a palavra de alinhamento, as tramas recebidas no recetor podem chegar de 4 maneiras diferentes ilustradas na imagem \ref{fig:alinhamento_tramas_gtx}.
 
@@ -178,61 +178,184 @@ O que o alinhamento interno faz, segundo \cite{R022} e \cite{R011}, quando detet
 	\end{center}
 \end{figure}
 
-Daí a importância da trama de SOP: quando é detetada em algum dos limites assinalados a cinzento então dá-se inicio à transmissão dos restantes dados. Para se proceder à organização dos dados recebidos, é necessário recorrer a uma máquina de estados. Esta máquina de estados utilizada neste exemplo foi adaptada de uma máquina de estados disponibilizada pela \textit{Xilinx}.
+Daí a importância da trama de SOP: quando é detetada em algum dos limites assinalados a cinzento dá-se inicio à transmissão dos restantes dados. Para se proceder à organização dos dados recebidos é necessário recorrer a uma máquina de estados. Esta máquina de estados utilizada neste exemplo foi adaptada de uma disponibilizada pela \textit{Xilinx}.
 
-A máquina de estados principal é dividida em 3 por questões de simplificação e de melhor entendimento:
-\begin{enumerate}
-	\item Máquina que define o estado dos dados recebidos
-	\item Máquina que define o estado da procura dos dados de tramas e procede a eventuais re-alinhamentos de palavras necessários
-	\item Máquina que deteta os erros 
-	\item Máquina que deteta o estado da ligação
-\end{enumerate}
-
-Cada uma delas passará a ser detalhada, sem nunca esquecer que funcionam como um todo apenas foram divididas para explicação do sistema global.
+A máquina de estados principal é dividida em três por questões de simplificação e de melhor entendimento da mesma. Cada uma delas passará a ser detalhada, sem nunca esquecer que funcionam como um todo e apenas foram divididas para explicação do sistema global.
 %%Explicar máquina de estados que procura dados, ou espera ou tal e tal
 
 \begin{enumerate}
-	\item \textbf{Máquina que define o estado dos dados recebidos}
+	\item \textbf{Máquina de estados geral da recepção de dados:}
+	
+	Esta máquina define o estado geral da recepção de dados. Estes estados podem ser três e passam de seguida a ser descritos:
+	\begin{itemize}
+		\item \textbf{\textit{Begin:}} Estado inicial que está à espera da receção de dados válidos do recetor. Quando a trama de SOP é detetada pela primeira vez, então a máquina transita para um estado em que recebe dados válidos. 
+		\item \textbf{\textit{Track\_data:}} Neste estado já foi detetato o inicio da transmissão (SOP) e por isso todos os dados que estão a ser recebidos são válidos. A transmissão encontra-se "à procura de dados". Quando é detetado algum erro (com ajuda de uma máquina de estados que deteta os erros nos dados recebidos) transita de estado.
+		\item \textbf{\textit{Data\_error\_detected:} }Estado de detecção de erro que transita imediatamente para o estado inicial para aguardar a chegada de dados válidos novamente.
+	\end{itemize}
+
+	Sempre que for necessário fazer \textit{reset} ao sistema, quer pela ativação do utilizador ou então pelo transcetor volta-se ao estado inicial "\textit{begin}".
+	
 	
 	\begin{figure}[h!]
 		\begin{center}
 			\leavevmode
 			\includegraphics[width=0.8\textwidth]{fsm1}
 			\captionsetup{width=1.0\linewidth}
-			\caption[Alinhamento das tramas no transcetor]{Alinhamento das tramas no transcetor}
-			\label{fig:alinhamento_tramas_gtx}
+			\caption[Máquina de estados de transmissão]{Máquina de estados de transmissão}
+			\label{fig:FSM1}
+	\end{center}
+	\end{figure}
+	
+	A figura \ref{fig:FSM1} na página \pageref{fig:FSM1} representa a máquina de estados detalhada anteriormente. De notar que na imagem estão representadas algumas \textit{flags} que decisão de transição, mas que não são mais do que já foi explicado. A \textit{flag} "\textit{SOP\_detected}" indica que se a trama de inicio de pacote foi encontrada nos dados recebidos e "\textit{error\_detected}" indica que foi detetado um erro nos dados recebidos. Ambas são definidas por máquinas de estados que serão explicadas de seguida.
+	
+	
+	\item \textbf{Máquina de leitura de dados}
+	 
+	 Esta máquina de estados é responsável pela constante procura de dados recebidos pelo recetor. Isto é, os dados vão sendo recebidos e guardados em registos que guardam as duas últimas tramas chegadas do recetor. Isto porque na combinação dessas duas tramas pode-se encontrar a indicação que dá início à transmissão: a trama SOP. Essas duas últimas tramas vão sendo constantemente verificadas sendo o seu conteúdo a motivação para a transição de estados. %Os estados desta máquina passam de seguida a ser descritos:
+	 
+	 A figura \ref{fig:fsm2} da página \pageref{fig:fsm2} ilustra a máquina de estados referida anteriormente. Contudo antes de descrever a máquina de estados, faz-se uma breve descrição das \textit{flags} de transição de estados presentes na figura:
+	 
+
+	 	\begin{figure}[h!]
+	 		\begin{center}
+	 			\leavevmode
+	 			\includegraphics[width=0.8\textwidth]{fsm_track_data}
+	 			\captionsetup{width=1.0\linewidth}
+	 			\caption[Máquina de estados leitura de dados]{Máquina de estados leitura de dados}
+	 			\label{fig:fsm2}
+	 		\end{center}
+		\end{figure}
+	 
+	\begin{itemize}
+		\item \textit{all\_incoming\_data}: Esta \textit{flag} indica se todos os bits presentes nas duas últimas tramas recebidas no recetor são 0 ou não. Se sim, então a \textit{flag} é igual zero, senão é um.
+		
+		\item \textit{data\_valid\_detected}: Esta \textit{flag} indica se foi encontrado nos dados recebidos (nas duas últimas tramas) a trama SOP em alguma das situações assinaladas a cinza presentes na figura \ref{fig:alinhamento_tramas_gtx} na página \pageref{fig:alinhamento_tramas_gtx}.
+		
+		\item \textit{reset}: indica se foi ativado o sinal para repôr os dados originais da máquina de estados.
+	\end{itemize}	 
+	 
+	 Estas são as principais flags de transição de estados da máquina, de seguida serão detalhados todos os estados da mesma:
+	 
+	 	 \begin{itemize}
+	 	\item \textbf{\textit{Waiting}:} Este estado indica que o recetor ainda não está a receber dados, isto porque a \textit{flag} \textit{all\_incoming\_data} está inativa. Por defeito quando não há transmissão de dados do lado do transmissor, o recetor recebe apenas dados iguais a zero. Assim que esta \textit{flag} se ativa então procede-se para o estado de procura da trama de início de transmissão.
+	 	
+	 	\item \textbf{\textit{Searching}:} Neste estado, a máquina procura pela trama que dá inicio à transmissão de dados (SOP). Uma vez que ela pode vir alinhada em diferentes bytes nas tramas do recetor, então a máquina procura por SOP nas quatro situações difererentes apresentadas na figura \ref{fig:alinhamento_tramas_gtx} na página \pageref{fig:alinhamento_tramas_gtx}. Assim que encontra SOP, memoriza os limites das tramas em que foi esta foi encontrada para que possa de seguida retirar todos os outros dados de transmissão e transita de estado.
+	 	
+	 	\item \textbf{\textit{Data\_valid}:} Este estado serve essencialmente para guardar os dados devidamente alinhados, uma vez que já foi dado o início de transmissão, segundo os limites da trama SOP. Ativa-se a flag \textit{bit\_align} para que o sistema reconheça que os dados se encontram alinhados. Se os dados que estão a ser guardados em \textit{data\_align} corresponderem à trama SOP então transita-se de estado para indicar que esta trama foi detetada. 
+	 	
+	 	\item \textbf{\textit{SOP\_detected}:} Quando este estado está ativo, então os dados alinhados correspondem à trama SOP, e por isso deve-se ativar a \textit{flag} "\textit{SOP\_detected}". Este estado mantém-se ativo enquanto os dados alinhados corresponderem à trama SOP e transita para o estado "\textit{data\_valid}" assim que tal deixar de ser verdade. 
+	 \end{itemize}
+ 
+ 		Sempre que transmissão for interrompida (\textit{all\_incoming\_data} se iguala a zero) ou o sinal de \textit{reset} for ativo (quer por opção do utilizador ou pelo módulo GTX), então a máquina retorna ao estado inicial e repõe os dados originais do sistema. 
+	 
+	 	Inicialmente o estado ativo é "\textit{waiting}",e todas as \textit{flags} de decisão de mudança de estado (\textit{all\_incoming\_data} e \textit{data\_valid\_detected}) estão igualadas a zero.
+	 
+	 
+	 \item \textbf{Máquina de estados de verificação do alinhamento dos dados}
+	
+	Tal como já foi mencionado várias vezes ao longo do documento, para taxas de transmissão superiores a 5 Gb/s , o transcetor pode alinhar falsamente os dados. Por esse motivo, as tramas recebidas podem não vir dentro dos limites apresentados na figura \ref{fig:alinhamento_tramas_gtx} na página \pageref{fig:alinhamento_tramas_gtx}, o que leva ao uso de uma máquina de estados que verifique tal.
+	
+	A máquina de estados apresentada na figura \ref{fig:fsm3} na página \pageref{fig:fsm3} é responsável pela detecção do devido alinhamento das tramas recebidas de acordo com a figura \ref{fig:alinhamento_tramas_gtx} na página \pageref{fig:alinhamento_tramas_gtx}. Caso tal não se verifique, então é também responsável pelo alinhamento manual das tramas.
+	
+		\begin{figure}[h!]
+			\begin{center}
+				\leavevmode
+				\includegraphics[width=0.9\textwidth]{fsm_bit_align}
+				\captionsetup{width=1.0\linewidth}
+				\caption[Máquina de estados de verificação do alinhamento dos dados]{Máquina de estados de verificação do alinhamento dos dados}
+				\label{fig:fsm3}
 		\end{center}
 	\end{figure}
 	
+	%Descrição das flags
+	Antes de se passar à descrição de cada estado, é de notar que existem algumas \textit{flags} de decisão de transição de estados:
+	\begin{itemize}
+		\item \textit{bit\_align}: Esta \textit{flag} indica se a palavra de se encontra devidamente alinhada, tal como ilustrada na figura \ref{fig:alinhamento_tramas_gtx} na página \pageref{fig:alinhamento_tramas_gtx}. 
+		
+		\item \textit{all\_incoming\_data}: Esta \textit{flag} já foi mencionada e detalhada na máquina de estado que faz a leitura de dados.
+		
+		\item \textit{count\_slip\_complete}: Esta é uma flag que fica ativa quando um contador termina (será explicado mais à frente).
+		
+		\item \textit{reset}: Indica a reposição dos dados originais da máquina de estados quando ativa.
+	\end{itemize}
 	
-	\item \textbf{Máquina que define o estado da procura dos dados de tramas e procede a eventuais re-alinhamentos de palavras necessários}
-	\item \textbf{Máquina que deteta os erros }
-	\item \textbf{Máquina que deteta o estado da ligação}
+	%Descrição dos estados
+	
+	Esta máquina funciona apenas com a utilização de três estados:
+	\begin{itemize}
+		\item \textbf{\textit{Idle\_slip}:} Este estado é essencialmente uma espera pela chegada de dados e também pela detecção do desalinhamento da palavra. Há transição de estado quando se verifica que as tramas que chegam ao recetor não estão alinhadas de acordo com os limites que deveriam estar.
+		
+		\item \textbf{\textit{Slip\_assert}:} Este estado está ativo quando há deteção de falso alinhamento de palavras, e por isso ativa-se a saída que liga ao GTX: RXSLIDE. A ativação deste sinal vai permitir que as tramas sejam deslocadas em 1 bit,. Este estado transita imediatamente para o estado de \textit{Wait\_state}.
+		
+		\item \textbf{\textit{Wait\_state}:} Neste estado o sinal de saída RXSLIDE volta a estar inativo e aguarda-se que a operação de deslocamento de 1 bit se verifique. Como estamos perante um \textit{datapath} de 40 bits, aguarda-se 64 ciclos de relógio. Após esta espera, a flag \textit{count\_slip\_complete} fica ativa e há transição de estado.
+	\end{itemize}
+	
+	De notar que sempre que houver falha de transmissão ou o sinal de \textit{reset} for ativo, então os sinais são repostos para os originais e volta-se ao estado \textit{Idle\_slip}.
+	
+	%Descrição dos dados originais da maquina
+	
+	Inicialmente o estado ativo é o {\textit{Idle\_slip} }e as \textit{flags} de sinalização de transição de estado são igualadas a 0.
+	
+%	\item \textbf{Máquina que deteta os erros }
+%	\item \textbf{Máquina que deteta o estado da ligação}
 \end{enumerate}
 
-%%Explicar maquina de estados que ativa o RXSLIDE (que alinha caso o sinal esteja falsamente alinhado)
-%Tal como já foi mencionado várias vezes ao longo do documento, para taxas de transmissão superiores a 5 Gb/s, o 
-%%Explicar máquina de estados que a
+Para além destas máquinas de estados apresentadas, existe a possibilidade de implementação de uma outra que verifique os erros das tramas chegadas. Esta máquina torna-se útil quando há a implementação de códigos detetores de erros nas tramas, ativando a \textit{flag}  "\textit{error\_detected}" sempre que o \textit{checksum} recebido na trama não corresponde à mensagem. Contudo, nesta abordagem inicial tal não é realizado e por isso essa \textit{flag} é globalmente igualada a zero.
   
-%\subsubsection*{Bloco de envio de dados para a placa HDMI} \label{subsub:serial_send signals to HDMI}
+\subsubsection*{Bloco de envio de dados para a placa HDMI} \label{subsub:serial_send signals to HDMI}
 
-%\subsubsection*{Localizações das portas de saída do módulo de topo} \label{subsub:serial_locs_planD}
+Este bloco é responsável pela recepção dos dados alinhados provenientes do bloco verificador de tramas e o seu posterior envio para a placa HDMI transmissora. A imagem \ref{fig:sync_block_to_HDMI} na página \pageref{fig:sync_block_to_HDMI} o diagrama de blocos deste módulo.
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.5\textwidth]{sync_block_to_HDMI}
+		\captionsetup{width=1.0\linewidth}
+		\caption[Diagrama de blocos de envio de dados para a placa HDMI transmissora]{Diagrama de blocos de envio de dados para a placa HDMI transmissora}
+		\label{fig:sync_block_to_HDMI}
+	\end{center}
+\end{figure}
+
+Os dados provenientes do bloco anterior são lidos para um registo ao flanco positivo do sinal de relógio que alimenta este módulo (RXUSRCLK2). De seguida, todos os dados presentes nos registos são enviados para a placa HDMI transmissora, incluindo o sinal de relógio RXUSRCLK2
+
+\subsubsection*{Localizações das portas de saída do módulo de topo} \label{subsub:serial_locs_planD}
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{planod}
+		\captionsetup{width=1.0\linewidth}
+		\caption[Diagrama de blocos da arquitetura de transmissão em série de uma barra de cores gerada na FPGA]{Diagrama de blocos da arquitetura de transmissão em série de uma barra de cores gerada na FPGA}
+		\label{fig:planD}
+	\end{center}
+\end{figure}
+
+
+
 %%%falar das portas todas
 %
 %%%falar das constraints físicas
 %
 %%%falar das constrainsts temporais
 %
-%\subsubsection*{Resultados} \label{subsub:serial_planDresults}
-%\begin{figure}[h!]
-%	\begin{center}
-%		\leavevmode
-%		\includegraphics[width=1.0\textwidth]{planod}
-%		\captionsetup{width=1.0\linewidth}
-%		\caption[Diagrama de blocos da arquitetura de transmissão em série de uma barra de cores gerada na FPGA]{Diagrama de blocos da arquitetura de transmissão em série de uma barra de cores gerada na FPGA}
-%		\label{fig:planD}
-%	\end{center}
-%\end{figure}
+\subsubsection*{Resultados} \label{subsub:serial_planDresults}
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.8\textwidth]{planDsch}
+		\captionsetup{width=1.0\linewidth}
+		\caption[\textit{Setup} de teste]{\textit{Setup} de teste}
+		\label{fig:planD_setup}
+	\end{center}
+\end{figure}
+
+
+
+
+
 %
 %\subsection{Transmissão de imagem em série entre dispositivos HDMI} \label{sub:planE}
 %
