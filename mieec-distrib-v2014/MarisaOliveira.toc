@@ -36,8 +36,8 @@
 \contentsline {subsection}{\numberline {3.1.2}Configura\IeC {\c c}\IeC {\~a}o dos interruptores}{44}{subsection.3.1.2}
 \contentsline {section}{\numberline {3.2}Arquiteturas Desenvolvidas}{44}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{44}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{51}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{53}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.2}Transmiss\IeC {\~a}o de imagem entre dispositivos HDMI}{52}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{55}{subsection.3.2.3}
 \contentsline {chapter}{\numberline {4}Transmiss\IeC {\~a}o dos dados em s\IeC {\'e}rie}{59}{chapter.4}
 \contentsline {section}{\numberline {4.1}Transmissor}{59}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Interface com a FPGA}{60}{subsection.4.1.1}
@@ -63,12 +63,10 @@
 \contentsline {subsection}{\numberline {5.1.2}Transmiss\IeC {\~a}o de imagem em s\IeC {\'e}rie entre dispositivos HDMI}{88}{subsection.5.1.2}
 \contentsline {subsubsection}{\numberline {5.1.2.1}Considera\IeC {\c c}\IeC {\~o}es sobre a arquitetura}{88}{subsubsection.5.1.2.1}
 \contentsline {subsubsection}{\numberline {5.1.2.2}Concep\IeC {\c c}\IeC {\~a}o e Desenvolvimento}{88}{subsubsection.5.1.2.2}
-\contentsline {subsubsection}{\numberline {5.1.2.3}Resultados}{89}{subsubsection.5.1.2.3}
+\contentsline {subsubsection}{\numberline {5.1.2.3}Resultados}{91}{subsubsection.5.1.2.3}
 \contentsline {chapter}{\numberline {6}Conclus\IeC {\~o}es e Trabalho Futuro}{93}{chapter.6}
-\contentsline {section}{\numberline {6.1}Qualidade dos resultados obtidos}{93}{section.6.1}
-\contentsline {section}{\numberline {6.2}Principais dificuldades encontradas}{93}{section.6.2}
-\contentsline {section}{\numberline {6.3}Conclus\IeC {\~o}es do projeto desenvolvido}{93}{section.6.3}
-\contentsline {section}{\numberline {6.4}Trabalho futuro}{93}{section.6.4}
+\contentsline {section}{\numberline {6.1}Considera\IeC {\c c}\IeC {\~o}es Finais}{93}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabalho futuro}{93}{section.6.2}
 \contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o das portas das placas HDMI}{97}{appendix.A}
 \contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{97}{section.A.1}
 \contentsline {section}{\numberline {A.2}Suporte de um canal de imagem e \IeC {\'a}udio}{97}{section.A.2}

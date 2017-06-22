@@ -394,10 +394,16 @@ Para testar a arquitetura utilizou-se o \textit{setup} que se pode visualizar na
 		\label{fig:planD_setup}
 	\end{center}
 \end{figure}
+\begin{marginfigure}
+	\includegraphics[width=0.5\marginparwidth]{objetivo_cumprido}
+\end{marginfigure}
 
 Os resultados obtidos foram os esperados: a transmissão em série foi obtida e visualizou-se uma barra de cores no monitor. Para além disto, quando se desconectam os cabos SMA, a ligação perde-se. Quando se voltam a conectar, a ligação é recuperada.
+\begin{marginfigure}%
+	\includegraphics[width=0.5\marginparwidth]{objetivo_cumprido}%
+\end{marginfigure}%
 
-
+% \marginpar{ \includegraphics[width=0.5\marginparwidth]{objetivo_cumprido}}
 
 
 
@@ -442,9 +448,24 @@ O bloco recetor de dados HDMI apenas recebe os dados provenientes da placa HDMI 
 
 \subsubsection*{Localizações das portas de saída do módulo de topo} \label{subsub:serial_locs_planE}
 
+Na imagem \ref{fig:planoE} encontra-se o diagrama de blocos da arquitetura desenvolvida para a transmissão de imagem em série entre dispositivos HDMI. Esta imagem ilustra todos os blocos utilizados para a concepção da mesma e as principais portas de entrada e saída da arquitetura. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=1.0\textwidth]{planoE}
+		\captionsetup{width=1.0\linewidth}
+		\caption[Diagrama de blocos da arquitetura de transmissão de imagem em série]{Diagrama de blocos da arquitetura de transmissão de imagem em série}
+		\label{fig:planoE}
+	\end{center}
+\end{figure}
+
+As localizações físicas das portas de entrada e saída do bloco encontram-se detalhadas na tabela \ref{table:LOC_simples_planE}
 
 \begin{table}[h!]
 	\centering
+	\caption{Localizações físicas das portas de entrada e saída da arquitetura}
+	\label{table:LOC_simples_planE}
 	\begin{tabular}{rlll}
 		\hline
 		\multicolumn{1}{l}{}                  & \multicolumn{1}{c}{\textbf{Sinal}}     & \multicolumn{1}{c}{\textbf{LOC na FPGA}} & \multicolumn{1}{c}{\textbf{Banco na FPGA}} \\ \hline
@@ -476,20 +497,10 @@ O bloco recetor de dados HDMI apenas recebe os dados provenientes da placa HDMI 
 		\multicolumn{1}{r|}{\textbf{Saída}}   & vsync                                  & L31                                      & 34                                         \\
 		\multicolumn{1}{r|}{\textbf{Saída}}   & pixel{[}0{]} a pixel {[}29{]}          & Ver Anexo                                & 34 e 35                                    \\ \hline
 	\end{tabular}
-	\caption{Localizações físicas das portas de entrada e saída da arquitetura}
-	\label{table:LOC_simples_planE}
 \end{table}
 
 
 
-\begin{figure}[h!]
-	\begin{center}
-		\leavevmode
-		\includegraphics[width=1.0\textwidth]{planoE}
-		\captionsetup{width=1.0\linewidth}
-		\caption[Diagrama de blocos da arquitetura de transmissão de imagem em série]{Diagrama de blocos da arquitetura de transmissão de imagem em série}
-		\label{fig:recetorHDMI}
-	\end{center}
-\end{figure}
+
 
 \subsubsection{Resultados} \label{subsub:serial_planEresults}

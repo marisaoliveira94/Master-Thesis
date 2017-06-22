@@ -348,7 +348,21 @@ Após a definição de todas as restrições e escrita do código em Verilog, a 
 	\end{center}
 \end{figure}
 
-Os resultados obtidos foram os esperados, a visualização de uma barra de cores no dispositivo HDMI de destino.
+\textbf{Os resultados obtidos foram os resultados esperados: a transmissão da barra de cores gerada na FPGA para o dispositivo HDMI de destino ocorreu sem problemas.}
+\begin{marginfigure}
+		\includegraphics[width=0.5\marginparwidth]{objetivo_cumprido}
+\end{marginfigure}
+
+\textbf{Tal como se pode visualizar na figura \ref{fig:resultados_planoA}, a placa HDMI transmissora está conectada à FPGA através dos conectores FMC e ao dispositivo final através de um cabo HDMI.}
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.7\textwidth]{resultados_planoA}
+		\caption[Resultados obtidos da transmissão da barra de cores gerada na FPGA para o dispositivo de destino]{Resultados obtidos da transmissão da barra de cores gerada na FPGA para o dispositivo de destino}
+		\label{fig:resultados_planoA}
+	\end{center}
+\end{figure}
 
 \subsection{Transmissão de imagem entre dispositivos HDMI} \label{subsub:planB}
 
@@ -463,8 +477,8 @@ Quanto às restrições temporais aplicadas ao sistema são idênticas às que f
 %--> RESULTADOS
 
 \subsubsection*{Resultados}
+Após síntese e implementação do código desenvolvido em Verilog juntamente com as restrições aplicadas, a FPGA foi programada com esta arquitetura e testada recorrendo-se a um \textit{set-up} de teste como ilustra a imagem \ref{fig:planb_sch} na página \pageref{fig:planb_sch}. Foi utilizado um computador portátil como fonte HDMI e conectou-se o mesmo à placa recetora. Como dispositivo final utilizou-se um monitor que foi conectado à placa transmissora através de um cabo HDMI também. 
 
-Após síntese e implementação do código desenvolvido em Verilog juntamente com as restrições aplicadas, a FPGA foi programada com esta arquitetura e testada recorrendo-se a um \textit{set-up} de teste como ilustra a imagem \ref{fig:planb_sch} na página \pageref{fig:planb_sch}. Foi utilizado um computador portátil como fonte HDMI e conectou-se o mesmo à placa recetora. Como dispositivo final utilizou-se um monitor que foi conectado à placa transmissora através de um cabo HDMI também. Os resultados obtidos foram os esperados: transmissão de imagem entre os dois dispositivos.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -475,6 +489,22 @@ Após síntese e implementação do código desenvolvido em Verilog juntamente c
 	\end{center}
 \end{figure}
 
+\textbf{Os resultados obtidos foram os esperados.}
+\begin{marginfigure}
+	\hspace*{0.75in}
+	\includegraphics[width=0.5\marginparwidth]{objetivo_cumprido}
+\end{marginfigure}
+\textbf{VOU ESCREVER MAIS ALGUMA COISA AQUI}
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\leavevmode
+		\includegraphics[width=0.5\textwidth]{resultados_planoB}
+		\caption{Resultados obtidos da arquitetura transmissora de imagem entre dispositivos HDMI}
+		\label{fig:resultados_planoB}
+	\end{center}
+\end{figure}
 \subsection{Transmissão de imagem e som entre dispositivos HDMI}
 
 Após se obter uma ligação entre dois dispositivos HDMI de uma imagem procedeu-se ao desenvolvimento de uma arquitetura capaz de transmitir imagem e som. Para isso foi necessário reconfigurar as placas HDMI, tal como mencionado anteriormente, para a configuração que suporta apenas um canal mas que permite a transmissão de áudio em formato $I^{2}$S. As características desta configuração são apresentadas na subsecção \ref{subsubsec:HDMIconfig+audio} na página \pageref{subsubsec:HDMIconfig+audio} deste documento, mas é de notar que as imagens poderão ser transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados na secção \ref{sec:HDMIconfig+audio_switches} do anexo \ref{ap4:switches}). Neste caso específico são utilizados 12 bits por cor o que perfará um total de 36 bits por píxel.
@@ -609,4 +639,15 @@ Também à semelhança das arquiteturas anteriormente descritas foram geradas du
 
 %--> RESULTADOS
 %%POR IMAGEM DO SET_UP
-Esta arquitetura foi devidamente implementada na FPGA e testada utilizando-se um \textit{set-up} de teste semelhante ao que se visualiza na figura \ref{fig:planb_sch} na página \pageref{fig:planb_sch}, tendo em conta que o monitor utilizado neste teste tinha saída de áudio. Assim, os resultados obtidos foram os esperados: a transmissão de imagem e som entre os dois dispositivos foi bem sucedida. Apesar de os sinais de áudio provenientes da placa HDMI recetora serem síncronos com sinal de relógio que não é o dos píxeis, a passagem de sinais entre estes dois domínios de relógio diferentes não apresentou qualquer tipo de problema uma vez que ao ouvido humano os pequenos atrasados que possam eventualmente acontecer não são percetíveis. 
+
+
+Esta arquitetura foi devidamente implementada na FPGA e testada utilizando-se um \textit{set-up} de teste semelhante ao que se visualiza na figura \ref{fig:planb_sch} na página \pageref{fig:planb_sch}, tendo em conta que o monitor utilizado neste teste tinha saída de áudio. 
+
+
+\textbf{Os resultados obtidos foram os esperados: a comunicação entre de imagem e som entre dois dispositivos foi conseguida. Os sinais de imagem e som operam à mesma frequência, tal como pretendido, para que possa vir facilitar a implementação da serialização destes dados.}
+\begin{marginfigure}
+	\hspace*{0.75in}
+	\includegraphics[width=0.5\marginparwidth]{objetivo_cumprido}
+\end{marginfigure}
+
+\textbf{Apesar de os sinais de áudio provenientes da placa HDMI recetora serem síncronos com sinal de relógio que não é o dos píxeis, a passagem de sinais entre estes dois domínios de relógio diferentes não apresentou qualquer tipo de problema uma vez que ao ouvido humano os pequenos atrasados que possam eventualmente acontecer não são percetíveis. }
