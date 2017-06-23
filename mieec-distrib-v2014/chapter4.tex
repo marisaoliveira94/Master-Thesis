@@ -232,7 +232,7 @@ O bloco de alinhamento de palavras é feito antes da deserialização dos sinais
 
 Nesta subsecção serão abordadas as características que este bloco do recetor possui e ainda como se pode tirar partido das mesmas aquando a sua utilização. O bloco possibilita a escolha da palavra de alinhamento, pode ser uma utilizada em protocolos bastantes conhecidos, já como referido anteriormente e até pode mesmo ser a combinação de duas palavras com uma determinada máscara. Contudo, por uma questão de simplificação, o projeto utiliza apenas uma palavra de alinhamento bem conhecida que será definida quando for apresentado desenvolvimento do mesmo.
 
-Apesar de existirem \textit{flags} disponibilizadas pelo bloco de alinhamento que indicam o estado do mesmo, o autor de \cite{R011} alerta que para uma linha de transmissão cuja taxa de débito seja superior a 5 Gb/s, o bloco pode alinhar a palavra falsamente e por isso ativar a \textit{flag} que indica que a palavra está alinhada mesmo que não estando. Isto implica que seja desenvolvido e aplicado um sistema que verifique se a palavra se encontra alinhada ou não.
+Apesar de existirem \textit{flags}\footnote{uma \textit{flag} é uma variável de controlo binária para identificar determinadas condições} disponibilizadas pelo bloco de alinhamento que indicam o estado do mesmo, o autor de \cite{R011} alerta que para uma linha de transmissão cuja taxa de débito seja superior a 5 Gb/s, o bloco pode alinhar a palavra falsamente e por isso ativar a \textit{flag} que indica que a palavra está alinhada mesmo que não estando. Isto implica que seja desenvolvido e aplicado um sistema que verifique se a palavra se encontra alinhada ou não.
 
 %%Alinhamento Manual
 

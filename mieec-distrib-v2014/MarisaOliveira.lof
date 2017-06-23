@@ -47,18 +47,22 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama de blocos geral da arquitetura que transmite uma barra de cores em s\IeC {\'e}rie}}{74}{figure.caption.81}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Bloco de sincroniza\IeC {\c c}\IeC {\~a}o de dados}}{77}{figure.caption.85}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Estrutura das tramas geradas}}{78}{figure.caption.87}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Estrutura das tramas de informa\IeC {\c c}\IeC {\~a}o}}{78}{figure.caption.87}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Momentos de transmiss\IeC {\~a}o de diferentes tramas}}{79}{figure.caption.88}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Alinhamento das tramas no transcetor}}{80}{figure.caption.90}
 \contentsline {figure}{\numberline {5.6}{\ignorespaces M\IeC {\'a}quina de estados de transmiss\IeC {\~a}o}}{81}{figure.caption.91}
 \contentsline {figure}{\numberline {5.7}{\ignorespaces M\IeC {\'a}quina de estados leitura de dados}}{82}{figure.caption.92}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces M\IeC {\'a}quina de estados de verifica\IeC {\c c}\IeC {\~a}o do alinhamento dos dados}}{84}{figure.caption.93}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces M\IeC {\'a}quina de estados de verifica\IeC {\c c}\IeC {\~a}o do alinhamento dos dados}}{83}{figure.caption.93}
 \contentsline {figure}{\numberline {5.9}{\ignorespaces Diagrama de blocos de envio de dados para a placa HDMI transmissora}}{85}{figure.caption.95}
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Diagrama de blocos da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}}{86}{figure.caption.97}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces \textit {Setup} de teste da arquitetura}}{88}{figure.caption.99}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Diagrama geral da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de imagem entre dispositivos HDMI}}{89}{figure.caption.102}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Bloco recetor de dados HDMI}}{90}{figure.caption.104}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Diagrama de blocos da arquitetura de transmiss\IeC {\~a}o de imagem em s\IeC {\'e}rie}}{90}{figure.caption.106}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces \textit {Setup} de teste da arquitetura}}{87}{figure.caption.99}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Resultados obtidos da transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}}{87}{figure.caption.100}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Diagrama geral da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de imagem entre dispositivos HDMI}}{88}{figure.caption.101}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Bloco recetor de dados HDMI}}{89}{figure.caption.103}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Diagrama de blocos da arquitetura de transmiss\IeC {\~a}o de imagem em s\IeC {\'e}rie}}{90}{figure.caption.105}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces \textit {Setup} de teste para a arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie entre dispositivos HDMI}}{91}{figure.caption.107}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Resultado obtido da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie entre dispositivos HDMI}}{92}{figure.caption.108}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Gr\IeC {\'a}fico da an\IeC {\'a}lise do comportamento dos sinais internos da FPGA}}{92}{figure.caption.109}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

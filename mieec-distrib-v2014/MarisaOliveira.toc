@@ -59,36 +59,37 @@
 \contentsline {subsubsection}{\numberline {5.1.1.1}Considera\IeC {\c c}\IeC {\~o}es sobre a arquitetura}{73}{subsubsection.5.1.1.1}
 \contentsline {subsubsection}{\numberline {5.1.1.2}Gera\IeC {\c c}\IeC {\~a}o do M\IeC {\'o}dulo GTX}{75}{subsubsection.5.1.1.2}
 \contentsline {subsubsection}{\numberline {5.1.1.3}Concep\IeC {\c c}\IeC {\~a}o e Desenvolvimento}{76}{subsubsection.5.1.1.3}
-\contentsline {subsubsection}{\numberline {5.1.1.4}Resultados}{87}{subsubsection.5.1.1.4}
+\contentsline {subsubsection}{\numberline {5.1.1.4}Resultados}{85}{subsubsection.5.1.1.4}
 \contentsline {subsection}{\numberline {5.1.2}Transmiss\IeC {\~a}o de imagem em s\IeC {\'e}rie entre dispositivos HDMI}{88}{subsection.5.1.2}
 \contentsline {subsubsection}{\numberline {5.1.2.1}Considera\IeC {\c c}\IeC {\~o}es sobre a arquitetura}{88}{subsubsection.5.1.2.1}
 \contentsline {subsubsection}{\numberline {5.1.2.2}Concep\IeC {\c c}\IeC {\~a}o e Desenvolvimento}{88}{subsubsection.5.1.2.2}
-\contentsline {subsubsection}{\numberline {5.1.2.3}Resultados}{91}{subsubsection.5.1.2.3}
-\contentsline {chapter}{\numberline {6}Conclus\IeC {\~o}es e Trabalho Futuro}{93}{chapter.6}
-\contentsline {section}{\numberline {6.1}Considera\IeC {\c c}\IeC {\~o}es Finais}{93}{section.6.1}
-\contentsline {section}{\numberline {6.2}Trabalho futuro}{93}{section.6.2}
-\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o das portas das placas HDMI}{97}{appendix.A}
-\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{97}{section.A.1}
-\contentsline {section}{\numberline {A.2}Suporte de um canal de imagem e \IeC {\'a}udio}{97}{section.A.2}
-\contentsline {section}{\numberline {A.3}Suporte de dois canais de imagem melhorado}{97}{section.A.3}
-\contentsline {chapter}{\numberline {B}Configura\IeC {\c c}\IeC {\~o}es dos interruptores das placas HDMI}{99}{appendix.B}
-\contentsline {section}{\numberline {B.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{99}{section.B.1}
-\contentsline {section}{\numberline {B.2}Suporte de um canal de imagem e \IeC {\'a}udio}{100}{section.B.2}
-\contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{101}{section.B.3}
-\contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas conectadas \IeC {\`a}s placas HDMI}{103}{appendix.C}
-\contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{103}{section.C.1}
-\contentsline {section}{\numberline {C.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{104}{section.C.2}
+\contentsline {subsubsection}{\numberline {5.1.2.3}Resultados}{90}{subsubsection.5.1.2.3}
+\contentsline {subsection}{\numberline {5.1.3}Compara\IeC {\c c}\IeC {\~a}o entre os recursos utilizados pelas arquiteturas desenvolvidas}{93}{subsection.5.1.3}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~o}es e Trabalho Futuro}{95}{chapter.6}
+\contentsline {section}{\numberline {6.1}Considera\IeC {\c c}\IeC {\~o}es Finais}{95}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabalho futuro}{96}{section.6.2}
+\contentsline {chapter}{\numberline {A}Descri\IeC {\c c}\IeC {\~a}o das portas das placas HDMI}{99}{appendix.A}
+\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{99}{section.A.1}
+\contentsline {section}{\numberline {A.2}Suporte de um canal de imagem e \IeC {\'a}udio}{99}{section.A.2}
+\contentsline {section}{\numberline {A.3}Suporte de dois canais de imagem melhorado}{99}{section.A.3}
+\contentsline {chapter}{\numberline {B}Configura\IeC {\c c}\IeC {\~o}es dos interruptores das placas HDMI}{101}{appendix.B}
+\contentsline {section}{\numberline {B.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{101}{section.B.1}
+\contentsline {section}{\numberline {B.2}Suporte de um canal de imagem e \IeC {\'a}udio}{102}{section.B.2}
+\contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{103}{section.B.3}
+\contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas conectadas \IeC {\`a}s placas HDMI}{105}{appendix.C}
+\contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{105}{section.C.1}
+\contentsline {section}{\numberline {C.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{105}{section.C.2}
 \contentsline {section}{\numberline {C.3}Transmiss\IeC {\~a}o de imagem e som entre dispositivos HDMI}{106}{section.C.3}
-\contentsline {chapter}{\numberline {D}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{109}{appendix.D}
-\contentsline {section}{\numberline {D.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de sa\IeC {\'\i }da das arquiteturas que se conectam \IeC {\`a} placa HDMI transmissora}{109}{section.D.1}
-\contentsline {section}{\numberline {D.2}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada das arquiteturas que se conectam \IeC {\`a} placa HDMI recetora}{110}{section.D.2}
-\contentsline {section}{\numberline {D.3}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite uma imagem gerada na FPGA}{111}{section.D.3}
-\contentsline {section}{\numberline {D.4}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite uma imagem gerada na FPGA}{111}{section.D.4}
-\contentsline {section}{\numberline {D.5}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite imagem entre dispositivos HDMI}{111}{section.D.5}
-\contentsline {section}{\numberline {D.6}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite imagem entre dispositivos HDMI}{112}{section.D.6}
-\contentsline {section}{\numberline {D.7}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite imagem e som entre dispositivos HDMI}{112}{section.D.7}
-\contentsline {section}{\numberline {D.8}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite imagem e som entre dispositivos HDMI}{113}{section.D.8}
-\contentsline {section}{\numberline {D.9}Restri\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas referentes \IeC {\`a}s portas exclusivas da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}{113}{section.D.9}
-\contentsline {section}{\numberline {D.10}Restri\IeC {\c c}\IeC {\~o}es temporais referentes \IeC {\`a} arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}{114}{section.D.10}
-\contentsline {section}{\numberline {D.11}Restri\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas referentes \IeC {\`a}s portas exclusivas da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie entre dispositivos HDMI}{114}{section.D.11}
-\contentsline {section}{\numberline {D.12}Restri\IeC {\c c}\IeC {\~o}es temporais referentes \IeC {\`a} arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie entre dispositivos HDMI}{114}{section.D.12}
+\contentsline {chapter}{\numberline {D}Ficheiros de restri\IeC {\c c}\IeC {\~o}es}{107}{appendix.D}
+\contentsline {section}{\numberline {D.1}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de sa\IeC {\'\i }da das arquiteturas que se conectam \IeC {\`a} placa HDMI transmissora}{107}{section.D.1}
+\contentsline {section}{\numberline {D.2}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada das arquiteturas que se conectam \IeC {\`a} placa HDMI recetora}{108}{section.D.2}
+\contentsline {section}{\numberline {D.3}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite uma imagem gerada na FPGA}{109}{section.D.3}
+\contentsline {section}{\numberline {D.4}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite uma imagem gerada na FPGA}{109}{section.D.4}
+\contentsline {section}{\numberline {D.5}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite imagem entre dispositivos HDMI}{109}{section.D.5}
+\contentsline {section}{\numberline {D.6}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite imagem entre dispositivos HDMI}{110}{section.D.6}
+\contentsline {section}{\numberline {D.7}Restri\IeC {\c c}\IeC {\~o}es F\IeC {\'\i }sicas relativas \IeC {\`a}s portas de entrada e sa\IeC {\'\i }da exclusivas da arquitetura que transmite imagem e som entre dispositivos HDMI}{110}{section.D.7}
+\contentsline {section}{\numberline {D.8}Restri\IeC {\c c}\IeC {\~o}es Temporais relativas \IeC {\`a} arquitetura que transmite imagem e som entre dispositivos HDMI}{111}{section.D.8}
+\contentsline {section}{\numberline {D.9}Restri\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas referentes \IeC {\`a}s portas exclusivas da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}{111}{section.D.9}
+\contentsline {section}{\numberline {D.10}Restri\IeC {\c c}\IeC {\~o}es temporais referentes \IeC {\`a} arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}{112}{section.D.10}
+\contentsline {section}{\numberline {D.11}Restri\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas referentes \IeC {\`a}s portas exclusivas da arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de imagem entre dispositivos HDMI}{112}{section.D.11}
+\contentsline {section}{\numberline {D.12}Restri\IeC {\c c}\IeC {\~o}es temporais referentes \IeC {\`a} arquitetura de transmiss\IeC {\~a}o em s\IeC {\'e}rie de imagem entre dispositivos HDMI}{112}{section.D.12}

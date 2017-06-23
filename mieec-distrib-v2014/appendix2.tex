@@ -1282,9 +1282,39 @@ set\_property PACKAGE\_PIN AF7 [get\_ports REF\_CLK\_N]
 
 set\_property PACKAGE\_PIN AG6 [get\_ports RXP\_IN]
 
+set\_property PACKAGE\_PIN E42 [get\_ports start]
+
+set\_property PACKAGE\_PIN N41 [get\_ports reset]
+
+set\_property PACKAGE\_PIN E18 [get\_ports clk\_n]
+
+%%STANDARDS
+set\_property IOSTANDARD LVCMOS18 [get\_ports start]
+
+set\_property IOSTANDARD LVCMOS18 [get\_ports reset]
+
+set\_property IOSTANDARD DIFF\_HSTL\_II\_18 [get\_ports clk\_n]
+
+\section{Restrições temporais referentes à arquitetura de transmissão em série de uma barra de cores gerada na FPGA} \label{ap:temporais_planD}
+
+create\_clock -period 6.734 [get\_ports REF\_CLK\_P]
+
+create\_clock -period 5.000 [get\_ports clk\_n]
+
+create\_clock -period 5.000 [get\_ports clk\_p]
+
+
+\section{Restrições físicas referentes às portas exclusivas da arquitetura de transmissão em série de imagem entre dispositivos HDMI} \label{ap:fisicas_planE}
+
+set\_property PACKAGE\_PIN AF8 [get\_ports REF\_CLK\_P]
+
+set\_property PACKAGE\_PIN AF7 [get\_ports REF\_CLK\_N]
+
+set\_property PACKAGE\_PIN AG6 [get\_ports RXP\_IN]
+
 set\_property PACKAGE\_PIN M38 [get\_ports begin\_state]
 
-set\_property PACKAGE\_PIN R42 [get\_ports SOF\_detected]
+set\_property PACKAGE\_PIN R42 [get\_ports SOP\_detected]
 
 set\_property PACKAGE\_PIN P42 [get\_ports track\_data]
 
@@ -1305,7 +1335,7 @@ set\_property PACKAGE\_PIN E18 [get\_ports clk\_n]
 %%STANDARDS
 set\_property IOSTANDARD LVCMOS18 [get\_ports begin\_state]
 
-set\_property IOSTANDARD LVCMOS18 [get\_ports SOF\_detected]
+set\_property IOSTANDARD LVCMOS18 [get\_ports SOP\_detected]
 
 set\_property IOSTANDARD LVCMOS18 [get\_ports track\_data]
 
@@ -1323,15 +1353,10 @@ set\_property IOSTANDARD LVCMOS18 [get\_ports reset]
 
 set\_property IOSTANDARD DIFF\_HSTL\_II\_18 [get\_ports clk\_n]
 
-\section{Restrições temporais referentes à arquitetura de transmissão em série de uma barra de cores gerada na FPGA} \label{ap:temporais_planD}
+\section{Restrições temporais referentes à arquitetura de transmissão em série de imagem entre dispositivos HDMI} \label{ap:temporais_planE}
 
 create\_clock -period 6.734 [get\_ports REF\_CLK\_P]
 
 create\_clock -period 5.000 [get\_ports clk\_n]
 
 create\_clock -period 5.000 [get\_ports clk\_p]
-
-
-\section{Restrições físicas referentes às portas exclusivas da arquitetura de transmissão em série entre dispositivos HDMI} \label{ap:fisicas_planE}
-
-\section{Restrições temporais referentes à arquitetura de transmissão em série entre dispositivos HDMI} \label{ap:temporais_planE}

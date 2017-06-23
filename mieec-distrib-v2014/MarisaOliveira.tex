@@ -26,7 +26,7 @@
 \usepackage{booktabs}
 \usepackage{sidenotes} 
 \usepackage{siunitx}
-%
+
 \sisetup{
 	load-configurations=binary,
 	detect-all,
@@ -36,6 +36,14 @@
 	per-symbol=/,
 	binary-units = true
 }
+
+\newenvironment{braced}
+{\par\smallskip\hbox to\columnwidth\bgroup
+	\hss$\left\{\begin{minipage}{\columnwidth}}
+{\end{minipage}\right\}$\hss\egroup\smallskip}
+
+\usepackage{xparse}% http://ctan.org/pkg/xparse
+\usepackage{varwidth}% http://ctan.org/pkg/varwidth
 %% Portuguese version
 
 %% MIEEC options
@@ -69,6 +77,25 @@
 %% Start of document
 %%========================================
 \begin{document}
+	
+	
+	\newsavebox{\leftbox} \newsavebox{\rightbox}%
+	
+	\NewDocumentCommand{\lrboxbrace}{s O{\{} O{\}} O{0.05\linewidth} m O{0.8\linewidth} m}{% \lrboxbrace[<lbrace>][<rbrace>][<lwidth>]{<ltext>}[<rwidth>]{<rtext>}
+		\begin{lrbox}{\leftbox}% Left box
+			\IfBooleanTF{#1}% starred/unstarred
+			{\begin{varwidth}{#4}#5\end{varwidth}}
+			{\begin{minipage}{#4}#5\end{minipage}}
+		\end{lrbox}
+		\begin{lrbox}{\rightbox}% Right box
+			\IfBooleanTF{#1}% starred/unstarred
+			{\begin{varwidth}{#6}#7\end{varwidth}}
+			{\begin{minipage}{#6}#7\end{minipage}}
+		\end{lrbox}
+		\ensuremath{\usebox\leftbox\left#2\,\usebox\rightbox\,\right#3}
+	}
+	
+	
 %\fontfamily{cmr}\selectfont
 %%----------------------------------------
 %% Information about the work

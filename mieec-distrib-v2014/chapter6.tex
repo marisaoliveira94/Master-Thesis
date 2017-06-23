@@ -1,41 +1,61 @@
 \chapter{Conclusões e Trabalho Futuro} \label{chap:concl}
 
+Neste capítulo são apresentadas as considerações finais sobre o projeto desenvolvido. Inicialmente são retiradas conclusões do trabalho realizado no enquadramento do projeto \textit{iBrow}. É também abordada a qualidade dos resultados obtidos, bem como as principais dificuldades encontradas durante o seu desenvolvimento. Por fim são apresentadas algumas considerações sobre o trabalho futuro.
 
 \section{Considerações Finais} \label{chap6:cons_final}
 
 \subsection*{Qualidade dos resultados obtidos}
--> Parte do HDMI está boa
 
--> Parte da serialização podia estar melhor
+O projeto desenvolvido passou por duas principais fases, e por isso foram obtidos os resultados que são de seguida apresentados.
 
+O objetivo principal da primeira parte do projeto é explorar as diferentes configurações das placas HDMI e conseguir obter resultados que venham a ser aplicados na segunda fase do mesmo. Como tal, os resultados obtidos nesta fase foram encontro com os objetivos definidos, uma vez que foi possível explorar as diferentes configurações das placas e entender como se procede às suas reconfigurações. Foram desenvolvidas e validadas diversas arquiteturas para diferentes configurações das placas HDMI que devido às suas características vieram facilitar a segunda fase do projeto.
+
+Relativamente à transmissão de dados em série, que é a segunda fase do projeto desenvolvido, também se conclui que o trabalho desenvolvido veio de encontro com os objetivos definidos para essa mesma fase. A transmissão em série de dados foi obtida com sucesso através do desenvolvimento de uma arquitetura, que em conjunto com o módulo GTX, é capaz de enviar dados e recebê-los corretamente.
+
+Numa perspectiva geral do projeto, os objetivos foram cumpridos: a transmissão em série de dados entre dois dispositivos HDMI foi conseguida, ainda que possa vir a ser melhorada. 
 
 \subsection*{Principais dificuldades encontradas}
 
--> Tempos de simulação comportamental, pos sintese, pos implementação elevados.
+Durante o desenvolvimento do projeto foram encontradas várias dificuldades em diferentes fases do mesmo que passam de seguida a ser expostas.
 
--> Tempos de sintese e implementação elevados
+%%parte do HDMI
+Do ponto de vista da primeira fase do projeto, as principais dificuldade encontradas foram a familiarização com as placas HDMI: perceber claramente o funcionamento das suas diferentes configurações e ainda o processo que se toma para a sua reconfiguração. Apesar de existirem manuais sobre as placas, nem todos os detalhes do funcionamento das mesmas são bem explícitos. Relativamente ao processo de reconfiguração das placas, não foi esta a principal dificuldade encontrada nesta fase, mas foi algo que demorou a ser bem entendido e que deve ficar documentado para trabalho futuro. 
 
--> Informação pouco clara sobre o GTX
 
--> Muito tempo perdido a perceber os modulos GTX
+%%parte do GTX
+%-> Informação pouco clara sobre o GTX
+%-> Muito tempo perdido a perceber os modulos GTX
+%-> Curva de aprendizagem de declive elevado.
+Relativamente à fase do projeto cujo objetivo é a utilização dos transcetores disponibilizados na placa FPGA VC7203 para transmissão de dados em série, foram encontradas diversas dificuldades. Isto porque o módulo GTX disponibilizado pela Xilinx é muito completo, mas ao mesmo tempo também muito complexo levando a que a curva de aprendizagem relativamente a estes transcetores não seja linear. Apesar de existir diversa documentação relativamente a este tópico, existem certas conclusões que só se obtêm através da experimentação dos transcetores em simulação, o que leva a muito tempo empregue para perceber as suas características e o seu funcionamento num geral.
 
-\subsection*{Conclusões do projeto desenvolvido}
 
--> Parte HDMI está toda ok !
+%%geral
 
--> Efetivamente conseguiu-se uma transmissão em série, com um pequeno erro que pode ser melhorado com algum tempo através de técnicas de amostragem a velocidades mais altas e isso.
+Numa perspectiva geral do projeto, as principais dificuldades encontradas relacionam-se com os tempos de simulação, síntese e implementação das arquiteturas desenvolvidas. Todas estas foram simuladas entre cada uma das etapas até a programação final da FPGA. Para além disso houve ainda a necessidade de em algumas arquiteturas recorrer-se ao IP da \textit{Xilinx} que permite analisar os sinais internos da FPGA o que aumentava consideravelmente todos estes tempos mencionados anteriormente.
 
--> Ou entao tbm pode ser corrigido através da criação de um pacote de comunicação robusto
+%-> Tempos de simulação comportamental, pos sintese, pos implementação elevados.
+%-> Tempos de sintese e implementação elevados
 
--> No fundo e um bom trabalho pq vai ser incluido num maior e vem testar cenas que vao dar jeito num futuro bastante proximo
 
+\subsection*{Conclusões gerais do trabalho desenvolvido}
+
+
+
+
+->objetivos foram cumpridos e dizer que a transmissão em série se obntem com aquele valor mas q são possiveis mais 
+
+-> nao consigo incluir para ja no projeto ibrow porque ainda precisa de melhoramentos
+
+As ilações 
+Após a conclusão do trabalho realizado é possível retirar ilações sobre o seu enquadramento no projeto iBrow tendo em conta o seu estado. Toda a realização deste trabalho teve como motivação a sua inclusão neste projeto e apesar dos objetivos definidos terem sido
 
 \section{Trabalho futuro}
 
--> Tornar a parte de serialização mais robusta
 
--> Implementar códigos detetores de erros
-
--> Aproveitar os diferentes canais dos trancetores
-
--> Passar o som 
+%-> Tornar a parte de serialização mais robusta
+%
+%-> Implementar códigos detetores de erros
+%
+%-> Aproveitar os diferentes canais dos trancetores (MIMO)
+%
+%-> Passar o som 

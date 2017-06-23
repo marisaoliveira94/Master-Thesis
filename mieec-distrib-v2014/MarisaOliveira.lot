@@ -16,20 +16,18 @@
 \contentsline {table}{\numberline {4.2}{\ignorespaces Rela\IeC {\c c}\IeC {\~a}o entre as frequ\IeC {\^e}ncias dos sinais de rel\IeC {\'o}gio \textit {TXUSRCLK2} e \textit {TXUSRCLK}}}{61}{table.caption.73}
 \contentsline {table}{\numberline {4.3}{\ignorespaces D\IeC {\'e}bitos de transmiss\IeC {\~a}o ating\IeC {\'\i }veis para diferentes larguras de porta de entrada do transcetor}}{70}{table.caption.79}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Sum\IeC {\'a}rio do m\IeC {\'o}dulo GTX gerado para a transmiss\IeC {\~a}o de uma barra de cores gerada na FPGA}}{76}{table.caption.82}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas das portas de entrada e sa\IeC {\'\i }da da arquitetura desenvolvida}}{87}{table.caption.98}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas das portas de entrada e sa\IeC {\'\i }da da arquitetura\relax }}{91}{table.caption.107}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Sum\IeC {\'a}rio do m\IeC {\'o}dulo GTX gerado para a transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}}{76}{table.caption.82}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas das portas de entrada e sa\IeC {\'\i }da da arquitetura desenvolvida}}{86}{table.caption.98}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas das portas de entrada e sa\IeC {\'\i }da da arquitetura\relax }}{91}{table.caption.106}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Recursos utilizados pelas arquiteturas desenvolvidas de transmiss\IeC {\~a}o em s\IeC {\'e}rie\relax }}{94}{table.caption.110}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada de f\IeC {\'a}brica\relax }}{99}{table.caption.112}
-\contentsline {table}{\numberline {B.2}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada de f\IeC {\'a}brica\relax }}{100}{table.caption.113}
-\contentsline {table}{\numberline {B.3}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{100}{table.caption.114}
-\contentsline {table}{\numberline {B.4}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{101}{table.caption.115}
-\contentsline {table}{\numberline {B.5}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para dois canais melhorados\relax }}{101}{table.caption.116}
-\contentsline {table}{\numberline {B.6}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para dois canais melhorados\relax }}{102}{table.caption.117}
+\contentsline {table}{\numberline {B.1}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada de f\IeC {\'a}brica\relax }}{101}{table.caption.115}
+\contentsline {table}{\numberline {B.2}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada de f\IeC {\'a}brica\relax }}{102}{table.caption.116}
+\contentsline {table}{\numberline {B.3}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{102}{table.caption.117}
+\contentsline {table}{\numberline {B.4}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{103}{table.caption.118}
+\contentsline {table}{\numberline {B.5}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para dois canais melhorados\relax }}{103}{table.caption.119}
+\contentsline {table}{\numberline {B.6}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para dois canais melhorados\relax }}{104}{table.caption.120}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de sa\IeC {\'\i }da da arquitetura que se conectam \IeC {\`a} placa HDMI transmissora\relax }}{104}{table.C.1}
-\contentsline {table}{\numberline {C.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de entrada da arquitetura provenientes da placa HDMI recetora\relax }}{105}{table.C.2}
-\contentsline {table}{\numberline {C.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o de algumas portas de entrada e sa\IeC {\'\i }da da arquitetura de transmiss\IeC {\~a}o de imagem e som entre as placas HDMI transmissora e recetora\relax }}{107}{table.C.3}
 \addvspace {10\p@ }
