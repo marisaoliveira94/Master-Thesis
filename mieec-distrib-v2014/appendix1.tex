@@ -7,7 +7,9 @@ Esta secção apresenta todas as portas das placas HDMI configuradas por omissã
 
 %\begin{longtable}[h!]
 %	{@{}llll@{}}
-%	
+%		\centering	
+%		\caption{Localização dos pinos de dados utilizados em nas placas HDMI configuradas por omissão, adaptada de \cite{R009}}
+%		\label{table:HDMIdataDefaultdetail}
 %		\hline
 %		\centering	
 %		\multicolumn{1}{c}{\textbf{PORTA}} & \multicolumn{1}{c}{\textbf{FPGA -\textgreater FMC (RX)}} & \multicolumn{1}{c}{\textbf{FMC -\textgreater FPGA (TX)}} & \multicolumn{1}{c}{\textbf{Descrição}} \\ \hline \endhead
@@ -45,17 +47,16 @@ Esta secção apresenta todas as portas das placas HDMI configuradas por omissã
 %		LA30\_P      & RX\#0\_P27                           & TX\#0\_D27                         & Pixel de imagem R{[}7{]} \\ 
 %		LA31\_P      & RX\#0\_P28                           & TX\#0\_D28                         & Pixel de imagem R{[}8{]} \\ 
 %		LA32\_P      & RX\#0\_P29                           & TX\#0\_D29                         & Pixel de imagem R{[}9{]} \\ \hline
-%	\captionsetup{width=0.94\linewidth}
-%	\caption{Localização dos pinos de dados utilizados em nas placas HDMI configuradas por omissão, adaptada de \cite{R009}}
-%	\label{table:HDMIdataDefaultdetail}
 %\end{longtable}
 
 \section{Suporte de um canal de imagem e áudio} \label {ap1:HDMIconfig+audio}
 
 Nesta secção são apresentadas todas as portas das placas HDMI configuradas para terem suporte de imagem e áudio num canal que enviam dados para a FPGA utilizados no projeto. São apresentados os nomes das portas nas placas, os nomes dos sinais tanto do lado do recetor como do transmissor e a sua descrição.
 
-%\begin{longtable}[]
+%\begin{longtable}[h!]
 %	{@{}llll@{}}
+%	\caption{Localização dos pinos de dados utilizados nas placas HDMI com a configuração de um canal e suporte de audio, adaptada de \cite{R014}}
+%	\label{table:HDMI1canal+audioDETAIL}
 %	\hline
 %	\centering
 %		\multicolumn{1}{c}{\textbf{PORTA}} & \multicolumn{1}{c}{\textbf{FPGA -\textgreater FMC (RX)}} & \multicolumn{1}{c}{\textbf{FMC -\textgreater FPGA (TX)}} & \multicolumn{1}{c}{\textbf{Descrição}} \\ \hline \endhead		
@@ -110,9 +111,6 @@ Nesta secção são apresentadas todas as portas das placas HDMI configuradas pa
 %		LA30\_N      & RX\#0\_P33                         & TX\#0\_D33                           & Pixel de Imagem Cr{[}9{]}/R{[}9{]}   \\ 
 %		LA31\_N      & RX\#0\_P34                         & TX\#0\_D34                           & Pixel de Imagem Cr{[}10{]}/R{[}10{]} \\ 
 %		LA32\_N      & RX\#0\_P35                         & TX\#0\_D35                           & Pixel de Imagem Cr{[}11{]}/R{[}11{]} \\ \hline
-%
-%	\caption{Localização dos pinos de dados utilizados nas placas HDMI com a configuração de um canal e suporte de audio, adaptada de \cite{R014}}
-%	\label{table:HDMI1canal+audioDETAIL}
 %\end{longtable}
 
 \section{Suporte de dois canais de imagem melhorado} \label{ap1:HDMIconfigMelhorado}
@@ -123,6 +121,8 @@ Nesta secção são apresentados os dados enviados pelas placas HDMI configurada
 
 %\begin{longtable}[h!]
 %	{@{}llll@{}}
+%	\caption{Localização dos pinos de dados utilizados nas placas HDMI com a configuração de suporte de dois canais melhorado, adaptada de \cite{R013}}
+%	\label{table:HDMI1canal_melhorado}
 %	\hline
 %	\centering
 %	\multicolumn{1}{c}{\textbf{PORTA}} & \multicolumn{1}{c}{\textbf{FPGA -\textgreater FMC (RX)}} & \multicolumn{1}{c}{\textbf{FMC -\textgreater FPGA (TX)}} & \multicolumn{1}{c}{\textbf{Descrição}} \\ \hline \endhead
@@ -201,7 +201,4 @@ Nesta secção são apresentados os dados enviados pelas placas HDMI configurada
 %%	LA31\_N      & RX\#1\_P28                       & TX\#1\_D28                           & Pixel de Imagem R{[}8{]}   \\ \hline
 %%	LA32\_N      & RX\#1\_P29                       & TX\#1\_D29                           & Pixel de Imagem R{[}9{]}   	\\ \hline
 %	\hline
-%
-%	\caption{Localização dos pinos de dados utilizados nas placas HDMI com a configuração de suporte de dois canais melhorado, adaptada de \cite{R013}}
-%	\label{table:HDMI1canal_melhorado}
 %\end{longtable}
