@@ -604,9 +604,13 @@ Assim conclui-se que apesar da transmissão em série estar a operar como espera
 \end{center}
 
 
-\subsection{Comparação entre os recursos utilizados pelas arquiteturas desenvolvidas}
+\subsection{Análise dos recursos utilizados por cada uma das arquiteturas}
 
-Nesta subsecção são apresentadas comparações relativamente aos recursos utilizados na FPGA por cada uma das arquiteturas. Por questões de simplificação definiu-se "Arquitetura 1" como a arquitetura que transmite uma barra de cores gerada na FPGA em série, e "Arquitetura 2" à que transmite imagem em série entre dispositivos HDMI.
+Nesta subsecção são apresentadas comparações relativamente aos recursos utilizados na FPGA por cada uma das arquiteturas. Por questões de simplificação definiu-se:
+\begin{itemize}
+	\item \textbf{Arquitetura E:} Arquitetura transmissora de uma barra de cores em série para o dispositivo final HDMI;
+	\item \textbf{Arquitetura B:} Arquitetura transmissora de imagem em série entre dispositivos HDMI;
+\end{itemize}
 
 \begin{table}[h!]
 	\centering
@@ -615,14 +619,17 @@ Nesta subsecção são apresentadas comparações relativamente aos recursos uti
 
 		\begin{tabular}{rllll}
 			\hline
-			\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Recurso}}} & \multicolumn{2}{c}{\textbf{Arquitetura 1}}                                 & \multicolumn{2}{c}{\textbf{Arquitetura 2}}                               \\ \cline{2-5} 
+			\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Recurso}}} & \multicolumn{2}{c}{\textbf{Arquitetura D}}                                 & \multicolumn{2}{c}{\textbf{Arquitetura E}}                               \\ \cline{2-5} 
 			\multicolumn{1}{c}{}                                  & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c|}{\textbf{\%}} & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c}{\textbf{\%}} \\ \hline
 			\multicolumn{1}{r|}{\textbf{FF}}                      & 566                                     & \multicolumn{1}{l|}{0,09}        & 710                                    & 0,12                            \\
 			\multicolumn{1}{r|}{\textbf{LUT}}                     & 486                                     & \multicolumn{1}{l|}{0,16}        & 590                                    & 0,19                            \\
 			\multicolumn{1}{r|}{\textbf{I/O}}                     & 44                                      & \multicolumn{1}{l|}{6,29}        & 78                                     & 11,14                           \\
-			\multicolumn{1}{r|}{\textbf{BUFG}}                    & 5                                       & \multicolumn{1}{l|}{15,63}       & 2                                      & 6,25                            \\
 			\multicolumn{1}{r|}{\textbf{GT}}                      & 1                                       & \multicolumn{1}{l|}{2,86}        & 1                                      & 2,86                            \\ \hline
 		\end{tabular}%
 \end{table}
 
-Na tabela \ref{table:recursos_planoD_planoE} são apresentados a utilização de recursos de cada uma das arquiteturas, sendo que estes dados foram retirados do software após implementação de ambas as arquiteturas.
+Na tabela \ref{table:recursos_planoD_planoE} são apresentados a utilização de recursos de cada uma das arquiteturas, sendo que estes dados foram retirados do \textit{software} após implementação de ambas as arquiteturas.
+
+Globalmente, a arquitetura E utiliza mais recursos do que a D devido ao facto de suportar a recepção de dados provenientes da placa HDMI recetora (aumentando o número de entradas e saída utilizadas), e também de utilizar mais um bloco (o que aumenta o número de utilização de FF e LUT). Ambas utilizam apenas um GT (\textit{Gigabit Transceiver}), tal como esperado, havendo ainda a possibilidade de aumentar essa utilização caso se pretenda.
+
+Num ponto de vista geral, a utilização de recursos não se torna preocupante nesta FPGA, havendo ainda muitos recursos disponíveis caso se pretenda abordar estas arquiteturas de maneira diferente.
