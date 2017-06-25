@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.18)  25 JUN 2017 10:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.18)  25 JUN 2017 10:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1080,8 +1080,27 @@ e
 
 (./mymacros.tex) (./MarisaOliveira.aux (./abstract.aux) (./acknows.aux)
 (./quote.aux) (./abbrevs.aux) (./chapter1.aux) (./chapter2.aux) (./chapter3.aux
-) (./chapter4.aux) (./chapter5.aux) (./chapter6.aux) (./appendix1.aux)
-(./appendix4.aux) (./appendix3.aux) (./appendix2.aux))
+) (./chapter4.aux) (./chapter5.aux) (./chapter6.aux) (./appendix1.aux
+
+LaTeX Warning: Label `table:HDMIdataDefaultdetail' multiply defined.
+
+
+LaTeX Warning: Label `table:HDMI1canal+audioDETAIL' multiply defined.
+
+
+LaTeX Warning: Label `table:HDMI1canal+audioDETAIL' multiply defined.
+
+
+LaTeX Warning: Label `table:HDMI1canal_melhorado' multiply defined.
+
+) (./appendix4.aux) (./appendix3.aux
+
+LaTeX Warning: Label `table:locPlanAdetail' multiply defined.
+
+
+LaTeX Warning: Label `table:LOCplanC_detail' multiply defined.
+
+) (./appendix2.aux))
 \openout1 = `MarisaOliveira.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
@@ -1436,7 +1455,15 @@ Package babel Info: Redefining portuges shorthand "|
 [14]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 148.
- (./MarisaOliveira.lot)
+ (./MarisaOliveira.lot
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 33.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 33.
+ [15
+
+
+])
 \tf@lot=\write6
 \openout6 = `MarisaOliveira.lot'.
 
@@ -1444,26 +1471,18 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 150.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 150.
- [15
-
-
-]
+ [16]
 \openout2 = `abbrevs.aux'.
 
  (./abbrevs.tex
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
- [16
-
-
-]
-Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 59.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 59.
- [17])
+ [17
+
+
+])
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 150.
 Package babel Info: Redefining portuges shorthand "|
@@ -1517,7 +1536,7 @@ ps-converted-to.pdf figures/diagrama_inicial.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/diagrama_inicial-eps-converted-to.pdf, id=701, 1174.3875pt x 408.52625
+<figures/diagrama_inicial-eps-converted-to.pdf, id=729, 1174.3875pt x 408.52625
 pt>
 File: figures/diagrama_inicial-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/diagrama_inicial-eps-converted-to.pdf>
@@ -1540,7 +1559,7 @@ ted-to.pdf figures/1aparte.eps>
 (epstopdf)             \includegraphics on input line 67.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/1aparte-eps-converted-to.pdf, id=717, 999.735pt x 331.2375pt>
+<figures/1aparte-eps-converted-to.pdf, id=745, 999.735pt x 331.2375pt>
 File: figures/1aparte-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/1aparte-eps-converted-to.pdf>
@@ -1558,7 +1577,7 @@ ed-to.pdf figures/2parte.eps>
 (epstopdf)             \includegraphics on input line 80.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/2parte-eps-converted-to.pdf, id=719, 506.89375pt x 408.52625pt>
+<figures/2parte-eps-converted-to.pdf, id=747, 506.89375pt x 408.52625pt>
 File: figures/2parte-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/2parte-eps-converted-to.pdf>
@@ -1636,7 +1655,7 @@ onverted-to.pdf figures/fpga_fmc_vet.eps>
 (epstopdf)             \includegraphics on input line 54.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fpga_fmc_vet-eps-converted-to.pdf, id=790, 434.62375pt x 291.0875pt>
+<figures/fpga_fmc_vet-eps-converted-to.pdf, id=819, 434.62375pt x 291.0875pt>
 File: figures/fpga_fmc_vet-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/fpga_fmc_vet-eps-converted-to.pdf>
@@ -1662,7 +1681,7 @@ dmi-eps-converted-to.pdf figures/diagramaBlocosRX_hdmi.eps>
 (epstopdf)             \includegraphics on input line 74.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/diagramaBlocosRX_hdmi-eps-converted-to.pdf, id=809, 461.725pt x 377.41
+<figures/diagramaBlocosRX_hdmi-eps-converted-to.pdf, id=838, 461.725pt x 377.41
 pt>
 File: figures/diagramaBlocosRX_hdmi-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -1697,7 +1716,7 @@ eps-converted-to.pdf figures/amostragem_RX_vet.eps>
 (epstopdf)             \includegraphics on input line 134.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/amostragem_RX_vet-eps-converted-to.pdf, id=843, 333.245pt x 95.35625pt
+<figures/amostragem_RX_vet-eps-converted-to.pdf, id=870, 333.245pt x 95.35625pt
 >
 File: figures/amostragem_RX_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/amostragem_RX_vet-eps-converted-to.pdf>
@@ -1718,7 +1737,7 @@ DMI-eps-converted-to.pdf figures/diagramaBlocosTX_HDMI.eps>
 (epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/diagramaBlocosTX_HDMI-eps-converted-to.pdf, id=847, 460.72125pt x 308.
+<figures/diagramaBlocosTX_HDMI-eps-converted-to.pdf, id=874, 460.72125pt x 308.
 15125pt>
 File: figures/diagramaBlocosTX_HDMI-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -1742,7 +1761,7 @@ eps-converted-to.pdf figures/amostragem_TX_vet.eps>
 (epstopdf)             \includegraphics on input line 162.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/amostragem_TX_vet-eps-converted-to.pdf, id=851, 319.1925pt x 95.35625p
+<figures/amostragem_TX_vet-eps-converted-to.pdf, id=878, 319.1925pt x 95.35625p
 t>
 File: figures/amostragem_TX_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/amostragem_TX_vet-eps-converted-to.pdf>
@@ -1800,7 +1819,7 @@ ted-to.pdf figures/ser_des.eps>
 (epstopdf)             \includegraphics on input line 298.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/ser_des-eps-converted-to.pdf, id=919, 290.08376pt x 158.5925pt>
+<figures/ser_des-eps-converted-to.pdf, id=947, 290.08376pt x 158.5925pt>
 File: figures/ser_des-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/ser_des-eps-converted-to.pdf>
@@ -1843,7 +1862,7 @@ ps-converted-to.pdf figures/serial_align_vet.eps>
 (epstopdf)             \includegraphics on input line 455.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/serial_align_vet-eps-converted-to.pdf, id=968, 381.425pt x 111.41624pt
+<figures/serial_align_vet-eps-converted-to.pdf, id=995, 381.425pt x 111.41624pt
 >
 File: figures/serial_align_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/serial_align_vet-eps-converted-to.pdf>
@@ -1865,7 +1884,7 @@ Package epstopdf Info: Source file: <figures/paralel_align.eps>
 converted-to.pdf figures/paralel_align.eps>
 (epstopdf)             \includegraphics on input line 466.
 Package epstopdf Info: Output file is already uptodate.
-<figures/paralel_align-eps-converted-to.pdf, id=973, 347.2975pt x 188.705pt>
+<figures/paralel_align-eps-converted-to.pdf, id=1000, 347.2975pt x 188.705pt>
 File: figures/paralel_align-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/paralel_align-eps-converted-to.pdf>
@@ -1901,7 +1920,7 @@ converted-to.pdf figures/SIPO_PISO_vet.eps>
 (epstopdf)             \includegraphics on input line 486.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/SIPO_PISO_vet-eps-converted-to.pdf, id=1006, 234.8775pt x 113.42375pt>
+<figures/SIPO_PISO_vet-eps-converted-to.pdf, id=1033, 234.8775pt x 113.42375pt>
 File: figures/SIPO_PISO_vet-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/SIPO_PISO_vet-eps-converted-to.pdf>
 Package pdftex.def Info: figures/SIPO_PISO_vet-eps-converted-to.pdf used on inp
@@ -1923,7 +1942,7 @@ Package epstopdf Info: Source file: <figures/PISO.eps>
 (epstopdf)             \includegraphics on input line 499.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/PISO-eps-converted-to.pdf, id=1026, 545.03625pt x 170.6375pt>
+<figures/PISO-eps-converted-to.pdf, id=1053, 545.03625pt x 170.6375pt>
 File: figures/PISO-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/PISO-eps-converted-to.pdf>
@@ -1941,7 +1960,7 @@ Package epstopdf Info: Source file: <figures/SIPO.eps>
 (epstopdf)             \includegraphics on input line 510.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/SIPO-eps-converted-to.pdf, id=1029, 506.89375pt x 239.89626pt>
+<figures/SIPO-eps-converted-to.pdf, id=1056, 506.89375pt x 239.89626pt>
 File: figures/SIPO-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/SIPO-eps-converted-to.pdf>
@@ -1960,7 +1979,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 522.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_serializer-eps-converted-to.pdf, id=1034, 236.885pt x 155.5812
+<figures/exemplo_serializer-eps-converted-to.pdf, id=1061, 236.885pt x 155.5812
 5pt>
 File: figures/exemplo_serializer-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/exemplo_serializer-eps-converted-to.pdf>
@@ -1995,7 +2014,7 @@ ted-to.pdf figures/ISI_vet.eps>
 (epstopdf)             \includegraphics on input line 550.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/ISI_vet-eps-converted-to.pdf, id=1069, 234.8775pt x 113.42375pt>
+<figures/ISI_vet-eps-converted-to.pdf, id=1097, 234.8775pt x 113.42375pt>
 File: figures/ISI_vet-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/ISI_vet-eps-converted-to.pdf>
@@ -2042,7 +2061,7 @@ nverted-to.pdf figures/loc_gtx_vet.eps>
 (epstopdf)             \includegraphics on input line 660.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/loc_gtx_vet-eps-converted-to.pdf, id=1142, 434.62375pt x 290.08376pt>
+<figures/loc_gtx_vet-eps-converted-to.pdf, id=1169, 434.62375pt x 290.08376pt>
 File: figures/loc_gtx_vet-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/loc_gtx_vet-eps-converted-to.pdf>
@@ -2062,7 +2081,7 @@ verted-to.pdf figures/gtx_fisico.eps>
 (epstopdf)             \includegraphics on input line 673.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/gtx_fisico-eps-converted-to.pdf, id=1146, 350.30875pt x 220.825pt>
+<figures/gtx_fisico-eps-converted-to.pdf, id=1173, 350.30875pt x 220.825pt>
 File: figures/gtx_fisico-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/gtx_fisico-eps-converted-to.pdf>
@@ -2086,7 +2105,7 @@ s-converted-to.pdf figures/geral_arq_trans.eps>
 (epstopdf)             \includegraphics on input line 684.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/geral_arq_trans-eps-converted-to.pdf, id=1163, 404.51125pt x 178.6675p
+<figures/geral_arq_trans-eps-converted-to.pdf, id=1190, 404.51125pt x 178.6675p
 t>
 File: figures/geral_arq_trans-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/geral_arq_trans-eps-converted-to.pdf>
@@ -2113,7 +2132,7 @@ eps-converted-to.pdf figures/diagrama_dominios.eps>
 (epstopdf)             \includegraphics on input line 744.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/diagrama_dominios-eps-converted-to.pdf, id=1196, 989.6975pt x 385.44pt
+<figures/diagrama_dominios-eps-converted-to.pdf, id=1224, 989.6975pt x 385.44pt
 >
 File: figures/diagrama_dominios-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/diagrama_dominios-eps-converted-to.pdf>
@@ -2139,7 +2158,7 @@ Package epstopdf Info: Source file: <figures/meta_stable.eps>
 nverted-to.pdf figures/meta_stable.eps>
 (epstopdf)             \includegraphics on input line 768.
 Package epstopdf Info: Output file is already uptodate.
- <figures/meta_stable-eps-converted-to.pdf, id=1207, 469.755pt x 200.75pt>
+ <figures/meta_stable-eps-converted-to.pdf, id=1234, 469.755pt x 200.75pt>
 File: figures/meta_stable-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/meta_stable-eps-converted-to.pdf>
@@ -2167,7 +2186,7 @@ eps-converted-to.pdf figures/sincronizacao_vet.eps>
 (epstopdf)             \includegraphics on input line 782.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/sincronizacao_vet-eps-converted-to.pdf, id=1229, 313.17pt x 108.405pt>
+<figures/sincronizacao_vet-eps-converted-to.pdf, id=1256, 313.17pt x 108.405pt>
 File: figures/sincronizacao_vet-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/sincronizacao_vet-eps-converted-to.pdf>
 Package pdftex.def Info: figures/sincronizacao_vet-eps-converted-to.pdf used on
@@ -2210,7 +2229,7 @@ eps-converted-to.pdf figures/placa_HDMI_rx_vet.eps>
 (epstopdf)             \includegraphics on input line 12.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/placa_HDMI_rx_vet-eps-converted-to.pdf, id=1265, 461.725pt x 234.8775p
+<figures/placa_HDMI_rx_vet-eps-converted-to.pdf, id=1292, 461.725pt x 234.8775p
 t>
 File: figures/placa_HDMI_rx_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/placa_HDMI_rx_vet-eps-converted-to.pdf>
@@ -2233,7 +2252,7 @@ eps-converted-to.pdf figures/placa_HDMI_tx_vet.eps>
 (epstopdf)             \includegraphics on input line 21.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/placa_HDMI_tx_vet-eps-converted-to.pdf, id=1268, 460.72125pt x 235.881
+<figures/placa_HDMI_tx_vet-eps-converted-to.pdf, id=1295, 460.72125pt x 235.881
 26pt>
 File: figures/placa_HDMI_tx_vet-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/placa_HDMI_tx_vet-eps-converted-to.pdf>
@@ -2290,7 +2309,7 @@ erted-to.pdf figures/audio_i2s.eps>
 (epstopdf)             \includegraphics on input line 109.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/audio_i2s-eps-converted-to.pdf, id=1343, 448.67625pt x 111.41624pt>
+<figures/audio_i2s-eps-converted-to.pdf, id=1369, 448.67625pt x 111.41624pt>
 File: figures/audio_i2s-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/audio_i2s-eps-converted-to.pdf>
@@ -2325,7 +2344,7 @@ ps-converted-to.pdf figures/exemplo_colorBar.eps>
 (epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_colorBar-eps-converted-to.pdf, id=1372, 424.58624pt x 305.14pt
+<figures/exemplo_colorBar-eps-converted-to.pdf, id=1398, 424.58624pt x 305.14pt
 >
 File: figures/exemplo_colorBar-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/exemplo_colorBar-eps-converted-to.pdf>
@@ -2353,7 +2372,7 @@ onverted-to.pdf figures/colorBar_FSM.eps>
 (epstopdf)             \includegraphics on input line 189.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/colorBar_FSM-eps-converted-to.pdf, id=1386, 389.455pt x 274.02374pt>
+<figures/colorBar_FSM-eps-converted-to.pdf, id=1412, 389.455pt x 274.02374pt>
 File: figures/colorBar_FSM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/colorBar_FSM-eps-converted-to.pdf>
@@ -2385,7 +2404,7 @@ d-to.pdf figures/planA.eps>
 (epstopdf)             \includegraphics on input line 243.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planA-eps-converted-to.pdf, id=1416, 724.7075pt x 376.40625pt>
+<figures/planA-eps-converted-to.pdf, id=1442, 724.7075pt x 376.40625pt>
 File: figures/planA-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planA-eps-converted-to.pdf>
@@ -2419,7 +2438,7 @@ rted-to.pdf figures/planAsch.eps>
 (epstopdf)             \includegraphics on input line 293.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planAsch-eps-converted-to.pdf, id=1457, 713.66624pt x 292.09125pt>
+<figures/planAsch-eps-converted-to.pdf, id=1483, 713.66624pt x 292.09125pt>
 File: figures/planAsch-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planAsch-eps-converted-to.pdf>
@@ -2431,7 +2450,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 297.
  [50]
-<figures/resultados_planoA.png, id=1465, 396.5214pt x 344.487pt>
+<figures/resultados_planoA.png, id=1491, 396.5214pt x 344.487pt>
 File: figures/resultados_planoA.png Graphic file (type png)
 
 <use figures/resultados_planoA.png>
@@ -2456,7 +2475,7 @@ ed-to.pdf figures/planB1.eps>
 (epstopdf)             \includegraphics on input line 329.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planB1-eps-converted-to.pdf, id=1481, 872.25874pt x 428.60126pt>
+<figures/planB1-eps-converted-to.pdf, id=1507, 872.25874pt x 428.60126pt>
 File: figures/planB1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planB1-eps-converted-to.pdf>
@@ -2484,7 +2503,7 @@ rted-to.pdf figures/planBsch.eps>
 (epstopdf)             \includegraphics on input line 383.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planBsch-eps-converted-to.pdf, id=1519, 1216.545pt x 295.1025pt>
+<figures/planBsch-eps-converted-to.pdf, id=1545, 1216.545pt x 295.1025pt>
 File: figures/planBsch-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planBsch-eps-converted-to.pdf>
@@ -2492,7 +2511,7 @@ Package pdftex.def Info: figures/planBsch-eps-converted-to.pdf used on input li
 ne 383.
 (pdftex.def)             Requested size: 426.79135pt x 103.52606pt.
 
-<figures/resultados_planoB.png, id=1521, 391.2216pt x 288.5982pt>
+<figures/resultados_planoB.png, id=1547, 391.2216pt x 288.5982pt>
 File: figures/resultados_planoB.png Graphic file (type png)
 
 <use figures/resultados_planoB.png>
@@ -2517,7 +2536,7 @@ d-to.pdf figures/planC.eps>
 (epstopdf)             \includegraphics on input line 415.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planC-eps-converted-to.pdf, id=1537, 792.9625pt x 898.35625pt>
+<figures/planC-eps-converted-to.pdf, id=1564, 792.9625pt x 898.35625pt>
 File: figures/planC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planC-eps-converted-to.pdf>
@@ -2596,7 +2615,7 @@ Package epstopdf Info: Source file: <figures/tx_gtx_arq.eps>
 verted-to.pdf figures/tx_gtx_arq.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<figures/tx_gtx_arq-eps-converted-to.pdf, id=1598, 508.90125pt x 216.81pt>
+<figures/tx_gtx_arq-eps-converted-to.pdf, id=1624, 508.90125pt x 216.81pt>
 File: figures/tx_gtx_arq-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/tx_gtx_arq-eps-converted-to.pdf>
@@ -2634,7 +2653,7 @@ ps-converted-to.pdf figures/exemplo_datapath.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_datapath-eps-converted-to.pdf, id=1632, 547.04375pt x 362.3537
+<figures/exemplo_datapath-eps-converted-to.pdf, id=1658, 547.04375pt x 362.3537
 4pt>
 File: figures/exemplo_datapath-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/exemplo_datapath-eps-converted-to.pdf>
@@ -2669,7 +2688,7 @@ tx_tx-eps-converted-to.pdf figures/clk_domain_cross_gtx_tx.eps>
 (epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/clk_domain_cross_gtx_tx-eps-converted-to.pdf, id=1645, 506.89375pt x 2
+<figures/clk_domain_cross_gtx_tx-eps-converted-to.pdf, id=1671, 506.89375pt x 2
 64.99pt>
 File: figures/clk_domain_cross_gtx_tx-eps-converted-to.pdf Graphic file (type p
 df)
@@ -2706,7 +2725,7 @@ verted-to.pdf figures/rx_gtx_arq.eps>
 (epstopdf)             \includegraphics on input line 152.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/rx_gtx_arq-eps-converted-to.pdf, id=1684, 499.8675pt x 188.705pt>
+<figures/rx_gtx_arq-eps-converted-to.pdf, id=1710, 499.8675pt x 188.705pt>
 File: figures/rx_gtx_arq-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/rx_gtx_arq-eps-converted-to.pdf>
@@ -2736,7 +2755,7 @@ s-converted-to.pdf figures/rxslide_example.eps>
 (epstopdf)             \includegraphics on input line 242.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/rxslide_example-eps-converted-to.pdf, id=1709, 483.8075pt x 200.75pt>
+<figures/rxslide_example-eps-converted-to.pdf, id=1735, 483.8075pt x 200.75pt>
 File: figures/rxslide_example-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/rxslide_example-eps-converted-to.pdf>
@@ -2767,7 +2786,7 @@ nverted-to.pdf figures/dominios_rx.eps>
 (epstopdf)             \includegraphics on input line 264.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/dominios_rx-eps-converted-to.pdf, id=1719, 502.87875pt x 225.84375pt>
+<figures/dominios_rx-eps-converted-to.pdf, id=1745, 502.87875pt x 225.84375pt>
 File: figures/dominios_rx-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/dominios_rx-eps-converted-to.pdf>
@@ -2816,7 +2835,7 @@ Package epstopdf Info: Source file: <figures/gtx_wrapper.eps>
 nverted-to.pdf figures/gtx_wrapper.eps>
 (epstopdf)             \includegraphics on input line 336.
 Package epstopdf Info: Output file is already uptodate.
- <figures/gtx_wrapper-eps-converted-to.pdf, id=1761, 839.135pt x 489.83pt>
+ <figures/gtx_wrapper-eps-converted-to.pdf, id=1787, 839.135pt x 489.83pt>
 File: figures/gtx_wrapper-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/gtx_wrapper-eps-converted-to.pdf>
@@ -2864,7 +2883,7 @@ f>
 (epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planod_simples-eps-converted-to.pdf, id=1794, 1111.15125pt x 637.38126
+<figures/planod_simples-eps-converted-to.pdf, id=1820, 1111.15125pt x 637.38126
 pt>
 File: figures/planod_simples-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/planod_simples-eps-converted-to.pdf>
@@ -2901,7 +2920,7 @@ MI-eps-converted-to.pdf figures/sync_block_from_HDMI.eps>
 (epstopdf)             \includegraphics on input line 105.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/sync_block_from_HDMI-eps-converted-to.pdf, id=1842, 317.185pt x 312.16
+<figures/sync_block_from_HDMI-eps-converted-to.pdf, id=1868, 317.185pt x 312.16
 624pt>
 File: figures/sync_block_from_HDMI-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -2926,7 +2945,7 @@ icial-eps-converted-to.pdf figures/trama_abordagem_inicial.eps>
 (epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/trama_abordagem_inicial-eps-converted-to.pdf, id=1860, 1378.14874pt x 
+<figures/trama_abordagem_inicial-eps-converted-to.pdf, id=1886, 1378.14874pt x 
 269.005pt>
 File: figures/trama_abordagem_inicial-eps-converted-to.pdf Graphic file (type p
 df)
@@ -2946,7 +2965,7 @@ nsmissoes-eps-converted-to.pdf figures/exemplo_tramas_transmissoes.eps>
 (epstopdf)             \includegraphics on input line 147.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_tramas_transmissoes-eps-converted-to.pdf, id=1862, 406.51875pt
+<figures/exemplo_tramas_transmissoes-eps-converted-to.pdf, id=1888, 406.51875pt
  x 323.2075pt>
 File: figures/exemplo_tramas_transmissoes-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -2975,7 +2994,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 169.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/organizacao_tramas-eps-converted-to.pdf, id=1880, 1882.03125pt x 1210.
+<figures/organizacao_tramas-eps-converted-to.pdf, id=1906, 1882.03125pt x 1210.
 5225pt>
 File: figures/organizacao_tramas-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/organizacao_tramas-eps-converted-to.pdf>
@@ -3002,7 +3021,7 @@ Package epstopdf Info: Source file: <figures/fsm1.eps>
 (epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fsm1-eps-converted-to.pdf, id=1895, 956.57375pt x 504.88625pt>
+<figures/fsm1-eps-converted-to.pdf, id=1922, 956.57375pt x 504.88625pt>
 File: figures/fsm1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/fsm1-eps-converted-to.pdf>
@@ -3030,7 +3049,7 @@ f>
 (epstopdf)             \includegraphics on input line 218.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fsm_track_data-eps-converted-to.pdf, id=1913, 991.705pt x 709.65125pt>
+<figures/fsm_track_data-eps-converted-to.pdf, id=1939, 991.705pt x 709.65125pt>
 File: figures/fsm_track_data-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/fsm_track_data-eps-converted-to.pdf>
 Package pdftex.def Info: figures/fsm_track_data-eps-converted-to.pdf used on in
@@ -3062,7 +3081,7 @@ converted-to.pdf figures/fsm_bit_align.eps>
 (epstopdf)             \includegraphics on input line 259.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fsm_bit_align-eps-converted-to.pdf, id=1944, 876.27374pt x 674.52pt>
+<figures/fsm_bit_align-eps-converted-to.pdf, id=1970, 876.27374pt x 674.52pt>
 File: figures/fsm_bit_align-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/fsm_bit_align-eps-converted-to.pdf>
@@ -3086,7 +3105,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/sync_block_to_HDMI-eps-converted-to.pdf, id=1963, 317.185pt x 312.1662
+<figures/sync_block_to_HDMI-eps-converted-to.pdf, id=1989, 317.185pt x 312.1662
 4pt>
 File: figures/sync_block_to_HDMI-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/sync_block_to_HDMI-eps-converted-to.pdf>
@@ -3112,7 +3131,7 @@ Package epstopdf Info: Source file: <figures/planod.eps>
 ed-to.pdf figures/planod.eps>
 (epstopdf)             \includegraphics on input line 330.
 Package epstopdf Info: Output file is already uptodate.
- <figures/planod-eps-converted-to.pdf, id=1970, 1120.185pt x 653.44125pt>
+ <figures/planod-eps-converted-to.pdf, id=1996, 1120.185pt x 653.44125pt>
 File: figures/planod-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planod-eps-converted-to.pdf>
@@ -3136,7 +3155,7 @@ Package epstopdf Info: Source file: <figures/planDsch.eps>
 rted-to.pdf figures/planDsch.eps>
 (epstopdf)             \includegraphics on input line 400.
 Package epstopdf Info: Output file is already uptodate.
-<figures/planDsch-eps-converted-to.pdf, id=1982, 713.66624pt x 318.18875pt>
+<figures/planDsch-eps-converted-to.pdf, id=2008, 713.66624pt x 318.18875pt>
 File: figures/planDsch-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planDsch-eps-converted-to.pdf>
@@ -3159,7 +3178,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 410.
  [86 <./figures/planod-eps-converted-to.pdf>]
-<figures/resultados_planoD.png, id=2014, 406.6392pt x 330.9966pt>
+<figures/resultados_planoD.png, id=2041, 406.6392pt x 330.9966pt>
 File: figures/resultados_planoD.png Graphic file (type png)
 
 <use figures/resultados_planoD.png>
@@ -3188,7 +3207,7 @@ eps-converted-to.pdf figures/planoE_simples_pt.eps>
 (epstopdf)             \includegraphics on input line 436.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planoE_simples_pt-eps-converted-to.pdf, id=2030, 1299.85625pt x 810.02
+<figures/planoE_simples_pt-eps-converted-to.pdf, id=2056, 1299.85625pt x 810.02
 625pt>
 File: figures/planoE_simples_pt-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/planoE_simples_pt-eps-converted-to.pdf>
@@ -3211,7 +3230,7 @@ nverted-to.pdf figures/recetorHDMI.eps>
 (epstopdf)             \includegraphics on input line 455.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/recetorHDMI-eps-converted-to.pdf, id=2050, 317.185pt x 312.16624pt>
+<figures/recetorHDMI-eps-converted-to.pdf, id=2076, 317.185pt x 312.16624pt>
 File: figures/recetorHDMI-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/recetorHDMI-eps-converted-to.pdf>
@@ -3229,7 +3248,7 @@ ed-to.pdf figures/planoE.eps>
 (epstopdf)             \includegraphics on input line 471.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planoE-eps-converted-to.pdf, id=2056, 1299.85625pt x 810.02625pt>
+<figures/planoE-eps-converted-to.pdf, id=2082, 1299.85625pt x 810.02625pt>
 File: figures/planoE-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planoE-eps-converted-to.pdf>
@@ -3258,7 +3277,7 @@ Package epstopdf Info: Source file: <figures/planEsch_en.eps>
 nverted-to.pdf figures/planEsch_en.eps>
 (epstopdf)             \includegraphics on input line 555.
 Package epstopdf Info: Output file is already uptodate.
-<figures/planEsch_en-eps-converted-to.pdf, id=2088, 1216.545pt x 321.2pt>
+<figures/planEsch_en-eps-converted-to.pdf, id=2113, 1216.545pt x 321.2pt>
 File: figures/planEsch_en-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planEsch_en-eps-converted-to.pdf>
@@ -3278,7 +3297,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 565.
  [91 <./figures/planEsch_en-eps-converted-to.pdf>] <figures/resultados_planoE.p
-ng, id=2116, 445.665pt x 314.6154pt>
+ng, id=2141, 445.665pt x 314.6154pt>
 File: figures/resultados_planoE.png Graphic file (type png)
 
 <use figures/resultados_planoE.png>
@@ -3295,7 +3314,7 @@ nverted-to.pdf figures/erro_planoE.eps>
 (epstopdf)             \includegraphics on input line 583.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/erro_planoE-eps-converted-to.pdf, id=2117, 804.00375pt x 192.72pt>
+<figures/erro_planoE-eps-converted-to.pdf, id=2142, 804.00375pt x 192.72pt>
 File: figures/erro_planoE-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/erro_planoE-eps-converted-to.pdf>
@@ -3383,43 +3402,204 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 4.
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.12 		\hline
+             
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-LaTeX Warning: Reference `table:HDMIdataDefaultdetail' on page 101 undefined on
- input line 6.
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.13 		\centering
+                 
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 10.
+! Extra alignment tab has been changed to \cr.
+<template> \endtemplate 
+                        
+l.13 		\centering
+                 
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
 
-LaTeX Warning: Reference `table:HDMI1canal+audioDETAIL' on page 101 undefined o
-n input line 12.
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.14 		\multicolumn{1}{c}{\textbf{PORTA}}
+                                          & \multicolumn{1}{c}{\textbf{FPGA ...
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 74.
 
-LaTeX Warning: Reference `table:HDMI1canal_melhorado' on page 101 undefined on 
-input line 76.
+Overfull \hbox (38.37346pt too wide) in alignment at lines 9--14
+ [] [] [] [] 
+ []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--78
+Overfull \hbox (38.37346pt too wide) in alignment at lines 14--35
+ [] [] [] [] 
+ []
 
+
+Overfull \hbox (38.37346pt too wide) in alignment at lines 35--50
+ [] [] [] [] 
  []
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 78.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 78.
+(babel)             in language  on input line 50.
 [101
 
 
-])
+]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 52.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.60 	\hline
+            
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.61 	\centering
+                
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Extra alignment tab has been changed to \cr.
+<template> \endtemplate 
+                        
+l.61 	\centering
+                
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.62 		\multicolumn{1}{c}{\textbf{PORTA}}
+                                          & \multicolumn{1}{c}{\textbf{FPGA ...
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Overfull \hbox (62.44698pt too wide) in alignment at lines 57--62
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (62.44698pt too wide) in alignment at lines 62--83
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (62.44698pt too wide) in alignment at lines 83--104
+ [] [] [] [] 
+ []
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 104.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 104.
+[102]
+Overfull \hbox (62.44698pt too wide) in alignment at lines 104--114
+ [] [] [] [] 
+ []
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 114.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 114.
+[103]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 116.
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+
+ []
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.126 	\hline
+             
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.127 	\centering
+                 
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Extra alignment tab has been changed to \cr.
+<template> \endtemplate 
+                        
+l.127 	\centering
+                 
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.128 	\multicolumn{1}{c}{\textbf{PORTA}}
+                                          & \multicolumn{1}{c}{\textbf{FPGA ...
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Overfull \hbox (49.57504pt too wide) in alignment at lines 123--128
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (49.57504pt too wide) in alignment at lines 128--150
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (49.57504pt too wide) in alignment at lines 150--204
+ [] [] [] [] 
+ []
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 204.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 204.
+[104])
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 184.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 184.
- [102]
+ [105]
 \openout2 = `appendix4.aux'.
 
  (./appendix4.tex
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+ [106
+
+
+
+]
 Anexo B.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -3429,11 +3609,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 87.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 87.
-[103
-
-
-
-]
+[107]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 90.
 
@@ -3449,7 +3625,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 187.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 187.
- [104]
+ [108]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 259.
@@ -3459,12 +3635,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 185.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 185.
- [105]
+ [109]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 185.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 185.
- [106]
+ [110]
 \openout2 = `appendix3.aux'.
 
  (./appendix3.tex
@@ -3473,59 +3649,145 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 6.
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.14 			\hline
+              
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-LaTeX Warning: Reference `table:locPlanAdetail' on page 107 undefined on input 
-line 7.
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.15 			\centering
+                  
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Extra alignment tab has been changed to \cr.
+<template> \endtemplate 
+                        
+l.15 			\centering
+                  
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+
+Overfull \hbox (1.94566pt too wide) in alignment at lines 11--16
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1.94566pt too wide) in alignment at lines 16--37
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1.94566pt too wide) in alignment at lines 37--53
+ [] [] [] [] [] 
+ []
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 55.
-
-LaTeX Warning: Reference `table:LOCplanB_detail' on page 107 undefined on input
- line 59.
-
-
-LaTeX Warning: Reference `table:locPlanAdetail' on page 107 undefined on input 
-line 59.
-
+(babel)             in language  on input line 53.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 139.
-
-LaTeX Warning: Reference `table:LOCplanB_detail' on page 107 undefined on input
- line 141.
-
-
-LaTeX Warning: Reference `table:LOCplanC_detail' on page 107 undefined on input
- line 141.
-
-
-Underfull \vbox (badness 2351) has occurred while \output is active []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 142.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 142.
- [107
+(babel)             in language  on input line 53.
+[111
 
 
 
 ]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 55.
 
-LaTeX Warning: Reference `table:locPlanAdetail' on page 108 undefined on input 
-line 143.
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.65 		\hline
+             
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.66 		\centering
+                 
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-LaTeX Warning: Reference `table:LOCplanC_detail' on page 108 undefined on input
- line 143.
+! Extra alignment tab has been changed to \cr.
+<template> \endtemplate 
+                        
+l.66 		\centering
+                 
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
 
-)
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 88.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 88.
+[112]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 139.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 142.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 142.
+ [113]
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.152 		\hline
+              
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.153 		\centering
+                  
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Extra alignment tab has been changed to \cr.
+<template> \endtemplate 
+                        
+l.153 		\centering
+                  
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 183.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 183.
+[114])
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 186.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 186.
- [108]
+ [115]
 \openout2 = `appendix2.aux'.
 
  (./appendix2.tex
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+ [116
+
+
+
+]
 Anexo D.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -3535,18 +3797,14 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 63.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 63.
-[109
-
-
-
-]
+[117]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 143.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 204.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 204.
- [110]
+ [118]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 258.
 Package babel Info: Redefining portuges shorthand "|
@@ -3566,14 +3824,14 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 304.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 304.
-[111]
+[119]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 306.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 384.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 384.
- [112]
+ [120]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1275.
 Package babel Info: Redefining portuges shorthand "|
@@ -3584,7 +3842,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1309.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1309.
- [113]
+ [121]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1354.
 )
@@ -3592,7 +3850,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 187.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 187.
- [114]
+ [122]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
  (./MarisaOliveira.aux (./abstract.aux) (./acknows.aux) (./quote.aux) (./abbrev
@@ -3605,18 +3863,18 @@ Package rerunfilecheck Info: File `MarisaOliveira.out' has not changed.
 (rerunfilecheck)             Checksum: 14C01C714F23C5752F9A95D4B2F252AD;7935.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 195.
  ) 
 Here is how much of TeX's memory you used:
- 19187 strings out of 493014
- 365210 string characters out of 6133351
- 413817 words of memory out of 5000000
- 21903 multiletter control sequences out of 15000+600000
+ 19208 strings out of 493014
+ 365380 string characters out of 6133351
+ 417178 words of memory out of 5000000
+ 21910 multiletter control sequences out of 15000+600000
  27897 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,15n,45p,10470b,1064s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,15n,54p,10470b,1064s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -3645,10 +3903,10 @@ ype1/public/cm-super/sfsl1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/public/cm-super/sfti0900.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /public/cm-super/sfti1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
 ublic/cm-super/sfxc1440.pfb>
-Output written on MarisaOliveira.pdf (134 pages, 7366919 bytes).
+Output written on MarisaOliveira.pdf (142 pages, 7379751 bytes).
 PDF statistics:
- 2426 PDF objects out of 2487 (max. 8388607)
- 2012 compressed objects within 21 object streams
- 424 named destinations out of 1000 (max. 500000)
+ 2508 PDF objects out of 2984 (max. 8388607)
+ 2083 compressed objects within 21 object streams
+ 438 named destinations out of 1000 (max. 500000)
  933 words of extra memory for PDF output out of 10000 (max. 10000000)
 
