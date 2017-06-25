@@ -17,63 +17,57 @@ A level-1 auxiliary file: appendix4.aux
 A level-1 auxiliary file: appendix3.aux
 A level-1 auxiliary file: appendix2.aux
 Database file #1: myrefs.bib
-Warning--empty journal in R030
-Warning--empty publisher in R016
-Warning--empty year in R016
-Warning--there's a number but no series in R017
-Warning--empty publisher in R017
-Warning--there's a number but no series in R018
+I was expecting a `,' or a `}'---line 236 of file myrefs.bib
+ :  
+ :  edition      = {1.5},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty author and editor in R018
 Warning--empty publisher in R018
-Warning--empty publisher in R032
 Warning--empty journal in R012
 Warning--empty year in R012
 Warning--empty journal in R033
 Warning--empty year in R033
-Warning--empty publisher in R036
-Warning--empty publisher in R038
-Warning--empty year in R038
-Warning--empty publisher in R014
-Warning--empty publisher in R022
-Warning--empty publisher in R013
+Warning--empty author in R037
 You've used 28 entries,
             1876 wiz_defined-function locations,
-            633 strings with 6138 characters,
-and the built_in function-call counts, 4278 in all, are:
-= -- 358
-> -- 179
-< -- 0
-+ -- 77
-- -- 49
-* -- 266
-:= -- 636
-add.period$ -- 31
+            642 strings with 6127 characters,
+and the built_in function-call counts, 3672 in all, are:
+= -- 327
+> -- 137
+< -- 3
++ -- 63
+- -- 35
+* -- 275
+:= -- 512
+add.period$ -- 28
 call.type$ -- 28
-change.case$ -- 19
+change.case$ -- 25
 chr.to.int$ -- 0
-cite$ -- 46
-duplicate$ -- 222
-empty$ -- 505
-format.name$ -- 49
-if$ -- 1021
+cite$ -- 35
+duplicate$ -- 202
+empty$ -- 430
+format.name$ -- 35
+if$ -- 879
 int.to.chr$ -- 0
 int.to.str$ -- 28
-missing$ -- 26
-newline$ -- 94
-num.names$ -- 25
-pop$ -- 143
+missing$ -- 9
+newline$ -- 89
+num.names$ -- 11
+pop$ -- 95
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 88
+skip$ -- 75
 stack$ -- 0
-substring$ -- 52
+substring$ -- 36
 swap$ -- 35
-text.length$ -- 0
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 18
-while$ -- 32
+warning$ -- 7
+while$ -- 15
 width$ -- 30
-write$ -- 220
-(There were 18 warnings)
+write$ -- 224
+(There was 1 error message)

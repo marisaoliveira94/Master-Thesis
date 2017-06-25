@@ -20,40 +20,39 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
 
 \bibitem{R008}
 Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
-  Board User Guide (UG957)}}, 1.3~ed., outubro 2014.
+  Board User Guide}}, 1.3~ed., outubro 2014.
 
 \bibitem{R030}
-Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
-  vol.~315, 2009.
+R.~Seelam, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
+  Tech. Rep. WP315, Xilinx, agosto 2009.
 
 \bibitem{R009}
 Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}, 1.04~ed.,
   agosto 2014.
 
 \bibitem{R016}
-A.~Devices, {\em {ADV7612 Reference Manual}}.
+Analog Devices, {\em {ADV7612 Reference Manual}}, {C}~ed., 2016.
 
 \bibitem{R017}
-{Analog Devices}, {\em {ADV7511 Programming Guide}}.
-\newblock No.~March, 2012.
+Analog Devices, {\em {ADV7511 Programming Guide}}, {G}~ed., março 2012.
 
 \bibitem{R018}
-{Analog Devices}, {\em {ADV7511 Hardware user's guide}}.
-\newblock No.~July, 2011.
+{\em {ADV7511 Hardware user's guide}}.
+\newblock {D}~ed., julho 2011.
 
 \bibitem{R032}
 A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
-\newblock 2005.
+\newblock Xilinx, 1.0~ed., 2005.
 
 \bibitem{R012}
 D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
 
 \bibitem{R011}
-Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}},
+Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide }},
   1.12~ed., dezembro 2016.
 
 \bibitem{R034}
-E.~Tutorials, ``{The Shift Register}.''
+``{The Shift Register}.'' Electronics Tutorials.
 
 \bibitem{R033}
 P.~Moreira, J.~Christiansen, A.~Marchioro, E.~V.~D. Bij, K.~Kloukinas,
@@ -61,8 +60,7 @@ P.~Moreira, J.~Christiansen, A.~Marchioro, E.~V.~D. Bij, K.~Kloukinas,
   LHC Data and Trigger Optical Links},''
 
 \bibitem{R036}
-T.~Instruments, {\em {LVDS Owner's Manual}}.
-\newblock 2008.
+Instruments, Texas, {\em {LVDS Owner's Manual}}, 4~ed., 2008.
 
 \bibitem{R028}
 R.~Williams, ``{A Painless Guide To CRC Error Detection Algorithms},'' {\em
@@ -70,43 +68,41 @@ R.~Williams, ``{A Painless Guide To CRC Error Detection Algorithms},'' {\em
 
 \bibitem{R010}
 H.~Fu, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for High-Speed
-  Serial I/O Connectivity, White Paper},'' tech. rep., Xilinx and Inc, março
-  2013.
+  Serial I/O Connectivity},'' Tech. Rep. WP431, Xilinx and Inc, março 2013.
 
 \bibitem{R024}
 C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification
   Techniques Using SystemVerilog},'' {\em Snug-2008}, 2008.
 
 \bibitem{R037}
-Altera, ``{Understanding Metastability in FPGAs},'' {\em White Paper},
-  no.~July, pp.~1--6, 2009.
+``{Understanding Metastability in FPGAs},'' Tech. Rep. WP-01082, Altera, julho
+  2009.
 
 \bibitem{R038}
-{Analog Devices}, {\em {Data Sheet ADV7612}}.
+Analog Devices, {\em {Data Sheet ADV7612}}, {E}~ed., 2014.
 
 \bibitem{R039}
-{Analog Devices}, ``{Data Sheet ADV7511}.''
+Analog Devices, {\em {Data Sheet ADV7511}}, 2010.
 
 \bibitem{R026}
-Xilinx, ``{Platform Flash In-System Programmable Configuration PROMs},'' 2016.
+Xilinx, {\em {Platform Flash In-System Programmable Configuration PROMs}},
+  2.19~ed., junho 2016.
 
 \bibitem{R025}
-Xilinx, ``{Xilinx Platform Cable USB II},'' 2015.
+Xilinx, {\em {Xilinx Platform Cable USB II}}.
 
 \bibitem{R014}
 Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio
-  support}}.
-\newblock 2014.
+  support}}, 1.05~ed., agosto 2014.
 
 \bibitem{R027}
-{Philips Semiconductors}, {\em {I2S bus specification}}, 1996.
+{Philips Semiconductors}, {\em {I2S bus specification}}, junho 1996.
 
 \bibitem{R022}
-Xilinx, {\em {7 series FPGAs Transceivers Wizard v3.5}}.
-\newblock 2015.
+Xilinx, {\em {7 series FPGAs Transceivers Wizard}}, {3.4}~ed., outubro 2014.
 
 \bibitem{R013}
-Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support}}.
-\newblock 2015.
+Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support}},
+  1.04~ed., fevereiro 2015.
 
 \end{thebibliography}
