@@ -24,12 +24,24 @@
 \contentsline {table}{\numberline {5.4}{\ignorespaces Recursos utilizados pelas arquiteturas desenvolvidas de transmiss\IeC {\~a}o em s\IeC {\'e}rie\relax }}{94}{table.caption.117}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em nas placas HDMI configuradas por omiss\IeC {\~a}o}}{101}{table.A.1}
+\contentsline {table}{\numberline {A.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados em nas placas HDMI configuradas por omiss\IeC {\~a}o}}{102}{table.A.1}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados nas placas HDMI com a configura\IeC {\c c}\IeC {\~a}o de um canal e suporte de audio}}{102}{table.A.2}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados nas placas HDMI com a configura\IeC {\c c}\IeC {\~a}o de um canal e suporte de audio}}{103}{table.A.2}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados nas placas HDMI com a configura\IeC {\c c}\IeC {\~a}o de um canal e suporte de audio}}{104}{table.A.2}
+\contentsline {table}{\numberline {A.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados nas placas HDMI com a configura\IeC {\c c}\IeC {\~a}o de suporte de dois canais melhorado}}{104}{table.A.3}
+\contentsline {table}{\numberline {A.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o dos pinos de dados utilizados nas placas HDMI com a configura\IeC {\c c}\IeC {\~a}o de suporte de dois canais melhorado}}{105}{table.A.3}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada de f\IeC {\'a}brica\relax }}{103}{table.caption.121}
-\contentsline {table}{\numberline {B.2}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada de f\IeC {\'a}brica\relax }}{104}{table.caption.122}
-\contentsline {table}{\numberline {B.3}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{104}{table.caption.123}
-\contentsline {table}{\numberline {B.4}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{105}{table.caption.124}
-\contentsline {table}{\numberline {B.5}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para dois canais melhorados\relax }}{105}{table.caption.125}
-\contentsline {table}{\numberline {B.6}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para dois canais melhorados\relax }}{106}{table.caption.126}
+\contentsline {table}{\numberline {B.1}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada de f\IeC {\'a}brica\relax }}{107}{table.caption.121}
+\contentsline {table}{\numberline {B.2}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada de f\IeC {\'a}brica\relax }}{108}{table.caption.122}
+\contentsline {table}{\numberline {B.3}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{108}{table.caption.123}
+\contentsline {table}{\numberline {B.4}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para um canal e suporte de \IeC {\'a}udio\relax }}{109}{table.caption.124}
+\contentsline {table}{\numberline {B.5}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI RX configurada para dois canais melhorados\relax }}{109}{table.caption.125}
+\contentsline {table}{\numberline {B.6}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos interruptores da placa HDMI TX configurada para dois canais melhorados\relax }}{110}{table.caption.126}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de sa\IeC {\'\i }da da arquitetura que se conectam \IeC {\`a} placa HDMI transmissora\relax }}{111}{table.C.1}
+\contentsline {table}{\numberline {C.1}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de sa\IeC {\'\i }da da arquitetura que se conectam \IeC {\`a} placa HDMI transmissora\relax }}{112}{table.C.1}
+\contentsline {table}{\numberline {C.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas de entrada da arquitetura provenientes da placa HDMI recetora\relax }}{113}{table.C.2}
+\contentsline {table}{\numberline {C.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o de algumas portas de entrada e sa\IeC {\'\i }da da arquitetura de transmiss\IeC {\~a}o de imagem e som entre as placas HDMI transmissora e recetora\relax }}{114}{table.C.3}
+\contentsline {table}{\numberline {C.3}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o de algumas portas de entrada e sa\IeC {\'\i }da da arquitetura de transmiss\IeC {\~a}o de imagem e som entre as placas HDMI transmissora e recetora\relax }}{115}{table.C.3}
 \addvspace {10\p@ }

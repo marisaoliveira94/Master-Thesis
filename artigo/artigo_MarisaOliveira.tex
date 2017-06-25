@@ -68,25 +68,25 @@ O trabalho realizado consiste no desenvolvimento e implementação de  uma arqui
 \IEEEPARstart{E}{ste} documento contempla o trabalho desenvolvido na Dissertação do Mestrado Integrado em Engenharia Eletrotécnica pela Faculdade de Engenharia da Universidade do Porto. 
 O objetivo desta passa por transmitir dados HDMI em série a alta velocidade. Para tal, é utilizada uma FPGA que, segundo \cite{R008}, permite desenvolver e implementar uma arquitetura adequada e são também usadas duas placas HDMI que permitem a conversão dos dados HDMI para dados em paralelo. A figura \ref{fig:1} apresenta o diagrama geral do objetivo proposto nesta dissertação.
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 	\centering
-	\includegraphics[width=\linewidth]{diagrama_inicial}
+	\includegraphics[width=0.9\linewidth]{diagrama_inicial}
 	\caption{Diagrama geral do objetivo proposto}
 	\label{fig:1}
-\end{figure}
+\end{figure*}
 
 \section{Concepção e Desenvolvimento}
 Nesta secção são apresentas as duas principais fases do projeto e o trabalho desenvolvido para alcançar o objetivo em cada uma delas.
 
 \subsection{Transmissão de dados HDMI}
 A primeira fase do projeto consiste em transmitir dados HDMI entre dois dispositivos de uma forma direta. Foram desenvolvidas diversas arquiteturas no sentido de explorar as diferentes configurações das placas HDMI disponíveis para a concepção do trabalho.
-\\
+
 \subsubsection{Transmissão de barra de cores gerada na FPGA para dispositivo HDMI final}
 Esta arquitetura utiliza a placa HDMI transmissora configurada por omissão, tal como referenciado em \cite{R009}. Foi desenvolvido um módulo na FPGA que gera uma barra de cores em \textit{FULL HD} com uma taxa de atualização vertical de \SI{60}{\hertz}, que posteriormente envia os dados referentes à mesma para a placa transmissora. 
-\\
+
 \subsubsection{Transmissão de imagem entre dispositivos HDMI}
 Esta arquitetura utiliza as placas HDMI transmissora e recetora configuradas por omissão, e permite a transmissão de imagem entre dois dispositivos HDMI. Os dados são recebidos pela placa recetora, e diretamente enviados para a placa HDMI transmissora.
-\\
+
 \subsubsection{Transmissão de imagem e som entre dispositivos HDMI}
 Esta arquitetura, utiliza ambas as placas HDMI configuradas para suporte de um canal e áudio, tal como mencionado em \cite{R014}. Esta mesma assemelha-se à arquitetura desenvolvida no ponto anterior, com a vantagem de ser capaz de transmitir também dados de som.
 
@@ -95,7 +95,7 @@ A segunda fase do projeto consiste no desenvolvimento de uma arquitetura que, co
 \\
 \subsubsection{Transmissão em série de barra de cores gerada na FPGA para dispositivo HDMI final}
 Esta arquitetura utiliza a placa HDMI transmissora configurado por omissão e transmite a imagem resultante do bloco gerador de barra de cores, anteriormente mencionado. Os dados referentes à imagem são transmitidos em tramas de 40 bits a uma cadência de \SI{148.5}{\mega\hertz} de acordo com um determinado formato. Os dados são transmitidos através dos transcetores da FPGA e posteriomente recuperados para o seu envio para a placa HDMI transmissora.
-\\
+
 \subsubsection{Transmissão em série de imagem entre dispositivos HDMI}
 Esta arquitura utiliza ambas as placas HDMI configuradas por omissão, permitindo que os dados recebidos pela placa recetora sejam enviados em série pelos transcetores da FPGA. Estes dados são também enviados a uma cadência de \SI{148.5}{\mega\hertz} em tramas de 40 bits. Posteriormente são recuperados e enviados para a placa HDMI transmissora.
 
@@ -128,7 +128,7 @@ Todo o trabalho realizado teve como motivação a sua inclusão no projeto \text
 	\item \textbf{Implementação de códigos detetores de erros:} Com a inserção do sinal em canais ruidosos é expectável que os sinais sejam alterados. O recurso à implementação de códigos detetores de erros vai permitir que tais alterações dos dados sejam detetadas evitando assim que dados errados sejam transmitidos para o final da cadeia de transmissão.
 \end{itemize}
 
-Outros aspectos que podem ser explorados, como trabalho futuro, é a transmissão dos dados de som em série, visto que já foi possível obter essa mesma transmissão de uma forma direta e a utilização da interface DRP do GTX para que haja suporte de diferentes resoluções de imagem.
+Outros aspectos que podem ser explorados, como trabalho futuro, é a transmissão dos dados de som em série, visto que já foi possível obter essa mesma transmissão de uma forma direta.
 
 %\subsection{Equações}
 %
