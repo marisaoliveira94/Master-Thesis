@@ -4,13 +4,13 @@ Este capítulo descreve o trabalho realizado para cumprir a primeira parte do pr
 
 \section{Infraestrutura do \textit{Hardware} utilizado} \label{sec:hardware}
 
-Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para receber os dados provenientes do cabo HDMI e fazer a sua seleção são utilizadas duas placas HDMI (TB-FMCH-HDMI2 RX e TB-FMCH-HDMI2 TX) que, através das suas entradas e saídas FMC de alta velocidade conseguem enviar para e receber da FPGA os sinais de imagem e som. Nas imagens \ref{fig:rx} e \ref{fig:tx} é possível visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituídas por conectores HDMI onde é recebido o sinal HDMI que de seguida é enviado para um recetor ou transmissor, ADV7612 (cuja \textit{data sheet} está referenciada em \cite{R038}) no caso do recetor e ADV7511 (cuja \textit{data sheet} está referenciada em \cite{R039}) no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FPGA da placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de áudio e vídeo.
+Tal como mencionado na subsecção \ref{sec:HDMIinFPGA}, para receber os dados provenientes do cabo HDMI e fazer a sua seleção são utilizadas duas placas HDMI (TB-FMCH-HDMI2 RX e TB-FMCH-HDMI2 TX) que, através das suas entradas e saídas FMC de alta velocidade conseguem enviar e receber da FPGA os sinais de imagem e som. Nas figuras \ref{fig:rx} e \ref{fig:tx} é possível visualizar o recetor (TB-FMCH-HDMI2 RX) e o transmissor (TB-FMCH-HDMI2 TX) HDMI utilizados neste projeto. Em conjunto, estas duas placas são designadas apenas por TB-FMCH-HDMI2. Estas mesmas placas são constituídas por conectores HDMI onde é recebido o sinal HDMI que de seguida é enviado para um recetor ou transmissor, ADV7612 (cuja \textit{data sheet} está referenciada em \cite{R038}) no caso do recetor e ADV7511 (cuja \textit{data sheet} está referenciada em \cite{R039}) no caso do transmissor. Finalmente os sinais provenientes do recetor/transmissor são enviados para uma FPGA da placa (XC6SLX45-3FGG484C) que, consoante a sua configuração, envia pelos conectores FMC os sinais de áudio e vídeo.
 
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.75\textwidth]{placa_HDMI_rx_vet}
-		\caption[Placa HDMI recetora TB-FMCH-HDMI2 RX]{Placa HDMI recetora TB-FMCH-HDMI2 RX (retirada de \cite{R009})}
+		\caption[Placa HDMI recetora]{Placa HDMI recetora (retirada de \cite{R009})}
 		\label{fig:rx}
 	\end{center}
 \end{figure}
@@ -19,19 +19,19 @@ Tal como mencionado no sub-capítulo \ref{sec:HDMIinFPGA}, para receber os dados
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=0.75\textwidth]{placa_HDMI_tx_vet}
-		\caption[Placa HDMI transmissora TB-FMCH-HDMI2 TX]{Placa HDMI transmissoraTB-FMCH-HDMI2 TX (retirada de \cite{R009})}
+		\caption[Placa HDMI transmissora]{Placa HDMI transmissora (retirada de \cite{R009})}
 		\label{fig:tx}
 	\end{center}
 \end{figure}
 
 
-As placas possuem ainda uma PROM (\textit{Programmable read-only memory}) XCF16PFSG48C de configuração reprogramável que permite armazenar o \textit{bitstream}\footnote{Ficheiro de dados binários que representa toda a conectividade e encaminhamento dos recursos lógicos da FPGA para uma determinada arquitetura desenvolvida} que configura a FPGA do modo que se pretende. É esta FPGA integrada que em cada placa (RX e TX) é responsável pela seleção e envio ou receção dos dados pretendidos para ou dos conectores FMC, e como tal é necessário que estejam configuradas para realizarem tais procedimentos. O recurso a estas memórias reconfiguráveis vêm permitir uma fácil alteração da configuração da FPGA uma vez que, segundo \cite{R026}, estas memórias de leitura permitem não só armazenar os \textit{bitstreams} de configuração da FPGA, mas também podem ser reconfiguradas para outros \textit{bitstreams} de forma fácil e eficiente.
+As placas possuem ainda uma PROM (\textit{Programmable read-only memory}) XCF16PFSG48C de configuração reprogramável que permite armazenar o \textit{bitstream}\footnote{Ficheiro de dados binários que representa toda a conectividade e encaminhamento dos recursos lógicos da FPGA para uma determinada arquitetura desenvolvida} que configura a FPGA do modo que se pretende. É esta FPGA integrada que em cada placa (RX e TX) é responsável pela seleção e envio ou receção dos dados pretendidos para/ou dos conectores FMC, e como tal é necessário que estejam configuradas para realizarem tais procedimentos. O recurso a estas memórias reconfiguráveis vem permitir uma fácil alteração da configuração da FPGA uma vez que, segundo \cite{R026}, estas memórias de leitura permitem não só armazenar os \textit{bitstreams} de configuração da FPGA, mas também podem ser reconfiguradas para outros \textit{bitstreams} de forma fácil e eficiente.
 
 As reconfigurações destas memórias são realizadas através de um programador JTAG (\textit{Joint Test Action Group}) e ainda recorrendo a um \textit{software}. O \textit{software} utilizado neste projeto tem o nome de \textit{imPACT} e é disponibilizado pela \textit{Xilinx}. Após a conexão do conector JTAG à respectiva placa e ao computador (através de uma porta USB - \textit{Universal Serial Bus}) é necessário inicializar o \textit{software} e programar a memória com o ficheiro pretendido. Em \cite{R025} são detalhadas informações acerca do programador utilizado e ainda sobre o procedimento para se reconfigurar as memórias. As alterações do modo de funcionamento das placas HDMI neste projeto baseiam-se nesse documento.
 
 \subsection{Configurações da FPGA} \label{subsec:HDMIconfig}
 
-A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) das placas tem três configurações disponíveis. Estas variam não só no suporte de imagem e som que possuem, mas podem igualmente variar no número de bits por imagem que podem ter. Nas secções seguintes serão brevemente abordadas as configurações disponíveis e como se pode tirar partido das mesmas no projeto desenvolvido.
+A FPGA \textit{Spartan-6} (XC6SLX45-3FGG484C) das placas tem três configurações disponíveis. Estas variam não só no suporte de imagem e som que possuem, mas podem igualmente variar no número de bits por imagem que podem ter. Nas secções seguintes serão abordadas as configurações disponíveis e como se pode tirar partido das mesmas no projeto desenvolvido.
 
 \subsubsection{Configuração por omissão} \label{subsubsec:HDMIconfigdefault}
 
@@ -62,9 +62,9 @@ Apesar de ser uma configuração simples, uma vez que apenas são transmitidos s
 
 \subsubsection{Suporte de um canal de imagem e áudio} \label {subsubsec:HDMIconfig+audio}
 
-Para além da configuração descrita em \ref{subsubsec:HDMIconfigdefault} que apenas suporta a transmissão de imagem, existe ainda uma configuração capaz de suportar não só a transmissão de imagem mas também de som. A configuração que é escrita na PROM da placa recetora para programar a FPGA controla o recetor ADV7612 de maneira a conseguir transmitir imagens no formato YCbCr\footnote{É uma família de espaços de cores usado em imagens digitais. \textit{Y} representa o brilho da imagem, \textit{Cb} e \textit{Cr} representam a diferença entre o brilho e as cores azul e vermelho respetivamente} ou RGB com 12 bits e também fazer a transmissão do áudio em formato $I^{2}$S (\textit{Inter-IC Sound}). O mesmo acontece na placa transmissora mas para ser capaz de receber estas configurações.
+Para além da configuração descrita em \ref{subsubsec:HDMIconfigdefault} que apenas suporta a transmissão de imagem, existe ainda uma configuração capaz de suportar não só a transmissão de imagem mas também de som. A configuração que é escrita na PROM da placa recetora para programar a FPGA controla o recetor ADV7612 de maneira a conseguir transmitir imagens no formato YCbCr\footnote{É um espaço de cores usado em imagens digitais. \textit{Y} representa o brilho da imagem, \textit{Cb} e \textit{Cr} representam a diferença entre o brilho e as cores azul e vermelho respetivamente} ou RGB com 12 bits e também fazer a transmissão do áudio em formato $I^{2}$S (\textit{Inter-IC Sound}). O mesmo acontece na placa transmissora para ser capaz de receber estas configurações.
 
-Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI e é transmitida pelas placas tal como é emitida pela fonte. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica a transmissão dos dados de áudio mas também sinais de relógio necessários à sua transmissão.
+Assim como referido em \cite{R014}, neste caso a configuração da imagem está dependente da fonte HDMI e é transmitida pelas placas tal como é emitida pela fonte. No caso do som, este é sempre transmitido em formato $I^{2}$S, o que implica não só a transmissão dos dados de áudio, mas também sinais de relógio necessários à sua transmissão.
 
 Na tabela \ref{table:HDMIaudiosuportSimplified} são brevemente apresentadas as portas e os sinais usados com este tipo de configuração. Na secção \ref{ap1:HDMIconfig+audio} no anexo \ref{ap1:HDMI} é apresentada uma tabela semelhante a esta, mas que inclui mais detalhes relativamente aos pinos usados. Ambas as tabelas foram adaptadas de \cite{R014} onde são apresentados todos os detalhes dos conectores FMC das placas.
 
@@ -90,18 +90,18 @@ Na tabela \ref{table:HDMIaudiosuportSimplified} são brevemente apresentadas as 
 	}
 \end{table}
 
-Os dados referentes ao som transmitidos pela placa recetora e recebidos de seguida pela placa emissora estão também mencionados com mais detalhe na secção \ref{ap1:HDMIconfig+audio} do anexo \ref{ap1:HDMI}. Esta configuração é capaz de transmitir e receber dados no formato $I^{2}$S cujas especificações se encontram em \cite{R027}, onde são definidos os sinais transmitidos aquando a utilização deste formato:
+Os dados referentes ao som transmitidos pela placa recetora e recebidos de seguida pela placa emissora estão também mencionados com mais detalhe na secção \ref{ap1:HDMIconfig+audio} do anexo \ref{ap1:HDMI}. Esta configuração é capaz de transmitir e receber dados no formato $I^{2}$S cujas especificações se encontram em \cite{R027}, onde são definidos os sinais transmitidos aquando da utilização deste formato:
 
 \begin{enumerate}
 	\item \textbf{\textit{Continuous Serial Clock} (SCK):} Este sinal é por vezes reconhecido pelo nome de \textit{Bit Clock} e é um sinal de relógio referente aos dados de som em série transmitidos pelos canais AP1, AP2, AP3 e AP4.
 	
-	\item \textbf{\textit{Word Select} (WS)}: Este sinal é por vezes também conhecido por \textit{Left/Right Clock} e é um sinal que indica o canal de som (esquerdo ou direito) que está a ser transmitido através dos dados em série recebidos ou enviados nas portas AP1, AP2, AP3 e AP4. É nomeado de sinal de relógio porque geralmente alterna entre 0 e 1 periodicamente. Porém, isto pode não acontecer, tal como referido em \cite{R027}. 
+	\item \textbf{\textit{Word Select} (WS)}: Este sinal é por vezes também conhecido por \textit{Left/Right Clock} e é um sinal que indica o canal de som (esquerdo ou direito) que está a ser transmitido através dos dados em série recebidos ou enviados nas portas AP1, AP2, AP3 e AP4. É denominado sinal de relógio porque geralmente alterna entre 0 e 1 periodicamente. Porém, isto pode não acontecer, tal como referido em \cite{R027}. 
 	
 	\item \textbf{\textit{Serial Data}}: Sinais que transportam os dados de áudio.
 
 \end{enumerate}
 
-Na imagem \ref{fig:i2s_audio} são ilustrados os sinais referentes ao áudio descritos previamente. O sinal \textit{SCLK} (\textit{Serial Clock}) é referente ao sinal "\textit{Continuous Serial Clock}", o sinal \textit{LRCLK} (\textit{Left/Right Clock}) refere-se ao sinal "\textit{Word Select}" e ainda \textit{ISx }refere-se ao sinal "\textit{Serial Data}". É de notar que os dados de som alternam à frequência do sinal \textit{SCLK} que possui uma frequência 64 vezes superior à de \textit{LRCLK}. Segundo \cite{R014} a frequência deste é de \SI{48}{\kilo\hertz} e por isso o sinal \textit{SCLK} possui uma frequência de aproximadamente de  \SI{3.072}{\mega\hertz}.
+Na figura \ref{fig:i2s_audio} são ilustrados os sinais referentes ao áudio descritos previamente. O sinal \textit{SCLK} (\textit{Serial Clock}) é referente ao sinal "\textit{Continuous Serial Clock}", o sinal \textit{LRCLK} (\textit{Left/Right Clock}) refere-se ao sinal "\textit{Word Select}" e ainda \textit{ISx }refere-se ao sinal "\textit{Serial Data}". É de notar que os dados de som alternam à frequência do sinal \textit{SCLK} que possui uma frequência 64 vezes superior à de \textit{LRCLK}. Segundo \cite{R014} a frequência deste é de \SI{48}{\kilo\hertz} e por isso o sinal \textit{SCLK} possui uma frequência de aproximadamente de  \SI{3.072}{\mega\hertz}.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -112,7 +112,7 @@ Na imagem \ref{fig:i2s_audio} são ilustrados os sinais referentes ao áudio des
 	\end{center}
 \end{figure}
 
-Na placa recetora HDMI que envia os dados para a FPGA Virtex-7, é também enviado o sinal \textit{Master Clock} que corresponde a um sinal de relógio de referência dos sinais de áudio da entrada e ainda dados de áudio em AP0. É mencionado em \cite{R016} que estes dois sinais são referentes ao som no formato SPDIF (\textit{Sony/Philips Digital Interface Format}) e por isso não serão abordados neste projeto uma vez que as placas apenas suportam o formato $I^{2}$S.
+Na placa recetora HDMI que envia os dados para a FPGA Virtex-7, é também enviado o sinal \textit{Master Clock} que corresponde a um sinal de relógio de referência dos sinais de áudio da entrada e ainda os dados de áudio em AP0. É mencionado em \cite{R016} que estes dois sinais são referentes ao som no formato SPDIF (\textit{Sony/Philips Digital Interface Format}) e por isso não serão abordados neste projeto uma vez que as placas apenas suportam o formato $I^{2}$S.
 
 Para além de dados de som e imagem são transmitidos dois bits com informação relativa ao estado do vídeo transmitido. Estes dados indicam o tipo e formato de vídeo que está a ser transmitido e devem de seguida ser recebidos na placa transmissora. As combinações dos dois bits definem o estado do vídeo e são detalhadas em \cite{R014}.
 
@@ -122,11 +122,11 @@ Esta configuração é bastante útil e será utilizada em diversas arquiteturas
 \subsubsection{Suporte de dois canais de imagem melhorado} \label{subsubsec:HDMIconfigMelhorado}
 
 
-Esta configuração é capaz de suportar a transmissão de imagens em dois canais, tal como a configuração apresentada em \ref{subsubsec:HDMIconfigdefault}, mas com alguns melhoramentos. A principal diferença consiste na capacidade de transmitir não só imagens em formato RGB mas também em YCbCr num dos canais. Na secção \ref{ap1:HDMIconfigMelhorado} do anexo \ref{ap1:HDMI} são apresentados detalhes relativamente a todos os sinais transmitidos pelas placas com esta configuração
+Esta configuração é capaz de suportar a transmissão de imagens em dois canais, tal como a configuração apresentada em \ref{subsubsec:HDMIconfigdefault}, mas com algumas melhorias. A principal diferença consiste na capacidade de transmitir não só imagens em formato RGB mas também em YCbCr num dos canais. Na secção \ref{ap1:HDMIconfigMelhorado} do anexo \ref{ap1:HDMI} são apresentados detalhes relativamente a todos os sinais transmitidos pelas placas com esta configuração.
 
 Esta configuração na placa recetora transmite no canal 0 (RX0) imagens tanto no formato RGB como YCbCr de 10 bits por cor e respetivos sinais de controlo. Relativamente ao canal 1 dessa mesma placa (RX1) apenas é possível transmitir imagens em formato RGB de 10 bits por cor e os seus sinais de controlo. Para além disso, para cada canal são transmitidos dois bits que identificam o estado do vídeo que é transmitido, tal como já acontecia na configuração descrita em \ref{subsubsec:HDMIconfig+audio}. Quanto à placa transmissora quando configurada desta forma é capaz de receber nos dois canais (TX0 e TX1) imagens no formato RGB ou YCbCr com 10 bits por cor. 
 
-Esta configuração traz vantagens relativamente à primeira apresentada em \ref{subsubsec:HDMIconfigdefault}, uma vez que é capaz de suportar imagens no formato YCbCr, contudo não suporta som, e portanto não é utilizado em nenhuma arquitetura desenvolvida neste projeto. 
+Esta configuração traz vantagens relativamente à primeira apresentada em \ref{subsubsec:HDMIconfigdefault}, uma vez que é capaz de suportar imagens no formato YCbCr, contudo não suporta som, e portanto não é utilizada em nenhuma arquitetura desenvolvida neste projeto. 
 
 %Na tabela \ref{table:HDMI1canal_melhorado} o canal 1 não é apresentado pois não é relevante para o projeto (visto que só se faz uso de um canal).
 % Apesar de na tabela \ref{table:HDMI1canal_melhorado} o canal 1 definir os seus bits apenas para o caso de RGB, este canal também suporta na placa transmissora o formato YCbCr (e por isso a atribuição dos bits para TX1 assemelham-se ao canal TX0). Tal não é suportado no canal 1 da placa HDMI recetora (RX1) e por esse motivo a tabela está assim apresentada. À semelhança da placa recetora, a placa transmissora recebe 2 bits relativos à informação do vídeo que está a ser transferido, tal como a tabela \ref{table:HDMI1canal_melhorado} sugere.
@@ -136,36 +136,36 @@ Esta configuração traz vantagens relativamente à primeira apresentada em \ref
 Nesta subsecção são descritas as funcionalidades dos interruptores presentes nas placas HDMI. Estes precisam de estar definidos com determinadas combinações tanto no recetor como no transmissor para que possam enviar e receber as imagens nos formatos que o utilizador pretende.
 %Tal é necessário definir para que os recetores e transmissores presentes nas placas possam enviar e receber imagens nos formatos que o utilizador pretende. 
 
-Existem 8 interruptores que podem ser definidos pelo utilizador. Os interruptores entre S1-1 e S1-4 têm como função selecionar o tipo de formato que sai do recetor ADV7612 ou do transmissor ADV7511 integrado na respetiva placa. Relativamente aos outros interruptores, raramente são utilizados e quando são a sua função não é relevante para o projeto,sendo por isso não especificadas neste documento. As diversas combinações estão apresentadas no anexo \ref{ap4:switches}.
+Existem 8 interruptores que podem ser definidos pelo utilizador. Os interruptores entre S1-1 e S1-4 têm como função selecionar o tipo de formato que sai do recetor ADV7612 ou do transmissor ADV7511 integrado na respetiva placa. Relativamente aos outros interruptores, raramente são utilizados e quando o são, a sua função não é relevante para o projeto, por isso não são especificadas neste documento. As diversas combinações estão apresentadas no anexo \ref{ap4:switches}.
 
 
 \section{Arquiteturas Desenvolvidas} \label{sec:HDMIarquiteturas}
 
-Nesta secção são descritas as arquiteturas desenvolvidas e implementadas na FPGA referentes à comunicação direta entre as placas HDMI. Todas as configurações que foram apresentadas na secção \ref{sec:hardware} deste capítulo são agora exploradas. Para cada arquitetura desenvolvida é apresentada a sua concepção e de desenvolvimento e também os resultados obtidos. No final é feita uma comparação de resultados relativamente aos recursos utilizados por cada uma das arquiteturas na FPGA.
+Nesta secção são descritas as arquiteturas desenvolvidas e implementadas na FPGA referentes à comunicação direta entre as placas HDMI. Todas as configurações que foram apresentadas na secção \ref{sec:hardware} deste capítulo são agora exploradas. Para cada arquitetura desenvolvida é apresentada a sua conceção, desenvolvimento e também os resultados obtidos. No final é feita uma comparação de resultados relativamente aos recursos utilizados por cada uma das arquiteturas na FPGA.
 
 
 \subsection{Transmissão de uma imagem gerada na FPGA} \label{subsub:planA}
 
 Numa fase inicial do projeto optou-se por simplificar a transmissão e utilizou-se apenas a placa transmissora HDMI configurada por omissão. Construiu-se em Verilog um bloco capaz de gerar uma imagem para ser transmitida, mais especificamente uma barra de cores, e utilizou-se essa imagem para ser transmitida pelos conectores FMC.
 
-\subsubsection*{Concepção e Desenvolvimento}
+\subsubsection*{Conceção e Desenvolvimento}
 
-O bloco gerador de uma barra de cores foi adaptado de uma arquitetura disponibilizado pela \textit{Inrenvium} aquando a compra das placas. Apesar de ter sido ligeiramente adaptado para este caso em específico, este baseia-se essencialmente numa máquina de estados que vai contando as linhas e as colunas para que possa enviar não só os valores das cores de cada píxel, mas também os sinais de controlo como a sincronização vertical (\textit{vsync}), a sincronização horizontal(\textit{hsync}) e ainda os valor de pixeis ativos (\textit{enable}).
+O bloco gerador de uma barra de cores foi adaptado de uma arquitetura disponibilizada pela \textit{Inrenvium} aquando da compra das placas. Apesar de ter sido ligeiramente adaptado para este caso em específico, este baseia-se essencialmente numa máquina de estados que vai contando as linhas e as colunas para que possa enviar não só os valores das cores de cada píxel, mas também os sinais de controlo como a sincronização vertical (\textit{vsync}), a sincronização horizontal(\textit{hsync}) e ainda o valor de píxeis ativos (\textit{enable}).
 
-Para que se entenda mais facilmente como e quando se transmitem os sinais de controlo da imagem e também o valor dos píxeis é demonstrado na figura \ref{fig:colorBar_exemple} um exemplo de transmissão de uma imagem gerada na FPGA. Antes de passar para descrição da geração da imagem passam a ser descritos os acrónimos apresentados na figura:
+Para que se entenda mais facilmente como e quando se transmitem os sinais de controlo da imagem e também o valor dos píxeis é demonstrado na figura \ref{fig:colorBar_exemple} um exemplo de transmissão de uma imagem gerada na FPGA. Antes de se passar para descrição da geração da imagem, passam a ser descritos as siglas e acrónimos apresentados na figura:
 
 \begin{enumerate}
-	\item \textbf{HRES:} \textit{Horizontal Resolution} é o parâmetro que define a resolução horizontal da imagem que vai ser gerada pelo bloco, ou seja o número de píxeis da imagem.
+	\item \textbf{HRES:} \textit{Horizontal Resolution} é o parâmetro que define a resolução horizontal da imagem que vai ser gerada pelo bloco, ou seja, o número de píxeis da imagem.
 	
-	\item \textbf{HSW:} \textit{Horizontal Sync Width} é o parâmetro que define o número de ciclos de relógio que o sinal de sincronização horizontal  está ativo.
+	\item \textbf{HSW:} \textit{Horizontal Sync Width} é o parâmetro que define o número de ciclos de relógio quando o sinal de sincronização horizontal  está ativo.
 	
-	\item \textbf{HBP:} \textit{Horizontal Back Porch} é o parâmetro que define o número de píxeis que não contém informação útil (relativamente à cor dos mesmos) antes de começar a ser transmitida a linha de imagem.
+	\item \textbf{HBP:} \textit{Horizontal Back Porch} é o parâmetro que define o número de píxeis que não contêm informação útil (relativamente à cor dos mesmos) antes de começar a ser transmitida a linha de imagem.
 	
-	\item \textbf{HFP:} \textit{Horizontal Front Porch} é o parâmetro que define o número de píxeis que não contém informação útil depois de ser transmitida uma linha da imagem.
+	\item \textbf{HFP:} \textit{Horizontal Front Porch} é o parâmetro que define o número de píxeis que não contêm informação útil depois de ser transmitida uma linha da imagem.
 	
-	\item \textbf{VRES:} \textit{Vertical Resolution} é o parâmetro que define a resolução vertical da imagem que vai ser gerada pelo bloco, por outras palavras é o número de linhas da imagem gerada.
+	\item \textbf{VRES:} \textit{Vertical Resolution} é o parâmetro que define a resolução vertical da imagem que vai ser gerada pelo bloco, por outras palavras, é o número de linhas da imagem gerada.
 	
-	\item \textbf{VSW:} \textit{Vertical Sync Width} é o parâmetro que define o número de linhas horizontais que o sinal de sincronização vertical está ativo.
+	\item \textbf{VSW:} \textit{Vertical Sync Width} é o parâmetro que define o número de linhas horizontais quando o sinal de sincronização vertical está ativo.
 	
 	\item \textbf{VBP:} \textit{Vertical Back Porch} é o parâmetro que define o número de linhas horizontais que não contém informação útil relativamente aos píxeis antes de começarem a ser transmitidas as linhas de píxeis.
 	
@@ -181,7 +181,7 @@ Para que se entenda mais facilmente como e quando se transmitem os sinais de con
 	\end{center}
 \end{figure}
 
-Para gerar uma imagem em \textit{FULL HD}, cuja resolução é 1920x1080 píxeis, o sinal de relógio deve ter uma frequência de \SI{148.5}{\mega\hertz} e por isso foram utilizados os seguintes valores para os parâmetros previamente descritos: HRES = 1920, HSW = 148, HBP = 44, HFP = 88,  VRES = 1080, VSW = 5, VBP = 36 e VFP = 4. Com estes valores é possível obter uma taxa de refrescamento vertical de 60 Hz (60 imagens por segundo).
+Para gerar uma imagem em \textit{FULL HD}, cuja resolução é 1920x1080 píxeis, o sinal de relógio deve ter uma frequência de \SI{148.5}{\mega\hertz} e por isso foram utilizados os seguintes valores para os parâmetros previamente descritos: HRES = 1920, HSW = 148, HBP = 44, HFP = 88,  VRES = 1080, VSW = 5, VBP = 36 e VFP = 4. Com estes valores é possível obter uma taxa de atualização vertical de 60 Hz (60 imagens por segundo).
 
 \begin{figure}[h!]
 	\begin{center}
@@ -199,19 +199,18 @@ A figura \ref{fig:colorBar_fsm} ilustra a máquina de estados desenvolvida para 
 \end{itemize}
 
 
-Para além destes sinais de decisão para mudança de estado existem mais dois sinais no diagrama da máquina de estados presente na figura \ref{fig:colorBar_fsm} que ainda não foram mencionados que são o \textit{reset} e o \textit{start}. Estes dois sinais são botões do utilizador que lhe permite definir quando pretende que a transmissão esteja ativa ou não (através do botão \textit{start}) ou então quando pretende restabelecer os dados originais da máquina de estados (através do botão \textit{reset}). 
+Para além destes sinais de decisão para mudança de estado existem mais dois sinais no diagrama da máquina de estados presente na figura \ref{fig:colorBar_fsm} que ainda não foram mencionados que são o \textit{reset} e o \textit{start}. Estes dois sinais são botões do utilizador que lhe permite definir quando pretende que a transmissão esteja ativa ou não (através do botão \textit{start}), ou então quando pretende restabelecer os dados originais da máquina de estados (através do botão \textit{reset}). 
 
-
-Existem 4 estados nesta máquina que consistem essencialmente em deteção do final de uma linha e deteção do final de uma imagem e geração de dados. Esses estados são:
+Existem 4 estados nesta máquina que consistem essencialmente em deteção do final de uma linha, deteção do final de uma imagem e geração de dados. Esses estados são:
 
 \begin{enumerate}
-	\item \textbf{Estado inicial:} Neste estado são configurados os parâmetros para o início de uma transmissão, ou seja, os valores de HCOUNT e VCOUNT são igualados ao valor total do tamanho horizontal e vertical respetivamente. É possível retornar a este estado estando em qualquer um dos outros desde que seja pressionado o botão  de \textit{reset} ou então que a transmissão seja desligada pelo utilizador (\textit{start} = 0).
+	\item \textbf{Estado inicial:} Neste estado são configurados os parâmetros para o início de uma transmissão, ou seja, os valores de HCOUNT e VCOUNT são igualados ao valor total do tamanho horizontal e vertical respetivamente. É possível retornar a este estado estando em qualquer um dos outros desde que seja pressionado o botão  de \textit{reset}, ou então que a transmissão seja desligada pelo utilizador (\textit{start} = 0).
 	
 	\item \textbf{Estado para gerar dados:} Neste estado, ao flanco positivo do sinal de relógio do sistema é incrementado o valor de HCOUNT e ao mesmo tempo são gerados os dados a serem transmitidos em cada ciclo de sinal de relógio (consoante o valor de HCOUNT e VCOUNT) . Quando o valor de HCOUNT se igualar ao valor de HTOTAL, então significa que foi transmitida uma linha inteira da imagem e por isso a máquina transita de estado e o valor de HCOUNT volta a ser igualado a 1.
 	
 	\item \textbf{Estado de fim de linha:} Quando este estado está ativo, então uma linha da imagem foi transmitida, sendo necessário incrementar o valor de linhas totais transmitidas (incrementando 1 valor em VCOUNT) e ainda verificar se a transmissão de uma imagem completa está realizada. Caso o valor de VCOUNT se iguale ao valor de VTOTAL, então transita-se para o estado de fim de imagem e coloca-se o valor de VCOUNT a 1. Caso contrário a máquina transita para o estado que estava anteriormente.
 	
-	\item \textbf{Estado de fim de imagem} Quando este estado está ativo então significa que ambos os valores de HCOUNT e VCOUNT estão igualados a 1 e que por isso já foi transmitida uma imagem completa e como tal passa-se a transmitir uma próxima imagem transitando novamente para o estado para gerar dados.
+	\item \textbf{Estado de fim de imagem} Quando este estado está ativo então significa que ambos os valores de HCOUNT e VCOUNT estão igualados a 1 e que por isso já foi transmitida uma imagem completa. Como tal, passa-se a transmitir uma próxima imagem transitando novamente para o estado para gerar dados.
 	
 \end{enumerate}
 
@@ -248,9 +247,9 @@ Quando a máquina de estados se encontra no estado para gerar dados, então este
 
 Na figura \ref{fig:planA} é apresentado um diagrama de blocos da arquitetura implementada recorrendo a um módulo gerador de uma barra de cores. Este foi implementado recorrendo-se à maquina de estados apresentada anteriormente.
 
-Nas entradas do bloco estão ligados 4 sinais sendo que dois deles correspondem a um sinal de relógio diferencial de \SI{200}{\mega\hertz} (\textit{clock\_p} corresponde ao sinal positivo e \textit{clock\_n} ao sinal negativo),. Os outros dois sinais, \textit{start} e \textit{reset}, são sinais relevantes para a máquina de estados do bloco de geração de barras de cores definidos pelo utilizador e, por isso, são atribuídos a botões da FPGA. O sinal de relógio diferencial ligado às entradas deste bloco é proveniente do oscilador presente na FPGA e alimenta um módulo que coloca na sua saída um sinal de relógio de \SI{148.5}{\mega\hertz}. Esse módulo foi criado através do IP(\textit{Intellectual Property}) disponibilizado no \textit{software} VIVADO com o nome de \textit{Clocking Wizard} que vem facilitar a geração de um sinal de relógio com a frequência pretendida tendo como uma base um sinal diferencial de \SI{200}{\mega\hertz}. O sinal gerado, de \SI{148.5}{\mega\hertz}, é o principal sinal de relógio do sistema que permite a geração da barra de cores. Esta é a cadência a que os sinais são enviados para a placa HDMI transmissora.
+Nas entradas do bloco estão ligados 4 sinais sendo que dois deles correspondem a um sinal de relógio diferencial de \SI{200}{\mega\hertz} (\textit{clock\_p} corresponde ao sinal positivo e \textit{clock\_n} ao sinal negativo). Os outros dois sinais, \textit{start} e \textit{reset}, são sinais relevantes para a máquina de estados do bloco de geração de barras de cores definidos pelo utilizador e, por isso, são atribuídos a botões da FPGA. O sinal de relógio diferencial ligado às entradas deste bloco é proveniente do oscilador presente na FPGA e alimenta um módulo que coloca na sua saída um sinal de relógio de \SI{148.5}{\mega\hertz}. Esse módulo foi criado através do IP(\textit{Intellectual Property}) disponibilizado no \textit{software} VIVADO com o nome de \textit{Clocking Wizard} que vem facilitar a geração de um sinal de relógio com a frequência pretendida tendo como uma base um sinal diferencial de \SI{200}{\mega\hertz}. O sinal gerado, de \SI{148.5}{\mega\hertz}, é o principal sinal de relógio do sistema que permite a geração da barra de cores. Esta é a cadência a que os sinais são enviados para a placa HDMI transmissora.
 
-Relativamente às saídas do módulo é possível ver na figura \ref{fig:planA} que estas se encontram diretamente ligadas à placa transmissora HDMI através dos conectores FMC. Estes sinais constituem um barramento de 30 bits que corresponde ao valor do píxel (\textit{pixel}), o sinal de sincronização horizontal (\textit{hsync}), o sinal de sincronização de vertical (\textit{vsync}) e ainda o sinal de dados ativos (\textit{enable}).
+Relativamente às saídas do módulo é possível ver na figura \ref{fig:planA} que estas se encontram diretamente ligadas à placa transmissora HDMI através dos conectores FMC. Estes sinais constituem um barramento de 30 bits que corresponde ao valor do píxel (\textit{pixel}), o sinal de sincronização horizontal (\textit{hsync}), o sinal de sincronização vertical (\textit{vsync}) e ainda o sinal de dados ativos (\textit{enable}).
 
 Para além do desenvolvimento do código em Verilog é necessário que as portas do módulo de topo estejam atribuídas a portas físicas da FPGA. Consequentemente, é necessário definir as suas localizações nas portas da FPGA (LOC\footnote{Abreviatura para Localização na FPGA}) e criar um ficheiro que defina essas mesmas restrições físicas. A tabela \ref{table:LOCplanA_simples} indica as localizações físicas de cada porta existente no módulo de topo. No que diz respeito às portas que se conectam à placa HDMI transmissora, estas estão representadas de forma abreviada na tabela anteriormente referida. Contudo na secção \ref{ap3:imagemFPGA_TX} do anexo \ref{ap3:LOCs} é possível encontrar todas as portas com mais detalhes e informação sobre a ligação à placa HDMI transmissora.
 
@@ -277,9 +276,9 @@ Para além do desenvolvimento do código em Verilog é necessário que as portas
 
 \end{table}
 
-O ficheiro com estas restrições físicas gerado após a atribuição das mesmas é apresentado nas secções \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planA_especificas} do anexo \ref{ap2:codigo}. Em \ref{ap:fisicas_paraHDMI} são apresentados as restrições referentes às saídas da arquitetura que se conectam à placa HDMI transmissora, e em \ref{ap:fisicas_planA_especificas} faz-se referência a todas as outras entradas e saídas desta mesma arquitetura.
+O ficheiro com estas restrições físicas gerado após a atribuição das mesmas é apresentado nas secções \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planA_especificas} do anexo \ref{ap2:codigo}. Em \ref{ap:fisicas_paraHDMI} são apresentadas as restrições referentes às saídas da arquitetura que se conectam à placa HDMI transmissora, e em \ref{ap:fisicas_planA_especificas} faz-se referência a todas as outras entradas e saídas desta mesma arquitetura.
 
-Para cada porta são atribuídas duas restrições: uma que indica a localização física na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende e a segunda define a norma dessa mesma porta para que todas as considerações que tenham de ser tomadas relativamente a essa porta tenham em conta essa mesma norma.
+Para cada porta são atribuídas duas restrições: uma que indica a localização física na FPGA da porta e outra que indica a norma da mesma (\textit{IOSTANDARD}). A primeira permite atribuir a um determinado lugar físico da FPGA a porta que se pretende. A segunda define a norma dessa mesma porta para que todas as considerações que tenham de ser tomadas relativamente à mesma tenham em conta a norma associada.
 
 São geradas também duas restrições temporais referentes aos sinais de relógio à entrada do módulo apresentadas na secção \ref{ap:temporais_planA} do anexo \ref{ap2:codigo}. As restrições temporais existentes definem que nas portas de entrada do sinal de relógio diferencial há um sinal com uma frequência de \SI{200}{\mega\hertz} (período de \SI{5}{\nano\second}). É importante que a ferramenta de implementação saiba o valor deste para poder garantir que toda a arquitetura cumpre os requisitos temporais.
 
@@ -319,9 +318,9 @@ A figura \ref{fig:resultados_planoA} demonstra os resultados obtidos com a imple
 
 Na arquitetura desenvolvida que é apresentada nesta subsecção são utilizadas as placas HDMI recetora e transmissora, ambas configuradas por omissão e procede-se à transmissão de uma imagem entre dispositivos HDMI. O objetivo do desenvolvimento desta arquitetura consiste em obter uma ligação entre dois dispositivos ligados às placas HDMI de uma imagem RGB de 10 bits.
 
-\subsubsection*{Concepção e Desenvolvimento}
+\subsubsection*{Conceção e Desenvolvimento}
 
-Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em específico como é uma imagem \textit{FULL HD} é uma frequência de \SI{148.5}{\mega\hertz}) e o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A imagem \ref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
+Foi desenvolvida uma arquitetura que recebe à cadência do sinal de relógio HDMI proveniente da placa (neste caso em específico como é uma imagem \textit{FULL HD} é uma frequência de \SI{148.5}{\mega\hertz}) e o resto dos sinais provenientes da mesma, mais especificamente o valor de \textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}. A figura \ref{fig:planb1} ilustra o diagrama de blocos da arquitetura desenvolvida.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -381,7 +380,7 @@ Após síntese e implementação do código desenvolvido em Verilog juntamente c
 	\begin{center}
 		\leavevmode
 		\includegraphics[width=1.0\textwidth]{planBsch}
-		\caption{\textit{Set-up} de teste para as arquiteturas transmissoras de dados entre dispositivos HDMI}
+		\caption{\textit{Setup} de teste para as arquiteturas transmissoras de dados entre dispositivos HDMI}
 		\label{fig:planb_sch}
 	\end{center}
 \end{figure}
@@ -399,7 +398,7 @@ Na figura \ref{fig:resultados_planoB} visualizam-se os resultados obtidos com a 
 
 \begin{center}
 \lrboxbrace[\Vert][\Vert] {}{
-	\textbf{O último passo intermédio é assim concluído e permite alcançar o objetivo final proposto nesta primeira fase do projeto: a ligação entre dispositivo HDMI de fonte e de destino foi obtida com sucesso.}}
+	\textbf{O último passo intermédio é assim concluído e permite alcançar o objetivo final proposto nesta primeira fase do projeto: a ligação entre dispositivos HDMI de fonte e destino foi obtida com sucesso.}}
 \end{center}
 
 
@@ -407,7 +406,7 @@ Na figura \ref{fig:resultados_planoB} visualizam-se os resultados obtidos com a 
 
 Após se obter uma ligação entre dois dispositivos HDMI de uma imagem procedeu-se ao desenvolvimento de uma arquitetura capaz de transmitir imagem e som. Para isso foi necessário reconfigurar as placas HDMI, tal como mencionado anteriormente, para a configuração que suporta apenas um canal mas que permite a transmissão de áudio em formato $I^{2}$S. As características desta configuração são apresentadas na subsecção \ref{subsubsec:HDMIconfig+audio} . É de notar que as imagens poderão ser transmitidas e recebidas em dois tipos de formatos (RGB ou YCbCr) e ainda com 8, 10 ou 12 bits por cor (dependendo da configuração dos interruptores das placas HDMI que estão especificados na secção \ref{sec:HDMIconfig+audio_switches} do anexo \ref{ap4:switches}). Neste caso específico são utilizados 12 bits por cor o que perfará um total de 36 bits por píxel.
 
-\subsubsection*{Concepção e Desenvolvimento}
+\subsubsection*{Conceção e Desenvolvimento}
 
 \begin{figure}[h!]
 	\begin{center}
@@ -419,23 +418,23 @@ Após se obter uma ligação entre dois dispositivos HDMI de uma imagem procedeu
 \end{figure}
 
 
-Na figura \ref{fig:planC}  é ilustrado o diagrama de blocos da arquitetura desenvolvida para se realizar a transmissão de imagem e som entre dois dispositivos HDMI. Facilmente se observa um número elevado de portas de entrada e saída nesta arquitetura, o que se deve ao facto de agora o som ser também transmitido.
+Na figura \ref{fig:planC} é ilustrado o diagrama de blocos da arquitetura desenvolvida para se realizar a transmissão de imagem e som entre dois dispositivos HDMI. Facilmente se observa um número elevado de portas de entrada e saída nesta arquitetura, o que se deve ao facto de agora o som ser também transmitido.
 
 %--> ENTRADA E SAIDA
-Na entrada encontram-se os sinais relativos à imagens à semelhança das arquiteturas anteriores: \textit{pixel}, \textit{hsync}, \textit{vsync}, \textit{enable} e o sinal de relógio da mesma. Para além destes sinais provenientes da placa HDMI recetora são ainda recebidos os sinais referentes ao som: o sinal de relógio dos dados em série (\textit{sclk}), o sinal referente à seleção do canal de áudio (\textit{lrclk}) e ainda os sinais que transportam os dados de som (de AP1 a AP4). Para além de dados de imagem e som há também um barramento de 2 bits que contém informação relativamente ao tipo de vídeo que é transmitido (tal como já referido na subsecção \ref{subsubsec:HDMIconfig+audio}). Todos estes sinais que se encontram na entrada do módulo, encontram-se também na saída pois são enviados para placa HDMI transmissora.
+Na entrada encontram-se os sinais relativos à imagem, à semelhança das arquiteturas anteriores: \textit{pixel}, \textit{hsync}, \textit{vsync}, \textit{enable} e o sinal de relógio da mesma. Para além destes sinais provenientes da placa HDMI recetora são ainda recebidos os sinais referentes ao som: o sinal de relógio dos dados em série (\textit{sclk}), o sinal referente à seleção do canal de áudio (\textit{lrclk}) e ainda os sinais que transportam os dados de som (de AP1 a AP4). Para além de dados de imagem e som há também um barramento de 2 bits que contém informação relativamente ao tipo de vídeo que é transmitido (tal como já referido na subsecção \ref{subsubsec:HDMIconfig+audio}). Todos estes sinais que se encontram na entrada do módulo, encontram-se também na saída pois são enviados para a placa HDMI transmissora.
 
 Existem ainda outras três entradas do módulo : \textit{POWER}, \textit{MUTE} e \textit{reset}. O sinal de \textit{POWER} define o estado da transmissão (ativa ou desativa) e o sinal de \textit{MUTE} define a transmissão ou não dos sinais de som. O sinal de \textit{reset} serve para repor todos os dados originais do sistema caso o utilizador pretenda.
 %% FUNCIONAMENTO DA MESMA
 
-Os sinais de entrada relativos à imagem são lidos para registos síncronos com o flanco positivo do sinal de relógio de imagem. Estes mesmo sinais são enviados para a placa HDMI transmissora caso o sinal \textit{POWER} esteja ativo. Quando este sinal se encontra inativo suspende a transmissão.
+Os sinais de entrada relativos à imagem são lidos para registos síncronos com o flanco positivo do sinal de relógio de imagem. Estes mesmos sinais são enviados para a placa HDMI transmissora caso o sinal \textit{POWER} esteja ativo. Quando este sinal se encontra inativo suspende a transmissão.
 
-Relativamente aos dados referentes ao som, estes são também lidos para registos síncronos com o flanco positivo do sinal de relógio referente à imagem proveniente da fonte HDMI. Numa fase mais avançada do projeto esta simplificação facilitará a transmissão dos dados em série a alta velocidade. Porém, é necessário ter em consideração que estes dados variam a uma taxa que não é síncrona com o sinal de relógio da imagem, pois este possui uma frequência de \SI{148.5}{\mega\hertz} para uma imagem no formato \textit{FULL HD} e os dados de som variam a uma frequência de \SI{3.072}{\mega\hertz} (tal como mencionado na subsecção \ref{subsubsec:HDMIconfig+audio}). Assim sendo, apesar de o sinal de relógio de áudio ser mais lento do que o da imagem, é necessário tomar as devidas precauções quando se faz a passagem entre estes dois domínios de relógio, para que não sejam captados dados dos registos quando estes se encontram num estado de meta-estabilidade. Tal como sugerido em \cite{R024}, são utilizados dois registos síncronos com o sinal de relógio referente à imagem para que não haja propagações de erros.
+Relativamente aos dados referentes ao som, estes são também lidos para registos síncronos com o flanco positivo do sinal de relógio referente à imagem proveniente da fonte HDMI. Numa fase mais avançada do projeto esta simplificação facilitará a transmissão dos dados em série a alta velocidade. Porém, é necessário ter em consideração que estes dados variam a uma taxa que não é síncrona com o sinal de relógio da imagem, pois este possui uma frequência de \SI{148.5}{\mega\hertz} para uma imagem no formato \textit{FULL HD} e os dados de som variam a uma frequência de \SI{3.072}{\mega\hertz} (tal como mencionado na subsecção \ref{subsubsec:HDMIconfig+audio}). Assim sendo, apesar de o sinal de relógio de áudio ser mais lento do que o da imagem, é necessário tomar as devidas precauções quando se faz a passagem entre estes dois domínios de relógio, para que não sejam captados dados dos registos quando estes se encontram num estado de meta-estabilidade. Tal como sugerido em \cite{R024}, são utilizados dois registos síncronos com o sinal de relógio referente à imagem para que não haja propagação de erros.
 
 O sinal de áudio enviado para as placas HDMI transmissora está dependente dos sinais de \textit{POWER} e \textit{MUTE}. Caso \textit{MUTE} esteja ativo o sinal de som não é transmitido e as entradas da placa HDMI são definidas com 0. O mesmo acontece quando o sinal de \textit{POWER} está inativo uma vez que indica que a transmissão da parte da placa HDMI recetora está desligada.
 
 \subsubsection*{Localizações das portas de saída do módulo de topo} 
 
-Mais uma vez é necessário definir as localizações físicas de cada porta de entrada e saída do módulo principal, que estão descritas na tabela \ref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que conectam as placas HDMI são brevemente descritos e na secção \ref{ap3:imagem_som_RX_TX} do anexo \ref{ap3:LOCs} são descritos com mais detalhe.\\
+Mais uma vez é necessário definir as localizações físicas de cada porta de entrada e saída do módulo principal, que estão descritas na tabela \ref{table:LOCplanC_simples}. Nessa mesma tabela os sinais que conectam as placas HDMI são brevemente apresentados e na secção \ref{ap3:imagem_som_RX_TX} do anexo \ref{ap3:LOCs} são descritos com mais detalhe.
 
 
 \begin{table}[h!]
@@ -483,7 +482,7 @@ Mais uma vez é necessário definir as localizações físicas de cada porta de 
 
 Para que a ferramenta de implementação reconheça as localizações físicas da FPGA atribuídas às portas do bloco é gerado um ficheiro de restrições físicas semelhante aos anteriores.
 
-O conteúdo do ficheiro pode ser encontrado nas secções \ref{ap:fisicas_paraHDMI}, \ref{ap:fisicas_deHDMI} e ainda em \ref{ap:fisicas_planC_especificas} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_paraHDMI} é possível encontrar as restrições físicas relativas a algumas portas de saída do módulo, nomeadamente os bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e ainda os sinais de controlo de imagem. Na secção \ref{ap:fisicas_deHDMI} encontram-se as restrições físicas de algumas portas de entrada desta arquitetura provenientes da fonte HDMI. Essas portas correspondem, mais uma vez, aos bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e os respetivos sinais de controlo. Por fim, em \ref{ap:fisicas_planC_especificas} encontram-se as restrições físicas referentes às restantes portas de entrada e saída da arquitetura que se conectam às placas e não foram contempladas e também relativamente às outras portas do módulo que não se conectam às placas HDMI. 
+O conteúdo do ficheiro pode ser encontrado nas secções \ref{ap:fisicas_paraHDMI}, \ref{ap:fisicas_deHDMI} e ainda em \ref{ap:fisicas_planC_especificas} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_paraHDMI} é possível encontrar as restrições físicas relativas a algumas portas de saída do módulo, nomeadamente os bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e ainda os sinais de controlo de imagem. Na secção \ref{ap:fisicas_deHDMI} encontram-se as restrições físicas de algumas portas de entrada desta arquitetura provenientes da fonte HDMI. Essas portas correspondem, mais uma vez, aos bits do sinal de píxel entre 0 e 29, o seu sinal de relógio e os respetivos sinais de controlo. Por fim, em \ref{ap:fisicas_planC_especificas} encontram-se as restrições físicas referentes às restantes portas.
 
 
 \subsubsection*{Resultados}
@@ -500,7 +499,7 @@ Os resultados obtidos foram os esperados: a comunicação de imagem e som entre 
 
 \begin{center}
 	\lrboxbrace[\Vert][\Vert] {}{
-		\textbf{Com o objetivo final desta primeira fase já concluído, foi possível adicionar uma nova característica a esta fase: o suporte de som. }}
+		\textbf{Com o objetivo final desta primeira fase já concluído, foi possível adicionar uma nova característica à mesma: o suporte de som. }}
 \end{center}
 
 

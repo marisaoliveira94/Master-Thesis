@@ -24,8 +24,8 @@
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Exemplo de metaestabilidade}}{36}{figure.caption.49}
 \contentsline {figure}{\numberline {2.19}{\ignorespaces Exemplo de cadeia de registos de sincroniza\IeC {\c c}\IeC {\~a}o}}{37}{figure.caption.50}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Placa HDMI recetora TB-FMCH-HDMI2 RX}}{40}{figure.caption.51}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Placa HDMI transmissora TB-FMCH-HDMI2 TX}}{40}{figure.caption.52}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Placa HDMI recetora}}{40}{figure.caption.51}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Placa HDMI transmissora}}{40}{figure.caption.52}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces IRepresenta\IeC {\c c}\IeC {\~a}o dos sinais de som transmitidos no formato $I^{2}$S}}{43}{figure.caption.55}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Exemplo de imagem gerada pelo m\IeC {\'o}dulo desenvolvido\relax }}{46}{figure.caption.57}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'a}quina de estados para gerar uma barra de cores\relax }}{47}{figure.caption.58}
@@ -33,7 +33,7 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Setup} de teste da arquitetura desenvolvida para transmiss\IeC {\~a}o de uma imagem gerada na FPGA para a placa HDMI transmissora\relax }}{51}{figure.caption.63}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Resultados obtidos da transmiss\IeC {\~a}o da barra de cores gerada na FPGA para o dispositivo de destino}}{51}{figure.caption.64}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem entre dispositivos HDMI\relax }}{52}{figure.caption.66}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces \textit {Set-up} de teste para as arquiteturas transmissoras de dados entre dispositivos HDMI\relax }}{54}{figure.caption.70}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces \textit {Setup} de teste para as arquiteturas transmissoras de dados entre dispositivos HDMI\relax }}{54}{figure.caption.70}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Resultados obtidos da arquitetura transmissora de imagem entre dispositivos HDMI\relax }}{54}{figure.caption.71}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Diagrama de blocos da arquitetura desenvolvida para transmitir imagem e som entre dispositivos HDMI\relax }}{55}{figure.caption.73}
 \addvspace {10\p@ }
