@@ -54,11 +54,11 @@
 \contentsline {subsection}{\numberline {5.1.1}Transmiss\IeC {\~a}o de uma barra de cores gerada na FPGA em s\IeC {\'e}rie}{73}{subsection.5.1.1}
 \contentsline {subsubsection}{\numberline {5.1.1.1}Considera\IeC {\c c}\IeC {\~o}es sobre a arquitetura}{73}{subsubsection.5.1.1.1}
 \contentsline {subsubsection}{\numberline {5.1.1.2}Gera\IeC {\c c}\IeC {\~a}o do M\IeC {\'o}dulo GTX}{75}{subsubsection.5.1.1.2}
-\contentsline {subsubsection}{\numberline {5.1.1.3}Concep\IeC {\c c}\IeC {\~a}o e Desenvolvimento}{76}{subsubsection.5.1.1.3}
+\contentsline {subsubsection}{\numberline {5.1.1.3}Conce\IeC {\c c}\IeC {\~a}o e Desenvolvimento}{76}{subsubsection.5.1.1.3}
 \contentsline {subsubsection}{\numberline {5.1.1.4}Resultados}{85}{subsubsection.5.1.1.4}
 \contentsline {subsection}{\numberline {5.1.2}Transmiss\IeC {\~a}o de imagem em s\IeC {\'e}rie entre dispositivos HDMI}{88}{subsection.5.1.2}
 \contentsline {subsubsection}{\numberline {5.1.2.1}Considera\IeC {\c c}\IeC {\~o}es sobre a arquitetura}{88}{subsubsection.5.1.2.1}
-\contentsline {subsubsection}{\numberline {5.1.2.2}Concep\IeC {\c c}\IeC {\~a}o e Desenvolvimento}{88}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.2}Conce\IeC {\c c}\IeC {\~a}o e Desenvolvimento}{88}{subsubsection.5.1.2.2}
 \contentsline {subsubsection}{\numberline {5.1.2.3}Resultados}{90}{subsubsection.5.1.2.3}
 \contentsline {subsection}{\numberline {5.1.3}An\IeC {\'a}lise dos recursos utilizados por cada uma das arquiteturas}{93}{subsection.5.1.3}
 \contentsline {chapter}{\numberline {6}Conclus\IeC {\~o}es e Trabalho Futuro}{95}{chapter.6}

@@ -1,15 +1,14 @@
 \chapter{Transmissão em série de dados HDMI} \label{chap:chap5}
 
-%imp -> https://www.xilinx.com/support/answers/64340.html
 Neste capítulo são contempladas todas as arquiteturas desenvolvidas para a transmissão dos dados HDMI em série, explicando todas as decisões tomadas para se obter o produto final. 
 
 \section{Abordagem inicial}
 
-Numa fase inicial do projeto optou-se por abordar de uma maneira direta a transmissão dos dados em série, sem o recurso à definição de todas a tramas de uma pacote. Tal decisão foi tomada, ciente da importância das tramas num protocolo de comunicação, pois o módulo GTX disponibilizado pela \textit{Xilinx}.
+Numa fase inicial do projeto optou-se por abordar de uma maneira direta a transmissão dos dados em série, sem o recurso à definição de todas a tramas de um pacote. Tal decisão foi tomada, ciente da importância das tramas num protocolo de comunicação, pois o módulo GTX disponibilizado pela \textit{Xilinx} é muito complexo.
 
 \subsection{Transmissão de uma barra de cores gerada na FPGA em série} \label{sub:planD}
 
-A arquitetura desenvolvida passa por um conjunto de fases que vão desde a criação do módulo GTX através da interface disponibilizada no \textit{software} para tal, e todas as tomadas de decisões que isso envolve, até a concepção de arquiteturas que criem e verifiquem as tramas. Todas essas fases são devidamente explicadas nesta subsecção.
+A arquitetura desenvolvida passa por um conjunto de fases que vão desde a criação do módulo GTX através da interface disponibilizada no \textit{software} para tal, e todas as tomadas de decisões que isso envolve, até à conceção de arquiteturas que criem e verifiquem as tramas. Todas essas fases são devidamente explicadas nesta subsecção.
 
 \subsubsection{Considerações sobre a arquitetura} \label{subsub:planD_considerações}
 
@@ -27,15 +26,15 @@ A arquitetura desenvolvida necessita da placa HDMI transmissora configurada por 
 	\end{center}
 \end{figure}
 
-Tal como é de esperar, e foi referido em \ref{sec:sincronizacao} na página \pageref{sec:sincronizacao}, os sinais de relógio provenientes do GTX e do módulo que gera a barra de cores não são o mesmo, e por isso, existe um bloco entre a geração e a criação de tramas que permite a sincronização entre os diferentes domínios de sinais de relógio através de \textit{shift-registers}.
+Tal como é de esperar e foi referido em \ref{sec:sincronizacao} na página \pageref{sec:sincronizacao}, os sinais de relógio provenientes do GTX e do módulo que gera a barra de cores não são o mesmo, e por isso, existe um bloco entre a geração e a criação de tramas que permite a sincronização entre os diferentes domínios de sinais de relógio através de \textit{shift-registers}.
 
-Tendo em conta a arquitetura global desenvolvida, foram tomadas 2 decisões importantes para definir as características do transcetor: o número de bits por trama e a frequência a que estas serão lidas para o mesmo. Tal como já foi referido, a maneira mais eficiente no que toca à escolha da frequência de amostragem para o transcetor, é escolher a própria frequência da imagem HDMI, ou seja, \SI{148.5}{\mega\hertz} para uma imagem \textit{FULL HD}. Relativamente ao número de bits por trama, tendo em conta que é necessário enviar os sinais todos (\textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}) e visto que nesta fase do projeto não houve a preocupação da criação de diferentes tramas para os diversos momentos de transmissão, escolheu-se enviar tramas de 40 bits.
+Tendo em conta a arquitetura global desenvolvida foram tomadas duas decisões importantes para definir as características do transcetor: o número de bits por trama e a frequência a que estas serão lidas para o mesmo. Tal como referido anteriormente, a maneira mais eficiente no que toca à escolha da frequência de amostragem para o transcetor, é escolher a própria frequência da imagem HDMI, ou seja, \SI{148.5}{\mega\hertz} para uma imagem \textit{FULL HD}. Relativamente ao número de bits por trama, tendo em conta que é necessário enviar os sinais todos (\textit{pixel}, \textit{vsync}, \textit{hsync} e \textit{enable}) e visto que nesta fase do projeto não houve a preocupação da criação de diferentes tramas para os diversos momentos de transmissão, escolheu-se enviar tramas de 40 bits.
 
-Observando novamente a tabela \ref{table:line_rates} cnclui-se que independentemente do tamanho do \textit{datapath} escolhido, obtém-se uma taxa de transmissão de dados de \SI{5.94}{\giga\bit\per\second}.
+Observando novamente a tabela \ref{table:line_rates} conclui-se que, independentemente do tamanho do \textit{datapath} escolhido, obtém-se uma taxa de transmissão de dados de \SI{5.94}{\giga\bit\per\second}.
 
 \subsubsection{Geração do Módulo GTX} \label{subsub:GTX_generate}
 
-Quando se gera o módulo GTX através da interface disponibiliza pelo \textit{software} VIVADO existem algumas decisões que necessitam de ser tomadas para além das que já foram. Essas passam de seguida a ser detalhadas:
+Quando se gera o módulo GTX através da interface disponibilizada pelo \textit{software} VIVADO existem algumas decisões que necessitam de ser tomadas para além das que já foram mencionados. Essas passam de seguida a ser detalhadas:
 
 Do lado do transmissor tomaram-se as seguintes principais decisões:
 \begin{enumerate}
@@ -49,12 +48,12 @@ Do lado do transmissor tomaram-se as seguintes principais decisões:
 
 Do lado do recetor as principais decisões tomadas foram as seguintes:
 \begin{enumerate}
-	\item \textbf{Tipo de equalização:} Na subsecção \ref{subsub:rx_equalização} são apresentadas as vantagens de cada um dos tipos de equalizadores disponíveis. Apesar de este ser um projeto simples em que não se pretende inserir o sinal em canais ruidosos, optou-se por utilizar um equalizador DFE uma vez que traz mais vantagens do a utilização do equalizador LPM.
+	\item \textbf{Tipo de equalização:} Na subsecção \ref{subsub:rx_equalização} são apresentadas as vantagens de cada um dos tipos de equalizadores disponíveis. Apesar de este ser um projeto simples em que não se pretende inserir o sinal em canais ruidosos, optou-se por utilizar um equalizador DFE uma vez que traz mais vantagens do que a utilização do equalizador LPM.
 	
 	\item \textbf{Alinhamento de palavras:} Como palavra de alinhamento escolheu-se o símbolo K28.3 da tabela \ref{table:caracteres_especiais_8b10b}. Contudo, é necessário ter em conta que não se está a utilizar codificação e, como tal, para efetuar o alinhamento da palavra o recetor não alinha pelo símbolo K28.3 codificado, mas sim, não codificado. Ou seja, na realidade quando encontrar a palavra "7C" assume que é a palavra de alinhamento e a trama passa a estar alinhada para esse limite. Para além disso, optou-se por ativar a porta "RXSLIDE" que ativa o alinhamento manual dos bits, pois tal como referido em \ref{subsub:align} é de esperar que seja necessário ativar o alinhamento manual para ligações cuja taxa de débito seja superior a \SI{5}{\giga\bit\per\second}.
 	
 	\item \textbf{Tipo de descodificação:} Não foi utilizada nenhuma descodificação, pois do lado do transmissor também não há codificação.
-	\item \textbf{Escolha ente \textit{Buffer} ou Bloco de Alinhamento de Fase:} Optou-se pela escolha do \textit{buffer}, porque no caso do recetor para além não requerer lógica extra e ter uma inicialização mais rápida (comparativamente ao bloco de alinhamento de fase), também não exige que a correcção do sinal de relógio seja realizada fora do transcetor, tal como mencionado em \ref{subsub:rx_buffer}.
+	\item \textbf{Escolha ente \textit{Buffer} ou Bloco de Alinhamento de Fase:} Optou-se pela escolha do \textit{buffer}, porque no caso do recetor para além não requerer lógica extra e ter uma inicialização mais rápida (comparativamente ao bloco de alinhamento de fase), também não exige que a correção do sinal de relógio seja realizada fora do transcetor, tal como mencionado em \ref{subsub:rx_buffer}.
 \end{enumerate}
 
 \begin{table}[h!]
@@ -85,7 +84,7 @@ Do lado do recetor as principais decisões tomadas foram as seguintes:
 
 Na tabela \ref {table:sumario_planoD} é apresentada uma tabela sumário do módulo gerado. Esta tabela foi adaptada da interface que gera o módulo.
 
-\subsubsection{Concepção e Desenvolvimento}
+\subsubsection{Conceção e Desenvolvimento}
 
 Na figura \ref{fig:planD_SIMPLES} é representado um diagrama de blocos geral da arquitetura apresentada. Nesta subsecção são detalhados todos os blocos utilizados e suas entradas e saídas para que se possa perceber as ligações entre os mesmos. 
 
@@ -109,7 +108,7 @@ Por este motivo, este bloco de sincronização é apenas constituído por dois r
 	\end{center}
 \end{figure}
 
-Tal como se visualiza na figura, para além de nas suas entradas se encontrar os dados provenientes da fonte HDMI, há também dois sinais : \textit{rst} e \textit{sys\_rst}. O primeiro sinal refere-se ao sinal de \textit{reset} controlado pelo utilizador e o segundo corresponde a um sinal de \textit{reset} ativado automaticamente pelo módulo GTX.
+Tal como se visualiza na figura, para além de nas suas entradas se encontrar os dados provenientes da fonte HDMI há também dois sinais : \textit{rst} e \textit{sys\_rst}. O primeiro sinal refere-se ao sinal de \textit{reset} controlado pelo utilizador e o segundo corresponde a um sinal de \textit{reset} ativado automaticamente pelo módulo GTX.
 
 O sinal de relógio a que opera este bloco trata-se do sinal de relógio proveniente do módulo GTX, tal como se visualiza na figura \ref{fig:planD_SIMPLES}.
 
@@ -151,15 +150,15 @@ Assim sendo, consoante os dados que recebe nas suas entradas (\textit{pixel}, \t
 	\end{center}
 \end{figure}
 
-É de esperar que a transmissão demore algum tempo a alinhar do lado do recetor, sendo necessário que as tramas SOP sejam enviadas durante algum tempo. Por este motivo escolheram-se os momentos de transição de dados de controlo nulos, pois são suficientemente longos para que a transmissão possa ser alinhada. Assim, no pior dos casos, perde-se a primeira imagem completa que é transmitida, pois não são recebidos os primeiros dados de controlo (\textit{vsync} e \textit{hsync}) mas garanta-se que todas as outras estão alinhadas e os dados serão corretamente recebidos do lado do transmissor.
+É de esperar que a transmissão demore algum tempo a alinhar do lado do recetor, sendo necessário que as tramas SOP sejam enviadas durante algum tempo. Por este motivo escolheram-se os momentos de transição de dados de controlo nulos, pois são suficientemente longos para que a transmissão possa ser alinhada. Assim, no pior dos casos, perde-se a primeira imagem completa que é transmitida, pois não são recebidos os primeiros dados de controlo (\textit{vsync} e \textit{hsync}) mas garante-se que todas as outras estão alinhadas e os dados serão corretamente recebidos do lado do transmissor.
 
 \subsubsection*{Verificador de Tramas} \label{subsub:serial_frameChecker}
   
 %%Explicar porque existe
 
-Este bloco é responsável pela re-organização das tramas recebidas que são recebidas à cadência RXUSRCLK2. Apesar de poder parecer que com o alinhamento interno as tramas chegariam ao recetor tal como são enviadas do transmissor, isso raramente se verifica. As tramas são alinhadas para um determinado limite assim que o recetor encontra as palavra de alinhamento. %, no entanto não significa que a trama recebida é exatamente igual à trama enviada. 
+Este bloco é responsável pela re-organização das tramas recebidas que são recebidas à cadência RXUSRCLK2. Apesar de poder parecer que com o alinhamento interno as tramas chegariam ao recetor tal como são enviadas do transmissor, isso raramente se verifica. As tramas são alinhadas para um determinado limite assim que o recetor encontra a palavra de alinhamento. %, no entanto não significa que a trama recebida é exatamente igual à trama enviada. 
 
-Segundo \cite{R022} e \cite{R011}, quando a palavra de alinhamento é detetada no recetor, este assume que os dados a partir daí são válidos e alinha-os para um determinado limite. Este limite pode ser selecionado aquando a criação do módulo GTX, tendo-se optado por alinhar os dados para o \textit{byte} mais próximo. Apesar de não se estar a lidar com codificação e devido ao tamanho do \textit{datapath} ser 40 bits, o bloco de alinhamento das palavras considera que 1 \textit{byte} são 10 bits (a codificação 8B/10B codifica 8 bits em 10 bits). Assim quando é detetada a palavra de alinhamento as tramas recebidas no recetor podem chegar de 4 maneiras diferentes ilustradas na figura \ref{fig:alinhamento_tramas_gtx}.
+Segundo \cite{R022} e \cite{R011}, quando a palavra de alinhamento é detetada no recetor, este assume que os dados a partir daí são válidos e alinha-os para um determinado limite. Este limite pode ser selecionado aquando a criação do módulo GTX, tendo-se optado por alinhar os dados para o \textit{byte} mais próximo. Apesar de não se estar a lidar com codificação e devido ao tamanho do \textit{datapath} ser 40 bits, o bloco de alinhamento das palavras considera que 1 \textit{byte} são 10 bits (a codificação 8B/10B codifica 8 bits em 10 bits). Assim, quando é detetada a palavra de alinhamento as tramas recebidas no recetor podem chegar de quatro maneiras diferentes ilustradas na figura \ref{fig:alinhamento_tramas_gtx}.
 
 
 %Se o datapath fosse de 32 bits sem codificação, assumiria que 1 \textit{byte} sao 8 bits, de certeza, apesar de eu nao ter testado
@@ -173,7 +172,7 @@ Segundo \cite{R022} e \cite{R011}, quando a palavra de alinhamento é detetada n
 	\end{center}
 \end{figure}
 
-Daí a importância da trama de SOP: quando é detetada em algum dos limites assinalados a cinzento dá-se inicio à transmissão dos restantes dados. Para se proceder à organização dos dados recebidos é necessário recorrer a uma máquina de estados. Esta foi adaptada da que a ferramenta de \textit{software} cria por omissão quando é gerado um exemplo deste módulo GTX.
+Daí a importância da trama de SOP: quando é detetada em algum dos limites assinalados a cinzento dá-se início à transmissão dos restantes dados. Para se proceder à organização dos dados recebidos é necessário recorrer a uma máquina de estados. Esta foi adaptada da que a ferramenta de \textit{software} cria por omissão quando é gerado um exemplo deste módulo GTX.
 
 A máquina de estados principal é dividida em três por questões de simplificação e de melhor entendimento da mesma. Cada uma destas divisões passa a ser detalhada, sem nunca esquecer que funcionam como um todo.
 %%Explicar máquina de estados que procura dados, ou espera ou tal e tal
@@ -185,12 +184,13 @@ A máquina de estados principal é dividida em três por questões de simplifica
 	\begin{itemize}
 		\item \textbf{\textit{Begin:}} Estado inicial que aguarda a receção de dados válidos do recetor. Quando a trama de SOP é detetada pela primeira vez, então a máquina transita para um estado em que recebe dados válidos. 
 		
-		\item \textbf{\textit{Track\_data:}} Neste estado já foi detetato o inicio da transmissão (SOP) e por isso todos os dados que estão a ser recebidos são considerados válidos. Quando é detetado algum erro (com a ajuda de uma máquina de estados detetora de erros) transita de estado.
+		\item \textbf{\textit{Track\_data:}} Neste estado já foi detetato o início da transmissão (SOP) e por isso todos os dados que estão a ser recebidos são considerados válidos. Quando é detetado algum erro (com a ajuda de uma máquina de estados detetora de erros) transita de estado.
 		
-		\item \textbf{\textit{Data\_error\_detected:} }Estado de detecção de erro que transita imediatamente para o estado inicial para aguardar a chegada de dados válidos novamente.
+		\item \textbf{\textit{Data\_error\_detected:} }Estado de deteção de erro que transita imediatamente para o estado inicial para aguardar a chegada de dados válidos novamente.
+		
 	\end{itemize}
 
-	Sempre que for necessário fazer \textit{reset} ao sistema, quer pela ativação do utilizador ou então pelo transcetor volta-se ao estado inicial "\textit{begin}".
+	Sempre que for necessário fazer \textit{reset} ao sistema, quer pela ativação do utilizador ou então pelo transcetor, volta-se ao estado inicial "\textit{begin}".
 	
 	
 	\begin{figure}[h!]
@@ -203,7 +203,7 @@ A máquina de estados principal é dividida em três por questões de simplifica
 	\end{center}
 	\end{figure}
 	
-	A figura \ref{fig:FSM1} representa a máquina de estados detalhada anteriormente. De notar que na imagem estão representadas algumas \textit{flags} de decisão de transição de estados. A \textit{flag} "\textit{SOP\_detected}" indica que se a trama de inicio de pacote foi encontrada nos dados recebidos e "\textit{error\_detected}" indica que foi detetado um erro nos dados recebidos. Ambas são definidas por máquinas de estados que serão explicadas mais adiante.
+	A figura \ref{fig:FSM1} representa a máquina de estados detalhada anteriormente. De notar que na imagem estão representadas algumas \textit{flags} de decisão de transição de estados. A \textit{flag} "\textit{SOP\_detected}" indica que se a trama de início de pacote foi encontrada nos dados recebidos e "\textit{error\_detected}" indica que foi detetado um erro nos dados recebidos. Ambas são definidas por máquinas de estados que serão explicadas mais adiante.
 	
 	
 	\item \textbf{Máquina de leitura de dados}
@@ -233,7 +233,7 @@ A máquina de estados principal é dividida em três por questões de simplifica
 	 Estas são as principais \textit{flags} de transição de estados da máquina. De seguida serão detalhados todos os estados da mesma:
 	 
 	 	 \begin{itemize}
-	 	\item \textbf{\textit{Waiting}:} Este estado indica que o recetor ainda não está a receber dados, isto porque a \textit{flag} \textit{all\_incoming\_data} está inativa. Por defeito quando não há transmissão de dados do lado do transmissor, o recetor recebe apenas dados iguais a zero. Assim que esta \textit{flag} se ativa então passa-se para o estado \textit{searching}.
+	 	\item \textbf{\textit{Waiting}:} Este estado indica que o recetor ainda não está a receber dados, isto porque a \textit{flag} \textit{all\_incoming\_data} está inativa. Por defeito, quando não há transmissão de dados do lado do transmissor, o recetor recebe apenas dados iguais a zero. Assim que esta \textit{flag} se ativa então passa-se para o estado \textit{searching}.
 	 	
 	 	\item \textbf{\textit{Searching}:} Neste estado, a máquina procura a trama que dá inicio à transmissão de dados (SOP). Uma vez que ela pode vir alinhada em diferentes \textit{bytes} nas tramas do recetor, então a máquina procura a SOP nas quatro situações apresentadas na figura \ref{fig:alinhamento_tramas_gtx}. Assim que encontra SOP, memoriza os limites das tramas em que esta foi encontrada para que se possa retirar todos os outros dados de transmissão e transita de estado.
 	 	
@@ -242,16 +242,16 @@ A máquina de estados principal é dividida em três por questões de simplifica
 	 	\item \textbf{\textit{SOP\_detected}:} Quando este estado está ativo, então os dados alinhados correspondem à trama SOP, e por isso deve-se ativar a \textit{flag} "\textit{SOP\_detected}". Este estado mantém-se ativo enquanto os dados alinhados corresponderem à trama SOP e transita para o estado "\textit{data\_valid}" assim que tal deixar de ser verdade. 
 	 \end{itemize}
  
- 		Sempre que transmissão for interrompida (\textit{all\_incoming\_data} se iguala a zero) ou o sinal de \textit{reset} for ativo (quer por opção do utilizador ou pelo módulo GTX), então a máquina retorna ao estado inicial e repõe os dados originais do sistema. 
+ 		Sempre que a transmissão for interrompida (\textit{all\_incoming\_data} se iguala a zero) ou o sinal de \textit{reset} for ativo (quer por opção do utilizador ou pelo módulo GTX), então a máquina retorna ao estado inicial e repõe os dados originais do sistema. 
 	 
-	 	Inicialmente o estado ativo é "\textit{waiting}",e todas as \textit{flags} de decisão de mudança de estado (\textit{all\_incoming\_data} e \textit{data\_valid\_detected}) estão igualadas a zero.
+	 	Inicialmente o estado ativo é "\textit{waiting}", e todas as \textit{flags} de decisão de mudança de estado (\textit{all\_incoming\_data} e \textit{data\_valid\_detected}) estão igualadas a zero.
 	 
 	 
 	 \item \textbf{Máquina de estados de verificação do alinhamento dos dados}
 	
 	Tal como já foi mencionado anteriormente, para taxas de transmissão superiores a \SI{5}{\giga\bit\per\second} , o transcetor pode alinhar falsamente os dados. Por esse motivo, as tramas recebidas podem não vir dentro dos limites apresentados na figura \ref{fig:alinhamento_tramas_gtx}, sendo assim necessário o recurso a uma máquina de estados que valide o correto alinhamento.
 	
-	A máquina de estados apresentada na figura \ref{fig:fsm3} é responsável pela detecção do devido alinhamento das tramas recebidas de acordo com a figura \ref{fig:alinhamento_tramas_gtx}. Caso tal não se verifique procede ao alinhamento manual das tramas.
+	A máquina de estados apresentada na figura \ref{fig:fsm3} é responsável pela deteção do devido alinhamento das tramas recebidas de acordo com a figura \ref{fig:alinhamento_tramas_gtx}. Caso tal não se verifique procede ao alinhamento manual das tramas.
 	
 		\begin{figure}[h!]
 			\begin{center}
@@ -279,7 +279,7 @@ A máquina de estados principal é dividida em três por questões de simplifica
 	
 	Esta máquina é composta por três estados, sendo estes:
 	\begin{itemize}
-		\item \textbf{\textit{Idle\_slip}:} Este estado aguarda pela receção de dados e também pela detecção do desalinhamento da palavra. Há transição de estado quando se verifica que as tramas que chegam ao recetor não estão alinhadas de acordo com os limites que deveriam estar.
+		\item \textbf{\textit{Idle\_slip}:} Este estado aguarda pela receção de dados e também pela deteção do desalinhamento da palavra. Há transição de estado quando se verifica que as tramas que chegam ao recetor não estão alinhadas de acordo com os limites que deveriam estar.
 		
 		\item \textbf{\textit{Slip\_assert}:} Este estado está ativo quando há deteção de falso alinhamento de palavras, e por isso a saída que se conecta ao GTX é ativada: RXSLIDE. A ativação deste sinal vai permitir que as tramas sejam deslocadas em 1 bit. Este estado transita imediatamente para o estado de \textit{Wait\_state}.
 		
@@ -296,9 +296,9 @@ A máquina de estados principal é dividida em três por questões de simplifica
 %	\item \textbf{Máquina que deteta o estado da ligação}
 \end{enumerate}
 
-Para além destas máquinas de estados apresentadas, existe a possibilidade de implementação de uma outra que verifique os erros das tramas recebidas. Esta máquina torna-se útil quando há implementação de códigos detetores de erros nas tramas, ativando a \textit{flag}  "\textit{error\_detected}", sempre que o \textit{checksum} recebido na trama não corresponder à mensagem. Contudo, nesta abordagem inicial tal não é realizado e por isso essa \textit{flag} é globalmente igualada a zero.
+Para além destas máquinas de estados apresentadas existe a possibilidade de implementação de uma outra que verifique os erros das tramas recebidas. Esta máquina torna-se útil quando há implementação de códigos detetores de erros nas tramas, ativando a \textit{flag}  "\textit{error\_detected}", sempre que o \textit{checksum} recebido na trama não corresponder à mensagem. Contudo, nesta abordagem inicial tal não é realizado e por isso essa \textit{flag} é globalmente igualada a zero.
 
-Quando os dados estão alinhados, procede-se à extração da informação contida na trama recebida, enviando-a para o bloco responsável pela sua transmissão para a placa HDMI, sendo necessário que o estado  \textit{track\_data} esteja ativo. A informação retirada depende do tipo de trama recebida: caso a trama seja SOP, os dados são todos igualados a 0; caso contrário, então extrai-se os dados de acordo com o formato da trama de informação apresentado na figura \ref{fig:trama_abordagem_inicial}.
+Quando os dados estão alinhados procede-se à extração da informação contida na trama recebida, enviando-a para o bloco responsável pela sua transmissão para a placa HDMI, sendo necessário que o estado  \textit{track\_data} esteja ativo. A informação retirada depende do tipo de trama recebida: caso a trama seja SOP, os dados são todos igualados a 0; caso contrário, então extrai-se os dados de acordo com o formato da trama de informação apresentado na figura \ref{fig:trama_abordagem_inicial}.
 
 
 %Se a trama recebida é uma SOP, igualam-se todos os dados a zero. Caso 
@@ -307,7 +307,7 @@ Quando os dados estão alinhados, procede-se à extração da informação conti
 
 \subsubsection*{Bloco de envio de dados para a placa HDMI} \label{subsub:serial_send signals to HDMI}
 
-Este bloco é responsável pela recepção dos dados alinhados provenientes do bloco verificador de tramas e do seu posterior envio para a placa HDMI transmissora. A figura \ref{fig:sync_block_to_HDMI} é apresentado o diagrama de blocos deste módulo.
+Este bloco é responsável pela receção dos dados alinhados provenientes do bloco verificador de tramas e do seu posterior envio para a placa HDMI transmissora. A figura \ref{fig:sync_block_to_HDMI} é apresentado o diagrama de blocos deste módulo.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -319,7 +319,7 @@ Este bloco é responsável pela recepção dos dados alinhados provenientes do b
 	\end{center}
 \end{figure}
 
-Os dados recebidos neste bloco são lidos para um registo ao flanco positivo do sinal de relógio que alimenta este módulo (RXUSRCLK2). Posteriormente, todos os dados presentes nos registos são enviados para a placa HDMI transmissora, incluindo o sinal de relógio RXUSRCLK2.
+Os dados recebidos neste bloco são lidos para um registo ao flanco positivo do sinal de relógio que alimenta este módulo (RXUSRCLK2). Posteriormente, todos os dados presentes nos registos são enviados para a placa HDMI transmissora incluindo o sinal de relógio RXUSRCLK2.
 
 \subsubsection*{Localizações das portas de saída do módulo de topo} \label{subsub:serial_locs_planD}
 
@@ -334,7 +334,7 @@ Na figura \ref{fig:planD} visualiza-se o diagrama de blocos desenvolvido para es
 	\end{center}
 \end{figure}
 
-É possível visualizar que este bloco tem diversas entradas e saídas, e por isso para além de todo o código desenvolvido em verilog para estes sub-módulo, é necessário definir as localizações físicas da FPGA para cada porta de entrada e saída, estando as mesmas detalhadas na  tabela \ref{table:loc_planD_simples}. Para mais especificações sobre as portas de saída que se conectam à placa HDMI transmissora, remete-se para a secção \ref{ap3:imagemFPGA_TX} do anexo \ref{ap3:LOCs}.
+Verifica-se que este bloco tem diversas entradas e saídas, e por isso para além de todo o código desenvolvido em Verilog para estes sub-módulo é necessário definir as localizações físicas da FPGA para cada porta de entrada e saída, estando as mesmas detalhadas na  tabela \ref{table:loc_planD_simples}. Para mais especificações sobre as portas de saída que se conectam à placa HDMI transmissora, remete-se para a secção \ref{ap3:imagemFPGA_TX} do anexo \ref{ap3:LOCs}.
 
 %%%falar das portas todas
 \begin{table}[h!]
@@ -367,7 +367,7 @@ Na figura \ref{fig:planD} visualiza-se o diagrama de blocos desenvolvido para es
 
 %%%falar das constraints físicas
 
-O conteúdo do ficheiro de restrições físicas pode ser encontrado nas secções \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planD} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_paraHDMI}  encontram-se as retrições relativas ás portas de saída que se conectam à placa HDMI transmissora e a secção \ref{ap:fisicas_planD} corresponde ás restrições físicas das restantes portas desta arquitetura. O conteúdo das restrições temporais desta mesma arquitetura encontra-se na secção \ref{ap:temporais_planD} do anexo \ref{ap2:codigo}.
+O conteúdo do ficheiro de restrições físicas pode ser encontrado nas secções \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planD} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_paraHDMI}  encontram-se as retrições relativas às portas de saída que se conectam à placa HDMI transmissora e a secção \ref{ap:fisicas_planD} corresponde às restrições físicas das restantes portas desta arquitetura. O conteúdo das restrições temporais desta mesma arquitetura encontra-se na secção \ref{ap:temporais_planD} do anexo \ref{ap2:codigo}.
 %
 %%%falar das constrainsts temporais
 %
@@ -393,7 +393,7 @@ O conteúdo do ficheiro de restrições físicas pode ser encontrado nas secçõ
 
 
 
-Após a síntese e implementação da arquitetura desenvolvida a FPGA foi devidamente programada com o \textit{bitstream} gerado. Contudo, nesta arquitetura é necessário ter em consideração que o sinal de relógio de referência que se conecta ao GTX é proveniente de um módulo disponível nesta FPGA Virtex-7 com o nome de "\textit{SuperClock2-Module}". Consequentemente, antes da FPGA ser programada com a arquitetura desenvolvida, este módulo deve ser re-programado para a frequência desejada de \SI{148.5}{\mega\hertz}. Para testar a arquitetura utilizou-se o \textit{setup} que se pode visualizar na figura \ref{fig:planD_setup}.
+Após a síntese e implementação da arquitetura desenvolvida a FPGA foi devidamente programada com o \textit{bitstream} gerado. Porém, nesta arquitetura é necessário ter em consideração que o sinal de relógio de referência que se conecta ao GTX é proveniente de um módulo disponível nesta FPGA Virtex-7 com o nome de "\textit{SuperClock2-Module}". Consequentemente, antes da FPGA ser programada com a arquitetura desenvolvida, este módulo deve ser re-programado para a frequência desejada de \SI{148.5}{\mega\hertz}. Para testar a arquitetura utilizou-se o \textit{setup} que se pode visualizar na figura \ref{fig:planD_setup}.
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
@@ -424,11 +424,11 @@ Após a síntese e implementação da arquitetura desenvolvida a FPGA foi devida
 
 \subsection{Transmissão de imagem em série entre dispositivos HDMI} \label{sub:planE}
 
-Nesta subsecção é apresentada uma arquitetura de transmissão de imagem em série entre dispositivos HDMI. São detalhados todas as fases de desenvolvimento da arquitetura, todas as decisões tomadas e ainda os resultados obtidos. Esta arquitetura é semelhante à apresentada na subsecção \ref{sub:planD} e por isso muitos dos blocos usados são idênticos aos anteriormente apresentados.
+Nesta subsecção é apresentada uma arquitetura de transmissão de imagem em série entre dispositivos HDMI. São detalhadas todas as fases de desenvolvimento da arquitetura, todas as decisões tomadas e ainda os resultados obtidos. Esta arquitetura é semelhante à apresentada na subsecção \ref{sub:planD} e por isso muitos dos blocos usados são idênticos aos anteriormente apresentados.
 
 \subsubsection{Considerações sobre a arquitetura} \label{subsub:planE_considerações}
 
-A arquitetura desenvolvida gera uma barra de cores em \textit{FULL HD} na FPGA, tal como anteriormente, e ao mesmo tempo recebe os dados provenientes da placa HDMI recetora. Tal como se visualiza na figura \ref{fig:planE_simples}, os dados a ser transmitidos vão depender do valor de "\textit{start}". Este sinal define a seleção do multiplexador que se visualiza na figura: se estiver ativo selecciona os dados provenientes do módulo gerador da barra de cores, se estiver inativo os dados seleccionados pelo multiplexador são os dados provenientes da placa HDMI recetora.
+A arquitetura desenvolvida gera uma barra de cores em \textit{FULL HD} na FPGA, tal como anteriormente, e ao mesmo tempo recebe os dados provenientes da placa HDMI recetora. Tal como se visualiza na figura \ref{fig:planE_simples}, os dados a ser transmitidos vão depender do valor de "\textit{start}". Este sinal define a seleção do multiplexador que se visualiza na figura: se estiver ativo seleciona os dados provenientes do módulo gerador da barra de cores, se estiver inativo os dados selecionados pelo multiplexador são os dados provenientes da placa HDMI recetora.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -441,13 +441,13 @@ A arquitetura desenvolvida gera uma barra de cores em \textit{FULL HD} na FPGA, 
 \end{figure}
 
 
-\subsubsection{Concepção e Desenvolvimento}
+\subsubsection{Conceção e Desenvolvimento}
 
 Através da visualização do diagrama blocos simplificado apresentado na figura \ref{fig:planE_simples} é possivel concluir que o único sub-módulo adicionado é o bloco recetor de dados HDMI. Todos os outros sub-módulos são exatamente iguais ao da arquitetura anterior, estando detalhados na subsecção \ref{sub:planD}. Assim sendo, apenas será apresentado nesta subsecção esse mesmo bloco.
 
 \subsubsection*{Bloco Recetor de dados HDMI}
 %explicar o que faz
-O bloco recetor de dados HDMI recebe os dados provenientes da placa recetora e guarda-os em registos síncronos com o flanco positivo do sinal de relógio proveniente da mesmas. O diagrama de blocos deste módulo visualiza-se na figura \ref{fig:recetorHDMI}.
+O bloco recetor de dados HDMI recebe os dados provenientes da placa recetora e guarda-os em registos síncronos com o flanco positivo do sinal de relógio proveniente da mesma. O diagrama de blocos deste módulo visualiza-se na figura \ref{fig:recetorHDMI}.
 %explicar o porque de ser necessário
 \begin{figure}[h!]
 	\begin{center}
@@ -463,7 +463,7 @@ O bloco recetor de dados HDMI recebe os dados provenientes da placa recetora e g
 
 \subsubsection*{Localizações das portas de saída do módulo de topo} \label{subsub:serial_locs_planE}
 
-Na figura \ref{fig:planoE} encontra-se o diagrama de blocos da arquitetura desenvolvida para a transmissão de imagem em série entre dispositivos HDMI. A mesma ilustra os blocos desenvolvidos para a sua concepção referindo as principais portas de entrada e saída.
+Na figura \ref{fig:planoE} encontra-se o diagrama de blocos da arquitetura desenvolvida para a transmissão de imagem em série entre dispositivos HDMI. A mesma ilustra os blocos desenvolvidos para a sua conceção referindo as principais portas de entrada e saída.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -514,10 +514,10 @@ As localizações físicas das portas de entrada e saída do bloco encontram-se 
 	\end{tabular}
 \end{table}
 
-As portas que estão diretamente ligadas às placas HDMI (tanto à de transmissão como à de receção) encontram-se pouco detalhadas nesta tabela, no entanto na secção \ref{ap3:imagem_RX_TX} do anexo \ref{ap3:LOCs} é possível encontrar as mesmas com mais detalhe, tanto do lado da FPGA como também do lado das placas HDMI.
+As portas que estão diretamente ligadas às placas HDMI (tanto à de transmissão como à de receção) encontram-se pouco detalhadas nesta tabela. No entanto, na secção \ref{ap3:imagem_RX_TX} do anexo \ref{ap3:LOCs} é possível encontrar as mesmas com mais detalhe, tanto do lado da FPGA como do lado das placas HDMI.
 
 %constraints fisicas
-O conteúdo do ficheiro de restrições físicas encontra-se nas secções \ref{ap:fisicas_deHDMI}, \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planE} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_deHDMI} encontram-se as restrições físicas referentes ás portas de entrada que se conectam à placa HDMI recetora, na secção \ref{ap:fisicas_paraHDMI} referentes às portas de saída da arquitetura que se conectam á placa HDMI transmissora. Por fim, na secção \ref{ap:fisicas_planE} encontram-se as restrições físicas das restantes portas desta arquitetura. O conteúdo referente às restrições temporais da mesma encontram-se na secção \ref{ap:temporais_planE} do anexo \ref{ap2:codigo}.
+O conteúdo do ficheiro de restrições físicas encontra-se nas secções \ref{ap:fisicas_deHDMI}, \ref{ap:fisicas_paraHDMI} e \ref{ap:fisicas_planE} do anexo \ref{ap2:codigo}. Na secção \ref{ap:fisicas_deHDMI} encontram-se as restrições físicas referentes às portas de entrada que se conectam à placa HDMI recetora. Na secção \ref{ap:fisicas_paraHDMI} referentes às portas de saída da arquitetura que se conectam à placa HDMI transmissora. Por fim, na secção \ref{ap:fisicas_planE} encontram-se as restrições físicas das restantes portas desta arquitetura. O conteúdo referente às restrições temporais da mesma encontram-se na secção \ref{ap:temporais_planE} do anexo \ref{ap2:codigo}.
 %constraints temporais
 
 \subsubsection{Resultados} \label{subsub:serial_planEresults}
@@ -561,7 +561,7 @@ A arquitetura desenvolvida foi devidamente sintetizada e implementada na FPGA, e
 
 %explicar resultados
 
-Obteve-se uma transmissão em série como pretendido entre ambos os dispositivos, contudo surgiu um problema. Apesar de nas diversas simulações realizadas (funcional, pós-síntese e pós-implementação) a arquitetura ter sido validada, quando se implementa a mesma na FPGA ocorre um problema de visualização da imagem no dispositivo de destino: são apresentadas umas ligeiras riscas pretas horizontais. O resultado está apresentado na figura \ref{fig:planoE_results}.
+Obteve-se uma transmissão em série como pretendido entre ambos os dispositivos, mas surgiu um problema. Apesar de nas diversas simulações realizadas (funcional, pós-síntese e pós-implementação) a arquitetura ter sido validada, quando se implementa a mesma na FPGA ocorre um problema de visualização da imagem no dispositivo de destino: são apresentadas umas ligeiras riscas pretas horizontais. O resultado está apresentado na figura \ref{fig:planoE_results}.
 
 
 \begin{figure}
@@ -589,13 +589,13 @@ O problema foi diagnosticado recorrendo-se à utilização de um \textit{IP} da 
 
 Na figura \ref{fig:planoE_rerro} é possível visualizar um gráfico retirado da análise dos sinais internos da FPGA. De notar que a base de tempo é o sinal de relógio de referência, que para este caso foi TXUSRCLK2 (proveniente do GTX), e por isso uma unidade na figura representa um ciclo de relógio do mesmo.  Neste gráfico estão a ser analisadas as transições dos dados do sub-módulo do sistema "Bloco Recetor de dados HDMI" para o "Bloco Sincronizador dos dados HDMI". Os sinais "\textit{hsync\_r2}" e "\textit{hsync\_r3}" no gráfico correspondem aos dois registos de sincronização do bloco "Sincronizador dos dados HDMI" ilustrado na figura \ref{fig:sync_block}.
 
-O que está a causar o problema, através da análise feita, é a falha num ciclo de relógio de uma linha inteira. Ou seja, na primeira transição que se vê no sinal \textit{hsync\_r2} o seu comportamento é como esperado: tem um tempo de duração de 44 ciclos de relógio e encontra-se no início da transmissão de uma linha completa. Contudo, na segunda transição do mesmo, o seu comportamento não é o esperado: tem um tempo de duração de 45 ciclos de relógio e fica ativo um ciclo de relógio antes do inicio da linha. Relembrando que uma linha completa tem 2200 ciclos de relógio, a diferença entre a primeira transição de 0 para 1 do sinal em questão para a segunda é de 2199 ciclos de relógio. 
+O que está a causar o problema, através da análise feita, é a falha num ciclo de relógio de uma linha inteira. Ou seja, na primeira transição que se vê no sinal \textit{hsync\_r2} o seu comportamento é como esperado: tem um tempo de duração de 44 ciclos de relógio e encontra-se no início da transmissão de uma linha completa. No entanto, na segunda transição do mesmo o seu comportamento não é o esperado: tem um tempo de duração de 45 ciclos de relógio e fica ativo um ciclo de relógio antes do início da linha. Relembrando que uma linha completa tem 2200 ciclos de relógio, a diferença entre a primeira transição de 0 para 1 do sinal em questão para a segunda é de 2199 ciclos de relógio. 
 
 Este problema acaba por acontecer em várias linhas causando uma falha na sincronização horizontal da imagem, o que provoca as ligeiras riscas pretas que se visualizam na imagem recebida.
 
 %explicar como soluccionar o problema
 
-Assim conclui-se que apesar da transmissão em série estar a operar como esperado, o processo de transmissão de dados não é robusto. Os sinais são transmitidos diretamente, e apesar de ter havido precauções quanto ao sincronismo entre os domínios de relógio, existiu uma falha de sincronismo.
+Assim, conclui-se que apesar da transmissão em série estar a operar como esperado, o processo de transmissão de dados não é robusto. Os sinais são transmitidos diretamente e apesar de ter havido precauções quanto ao sincronismo entre os domínios de relógio, existiu uma falha de sincronismo.
 
 \begin{center}
 	\lrboxbrace[\Vert][\Vert] {} {
@@ -608,8 +608,8 @@ Assim conclui-se que apesar da transmissão em série estar a operar como espera
 
 Nesta subsecção são apresentadas comparações relativamente aos recursos utilizados na FPGA por cada uma das arquiteturas. Por questões de simplificação definiu-se:
 \begin{itemize}
-	\item \textbf{Arquitetura E:} Arquitetura transmissora de uma barra de cores em série para o dispositivo final HDMI;
-	\item \textbf{Arquitetura B:} Arquitetura transmissora de imagem em série entre dispositivos HDMI;
+	\item \textbf{Arquitetura D:} Arquitetura transmissora de uma barra de cores em série para o dispositivo final HDMI;
+	\item \textbf{Arquitetura E:} Arquitetura transmissora de imagem em série entre dispositivos HDMI;
 \end{itemize}
 
 \begin{table}[h!]
@@ -630,6 +630,6 @@ Nesta subsecção são apresentadas comparações relativamente aos recursos uti
 
 Na tabela \ref{table:recursos_planoD_planoE} são apresentados a utilização de recursos de cada uma das arquiteturas, sendo que estes dados foram retirados do \textit{software} após implementação de ambas as arquiteturas.
 
-Globalmente, a arquitetura E utiliza mais recursos do que a D devido ao facto de suportar a recepção de dados provenientes da placa HDMI recetora (aumentando o número de entradas e saída utilizadas), e também de utilizar mais um bloco (o que aumenta o número de utilização de FF e LUT). Ambas utilizam apenas um GT (\textit{Gigabit Transceiver}), tal como esperado, havendo ainda a possibilidade de aumentar essa utilização caso se pretenda.
+Globalmente, a arquitetura E utiliza mais recursos do que a D devido ao facto de suportar a receção de dados provenientes da placa HDMI recetora (aumentando o número de entradas e saída utilizadas), e também de utilizar mais um bloco (o que aumenta o número de utilização de FF e LUT). Ambas utilizam apenas um GT (\textit{Gigabit Transceiver}), tal como esperado, havendo ainda a possibilidade de aumentar essa utilização caso se pretenda.
 
 Num ponto de vista geral, a utilização de recursos não se torna preocupante nesta FPGA, havendo ainda muitos recursos disponíveis caso se pretenda abordar estas arquiteturas de maneira diferente.
