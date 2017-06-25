@@ -14,9 +14,9 @@
 \contentsline {table}{\numberline {3.5}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o das portas da arquitetura transmissora de imagem e som entre dispositivos HMDI\relax }}{57}{table.caption.75}
 \contentsline {table}{\numberline {3.6}{\ignorespaces Recursos utilizados pelas diferentes arquiteturas implementadas na FPGA\relax }}{59}{table.caption.77}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Tamanhos poss\IeC {\'\i }veis para a interface da FPGA com o GTX transmissor}}{62}{table.caption.79}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Rela\IeC {\c c}\IeC {\~a}o entre as frequ\IeC {\^e}ncias dos sinais de rel\IeC {\'o}gio \textit {TXUSRCLK2} e \textit {TXUSRCLK}}}{63}{table.caption.80}
-\contentsline {table}{\numberline {4.3}{\ignorespaces D\IeC {\'e}bitos de transmiss\IeC {\~a}o para diferentes larguras de porta de entrada do transcetor}}{71}{table.caption.86}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Tamanhos da interface da FPGA com o GTX transmissor}}{62}{table.caption.79}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Rela\IeC {\c c}\IeC {\~a}o das frequ\IeC {\^e}ncias dos sinais de rel\IeC {\'o}gio \textit {TXUSRCLK2} e \textit {TXUSRCLK}}}{63}{table.caption.80}
+\contentsline {table}{\numberline {4.3}{\ignorespaces D\IeC {\'e}bitos de transmiss\IeC {\~a}o para diferentes larguras de porta de entrada do transcetor}}{70}{table.caption.86}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces Sum\IeC {\'a}rio do m\IeC {\'o}dulo GTX gerado para a transmiss\IeC {\~a}o em s\IeC {\'e}rie de uma barra de cores gerada na FPGA}}{76}{table.caption.89}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Localiza\IeC {\c c}\IeC {\~o}es f\IeC {\'\i }sicas das portas de entrada e sa\IeC {\'\i }da da arquitetura desenvolvida}}{86}{table.caption.105}

@@ -48,7 +48,7 @@
 \contentsline {subsection}{\numberline {4.2.5}Interfaces entre os diferentes dom\IeC {\'\i }nios de sinal rel\IeC {\'o}gio do recetor}{68}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Interface com a FPGA}{69}{subsection.4.2.6}
 \contentsline {section}{\numberline {4.3}An\IeC {\'a}lise das caracter\IeC {\'\i }sticas de transmiss\IeC {\~a}o}{70}{section.4.3}
-\contentsline {section}{\numberline {4.4}Estrutura do transcetor GTX}{70}{section.4.4}
+\contentsline {section}{\numberline {4.4}Estrutura do transcetor GTX}{71}{section.4.4}
 \contentsline {chapter}{\numberline {5}Transmiss\IeC {\~a}o em s\IeC {\'e}rie de dados HDMI}{73}{chapter.5}
 \contentsline {section}{\numberline {5.1}Abordagem inicial}{73}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Transmiss\IeC {\~a}o de uma barra de cores gerada na FPGA em s\IeC {\'e}rie}{73}{subsection.5.1.1}

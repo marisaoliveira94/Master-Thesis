@@ -1,7 +1,4 @@
-
 \chapter{Transmissão de dados em série}\label{chap:chap4}
-
-%Este capítulo aborda o trabalho realizado na segunda parte do projeto, tal como definido em ~\ref{sec:descrição_objetivos}. Esta parte do projeto consiste em transmitir em paralelo para o transmissor GTX existente na FPGA VC7203 que ,através da sua arquitetura, serializa os dados e envia-os através de um cabo físico. Esse mesmo cabo conectado ao recetor GTX irá deserializar para que sejam convertidos novamente para dados em paralelo.
 
 Este capítulo aborda os processos de serialização e deserialização adotados neste projeto. Estes exigem cuidados e aplicações de determinados métodos que permitam manter a integridade do sinal durante a transmissão do mesmo, como já foi referenciado em \ref{serial_theory}. Foi referido ainda em \ref{sub:arqGTX} que a FPGA VC7203 possui entradas e saídas de alta velocidade com arquiteturas constituídas por blocos que permitem a implementação destes mecanismos. Na figura \ref{fig:gtx_geral_arq} visualiza-se uma arquitetura geral dos transcetores que serão descritos mais detalhadamente daqui em diante.
 
@@ -24,11 +21,13 @@ Os blocos mais relevantes para o funcionamento do projeto passam a ser descritos
 
 \subsection{Interface com a FPGA} \label{subch:tx_interface}
 
-Na figura\ref{fig:gtx_tx_arq} este bloco tem o nome de "\textit{FPGA TX Interface}" sendo a entrada dos dados em paralelo provenientes da FPGA que se pretendem serializar. Segundo \cite{R011}, o tamanho desta interface depende de vários fatores internos. Para se perceber melhor como o tamanho da porta pode variar são apresentados na tabela \ref{table:tx_interface} os casos possíveis.
+Na figura \ref{fig:gtx_tx_arq} este bloco tem o nome de "\textit{FPGA TX Interface}" sendo a entrada dos dados em paralelo provenientes da FPGA que se pretendem serializar. Segundo \cite{R011}, o tamanho desta interface depende de vários fatores internos. Para se perceber melhor como o tamanho da porta pode variar são apresentados na tabela \ref{table:tx_interface} os casos possíveis.
 
 
 \begin{table}[h!]
 	\centering
+		\caption[Tamanhos da interface da FPGA com o GTX transmissor]{Tamanhos da interface da FPGA com o GTX transmissor (adaptada de \cite{R011})}
+	\label{table:tx_interface}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{rlll}
 			\hline
@@ -47,13 +46,11 @@ Na figura\ref{fig:gtx_tx_arq} este bloco tem o nome de "\textit{FPGA TX Interfac
 			\multicolumn{1}{r|}{Não}                        & 1 (4 \textit{byte})                                       & 40                                           & 80                                                \\ \hline
 		\end{tabular}%
 	}
-	\caption[Tamanhos possíveis para a interface da FPGA com o GTX transmissor]{Tamanhos possíveis para a interface da FPGA com o GTX transmissor (adaptada de \cite{R011})}
-	\label{table:tx_interface}
 \end{table}
 
-Os diferentes tamanhos que a porta da interface pode tomar estão apresentados na última coluna da tabela, tendo em conta que quando é implementada uma codificação, estes apenas podem variar entre 16, 32 ou 64 bits. Todavia quando não há codificação, o tamanho desta porta pode tomar os valores anteriormente referidos ou 20,40 ou 80 bits. De notar que quando não há codificação e o tamanho da porta é 16, 32 ou 64 bits existe a possibilidade de extender esses valores (caso se pretenda) para 20, 40 e 80 bits respetivamente. No entanto, tal não será abordado dado que não é relevante para o projeto. 
+Os diferentes tamanhos que a porta da interface pode tomar estão apresentados na última coluna da tabela, tendo em conta que quando é implementada uma codificação, estes apenas podem variar entre 16, 32 ou 64 bits. Todavia, quando não há codificação o tamanho desta porta pode tomar os valores anteriormente referidos ou 20, 40 ou 80 bits. De notar que quando não há codificação e o tamanho da porta é 16, 32 ou 64 bits existe a possibilidade de extender esses valores (caso se pretenda) para 20, 40 e 80 bits respetivamente. No entanto, isto não será abordado dado que não é relevante para o projeto. 
 
-Os valores do tamanho interno do \textit{datapath} podem variar entre 2 e 4 \textit{bytes}. Contudo, convém referir que quando um \textit{datapath} de um determinado tamanho não chega para o número de bits à entrada então é necessário utilizar dois. Este tópico será abordado mais à frente.
+Os valores do tamanho interno do \textit{datapath} podem variar entre 2 e 4 \textit{bytes}. Contudo, convém referir que quando um \textit{datapath} de um determinado tamanho não chega para o número de bits à entrada então é necessário utilizar dois. Este tópico será abordado mais adiante.
 
 %%Relógios que saem e para que servem
 Os dados em paralelo entram neste bloco a uma determinada cadência bem definida: ao flanco positivo do sinal de relógio \textit{TXUSRCLK2}, sendo que este é o sinal de sincronização entre os dados provenientes da FPGA com o transmissor. No entanto, é também necessário outro sinal de relógio para a lógica interna PCS do transmissor : \textit{TXUSRCLK}. De recordar que a lógica interna PCS trabalha com os dados em paralelo, portanto o valor deste sinal de relógio depende não só da cadência a que os dados entram no transmissor mas também do \textit{datapath} escolhido. Segundo \cite{R011}, a relação entre estes dois sinais é bem definida e apresentada na tabela \ref{table:freq_tx}.
@@ -61,6 +58,8 @@ Os dados em paralelo entram neste bloco a uma determinada cadência bem definida
 %Por um lado, o sinal de relógio \textit{TXUSRCLK2} é o principal sinal de sincronização entre a lógica da FPGA e a lógica do transmissor, por outro o sinal de relógio \textit{TXUSRCLK} é a cadência determinista dos dados em paralelo no bloco PCS, e por isso existe uma relação entre estes dois sinais muito bem definida que passa a ser apresentada na tabela na página \pageref{table:freq_tx}.
 
 \begin{table}[h!]
+		\caption[Relação das frequências dos sinais de relógio \textit{TXUSRCLK2} e \textit{TXUSRCLK}]{Relação das frequências dos sinais de relógio \textit{TXUSRCLK2} e \textit{TXUSRCLK} (adaptada de \cite{R011})}
+	\label{table:freq_tx}
 	\centering
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{lll}
@@ -72,8 +71,6 @@ Os dados em paralelo entram neste bloco a uma determinada cadência bem definida
 			64, 80 (bits)                                     & 1 (4 \textit{byte})                                       & $F_{TXUSRCLK} = F_{TXUSRCLK2} * 2$                                  \\ \hline
 		\end{tabular}%
 	}
-	\caption[Relação entre as frequências dos sinais de relógio \textit{TXUSRCLK2} e \textit{TXUSRCLK}]{Relação entre as frequências dos sinais de relógio \textit{TXUSRCLK2} e \textit{TXUSRCLK} (adaptada de \cite{R011})}
-	\label{table:freq_tx}
 \end{table}
 
 
@@ -88,7 +85,7 @@ Line\ Rate = F_{TXUSRCLK}*(Internal\ Datapath\ Width)
 %Explicar pq e que tem frequências diferentes visto que sao os dois para sinais em paralelo
 Para que se perceba a diferença entre estas frequências é agora apresentado um caso em concreto que é utilizado neste projeto. Pretende-se na entrada do transmissor obter 40 bits em paralelo e que estes dados sejam amostrados a uma frequência de \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK2} = \SI{148.5}{\mega\hertz}$). Assim sendo, existem agora duas hipóteses: a utilização de um \textit{datapath} de 2 \textit{byte} ou 4 \textit{byte}.
 
-Se se optar pelo \textit{datapath} de 4 \textit{byte} então está-se perante a opção a), ilustrada na figura \ref{fig:exemplo_datapaths}, em que o sinal de amostragem à entrada é de \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK2} = \SI{148.5}{\mega\hertz}$) e o sinal de lógica do bloco PCS também é \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK} = \SI{148.5}{\mega\hertz}$). Neste caso a largura do sinal interno é de 40 bits o que, segundo a equação \ref{eq:lineRate}, perfaz uma taxa de saída dos dados em série de \SI{5.94}{\giga\bit\per\second}.
+Se se optar pelo \textit{datapath} de 4 \textit{byte} então está-se perante a opção a), ilustrada na figura \ref{fig:exemplo_datapaths} em que o sinal de amostragem à entrada é de \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK2} = \SI{148.5}{\mega\hertz}$) e o sinal de lógica do bloco PCS também é \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK} = \SI{148.5}{\mega\hertz}$). Neste caso a largura do sinal interno é de 40 bits o que, segundo a equação \ref{eq:lineRate}, perfaz uma taxa de saída dos dados em série de \SI{5.94}{\giga\bit\per\second}.
 
 Por outro lado, se se optar por um \textit{datapath} interno de 2 \textit{byte} serão necessários 2 \textit{datapath}, com largura interna de 20 bits cada, tal como ilustra o caso b) da figura \ref{fig:exemplo_datapaths}. Isto implica que a taxa de amostragem nesses seja o dobro da cadência de entrada dos sinais na interface com transmissor. Assim, mantém-se uma frequência de amostragem à entrada do transmissor de $F_{TXUSRCLK2} = \SI{148.5}{\mega\hertz}$ e uma frequência do sinal de relógio de cada bloco PCS de $F_{TXUSRCLK} = \SI{297}{\mega\hertz} $. Segundo a equação \ref{eq:lineRate}, a taxa de débito de saída é \SI{5.94}{\giga\bit\per\second}.
 
@@ -132,19 +129,19 @@ Quando os dados são transferidos entre os domínios TXUSRCLK e XCLK é necessá
 Por um lado, a utilização de um \textit{buffer} é mais fácil e ainda assim é robusta, enquanto que o bloco de alinhamento de fase exige a utilização de mais lógica e restrições de sinais de relógio adicionais. Por outro lado, quando a latência se torna um ponto importante do sistema, a utilização do \textit{buffer} deve ser posta de lado, visto que o bloco de alinhamento de fase utiliza menos registos obtendo assim uma latência menor.
 
 \subsection{Interface com a camada física} 
-Após a serialização dos dados no bloco PISO da figura \ref{fig:gtx_tx_arq} os sinais são transmitidos para a camada física através de um \textit{driver} reconfigurável. Esta interface dispões de várias características que permitem manter a integridade do sinal, que passam de seguida a ser apresentadas:
+Após a serialização dos dados no bloco PISO da figura \ref{fig:gtx_tx_arq} os sinais são transmitidos para a camada física através de um \textit{driver} reconfigurável. Esta interface dispões de várias características que permitem manter a integridade do sinal que passam de seguida a ser apresentadas:
 
 \begin{itemize}
 	\item \textbf{Sinalização Diferencial:} para diminuir eventuais interferências no sinal durante a sua transmissão no cabo físico, tal como mencionado na subsecção  \ref{subsub:sinalizacao_fisica} na página \pageref{subsub:sinalizacao_fisica}.
 	
 	\item \textbf{Pré-ênfase:} para preparar o sinal para um canal ruidoso, tal como referido na subsecção \ref{subsub:pre_enfase_equalizacao} na página \pageref{subsub:pre_enfase_equalizacao}.
 	
-	\item \textbf{Resistências de interface com o cabo calibráveis:} para que a impedância característica da linha esteja adaptada com a interface, evitando assim eventuais reflexões dos sinais, tal como mencionado na subsecção \ref{subsub:restricoes_circuitos} na página \pageref{subsub:restricoes_circuitos}.
+	\item \textbf{Resistências de interface com o cabo calibráveis:} para que a impedância característica da linha esteja adaptada com a interface evitando assim eventuais reflexões dos sinais, tal como mencionado na subsecção \ref{subsub:restricoes_circuitos} na página \pageref{subsub:restricoes_circuitos}.
 \end{itemize}
 
 
 \section{Recetor} \label{sec:_rx_gtx}
-Na figura \ref{fig:gtx_rx_arq} é possível visualizar a arquitetura do recetor GTX. Este inclui diversos blocos que permitem a correta recuperação do sinal, sendo que o funcionamento dos principais já foi mencionado na subsecção \ref{serial_theory}. Contudo, passa-se de seguida à descrição dos mesmos.
+Na figura \ref{fig:gtx_rx_arq} é possível visualizar a arquitetura do recetor GTX. Este inclui diversos blocos que permitem a correta recuperação do sinal, sendo que o funcionamento dos principais já foi mencionado na subsecção \ref{serial_theory}. Assim, passa-se de seguida à descrição dos mesmos.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -161,9 +158,9 @@ Na figura \ref{fig:gtx_rx_arq} é possível visualizar a arquitetura do recetor 
 
 A interface o cabo físico do recetor possui duas características importantes para a recuperação do sinal:
 \begin{itemize}
-	\item \textbf{Tensão de terminação configurável:} Esta característica é importante quando a referência do sinal diferencial é variável do lado do transmissor, o que permite recuperar corretamente o sinal diferencial do lado do recetor.
+	\item \textbf{Tensão de terminação configurável:} Esta característica é importante quando a referência do sinal diferencial é variável do lado do transmissor o que permite recuperar corretamente o sinal diferencial do lado do recetor.
 	
-	\item \textbf{Resistências de interface com o cabo configuráveis:} tal como acontecia do lado do transmissor, esta característica torna-se importante para que a linha de transmissão esteja adaptada ao recetor, evitando assim eventuais reflexões do sinal.
+	\item \textbf{Resistências de interface com o cabo configuráveis:} tal como acontecia do lado do transmissor, esta característica torna-se importante para que a linha de transmissão esteja adaptada ao recetor evitando assim eventuais reflexões do sinal.
 \end{itemize}
 
 
@@ -171,10 +168,10 @@ A interface o cabo físico do recetor possui duas características importantes p
 
 Na subsecção \ref{subsub:pre_enfase_equalizacao} na página \pageref{subsub:pre_enfase_equalizacao} foi abordada a importância da utilização de filtros equalizadores para tentar compensar a atenuação e distorção que o sinal sofre durante a transmissão no canal físico. O recetor GTX disponibiliza dois tipos de equalizadores adaptativos que devem ser escolhidos consoante as necessidades de consumo de potência do circuito \textit{versus} perdas do canal físico de transmissão.
 
-Segundo \cite{R011}, para canais cujas perdas não são muito significativas e o consumo de potência torna-se uma característica crítica do circuito existe um filtro adaptativo otimizado com o nome de LPM (\textit{Low-power mode}). Ainda segundo esta fonte o uso deste tipo de equalizador é recomendado para aplicações com débitos até \SI{11.2}{\giga\bit\per\second} de curto alcance e com perdas por canal até \SI{12}{\decibel} à frequência de \textit{Nyquist}.
+Segundo \cite{R011}, para canais cujas perdas não são muito significativas e o consumo de potência torna-se uma característica crítica do circuito existe um filtro adaptativo otimizado com o nome de LPM (\textit{Low-power mode}). Ainda segundo esta fonte, o uso deste tipo de equalizador é recomendado para aplicações com débitos até \SI{11.2}{\giga\bit\per\second} de curto alcance e com perdas por canal até \SI{12}{\decibel} à frequência de \textit{Nyquist}.
 
 
-Para canais cujas perdas tornam-se significativas existe disponível um filtro adaptativo com o nome de \textit{Decision Feedback Equalizer} (DFE). 
+Para canais cujas perdas se tornam significativas existe disponível um filtro adaptativo com o nome de \textit{Decision Feedback Equalizer} (DFE). 
 %Este é um filtro que utiliza a realimentação de símbolos detetados para produzir uma estimação da saída do canal. 
 Segundo \cite{R011}, este equalizador é utilizado para ligações de média distância cujas perdas do canal rondam os \SI{8}{\decibel} ou mais à frequência de \textit{Nyquist}. Este equalizador apresenta ainda as seguintes vantagens:
 \begin{itemize}
@@ -234,7 +231,7 @@ Apesar de existirem \textit{flags}\footnote{uma \textit{flag} é uma variável d
 
 %%Alinhamento Manual
 
-Este bloco dispõe de uma opção de alinhamento manual que vem substituir o automático, o que pode ser bastante útil em casos em que o transcetor alinha falsamente uma palavra. Na figura \ref{fig:rxslide_example} é possível visualizar o exemplo de alinhamento manual das palavras no recetor que passa a ser descrito.
+Este bloco dispõe de uma opção de alinhamento manual que vem substituir o automático, o que pode ser bastante útil em casos onde o transcetor alinha falsamente uma palavra. Na figura \ref{fig:rxslide_example} é possível visualizar o exemplo de alinhamento manual das palavras no recetor que passa a ser descrito.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -246,7 +243,7 @@ Este bloco dispõe de uma opção de alinhamento manual que vem substituir o aut
 	\end{center}
 \end{figure}
 
-Este processo de alinhamento manual é conhecido pelo nome de "\textit{RXSLIDE}" e é usado para mover a palavra em 1 bit.Este sinal deve estar ativo apenas um ciclo de relógio de RXUSRCLK2 e de seguida deve ser inativo. Segundo, \cite{R011} deve-se esperar pelo menos 32 ciclos de relógio para que esta operação seja realizada outra vez. Este tempo de espera relaciona-se com o tamanho do \textit{datapath} usado.
+Este processo de alinhamento manual é conhecido pelo nome de "\textit{RXSLIDE}" e é usado para mover a palavra em 1 bit. Este sinal deve estar ativo apenas um ciclo de relógio de RXUSRCLK2 e de seguida deve ser inativo. Segundo \cite{R011}, deve-se esperar pelo menos 32 ciclos de relógio para que esta operação seja realizada outra vez. Este tempo de espera relaciona-se com o tamanho do \textit{datapath} usado.
 
 \subsection{Descodificador 8B/10B}
 
@@ -268,34 +265,29 @@ Tal como acontecia no transmissor, o recetor opera a diferentes domínios de sin
 	\end{center}
 \end{figure}
 
-Quando os dados são transmitidos de um domínio para o outro todas as diferenças de fase entre os sinais de relógio devem estar resolvidas e a frequência não deve variar muito. Por este motivo deve-se usar um dos dois seguintes blocos: \textit{elastic buffer} ou bloco de alinhamento de fase. Ambos os blocos resolvem as diferenças de fase entre os dois domínios, no entanto apresentam as suas vantagens e desvantagens.
+Quando os dados são transmitidos de um domínio para o outro todas as diferenças de fase entre os sinais de relógio devem estar resolvidas e a frequência não deve variar muito. Por este motivo deve usar-se um dos dois seguintes blocos: \textit{elastic buffer} ou bloco de alinhamento de fase. Ambos os blocos resolvem as diferenças de fase entre os dois domínios, no entanto apresentam as suas vantagens e desvantagens.
 
 Se por um lado, segundo \cite{R011}, o \textit{buffer} é uma estrutura robusta e de fácil operação, enquanto que o bloco de alinhamento de fase exige mais lógica e restrições relativamente às fontes de relógio. Por outro lado, o uso do \textit{buffer} implica uma latência maior visto que o bloco de alinhamento de fase foi concebido para diminuir a latência total do sistema. 
 
-O \textit{buffer} tem a capacidade de se inicializar imediatamente, enquanto que o circuito de alinhamento de fase tem de esperar que todos os sinais de relógio estabilizem para poder conseguir operar corretamente. Quanto à correção do sinal de relógio, o uso do\textit{ elastic buffer} é obrigatório, enquanto que a utilização do bloco de alinhamento de palavras exige que a esta correção seja feita fora do transcetor.
+O \textit{buffer} tem a capacidade de se inicializar imediatamente, enquanto que o circuito de alinhamento de fase tem de esperar que todos os sinais de relógio estabilizem para poder conseguir operar corretamente. Quanto à correção do sinal de relógio, o uso do\textit{ elastic buffer} é obrigatório, enquanto que a utilização do bloco de alinhamento de palavras exige que esta correção seja feita fora do transcetor.
 
-Assim sendo, o uso do bloco de alinhamento torna-se útil quando a latência é um requisito crítico do sistema, todavia o uso do \textit{buffer} não requer correção de sinal de relógio externa ao transcetor o que simplifica bastante o sistema. É uma boa opção numa fase inicial do projeto utilizar um \textit{buffer} para fazer as correções de fase , pois, apesar de introduzir um pouco de latência no circuito, não exige lógica externa ao transcetor para correção do sinal de relógio.
+Assim sendo, o uso do bloco de alinhamento torna-se útil quando a latência é um requisito crítico do sistema, todavia o uso do \textit{buffer} não requer correção de sinal de relógio externa ao transcetor o que simplifica bastante o sistema. É uma boa opção numa fase inicial do projeto utilizar um \textit{buffer} para fazer as correções de fase, pois, apesar de introduzir um pouco de latência no circuito, não exige lógica externa ao transcetor para correção do sinal de relógio.
 
 \subsection{Interface com a FPGA}
 
-Este é o bloco responsável pela conexão entre os dados do recetor com o resto da FPGA. Toda a lógica desenvolvida na FPGA deve receber os dados provenientes do recetor pela porta "RXDATA", lendo-os ao flanco positivo do sinal de relógio "RXUSRCLK2". O tamanho desta porta depende de vários fatores internos do recetor, tal como acontecia no transmissor,  como por exemplo se a codificação está ativa ou não e ainda qual o tamanho do \textit{datapath} usado (2 ou 4 \textit{byte}). As diferentes possibilidades de largura da porta de "RXDATA" assemelham-se ás da largura da porta de entrada do transmissor (TXDATA), e por isso é possível encontrá-las na tabela \ref{table:tx_interface}.
+Este é o bloco responsável pela conexão entre os dados do recetor com o resto da FPGA. Toda a lógica desenvolvida na FPGA deve receber os dados provenientes do recetor pela porta "RXDATA" lendo-os ao flanco positivo do sinal de relógio "RXUSRCLK2". O tamanho desta porta depende de vários fatores internos do recetor, tal como acontecia no transmissor,  como por exemplo se a codificação está ativa ou não e ainda qual o tamanho do \textit{datapath} usado (2 ou 4 \textit{byte}). As diferentes possibilidades de largura da porta de "RXDATA" assemelham-se às da largura da porta de entrada do transmissor (TXDATA), e por isso é possível encontrá-las na tabela \ref{table:tx_interface}.
 
 Também à semelhança do transmissor existem dois sinais de relógio necessários para o correto funcionamento do recetor: RXUSRCLK e RXUSRCLK2. O segundo já foi mencionado como o sinal de relógio de sincronização entre o recetor e a lógica da FPGA, e o sinal de relógio RXUSRCLK é o sinal interno para a lógica do bloco PCS (que lida com os dados em paralelo). O valor deste relógio depende da velocidade de transmissão do canal e do tamanho interno do \textit{datapath} usados, sendo possível calcular o seu valor através da equação presente em \ref{eq:lineRate}.
 
-A relação entre estes dois sinais de relógio mencionados (RXUSRCLK e RXUSRCLK2) é bem definida, dependendo do tamanho da porta "RXDATA" e do tamanho do \textit{datapath} usado.  A relação entre estes dois sinais de relógio do recetor é idêntica à do transmissor e por isso é possivel encontrar essas mesmas relações na tabela \ref{table:freq_tx}.
+A relação entre estes dois sinais de relógio mencionados (RXUSRCLK e RXUSRCLK2) é bem definida, dependendo do tamanho da porta "RXDATA" e do tamanho do \textit{datapath} usado.  A relação entre estes dois sinais de relógio do recetor é idêntica à do transmissor e por isso é possível encontrar essas mesmas relações na tabela \ref{table:freq_tx}.
 
 \section{Análise das características de transmissão}
 
 Nesta secção são abordadas as diferentes características de transmissão possíveis de obter (velocidades de transmissão, tamanho de tramas entre outras) tendo em conta as restrições dos GTX, de maneira a otimizar a transmissão.
 
-O projeto pode ser abordado de várias maneiras, desde a restrição da largura de banda base da transmissão até à limitação do número de bits por tramas. No sentido de simplificar o projeto e torná-lo eficiente em termos lógicos restringiu-se a cadência de entrada dos dados no transcetor para \SI{148.5}{\mega\hertz}. Desta maneira não é necessário o uso de memórias, por exemplo FIFO, para armazenar dados antes da sua entrada nos transcetores.
+O projeto pode ser abordado de várias maneiras, desde a restrição da largura de banda base da transmissão até à limitação do número de bits por tramas. No sentido de simplificar o projeto e torná-lo eficiente em termos lógicos restringiu-se a cadência de entrada dos dados no transcetor para \SI{148.5}{\mega\hertz}. Deste modo, não é necessário o uso de memórias, por exemplo FIFO, para armazenar dados antes da sua entrada nos transcetores.
 
 Com esta restrição, e para se retirar algumas conclusões relativamente à otimização de transmissão dos dados em série, efetuaram-se cálculos de débitos de transmissão para as diferentes larguras na porta de dados. Para efetuar estes cálculos utilizou-se a equação apresentada em \ref{eq:lineRate}. Esses resultados estão apresentados na tabela \ref{table:line_rates}.
-
-
-
-\SI{}{\giga\bit\per\second}
-
 
 \begin{table}[h!]
 	\centering
@@ -322,13 +314,13 @@ Com esta restrição, e para se retirar algumas conclusões relativamente à oti
 \end{table}
 
 
-Pela tabela \ref{table:line_rates}, constata-se que ,fixando a taxa de amostragem do sinal à entrada do transmissor, é possível obter diversas taxas de transmissão para diferentes larguras da porta de interface com a FPGA. O projeto pode utilizar diferentes larguras de tramas a transmitir, consoante a transmissão que é realizada: uma transmissão apenas de imagem não necessita de transmitir tantos dados como uma transmissão de imagem e som, obtendo-se assim diferentes débitos de linha.
+Pela tabela \ref{table:line_rates}, verifica-se que, fixando a taxa de amostragem do sinal à entrada do transmissor, é possível obter diversas taxas de transmissão para diferentes larguras da porta de interface com a FPGA. O projeto pode utilizar diferentes larguras de tramas a transmitir, consoante a transmissão que é realizada: uma transmissão apenas de imagem não necessita de transmitir tantos dados como uma transmissão de imagem e som, obtendo-se assim diferentes débitos de linha.
 
 A escolha da largura das tramas a ser transmitido bem como a motivação para tal são abordados aquando da apresentação de cada arquitetura transmitida.
 
 \section{Estrutura do transcetor GTX}
 
-Esta secção apresenta a estrutura geral do IP disponibilizado pela \textit{Xilinx} gerado no \textit{software} VIVADO. Mais concretamente, todas as suas entradas e saídas  no sentido de se poder perceber as características do mesmo.  Para gerar este módulo existe uma interface do \textit{software} VIVADO que permite configurar as diversas características do transmissor e do recetor GTX apresentadas nas secções \ref{sec:tx_gtx} e \ref{sec:_rx_gtx} respetivamente. 
+Esta secção apresenta a estrutura geral do IP disponibilizado pela \textit{Xilinx} gerado no \textit{software} VIVADO, mais concretamente todas as suas entradas e saídas no sentido de se poder perceber as características do mesmo.  Para gerar este módulo existe uma interface do \textit{software} VIVADO que permite configurar as diversas características do transmissor e do recetor GTX apresentadas nas secções \ref{sec:tx_gtx} e \ref{sec:_rx_gtx} respetivamente. 
 
 \begin{figure}[h!]
 	\begin{center}
@@ -340,7 +332,7 @@ Esta secção apresenta a estrutura geral do IP disponibilizado pela \textit{Xil
 	\end{center}
 \end{figure}
 
-Na figura \ref{fig:gtx_wrapper} visualiza-se a estrutura geral do IP GTX gerado pelo \textit{software} VIVADO. O módulo de topo representado na figura é constituído por diversos sub-módulos, tal como indicado \cite{R022}. Contudo, esses sub-módulos são de gestão interna do transcetor e como tal não são relevantes para o projeto. Por esse motivo, nesta figura apenas são apresentadas as portas de entrada e saída de maior importância para o mesmo, sendo detalhadas seguidamente:
+Na figura \ref{fig:gtx_wrapper} visualiza-se a estrutura geral do IP GTX gerado pelo \textit{software} VIVADO. O módulo de topo representado na figura é constituído por diversos sub-módulos, tal como indicado \cite{R022}. Contudo, esses sub-módulos são de gestão interna do transcetor e não são relevantes para o projeto. Por esse motivo, nesta figura apenas são apresentadas as portas de entrada e saída de maior importância para o mesmo, sendo detalhadas seguidamente:
 
 \begin{itemize}
 	\item \textbf{GTREFCLK\_PAD\_N\_IN e GTREFCLK\_PAD\_P\_IN}:  Entrada do sinal de relógio diferencial externo de referência.
@@ -368,13 +360,13 @@ Na figura \ref{fig:gtx_wrapper} visualiza-se a estrutura geral do IP GTX gerado 
 \end{itemize}
 %%explicar que as portas que estão conectadas pq serao necessários aqueles blocos
 
-Através da observação da figura \ref{fig:gtx_wrapper} é possivel ver que a entrada TX\_DATA\_IN e a saída RX\_DATA\_OUT estão conectadas a dois blocos: um bloco gerador de tramas a enviar para o transmissor e um bloco que verifica as tramas que chegam do recetor. O funcionamento destes blocos pode variar de arquitetura para arquitetura, contudo os mesmos operam segundo os sinais de relógio TXUSRCLK2 e RXUSRCLK2 e são obrigatórios para o correto funcionamento de todo o sistema. Todos os outros sinais não estão diretamente conectados a nenhuma entrada nem saída porque podem variar entre as arquiteturas.
+Através da observação da figura \ref{fig:gtx_wrapper} é possível ver que a entrada TX\_DATA\_IN e a saída RX\_DATA\_OUT estão conectadas a dois blocos: um bloco gerador de tramas a enviar para o transmissor e um bloco que verifica as tramas que chegam do recetor. O funcionamento destes blocos pode variar de arquitetura para arquitetura, porém os mesmos operam segundo os sinais de relógio TXUSRCLK2 e RXUSRCLK2 e são obrigatórios para o correto funcionamento de todo o sistema. Todos os outros sinais não estão diretamente conectados a nenhuma entrada nem saída porque podem variar entre as arquiteturas.
 
 %%explicar o que é a interface DRP e q nao vai ser usada
 A interface DRP é uma característica do transcetor que não sendo abordada neste projeto, convém fazer uma breve referência à mesma. Esta permite configurar dinamicamente algumas características dos transcetores, o que em alguns casos pode ser útil. É impossível desativá-la na interface do \textit{software} que gera o módulo GTX.
 
 %%explicar o porquê do RXSLIDE
-É de notar ainda que a porta RXSLIDE apresentada na figura \ref{fig:gtx_wrapper} pode não existir se assim se pretender. Todavia, optou-se por ativar estar porta pois permite ativar o alinhamento manual das palavras recebidas. Alinhamento este, que pode vir a ser útil para transmissões cuja taxa de débito é superior a \SI{5}{\giga\bit\per\second}.
+É de notar ainda que a porta RXSLIDE apresentada na figura \ref{fig:gtx_wrapper} pode não existir se assim se pretender. Todavia, optou-se por ativá-la pois permite o alinhamento manual das palavras recebidas. Alinhamento este, que pode vir a ser útil para transmissões cuja taxa de débito é superior a \SI{5}{\giga\bit\per\second}.
 
 %CONCLUIR_ESTA_SECÇÃO
 
