@@ -19,14 +19,14 @@ Numa perspectiva geral do projeto, os objetivos foram cumpridos: a transmissão 
 Durante o desenvolvimento do projeto foram encontradas várias dificuldades em diferentes fases do mesmo que passam de seguida a ser expostas.
 
 %%parte do HDMI
-Do ponto de vista da primeira fase do projeto, as principais dificuldade encontradas foram a familiarização com as placas HDMI: perceber claramente o funcionamento das suas diferentes configurações e ainda o processo que se toma para a sua reconfiguração. Apesar de existirem manuais sobre as placas, nem todos os detalhes do funcionamento das mesmas são bem explícitos. Relativamente ao processo de reconfiguração das placas, não foi esta a principal dificuldade encontrada nesta fase, mas foi algo que demorou a ser bem entendido e que deve ficar documentado para trabalho futuro. 
+Do ponto de vista da primeira fase do projeto, as principais dificuldade encontradas foram a familiarização com as placas HDMI: perceber claramente o funcionamento das suas diferentes configurações e ainda o processo que se toma para a sua reconfiguração. Apesar de existirem manuais sobre as placas nem todos os detalhes do funcionamento das mesmas são bem explícitos. Relativamente ao processo de reconfiguração das placas, não foi esta a principal dificuldade encontrada nesta fase, mas foi algo que demorou a ser bem entendido e que deve ficar documentado para trabalho futuro. 
 
 
 %%parte do GTX
 %-> Informação pouco clara sobre o GTX
 %-> Muito tempo perdido a perceber os modulos GTX
 %-> Curva de aprendizagem de declive elevado.
-Relativamente à fase do projeto cujo objetivo é a utilização dos transcetores disponibilizados na placa FPGA VC7203 para transmissão de dados em série, foram encontradas diversas dificuldades. Isto porque o módulo GTX disponibilizado pela \textit{Xilinx} é muito completo, mas ao mesmo tempo também muito complexo levando a que a curva de aprendizagem relativamente a estes transcetores não seja linear. Apesar de existir diversa documentação relativamente a este tópico, existem certas conclusões que só se obtêm através da experimentação dos transcetores em simulação, o que leva a muito tempo empregue para perceber as suas características e o seu funcionamento num geral.
+Relativamente à fase do projeto cujo objetivo é a utilização dos transcetores disponibilizados na placa FPGA VC7203 para transmissão de dados em série, foram encontradas diversas dificuldades. Isto porque, o módulo GTX disponibilizado pela \textit{Xilinx} é muito completo mas ao mesmo tempo também muito complexo levando a que a curva de aprendizagem relativamente a estes transcetores não seja linear. Apesar de existir diversa documentação relativamente a este tópico, existem certas conclusões que só se obtêm através da experimentação dos transcetores em simulação, o que leva a muito tempo empregue para perceber as suas características e o seu funcionamento num geral.
 
 
 %%geral
@@ -39,14 +39,14 @@ Numa perspectiva geral do projeto, as principais dificuldades encontradas relaci
 
 \section{Trabalho futuro}
 
-Todo o trabalho realizado teve como motivação a sua inclusão no projeto \textit{iBrow} no sentido de testar os transcetores desenvolvidos pelo mesmo. Consequentemente, para que tal inclusão seja realizada é necessário fazer algumas melhorias do trabalho desenvolvido, que passam de seguida a ser enumeradas:
+Todo o trabalho realizado teve como motivação a sua inclusão no projeto \textit{iBrow} no sentido de testar os transcetores desenvolvidos pelo mesmo. Consequentemente, para que tal inclusão seja realizada é necessário fazer algumas melhorias do trabalho desenvolvido que passam de seguida a ser enumeradas:
 \begin{itemize}
-	\item \textbf{Protocolo de comunicação mais robusto}: Como já mencionado, neste projeto, optou-se por abordar a serialização de uma forma direta sem criar um protocolo de comunicação robusto. Assim sendo, o recurso a este procedimento vem melhorar o processo de transmissão de dados em série colmatando algumas falhas.
+	\item \textbf{Protocolo de comunicação mais robusto}: Como já mencionado neste projeto, optou-se por abordar a serialização de uma forma direta sem criar um protocolo de comunicação robusto. Assim sendo, o recurso a este procedimento vem melhorar o processo de transmissão de dados em série colmatando algumas falhas.
 	
 	\item \textbf{Implementação de códigos detetores de erros:} Com a inserção do sinal em canais ruidosos é expectável que os sinais sejam alterados. O recurso à implementação de códigos detetores de erros vai permitir que tais alterações dos dados sejam detetadas evitando assim que dados errados sejam transmitidos para o final da cadeia de transmissão.
 \end{itemize}
 
-Outros aspectos que podem ser explorados, como trabalho futuro, é a transmissão dos dados de som em série, visto que já foi possível obter essa mesma transmissão de uma forma direta e a utilização da interface DRP do GTX para que haja suporte de diferentes resoluções de imagem.
+Outros aspetos que podem ser explorados, como trabalho futuro, é a transmissão dos dados de som em série, visto que já foi possível obter essa mesma transmissão de uma forma direta e a utilização da interface DRP do GTX para que haja suporte de diferentes resoluções de imagem.
 
 %-> Tornar a parte de serialização mais robusta
 %
