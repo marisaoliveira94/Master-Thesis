@@ -16,20 +16,19 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
   communications},'' {\em Journal of Applied Physics}, vol.~107, no.~11, 2010.
 
 \bibitem{R004}
-W.~contributors, ``Audio and video interfaces and connectors,'' 2016.
+{Wikipedia Contributors}, ``{HDMI},'' 2016.
 
 \bibitem{R008}
 Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
-  Board User Guide (UG957)}}.
-\newblock 2014.
+  Board User Guide (UG957)}}, 1.3~ed., outubro 2014.
 
 \bibitem{R030}
 Xilinx, ``{I/O Design Flexibility with the FPGA Mezzanine Card (FMC)},''
   vol.~315, 2009.
 
 \bibitem{R009}
-Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}.
-\newblock 2014.
+Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}, 1.04~ed.,
+  agosto 2014.
 
 \bibitem{R016}
 A.~Devices, {\em {ADV7612 Reference Manual}}.
@@ -50,8 +49,8 @@ A.~Athavale and C.~Christensen, {\em {High-Speed Serial I/0 Made Simple}}.
 D.~Chen, ``{SerDes Transceivers for High-speed Serial Communications},''
 
 \bibitem{R011}
-Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}}.
-\newblock 2016.
+Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide (UG476)}},
+  1.12~ed., dezembro 2016.
 
 \bibitem{R034}
 E.~Tutorials, ``{The Shift Register}.''
@@ -70,8 +69,9 @@ R.~Williams, ``{A Painless Guide To CRC Error Detection Algorithms},'' {\em
   Rocksoft Pty Ltd.}, p.~34, 1993.
 
 \bibitem{R010}
-Xilinx and Inc, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for
-  High-Speed Serial I/O Connectivity, White Paper},'' 2013.
+H.~Fu, ``{Xilinx WP431 Leveraging 7 Series FPGA Transceivers for High-Speed
+  Serial I/O Connectivity, White Paper},'' tech. rep., Xilinx and Inc, março
+  2013.
 
 \bibitem{R024}
 C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification

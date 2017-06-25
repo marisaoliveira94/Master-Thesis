@@ -3,55 +3,13 @@
 Este anexo aborda detalhadamente as conexões que as placas HDMI têm disponíveis para conexão com a FPGA consoante a configuração das mesmas. São apresentados todos os pinos que transmitem dados, qual o nome da ligação desses pinos nas placas HDMI e ainda a descrição dos sinais.
 \section{Configuração por omissão} \label{ap1:default}
 
-Esta secção apresenta todas as portas das placas HDMI configuradas por omissão (tanto recetora como transmissora) que transmitem dados que são utilizados no projeto. De mencionar que esta configuração suporta dois canais (0 e 1), no entanto apenas são apresentadas as portas relativas ao canal 0 pois é o único utilizado no projeto.
+Esta secção apresenta todas as portas das placas HDMI configuradas por omissão (tanto recetora como transmissora) que transmitem dados que são utilizados no projeto na tabela \ref{table:HDMIdataDefaultdetail}. De mencionar que esta configuração suporta dois canais (0 e 1), no entanto apenas são apresentadas as portas relativas ao canal 0 pois é o único utilizado no projeto.
 
-%\begin{longtable}[h!]
-%	{@{}llll@{}}
-%		\centering	
-%		\caption{Localização dos pinos de dados utilizados em nas placas HDMI configuradas por omissão, adaptada de \cite{R009}}
-%		\label{table:HDMIdataDefaultdetail}
-%		\hline
-%		\centering	
-%		\multicolumn{1}{c}{\textbf{PORTA}} & \multicolumn{1}{c}{\textbf{FPGA -\textgreater FMC (RX)}} & \multicolumn{1}{c}{\textbf{FMC -\textgreater FPGA (TX)}} & \multicolumn{1}{c}{\textbf{Descrição}} \\ \hline \endhead
-%		CLK0\_M2C\_P & RX\#0\_LLC                           & TX\#0\_DCLK                        & Sinal de relógio dos pixeis         \\ 
-%		LA00\_P\_CC  & RX\#0\_VSYNC                         & TX\#0\_VSYNC                       & Sincronização Vertical          \\ 
-%		LA01\_P\_CC  & RX\#0\_HSYNC                         & TX\#0\_HSYNC                       & Sincronização Horizontal        \\ 
-%		LA02\_P      & RX\#0\_DE                            & TX\#0\_DE                          & Sinal de dados ativos    \\ 
-%		LA03\_P      & RX\#0\_P0                            & TX\#0\_D0                          & Pixel de imagem B{[}0{]} \\ 
-%		LA04\_P      & RX\#0\_P1                            & TX\#0\_D1                          & Pixel de imagem B{[}1{]} \\ 
-%		LA05\_P      & RX\#0\_P2                            & TX\#0\_D2                          & Pixel de imagem B{[}2{]} \\ 
-%		LA06\_P      & RX\#0\_P3                            & TX\#0\_D3                          & Pixel de imagem B{[}3{]} \\ 
-%		LA07\_P      & RX\#0\_P4                            & TX\#0\_D4                          & Pixel de imagem B{[}4{]} \\ 
-%		LA08\_P      & RX\#0\_P5                            & TX\#0\_D5                          & Pixel de imagem B{[}5{]} \\ 
-%		LA09\_P      & RX\#0\_P6                            & TX\#0\_D6                          & Pixel de imagem B{[}6{]} \\ 
-%		LA10\_P      & RX\#0\_P7                            & TX\#0\_D7                          & Pixel de imagem B{[}7{]} \\ 
-%		LA11\_P      & RX\#0\_P8                            & TX\#0\_D8                          & Pixel de imagem B{[}8{]} \\ 
-%		LA12\_P      & RX\#0\_P9                            & TX\#0\_D9                          & Pixel de imagem B{[}9{]} \\ 
-%		LA13\_P      & RX\#0\_P10                           & TX\#0\_D10                         & Pixel de imagem G{[}0{]} \\ 
-%		LA14\_P      & RX\#0\_P11                           & TX\#0\_D11                         & Pixel de imagem G{[}1{]} \\ 
-%		LA15\_P      & RX\#0\_P12                           & TX\#0\_D12                         & Pixel de imagem G{[}2{]} \\ 
-%		LA16\_P      & RX\#0\_P13                           & TX\#0\_D13                         & Pixel de imagem G{[}3{]} \\ 
-%		LA17\_P\_CC  & RX\#0\_P14                           & TX\#0\_D14                         & Pixel de imagem G{[}4{]} \\ 
-%		LA18\_P\_CC  & RX\#0\_P15                           & TX\#0\_D15                         & Pixel de imagem G{[}5{]} \\ 
-%		LA19\_P      & RX\#0\_P16                           & TX\#0\_D16                         & Pixel de imagem G{[}6{]} \\ 
-%		LA20\_P      & RX\#0\_P17                           & TX\#0\_D17                         & Pixel de imagem G{[}7{]} \\ 
-%		LA21\_P      & RX\#0\_P18                           & TX\#0\_D18                         & Pixel de imagem G{[}8{]} \\ 
-%		LA22\_P      & RX\#0\_P19                           & TX\#0\_D19                         & Pixel de imagem G{[}9{]} \\ 
-%		LA23\_P      & RX\#0\_P20                           & TX\#0\_D20                         & Pixel de imagem R{[}0{]} \\ 
-%		LA24\_P      & RX\#0\_P21                           & TX\#0\_D21                         & Pixel de imagem R{[}1{]} \\ 
-%		LA25\_P      & RX\#0\_P22                           & TX\#0\_D22                         & Pixel de imagem R{[}2{]} \\ 
-%		LA26\_P      & RX\#0\_P23                           & TX\#0\_D23                         & Pixel de imagem R{[}3{]} \\ 
-%		LA27\_P      & RX\#0\_P24                           & TX\#0\_D24                         & Pixel de imagem R{[}4{]} \\ 
-%		LA28\_P      & RX\#0\_P25                           & TX\#0\_D25                         & Pixel de imagem R{[}5{]} \\ 
-%		LA29\_P      & RX\#0\_P26                           & TX\#0\_D26                         & Pixel de imagem R{[}6{]} \\ 
-%		LA30\_P      & RX\#0\_P27                           & TX\#0\_D27                         & Pixel de imagem R{[}7{]} \\ 
-%		LA31\_P      & RX\#0\_P28                           & TX\#0\_D28                         & Pixel de imagem R{[}8{]} \\ 
-%		LA32\_P      & RX\#0\_P29                           & TX\#0\_D29                         & Pixel de imagem R{[}9{]} \\ \hline
-%\end{longtable}
+
 
 \section{Suporte de um canal de imagem e áudio} \label {ap1:HDMIconfig+audio}
 
-Nesta secção são apresentadas todas as portas das placas HDMI configuradas para terem suporte de imagem e áudio num canal que enviam dados para a FPGA utilizados no projeto. São apresentados os nomes das portas nas placas, os nomes dos sinais tanto do lado do recetor como do transmissor e a sua descrição.
+Nesta secção são apresentadas todas as portas das placas HDMI configuradas para terem suporte de imagem e áudio num canal que enviam dados para a FPGA utilizados no projeto. São apresentados os nomes das portas nas placas, os nomes dos sinais tanto do lado do recetor como do transmissor e a sua descrição. Tal informação é apresentada na tabela \ref{table:HDMI1canal+audioDETAIL}.
 
 %\begin{longtable}[h!]
 %	{@{}llll@{}}
@@ -118,7 +76,7 @@ Nesta secção são apresentadas todas as portas das placas HDMI configuradas pa
 Nesta secção são apresentados os dados enviados pelas placas HDMI configuradas para a versão de suporte de imagem em dois canais melhorada. Para cada porta são apresentados os nomes dos sinais tanto na placa transmissora como recetora e também é descrito o seu funcionamento. De notar que esta configuração suporta dois canais, mas na tabela \ref{table:HDMI1canal_melhorado} apenas é apresentado o canal 0, visto que o canal 1 não é utilizado.
 \\
 
-
+%
 %\begin{longtable}[h!]
 %	{@{}llll@{}}
 %	\caption{Localização dos pinos de dados utilizados nas placas HDMI com a configuração de suporte de dois canais melhorado, adaptada de \cite{R013}}
