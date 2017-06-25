@@ -10,4 +10,15 @@ Numa primeira fase são desenvolvidas arquiteturas que permitem a comunicação 
 \chapter*{Abstract}
 %\addcontentsline{toc}{chapter}{Abstract}
 
-Now I have to write it in English
+
+Our society is increasingly dependent on communication services, demaning better and faster connections, reaching in a near future the order of hundreds of \SI{}{\giga\bit\per\second}. The \textit{iBrow} project, which is being developed by several partners, including INESC-TEC, comes with a new proposal of the frequency spectrum exploitation, allowing high-speed communications. This project also proposes a methodology that allows the manufacturing of low budget transceivers capable of reaching big transmission rates. The HDMI interface is increasingly used in all kinds of environment: from enterprises until domestic use. For that reason it is a good interface to test the transceivers that are being developed. Therefore, in this dissertation is proposed a project whose motivation is to test the \textit{iBrow} transceivers.
+
+The progress work is based on the development and implementation of a design on the FPGA that is able to support signals from an HDMI sink, serialized them and send it through a high-speed channel. This architecture allows the reverse process, in other words, it is able to receive the high-speed serial data and send it to and HDMI source. To accomplish the proposed goals, the project is divided in two parts.
+
+The firts step proposes architectures that allow the communication between two devices using two HDMI boards and a 7th series FPGA to reach the transmission. These architectures differs from each other regarding the kind of the transmission: different formats of image, or support of image and sound.
+
+In the second phase of the project, an architecture which is able to serialize data and send it through the FPGA high-speed outputs is developed. It also supports the reception of the serial data and do the reverse process, which is convert it to its original format.
+
+Finally, one can reach the final result by joining the two phases of the project, which is obtain a serial communication between HDMI sink and source.
+
+
