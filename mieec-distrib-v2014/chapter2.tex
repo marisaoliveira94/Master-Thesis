@@ -1,4 +1,4 @@
-% !TeX spellcheck = <none>
+% !TeX spellcheck = pt_BR
 
 \chapter{Revisão Bibliográfica} \label{chap:chap2}
 
@@ -18,35 +18,35 @@ No caso da transmissão de sinais de áudio e vídeo digital existem várias int
 \section{HDMI (\textit{High Definition Multimedia Interface})}\label{sec:HDMI}
 O HDMI é uma interface de áudio e vídeo de alta definição que transporta dados áudio no formato não comprimido. Suporta num único cabo qualquer formato de vídeo em diversas resoluções e desde 2004 tem vindo a sofrer algumas alterações que vêm melhorar o desempenho da interface. 
 
-Esta interface está dividida em diversos canais de comunicação que implementam determinados protocolos, entre os quais se destacam as seguintes de \cite{R002}:
-\subsection{DDC - \textit{Display Data Channel} } \label{subsec:DDC} 
+Esta interface está dividida em diversos canais de comunicação que implementam determinados protocolos e tecnologias, entre os quais se destacam as seguintes de \cite{R002}:
+\subsection*{DDC - \textit{Display Data Channel} } \label{subsec:DDC} 
 É um conjunto de protocolos utilizado nas comunicações digitais entre um dispositvo de origem e um dispositivo final que permite a comunicação entre ambos. Estes protocolos permitem que o ecrã comunique com o seu adaptador quais os modos que consegue suportar e também que o dispositivo que liga ao ecrã consiga ajustar alguns parâmetros, como por exemplo o contraste e a luminosidade. EDID (\textit{Extended display identification data}) é a estrutura \textit{standard} para este tipo de comunicações que define as capacidades do monitor e os modos gráficos suportados pelo mesmo.  Este protocolo é utilizado pela \textit{source} da comunicação do HDMI para obter os dados necessários do dispoistivo \textit{sink}, no sentido de perceber quais os modos suportados pelo mesmo. Este canal é também ativamente usado para HDCP (\textit{High-Bandwith Digital Content Protection}).
 
-\subsection{TMDS - \textit{Transition-Minimized Differential Signaling} } \label{subsec:TMDS} 
+\subsection*{TMDS - \textit{Transition-Minimized Differential Signaling} } \label{subsec:TMDS} 
 É uma tecnologia utilizada para transmissão de dados em série de alta velocidade utilizado em comunicações digitais. O transmissor implementa um algoritmo que reduz as interferências eletromagnéticas nos cabos e permite ainda uma recuperação robusta de sinal de relógio no recetor. 
 
-Em específico na interface HDMI, este protocolo divide a informação a transmitir em 3 principais pacotes e intercala a sua transmissão: Período de transmissão de vídeo, período de transmissão de dados e período de controlo. No primeiro período (período de transmissão de vídeo) são transmitidas os pixeis do vídeo em linha. No segundo período (o período de transmissão de dados) são transmitidos os dados de vídeo e os dados auxiliares à transmissão dentro dos respectivos pacotes. O terceiro período ocorre entre os dois anteriores. 
+Em específico na interface HDMI, este protocolo divide a informação a transmitir em 3 principais pacotes e intercala a sua transmissão: Período de transmissão de vídeo, período de transmissão de dados e período de controlo. No primeiro período (período de transmissão de vídeo) são transmitidos os píxeis do vídeo em linha. No segundo período (o período de transmissão de dados) são transmitidos os dados de vídeo e os dados auxiliares à transmissão dentro dos respectivos pacotes. O terceiro período ocorre entre os dois anteriores. 
 
 Para além de ser utilizada no HDMI, esta técnica é também utilizada em interfaces DVI.
 
-\subsection{CEC - \textit{Consumer Electronics Control} } \label{subsec:CEC} 
+\subsection*{CEC - \textit{Consumer Electronics Control} } \label{subsec:CEC} 
 É uma característica do HDMI que permite ao utilizador controlar até 15 dispositivos que tenham esta mesma característica ativa e que estão conectados por HDMI usando apenas um controlo remoto. Também é possivel dispositivos inviduais controlarem outros dispositivos sem intervenção do utilizador
 
-\subsection{ARC - \textit{Audio Return Channel}  } \label{subsec:ARC} 
-Esta característica do HDMI utiliza 2 pins do conector. É uma ligação de audio que tem como objetivo substituir outros cabos entre a TV e outros recetores ou então sistema de som. Esta direção é usada quando é a TV que gera ou recebe o vídeo mas é outro equipamente que reproduz o som. Esta característica está apenas disponível a partir da versão 1.4 de HDMI.
+\subsection*{ARC - \textit{Audio Return Channel}  } \label{subsec:ARC} 
+Esta característica do HDMI utiliza 2 pinos do conector. É uma ligação de audio que tem como objetivo substituir outros cabos entre a TV e outros recetores ou então sistema de som. Esta direção é usada quando é a TV que gera ou recebe o vídeo mas é outro equipamente que reproduz o som. Esta característica está apenas disponível a partir da versão 1.4 de HDMI.
 
-\subsection{HEC - \textit{HDMI Ethernet Channel}  } \label{subsec:HEC} 
-Esta especificação do HDMI, tal como a anterior, está também apenas disponível a partir da versão 1.4 do HDMI e é uma tecnologia capaz de consolidar vídeo, audio e dados em série num único cabo HDMI, permitindo também aplicações baseadas em IP sobre o HDMI e uma comunicação \textit{Ethernet} bidireccional até 100 Mbit/s.
+\subsection*{HEC - \textit{HDMI Ethernet Channel}  } \label{subsec:HEC} 
+Esta especificação do HDMI, tal como a anterior, está também apenas disponível a partir da versão 1.4 do HDMI e é uma tecnologia capaz de consolidar vídeo, audio e dados em série num único cabo HDMI, permitindo também aplicações baseadas em IP sobre o HDMI e uma comunicação \textit{Ethernet} bidireccional até \SI{100}{\mega\bit\per\second}.
 
 Uma das principais características mais recentes das interfaces HDMI prende-se ao facto de permitir que sinais não sejam reproduzidos em dipositivos não autrizados. Isto é, através de um protocolo cujo nome já foi referido anteriormente, HDCP (\textit{High-Bandwith Digital Content Protection}), o sinal HDMI pode ser encriptado e posteriormente transmitido pela \textit{source}, protegendo assim a sua reprodução em dispositivos não autorizados. Esta tem vindo a tornar-se uma característica importante, visto que a reprodução ilegal de vídeos tem vindo a tornar-se reccorrente nos dias atuais.
 
 \section{Transmissão de dados HDMI}\label{sec:HDMIinFPGA}
-A interface HDMI, tal como descrito no subcapítulo anterior, consiste numa interface que permite a transferência de sinais áudio e vídeo digitais entre dois dispositivos. Para que seja possivel a conexão entre dois dispositivos HDMI é necessário logo à partido que existam dois conectores HDMI, e ainda que o sinal que vem transportado no cabo seja descodificado para apenas serem transmitidos os dados referentes à imagem e ao som.   
+A interface HDMI, tal como descrito no subcapítulo anterior, consiste numa interface que permite a transferência de sinais áudio e vídeo digitais entre dois dispositivos. Para que seja possivel a conexão entre dois dispositivos HDMI é necessário logo à partida que existam dois conectores HDMI, e ainda que o sinal que vem transportado no cabo seja convertido para apenas serem transmitidos os dados referentes à imagem e ao som.   
 
-O projeto recorre então à utilização de um tipo de \textit{hardware} capaz de cumprir as duas funções descritas, que são duas placas HDMI com o nome de TB-FMC-HDMI2.Ao todo são usadas duas placas, uma recetora do sinal HDMI (RX) e outra transmissora do sinal HDMI (TX) sendo que cada uma tem dois canais (RX0 e RX1, TX0 e TX1). No caso da placa recetora o sinal proveniente da fonte HDMI é recebido e, através dos conectores FMC, envia apenas os dados referentes à imagem e som. No caso da placa transmissora o processo é inverso, ou seja, os conectores FMC recebem os dados apenas referentes à imagem e ao som e a placa envia um sinal HDMI através do seu conector para o dispositivo final HDMI.
+O projeto recorre então à utilização de um tipo de \textit{hardware} capaz de cumprir as duas funções descritas, que são duas placas HDMI com o nome de TB-FMC-HDMI2.Ao todo são usadas duas placas, uma recetora do sinal HDMI (RX) e outra transmissora do sinal HDMI (TX) sendo que cada uma tem dois canais (RX0 e RX1, TX0 e TX1). No caso da placa recetora o sinal proveniente da fonte HDMI é recebido e, através dos conectores FMC  (\textit{FPGA Mezzanine Card}) , envia apenas os dados referentes à imagem e som. No caso da placa transmissora o processo é inverso, ou seja, os conectores FMC recebem os dados apenas referentes à imagem e ao som e a placa envia um sinal HDMI através do seu conector para o dispositivo final HDMI.
 
 \subsection{Conexão à FPGA XILINX VC7203 Virtex-7} \label{subsec:HDMIconexao} 
-Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visualiza-se a placa de desenvolvimento a ser utilizada no projeto. Assinalado a tracejado vermelho é possível visualizar os 3 conectores FMC (\textit{FPGA Mezzanine Card}) que a placa VC7203 disponibiliza.
+Na figura~\ref{fig:fpgaVistaGeral}  visualiza-se a placa de desenvolvimento a ser utilizada no projeto. Assinalado a tracejado vermelho é possível visualizar os 3 conectores FMC que a placa VC7203 disponibiliza.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -59,52 +59,14 @@ Na figura~\ref{fig:fpgaVistaGeral} da página~\pageref{fig:fpgaVistaGeral}  visu
 
 %%DIZER AQUI QUE SÃO ESTES CONECTORES QUE SE VÃO LIGAR A FPGA
 %%EXPLICAR EM QUE CONSISTEM OS CONECTORES FMC
-Os conectores assinalados na imagem desta placa tratam-se de conectores FMC HPC (\textit{High Pin Count}) e permitem conectar as placas HDMI com a FPGA. Segundo \cite{R030}, os conectores FMC implementam determinadas normas que permitem uma rápida transmissão de dados entre placas. Exitem dois tipos de conectores FMC : LPC (\textit{Low Pin Count}) que disponibiliza 160 pinos e ainda HPC (\textit{High Pin Count}) que dispõe de 400 pinos. Ainda segundo \cite{R030}, qualquer tipo dos conectores consegue alcançar uma velocidade de conexão de até 2 Gb/s para sinais com sinalização diferencial e única. Para além da rápida velocidade de transmissão, outra gande vantagem que a utilização deste tipo de conectores traz é número de conexões que permite (400 pinos no caso de HPC) para a pequena area que ocupam. 
+Os conectores assinalados na imagem desta placa tratam-se de conectores FMC HPC (\textit{High Pin Count}) e permitem conectar as placas HDMI com a FPGA. Segundo \cite{R030}, os conectores FMC implementam determinadas normas que permitem uma rápida transmissão de dados entre placas. Exitem dois tipos de conectores FMC : LPC (\textit{Low Pin Count}) que disponibiliza 160 pinos e ainda HPC que dispõe de 400 pinos. Ainda segundo \cite{R030}, qualquer tipo dos conectores consegue alcançar uma velocidade de conexão de até \SI{2}{\giga\bit\per\second} para sinais com sinalização diferencial e única. Para além da rápida velocidade de transmissão, outra gande vantagem que a utilização deste tipo de conector traz é número de conexões que permite (400 pinos no caso de HPC) para a pequena area que ocupa. 
 %%ESPECIFICAR QUANTO E QUE PARES SÃO DISPONIBILIZADOS
 
-Em especifico nesta FPGA existem 3 conectores FMC (FMC1, FMC2 e FMC3) que permitem diferentes conectividades. Segundo \cite{R008}, o conector FMC1 dispões de 68 pares diferencias definidos pelo utilizador e ainda 4 sinais de relógio diferenciais. O mesmo acontece para para o conector FMC2. No entanto, o conector FMC3 apenas disponibiliza 65 pares diferencias que podem ser definidos pelo utilizador e 4 sinais de relógio diferencias.
-
-Estes serão os conectores a ser utilizados e mais à frente neste relatório será explicado como é que os sinais são transmitidos. 
-
-
-%A numeração 27, 28 e 29 correspondem aos conectores FMC disponíveis na FPGA a ser utilizada neste projeto. O número 27 corresponde ao conector JA2, 28 corresponde ao JA3 e 29 corresponde ao JA4. Estes conectores são usados como entradas e saídas de uma ligação, que neste caso em especifico será a uma placa HDMI, pois permitem uma ligação de alta velocidade (até 10 Gb/s). Estes três conectores HPC (High Pin Count) são compostos por 10x40 posições que permitem uma comunicação de alta velocidade por uma I/O cujo tamanho é relativamente pequeno. 
-%
-%\textbf{O conector JA2 (FMC1 HPC) permite a seguinte conectividade:}
-%\begin{itemize}
-%	\item 68 pares que podem ser definidos pelo utilizador:
-%	\begin{itemize}
-%		\item 34 pares LA
-%		\item 17 pares HA
-%		\item 17 pares HB
-%	\end{itemize}
-%	\item 4 sinais de relógio diferenciais
-%\end{itemize}
-%\textbf{O conector JA3 (FMC2 HPC) permite a seguinte conectividade:}
-%\begin{itemize}
-%	\item 68 pares que podem ser definidos pelo utilizador:
-%	\begin{itemize}
-%		\item 34 pares LA
-%		\item 17 pares HA
-%		\item 17 pares HB
-%	\end{itemize}
-%	\item 4 sinais de relógio diferenciais
-%\end{itemize}
-%\textbf{O conector JA2 (FMC1 HPC) permite a seguinte conectividade:}
-%\begin{itemize}
-%	\item 65 pares que podem ser definidos pelo utilizador:
-%	\begin{itemize}
-%		\item 34 pares LA
-%		\item 16 pares HA
-%		\item 15 pares HB
-%	\end{itemize}
-%	\item 4 sinais de relógio diferenciais
-%\end{itemize}
-
-
+Em específico nesta FPGA existem três conectores FMC (FMC1, FMC2 e FMC3) que permitem diferentes conectividades. Segundo \cite{R008}, o conector FMC1 dispões de 68 pares diferencias definidos pelo utilizador e ainda quatro sinais de relógio diferenciais. O mesmo acontece para o conector FMC2. No entanto, o conector FMC3 apenas disponibiliza 65 pares diferencias que podem ser definidos pelo utilizador e quatro sinais de relógio diferencias.
 
 \subsection{Recetor} \label{subsec:RX}
 
-Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor.
+Na figura \ref{fig:HDMIblocosRX} é possível visualizar o diagrama de blocos do recetor.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -114,24 +76,27 @@ Na figura~\ref{fig:HDMIblocosRX} na página~\pageref{fig:HDMIblocosRX} é possí
 		\label{fig:HDMIblocosRX}
 	\end{center}
 \end{figure}
-Através  de uma rápida observação deste diagrama é possivel concluir que se pode dividir as suas principais funções em duas partes que passa a ser descritas nos próximos sub-capitulos. 
+
+Através de uma rápida observação deste diagrama é possivel concluir que se pode dividir as suas principais funções em duas partes que passam a ser descritas nas próximas subsecções. 
 
 \subsubsection{Receção do Sinal HDMI (ADV7612 para a FPGA localizada na placa)}
 	
-A receção do sinal HDMI é feita por um conector HDMI e usa um circuito integrado ADV7612BSWZ-P que recebe sinal HDMI e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (electrically erasable programmable read-only memory) que é usada para guardar dados EDID.
+A receção do sinal HDMI é feita por um conector e usa um circuito integrado ADV7612BSWZ-P que recebe o sinal e retira do mesmo os sinais a serem passados para a FPGA localizada na placa HDMI. O recetor tem também uma memória EEPROM (\textit{Electrically Erasable Programmable Read-Only memory}) que é usada para guardar dados EDID.
 	
 \subsubsection{Interface com o conector FMC (da FPGA localizada na placa para o conector FMC)}
 
-Após passarem pela FPGA embebida na placa são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} da página~\pageref{table:HDMIdataRX} (para o caso em que a FPGA está configurada por \textit{default}):
+Após passarem pela FPGA integrada na placa, são passados os seguintes sinais presentes na tabela~\ref{table:HDMIdataRX} (para o caso em que a FPGA está configurada por omissão):
 
 \begin{table}[h!]
 	
 			\centering
+					\caption[Nomes dos pinos da interface FMC de TB-FMCH-HDMI2 RX]{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX (adaptada de \cite{R009})}
+			\label{table:HDMIdataRX}
 			\resizebox{\textwidth}{!}{ 
 			
 			\begin{tabular}{@{}lllll@{}}
 			\toprule
-			{\textbf{Nome do Pin}} & {\textbf{\textit{Input/Output}}} & {\textbf{FPGA para FMC}}& {\textbf{FMC para FPGA}}       \\ \midrule  
+			{\textbf{Nome do Pino}} & {\textbf{\textit{Input/Output}}} & {\textbf{FPGA para FMC}}& {\textbf{FMC para FPGA}}       \\ \midrule  
 			CLK0\_M2C\_P         & \textit{Output}                & RX\#0\_LLC             & RX\#0 sinal LLC                \\ 
 			CLK1\_M2C\_P         & \textit{Output}                & RX\#1\_LLC             & RX\#1 sinal LLC                \\ 
 			LA00\_P\_CC          & \textit{Output}                & RX\#0\_VSYNC           & RX\#0\_VSYNC                   \\ 
@@ -154,17 +119,14 @@ Após passarem pela FPGA embebida na placa são passados os seguintes sinais pre
 			HA00\_N a HA23\_N    & \textit{Input/Output}          & Não usado              & ---------                     \\ \bottomrule	
 		\end{tabular}}		
 		\centering
-		\caption[Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX]{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 RX (adaptada de \cite{R009})}
-		\label{table:HDMIdataRX}
+
 	\end{table}
 
-Através da analise da tabela \ref{table:HDMIdataRX} e do diagrama de blocos da placa na figura \ref{fig:HDMIblocosRX} conclui-se que o integrado ADV7612 é capaz de colocar na sua saída vários sinais (tanto referentes à imagem como ao som), no entanto esses sinais não são todos transmitidos para os conectores FMC. Isto acontece por causa da configuração presente na FPGA embebida que determina que sinais envia para os conectores. 
+Através da análise da tabela \ref{table:HDMIdataRX} e do diagrama de blocos da placa na figura \ref{fig:HDMIblocosRX} conclui-se que o integrado ADV7612 é capaz de colocar na sua saída vários sinais (tanto referentes à imagem como ao som), no entanto estes não são todos transmitidos para os conectores FMC. Isto deve-se à configuração presente na FPGA que determina os sinais a enviar para os conectores. Para além disto, através da leitura de \cite{R016} conclui-se que esta também configura alguns parâmetros do integrado ADV7612 que permitem que este transmita sinais num determinado formato e número de bits. 
 
-Através da leitura de \cite{R016} conclui-se que a configuração presente na FPGA embebida para além de selecionar os dados a enviar para os conectores FMC, configura também alguns parâmetros do integrado ADV7612 que permitem que este reproduza sinais num determinado formato e com um determinado número de bits. 
+Para esta configuração, são transmitidos para os conectores dados referentes à imagem e sinais de sincronização do mesmo. Os dados da imagem são enviados do recetor 0 entre os pinos LA03\_P a LA32\_P, e do recetor 1  entre LA03\_N a LA32\_P. O sinal “\textit{data enable}” sinaliza a chegada de dados e está ativo quando estão a ser transmitidos os sinais referentes a cada pixel. \textit{HSYNC} é um sinal que representa a sincronização horizontal e sincroniza o início da linha do dispositivo de destino com a imagem que o originou. Por outro lado, o sinal \textit{VSYNC} é a representação da sincronização vertical, que tem a mesma função que \textit{HSYNC}, certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
 
-Para esta configuração são transmitidos para os conectores dados FMC referentes à imagem e sinais de sincronização do mesmo. Os dados da imagem são enviados do recetor 0 entre os pinos LA03\_P a LA32\_P, e do recetor 1  entre LA03\_N a LA32\_P. O sinal “\textit{data enable}” é um sinal que sinaliza a chegada de dados e está ativo quando estão a ser transmitidos os sinais referentes a cada pixel. \textit{HSYNC} é um sinal que representa a sincronização horizontal e é um pulso que sincroniza o início da linha do dispositivo de destino com a imagem que a originou. Por outro lado, o sinal \textit{VSYNC} é a representação da sincronização horizontal, que faz o mesmo que \textit{HSYNC} (mas na vertical), certificando-se de que o dispositivo de destino começa no topo na imagem na altura correta.
-
-Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA embebida na placa para os conectores são amostrados na transição de 1 para 0 do sinal de relógio do vídeo, e como tal, estes mesmos dados devem ser lidos na transição de 0 para 1 do sinal do relógio do lado da FPGA principal. A figura~\ref{fig:HDMIamostragemRX} na página~\pageref{fig:HDMIamostragemRX} ilustra esta situação.
+Uma nota importante ainda sobre a passagem dos sinais através dos conectores FMC é que os dados provenientes da FPGA da placa para os conectores são amostrados no flanco negativo do sinal de relógio do vídeo. Assim, estes mesmos dados devem ser lidos no flanco positivo do sinal do relógio do lado da FPGA principal. A figura \ref{fig:HDMIamostragemRX}  ilustra esta situação.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -179,7 +141,8 @@ Uma nota importante ainda sobre a passagem dos sinais através dos conectores FM
 
 \subsection{Transmissor}\label{subsec:TX} 
 
-O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIblocosTX} na página~\pageref{fig:HDMIblocosTX}.
+O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIblocosTX}.
+
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
@@ -191,7 +154,7 @@ O diagrama de blocos do transmissor está representado na figura~\ref{fig:HDMIbl
 Mais uma vez é possível dividir o diagrama em duas principais funções que passam a ser descritas.
 
 \subsubsection{Interface com o conector FMC (do conector FMC para a FPGA localizada na placa)}
-No caso do transmissor o processo é feito no sentido inverso, ou seja, os sinais são lidos dos conectores FMC da placa HDMI e são amostrados para a FPGA embebida na mesma na transição de 0 para 1 do sinal de relógio do HDMI, tal como ilustra a imagem \ref{fig:HDMIamostragemTX} da página \pageref{fig:HDMIamostragemTX} e depois são processados pela FPGA de maneiraa a serem enviados para o transmissor HDMI (ADV7511).
+No caso do transmissor o processo é feito no sentido inverso, ou seja, os sinais são lidos dos conectores FMC da placa HDMI e são amostrados para a FPGA da mesma na transição de 0 para 1 do sinal de relógio do HDMI, tal como ilustra a imagem \ref{fig:HDMIamostragemTX}. Estes são de seguida processados pela FPGA de maneira a serem enviados para o transmissor HDMI (ADV7511).
 
 	\begin{figure}[h!]
 	\begin{center}
@@ -202,13 +165,15 @@ No caso do transmissor o processo é feito no sentido inverso, ou seja, os sinai
 	\end{center}
 \end{figure}
 
-Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX} na página~\pageref{table:HDMIdataRX}, mais uma vez com a placa configurada por \textit{default}, e correspondem aos sinais que a placa transmissora deve receber para enviar para a FPGA.
+Os sinais representados na tabela~\ref{table:HDMIdataTX} são equivalentes aos sinais presentes na tabela~\ref{table:HDMIdataRX}, mais uma vez com a placa configurada por omissão, e correspondem aos sinais que a placa transmissora deve receber através dos seus conectores.
 
 
 
 \begin{table}[h!]
 	
 	\centering
+	\caption[Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX]{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX (adaptada de \cite{R009})}
+	\label{table:HDMIdataTX}
 	\resizebox{\textwidth}{!}{ 	
 		\begin{tabular}{@{}lllll@{}}
 			\toprule
@@ -234,53 +199,11 @@ Os sinais representados na tabela~\ref{table:HDMIdataTX} na página~\pageref{tab
 			CLK3\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
 			HA00\_N a HA23\_N    & Input/Output          & Não usado              & ----------                     \\ \bottomrule
 		\end{tabular}}
-			\caption[Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX]{Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX (adaptada de \cite{R009})}
-			\label{table:HDMIdataTX}
 	\end{table}
-
-%
-%\newcolumntype{d}{D{.}{.}{2.3}}
-%\newcolumntype{C}{>{\centering}p}
-%	\begin{table}[]
-%		\caption{Comparison of Elements in Air on the Space Station and sea level on Earth}    
-%		\centering
-%		\begin{center}
-%			\begin{tabular}{p{1.25in}ddd}
-%				\toprule
-%				\multicolumn{1}{C{1.25in}}{Nome do Pin} & \multicolumn{1}{C{1in}}{Input/0utput} & \multicolumn{1}{C{1.25in}}{FMC para FPGA} &         \multicolumn{1}{C{1in}}{FPGA para TX}\\
-%				\midrule
-%				CLK0\_M2C\_P         & Input                 & TX\#0\_DCLK            & TX\#0 sinal DCLK               \\ 
-%				CLK1\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
-%				LA00\_P\_CC          & Input                 & TX\#0\_VSYNC           & TX\#0\_VSYNC                   \\ 
-%				LA01\_P\_CC          & Input                 & TX\#0\_HSYNC           & TX\#0\_HSYNC                   \\
-%				LA02\_P              & Input                 & TX\#0\_DE              & TX\#0 data enable              \\ 
-%				LA03\_P a LA32\_P    & Input                 &  \multicolumn{1}{C{1in}}{}TX\#0\_D0 a TX\#0\_D29} & TX\#0 dados de vídeo de 0 a 29 \\ 
-%				LA33\_P              & Input/Output          & Não usado              & ----------                     \\ 
-%				CLK0\_M2C\_N         & Input                 & TX\#1\_DCLK            & TX\#0 sinal DCLK               \\ 
-%				CLK1\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
-%				LA00\_N\_CC          & Input                 & TX\#1\_VSYNC           & TX\#1\_VSYNC                   \\ 
-%				LA01\_N\_CC          & Input                 & TX\#1\_HSYNC           & TX\#1\_HSYNC                   \\ 
-%				LA02\_N              & Output                & TX\#1\_DE              & TX\#1 data enable              \\ 
-%				LA03\_N a LA32\_N    & Output                & TX\#1\_D0 a TX\#1\_D9  & TX\#1 dados de vídeo de 0 a 29 \\ 
-%				LA33\_P              & Input/Output          & Não usado              & ----------                     \\ 
-%				CLK2\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
-%				CLK3\_M2C\_P         & Input/Output          & Não usado              & ----------                     \\ 
-%				HA00\_P a HA23\_P    & Input/Output          & Não usado              & ----------                     \\ 
-%				CLK2\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\
-%				CLK3\_M2C\_N         & Input/Output          & Não usado              & ----------                     \\ 
-%				HA00\_N a HA23\_N    & Input/Output          & Não usado              & ----------                     \\ 
-%				\bottomrule
-%			\end{tabular}
-%		\end{center}
-%		\label{default}
-%	\end{table}
-%	
-	
-
 	
 \subsubsection{Transmissor HDMI (da FPGA localizada na placa para ADV7511)}
 
-Os sinais são então processados de maneira a envia-los para o bloco ADV7511 localizado na placa. Através da analise dos documentos \cite{R017} e \cite{R018} conclui-se que para além dos dados de imagem e os seus sinais de controlo, são também enviados para o integrado ADV7511 alguns sinais de controlo que indicam ao integrado que tipo de formato de imagem são enviados, ou quantos números de bits tem, entre outras informações.De seguida, o ADV7511 converte o sinal para o poder enviar através do cabo HDMI para o dispositivo final. 
+Os sinais recebidos são processados pela FPGA de maneira a enviá-los para o bloco ADV7511 localizado na placa. Através da análise dos documentos \cite{R017} e \cite{R018} conclui-se que para além dos dados de imagem e os seus sinais de controlo, são também enviados para o integrado ADV7511 sinais que indicam as características de trasnmissão de entrada e saída. De seguida, o ADV7511 converte o sinal para o poder enviar através do cabo HDMI para o dispositivo final. 
 
 
 
@@ -328,14 +251,14 @@ Os sinais são então processados de maneira a envia-los para o bloco ADV7511 lo
 
 Nesta secção será abordado o tema de comunicação em série em alta velocidade, desde as suas vantagens e desvantagens até tipos de arquiteturas habitualmente utilizados.
 
-\subsection{Comunicações em paralelo VS comunicaões em série}
+\subsection{Comunicações em paralelo VS comunicações em série}
 
-Desde sempre que tanto a comunicação em série como em paralelo têm vindo a ser utilizadas para as diferentes aplicações que envolvem a transmissão de dados entre modulos, e neste capitulo serão abordadas as diferentes características de cada um. A comunicação de dados em paralelo é utilizada para comunicações relativamente curtas pelo facto de ser mais simples e não trazer tantas implicações. Olhando para um exemplo em concreto deste projeto: a comunicação entre as placas HDMI e a FPGA VC7203 é feita em paralelo através dos conectores FMC, tal como explicado em \ref{subsec:HDMIconexao}, porque é uma distância bastante curta e não envolve preocupações no que toca a dobrar ou triplicar a freqência de transmissão e vice-versa. Afinal, para transmitir um determinado número de dados em série é necessário multiplicar esse número de dados pela frequência de transmissão em paralelo do lado do transmissor, e do lado do recetor é necessário lidar com eventuais desalinhamentos. 
+Desde sempre que tanto a comunicação em série como em paralelo têm vindo a ser utilizadas para as diferentes aplicações que envolvem a transmissão de dados entre modulos, e neste capitulo serão abordadas as diferentes características de cada um. A comunicação de dados em paralelo é utilizada para comunicações relativamente curtas pelo facto de ser mais simples e não trazer tantas implicações. Olhando para um exemplo em concreto deste projeto: a comunicação entre as placas HDMI e a FPGA VC7203 é feita em paralelo através dos conectores FMC, tal como explicado em \ref{subsec:HDMIconexao}, porque é uma distância bastante curta e não envolve preocupações no que toca a dobrar ou triplicar a frequência de transmissão e vice-versa. Afinal, para transmitir um determinado número de dados em série é necessário multiplicar esse número de dados pela frequência de transmissão em paralelo do lado do transmissor, e do lado do recetor é necessário lidar com eventuais desalinhamentos. 
 
-Quando este tipo de comunicações começaram a ser utilizadas a distâncias maiores e a ser também necessário uma velocidade de comunicação maior, então começaram a haver mais problemas relativamente ao uso desta forma de transmissão. Apesar de, segundo \cite{R032}, terem sido aplicados métodos que viessem melhorar o desempenho destas comunicações em termos de velocidade, como por exemplo, a sinalização diferencial que veio aumentar a mesma, existem ainda bastantes desvantagens segundo \cite{R012}. Há uma  desvantagem que se torna banstante óbvia de constatar que é o custo: ter uma ligação em série com um cabo é muito menos dispendioso do que ter 400 cabos (no caso da transmissão entre as placas HDMI e a FPGA) para ter uma ligação em paralelo. Para além disto existem mais três problemas também apontados por \cite{R012} : \textit{clock skew}, \textit{data skew} e \textit{crosstalk}. \textit{Clock} e \textit{data skew} tratam-se de pequenos desvios na chegada ao recetor dos dados e dos sinais de relógio, isto porque nem todos são transmitidos exatamente à mesma velocidade e como tal podem provocar pequenos atrasos. Apesar de serem pequenos, podem vir a causar problemas visto que a velocidade de transmissão é bastante alta. Segundo este mesmo autor, existem já técnincas capazes de corrigir estes atrasos relativamente ao sinal de relógio (devido à sua perciocidade), e a correcção dos dados também é possivel, no entanto é muito mais problemática. A \textit{crosstalk} trata-se de uma interferência entre cabos adjacentes, inerente à transmissão, que se torna ainda mais problemática com o aumento dos mesmos.
+Quando as comunicações em paralelo começaram a ser utilizadas a distâncias maiores e a ser também necessário uma velocidade de comunicação maior, então começaram a haver mais problemas relativamente ao uso desta forma de transmissão. Apesar de, segundo \cite{R032}, terem sido aplicados métodos que viessem melhorar o desempenho destas comunicações em termos de velocidade, como por exemplo, a sinalização diferencial que veio aumentar a mesma, existem ainda bastantes desvantagens segundo \cite{R012}. Há uma  desvantagem que se torna banstante óbvia de constatar que é o custo: ter uma ligação em série com um cabo é muito menos dispendioso do que ter 400 cabos (no caso da transmissão entre as placas HDMI e a FPGA) para ter uma ligação em paralelo. Para além disto existem mais três problemas também apontados por \cite{R012} : \textit{clock skew}, \textit{data skew} e \textit{crosstalk}. \textit{Clock} e \textit{data skew} tratam-se de pequenos desvios na chegada ao recetor dos dados e dos sinais de relógio, isto porque nem todos são transmitidos exatamente à mesma velocidade e como tal podem provocar pequenos atrasos. Apesar de serem pequenos, podem vir a causar problemas visto que a velocidade de transmissão é bastante alta. Segundo este mesmo autor, existem já técnicas capazes de corrigir estes atrasos relativamente ao sinal de relógio (devido à sua periocidade), e a correcção dos dados também é possível, no entanto é muito mais problemática. A \textit{crosstalk} trata-se de uma interferência entre cabos adjacentes, inerente à transmissão, que se torna ainda mais problemática com o aumento dos mesmos.
 
 %Falar das vantagens de usar comunicação em série
-Estas razões, entre outras, têm vindo a motivar o desuso das comunicações em paralelo para transmisões de alta velocidade. Em \cite{R032} são mostradas algumas das razões para usar as ligações em série para tal efeito. O autor menciona o facto da utlilização de menos pinos para uma maior largura de banda, o que faz com que o custo da transmissão baixe consideravelmente. Este autor considera também um problema das transmissões em paralelo que não acontece em série: as consequências das constantes alternâncias das saídas. Isto é, numa ligação em paralelo o mais provável é que todas as saídas estejam a alterar constantemente e como tal esta alternância na massa acaba por criar ruído que é propagado na ligação. Claro que é possivel resolver este problema aplicando sinalização diferencial aos sinais transmitidos, mas em contrapartida aumenta o número de pinos necessários, aumentando por isso o custo da ligação.
+Estas razões, entre outras, têm vindo a motivar o desuso das comunicações em paralelo para transmisões de alta velocidade. Em \cite{R032} são mostradas algumas das razões para usar as ligações em série para tal efeito. O autor menciona o facto da utlilização de menos pinos para uma maior largura de banda, o que faz com que o custo da transmissão baixe consideravelmente. Este autor considera também um problema das transmissões em paralelo que não acontece em série: as consequências das constantes alternâncias das saídas. Isto é, numa ligação em paralelo o mais provável é que todas as saídas estejam a alternar constantemente e como tal esta alternância na massa acaba por criar ruído que é propagado na ligação. Claro que é possivel resolver este problema aplicando sinalização diferencial aos sinais transmitidos, mas em contrapartida aumenta o número de pinos necessários, aumentando por isso o custo da ligação.
 
 %Desvantagens de usar comunicação em série
 Aparantemente, torna-se obvio que as ligações em série devem ser usadas para este efeito uma vez que só acartam consigo vantagens, no entanto é necessário ter com consideração as desvantagens desta utilização. 
@@ -362,12 +285,12 @@ Em conclusão, e tal como o autor de \cite{R032} menciona, hoje em dia a utiliza
 %Desta maneira, segundo \cite{R012}, comunicações em série têm vindo a substituir as comunicações em paralelo em ligações de alta velocidade. Apesar disso, as comunicações realizadas dentro dos circuitos integrados são normalmente realizadas em paralelo, visto que permite maior rapidez de comunicação, e como tal é necessário a utilização de serializadores e deserializadores no sentido de transformar os dados nos diferentes domínios em que são utilizados.
 
 \subsection{Considerações sobre arquiteturas de transmissão de dados em série} \label{serial_theory}
-Neste sub-capitulo serão apresentadas conseiderações que devem ser tomadas quando se trata de implementar uma arquitetura que permita enviar dados em série a alta velocidade.
+Nesta subecção serão apresentadas considerações que devem ser tomadas quando se trata de implementar uma arquitetura que permita enviar dados em série a alta velocidade.
 \subsubsection*{Arquitetura de serializadores e deserializadores de alta velocidade}
 
 No projeto desenvolvido lida-se com sinais proveninetes da fonte HDMI em paralelo e para que seja possivel transmiti-los em série a alta velocidade é necessário implementar um arquitetura capaz de lidar com este processo de conversão. Neste sub-capitulo serão abordadas algumas técnicas de implementação de serializadores e deserializadores, as suas características e cuidados na sua implementação.
 
-Na figura \ref{fig:arquiteturaSER} na página \pageref{fig:arquiteturaSER} é apresentada uma simples arquitetura de um serializador e deserializador proposto pelo autor de \cite{R032}. A figura ilustra um diagrama de blocos em que cada bloco tem uma determinada função para se obter uma conversão de dados paralelo para série e vice-versa.
+Na figura \ref{fig:arquiteturaSER} é apresentada uma simples arquitetura de um serializador e deserializador proposto pelo autor de \cite{R032}. A figura ilustra um diagrama de blocos em que cada bloco tem uma determinada função para se obter uma conversão de dados paralelo para série e vice-versa.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -381,25 +304,25 @@ Na figura \ref{fig:arquiteturaSER} na página \pageref{fig:arquiteturaSER} é ap
 As funções de cada bloco do diagrama do serializador apresentado passam a ser brevemente descritas:
 
 \begin{itemize}
-	\item \textbf{\textit{Transmit FIFO:}} Trata-se de uma memória FIFO que guarda os dados em paralelo antes destes serem enviados para o resto da arquitetura. No diagrama poderia também estar representa uma fonte direta de sinais em paralelo (como é o caso deste projeto).
+	\item \textbf{\textit{Transmit FIFO (First in, First out):}} Trata-se de uma memória FIFO que guarda os dados em paralelo antes destes serem enviados para o resto da arquitetura. No diagrama poderia também estar representa uma fonte direta de sinais em paralelo (como é o caso deste projeto).
 	\item\textbf{\textit{Line Enconder:}} Este bloco trata-se de um  bloco opcional, e nem em todas as arquiteturas de serializadores/deserializadores está presente. Este bloco codifica os dados que recebe para um formato \textit{"line-friendly"} \footnote{é o termo usado pelo autor de \cite{R032}}. Trata-se de um formato que ajuda o recetor a recuperar os sinais da dados e relógio, normalmente isto envolve eliminar longas tramas de zeros ou uns, de maneira a garantir que há um equilibrio entre o número de uns e zeros numa trama.
-	\item \textbf{\textit{Serializer:}} Tal como o nome indica este é um bloco que serializa os dados que recebe, ou seja, quando recebe um determinado número de dados em paralelo (x dados) a uma determinada cadência (frequência y), transforma-o num stream de dados a uma taxa de x multiplicado por y. 
+	\item \textbf{\textit{Serializer:}} Tal como o nome indica este é um bloco que serializa os dados que recebe, ou seja, quando recebe um determinado número de dados em paralelo (x dados) a uma determinada cadência (frequência y), transforma-o num \textit{stream} de dados a uma taxa de x multiplicado por y. 
 	\item \textbf{\textit{TX Line Interface:}} Este bloco acaba por ser a interface final do serializador com o cabo físico, e geralmente também sofre determinados processos que permitem a melhor recuperação do sinal do lado do recetor.
 \end{itemize}
 
 Por outro lado, o deserializador tem de fazer todo o processo inverso que o bloco serializador faz. As funções de cada bloco passam a ser brevemente descritas.
 
 \begin{itemize}
-	\item \textbf{\textit{RX Line Interface:}} É a interface do deserializador com o cabo físiso. Já pode incluir alguma equalização do sinal passiva ou ativa.
+	\item \textbf{\textit{RX Line Interface:}} É a interface do deserializador com o cabo físico. Já pode incluir alguma equalização do sinal passiva ou ativa.
 	\item\textbf{\textit{Deserializer:}} Converte os dados em série que recebe a uma cadência de x multiplicado por y, em x dados paralelo a uma cadência de y.
 	\item \textbf{\textit{Line Decoder:}} Descodifica os dados recebidos, se tal processo foi realizado do lado do transmissor.
-	\item \textbf{\textit{RX Elastic Buffer:}} Este bloco permite o alinhamento dos dados recebidos para os repectivos limites. Tal pode ser feito automaticamente ou recorrer-se a palavras de alinhamento, trambém chamadas de "virgulas".
-	\item \textbf{\textit{Clock Correction adn Channel Bonding:}} Este bloco permite que haja correcção entre as diferencças de sinais de relógio, e ainda correcção de atrasos entre diferentes canais (caso haja transmissão em vários canais). 
+	\item \textbf{\textit{RX Elastic Buffer:}} Este bloco permite o alinhamento dos dados recebidos para os repectivos limites. Tal pode ser feito automaticamente ou recorrer-se a palavras de alinhamento, também chamadas de "vírgulas".
+	\item \textbf{\textit{Clock Correction and Channel Bonding:}} Este bloco permite que haja correção entre as diferenças de sinais de relógio, e ainda correção de atrasos entre diferentes canais (caso haja transmissão em vários canais). 
 \end{itemize}
 
-Existe ainda um bloco que é comum tanto ao serializador como ao deserializador que é o \textbf{\textit{Clock Manager}} que essencialmente é responsável pelos diversor processir que os sinais de relógio necessitarão: desde multiplicações de frequências, divisões e até mesmo recuperação do mesmo.
+Existe ainda um bloco que é comum tanto ao serializador como ao deserializador que é o \textbf{\textit{Clock Manager}} que essencialmente é responsável pelos diversos processos que os sinais de relógio necessitarão: desde multiplicações de frequências, divisões e até mesmo recuperação do mesmo.
 
-Esta arquitetura aqui apresentada acaba por apresentar os blocos essenciais para o correcto funcionamento de um serializador e deserializador, no entanto existem outras características que podem ser adicionadas: desde os diferentes tipos de codificações possiveis, até códigos detetores e corretores de erros que podem ser adicionados à arquitura.
+Esta arquitetura aqui apresentada acaba por apresentar os blocos essenciais para o correto funcionamento de um serializador e deserializador, no entanto existem outras características que podem ser adicionadas: desde os diferentes tipos de codificações possíveis, até códigos detetores e corretores de erros que podem ser adicionados à arquitetura.
 
 %\begin{figure}[h!]
 %	\begin{center}
@@ -446,14 +369,15 @@ Outro requisito crítico na implementação deste tipo de arquiteturas é també
 
 \subsubsection*{Codificação dos sinais e sua importância} \label{subsub:cod_impor}
 
-O bloco de codificação de sinais insere-se nesta arquitetura do transmissor devido à sua importância relativamente à recuperação dos dados do lado do recetor. Estes blocos modificam os sinais para um formato que permite ao recetor recuperar os sinais de relógio mais facilmente garantindo que existe um número suficiente de transições entre zero e um. Segundo \cite{R032}, este bloco para além de fazer o que já foi descrito garante que existe um balanço entre zeros e uns na linha de transmissão (\textit{Direct Current Balance} - DC \textit{Balance}) e opcionalmente podem também implementar mecanismos de correção de sinal de relógio, sincronização de blocos e enventuais sinalização de canais (quando é usado mais do que um canal físico na transmissão).
+O bloco de codificação de sinais insere-se nesta arquitetura do transmissor devido à sua importância relativamente à recuperação dos dados do lado do recetor. Estes blocos modificam os sinais para um formato que permite ao recetor recuperar os sinais de relógio mais facilmente garantindo que existe um número suficiente de transições entre zero e um. Segundo \cite{R032}, este bloco para além de fazer o que já foi descrito garante que existe um balanço entre zeros e uns na linha de transmissão (\textit{Direct Current Balance} - DC \textit{Balance}) e opcionalmente podem também implementar mecanismos de correção de sinal de relógio, sincronização de blocos e eventuais sinalização de canais (quando é usado mais do que um canal físico na transmissão).
 
 %Codificação 8B/10B
-Ainda segundo o autor de \cite{R032}, um dos esquemas de codificação e descodificação mais utilizados em diversos protocolos é 8B/10B. Este tipo de codificação converte palavras de 8 bits em 10 bits garantindo um número suficiente de transições entre zeros e uns nas palavras codificadas. Este mecanismo irá garantir que o sinal de relógio será corretamente recuperado do lado do recetor. Na tabela \ref{table:cod_8b_10b_ex} na página \pageref{table:cod_8b_10b_ex} é possível encontrar dois exemplos de codificação de palavras de 8 bits em 10 bits. Note-se que palavras que não apresentam transições entre zero e um (no caso da primeira linha da tabela) ou poucas (no caso da segunda linha da tabela) passam a ter transições suficientes para que o sinal de relógio possa ser recuperado do lado do recetor.
+Ainda segundo o autor de \cite{R032}, um dos esquemas de codificação e descodificação mais utilizados em diversos protocolos é 8B/10B. Este tipo de codificação converte palavras de 8 bits em 10 bits garantindo um número suficiente de transições entre zeros e uns nas palavras codificadas. Este mecanismo irá garantir que o sinal de relógio será corretamente recuperado do lado do recetor. Na tabela \ref{table:cod_8b_10b_ex} é possível encontrar dois exemplos de codificação de palavras de 8 bits em 10 bits. Note-se que palavras que não apresentam transições entre zero e um (no caso da primeira linha da tabela) ou poucas (no caso da segunda linha da tabela) passam a ter transições suficientes para que o sinal de relógio possa ser recuperado do lado do recetor.
 
 \begin{table}[h!]
 	\centering
-
+	\caption[Exemplo de codificação 8B/10B]{Exemplo de codificação 8B/10B (retirada de \cite{R032})}
+	\label{table:cod_8b_10b_ex}
 	\begin{tabular}{@{}ll@{}}
 		\toprule
 		\multicolumn{1}{c}{\textbf{Palavra de 8 bits}} & \multicolumn{1}{c}{\textbf{Símbolo de 10 bits}} \\ \midrule
@@ -461,8 +385,7 @@ Ainda segundo o autor de \cite{R032}, um dos esquemas de codificação e descodi
 		00000001                                       & 0111010100                                      \\ \bottomrule
 	\end{tabular}
 	
-	\caption[Exemplo de codificação 8B/10B]{Exemplo de codificação 8B/10B (retirada de \cite{R032})}
-	\label{table:cod_8b_10b_ex}
+
 \end{table}
 
 %Importância da disparidade e DC Balance
@@ -471,6 +394,8 @@ Este método de codificação garante que existe um balanço entre o número de 
 Outra vantagens da utilização deste tipo de codificação tem a ver com a detecção de erros do lado do recetor. Isto é,  este monitoriza o balanço de zeros e uns tendo em conta a disparidade e caso haja alguma violação nestas regras então o recetor é capaz de detetar a ocorrência de erros.
 
 \begin{table}[h!]
+		\caption[Exemplo de palavras de 8 bits codificadas em 8B/10B]{Exemplo de palavras de 8 bits codificadas em 8B/10B (retirada de \cite{R032})}
+	\label{table:exemple_trans}
 	\centering
 	\resizebox{\textwidth}{!}{%
 	\begin{tabular}{@{}llll@{}}
@@ -481,17 +406,18 @@ Outra vantagens da utilização deste tipo de codificação tem a ver com a dete
 		A4                                       & 10100100                                       & 1101011010                                          & 0010101010                                          \\ \bottomrule
 	\end{tabular}
 	}
-	\caption[Exemplo de palavras de 8 bits codificadas em 8B/10B]{Exemplo de palavras de 8 bits codificadas em 8B/10B (retirada de \cite{R032})}
-	\label{table:exemple_trans}
+
 \end{table}
 
-Na tabela \ref{table:exemple_trans} da página \pageref{table:exemple_trans} são apresentadas 3 palavras de 8 bits codificadas nas suas duas possibilidades. A palavra apresentada na 1ª linha, EA em hexadecimal, na sua codificação negativa apresenta 6 uns e 4 zeros, contudo na sua forma positiva apresenta 4 uns e 6 zeros. O mesmo acontece com a palavra apresentada na última linha. No entanto a palavra representada na 2ª linha apresenta o mesmo número de zeros e uns em ambos os formatos. Se hipoteticamente fosse necessário transmitir estas palavras seguidas, o codificador teria em atenção o balanço entre zeros e uns na linha de transmissão aquando a transmissão da palavra EA e A4 para que o mesmo fosse garantido.
+Na tabela \ref{table:exemple_trans} são apresentadas 3 palavras de 8 bits codificadas nas suas duas possibilidades. A palavra apresentada na 1ª linha, EA em hexadecimal, na sua codificação negativa apresenta 6 uns e 4 zeros, contudo na sua forma positiva apresenta 4 uns e 6 zeros. O mesmo acontece com a palavra apresentada na última linha. No entanto a palavra representada na 2ª linha apresenta o mesmo número de zeros e uns em ambos os formatos. Se hipoteticamente fosse necessário transmitir estas palavras seguidas, o codificador teria em atenção o balanço entre zeros e uns na linha de transmissão aquando a transmissão da palavra EA e A4 para que o mesmo fosse garantido.
  
 \subsubsection*{Alinhamento da transmissão} \label{subsub:alinhamento}
-Uma função importante do deserializador, segundo o autor de \cite{R032} é o alinhamento dos dados que chegam em série. Por outras palavras, é importante que o deserializador reconheça os limites de uma determinada palavra transmitida. Para esse efeito são usados uns caracteres especiais que a codificação 8B/10B disponibiliza. Segundo \cite{R032}, este tipo de codificação dispõe de 12 caracteres que se codificam em 12 caracteres de controlo geralmente conhecidos por por \textit{K-characters}. Estes são geralmente usados para alinhamento e controlo devido às suas particulares características. Esses mesmos caracteres são apresentados na tabela \ref{table:caracteres_especiais_8b10b} da página \pageref{table:caracteres_especiais_8b10b}.
+Uma função importante do deserializador, segundo o autor de \cite{R032} é o alinhamento dos dados que chegam em série. Por outras palavras, é importante que o deserializador reconheça os limites de uma determinada palavra transmitida. Para esse efeito são usados uns símbolos especiais que a codificação 8B/10B disponibiliza. Segundo \cite{R032}, este tipo de codificação dispõe de 12 símbolos que se codificam em 12 símbolos de controlo geralmente conhecidos por por \textit{K-characters}. Estes são geralmente usados para alinhamento e controlo devido às suas particulares características. Esses mesmos símbolos são apresentados na tabela \ref{table:caracteres_especiais_8b10b}.
 
 \begin{table}[h!]
 	\centering
+		\caption[Símbolos de controlo especificos da codificação 8B/10B]{Símbolos de controlo específicos da codificação 8B/10B (retirada de \cite{R032})}
+	\label{table:caracteres_especiais_8b10b}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{@{}lllll@{}}
 			\toprule
@@ -510,11 +436,9 @@ Uma função importante do deserializador, segundo o autor de \cite{R032} é o a
 			K30.7                             & FE                                       & 11111110                                       & 0111101000                                          & 1000010111                                          \\ \bottomrule
 		\end{tabular}%
 	}
-	\caption[Caracteres de controlo especificos da codificação 8B/10B]{Caracteres de controlo especificos da codificação 8B/10B (retirada de \cite{R032})}
-	\label{table:caracteres_especiais_8b10b}
 \end{table}
 
-Para conseguir alinhar, o recetor procurar por uma palavra de alinhamento, conhecida por "\textit{comma}" (virgula em português), e quando a encontra repõe os limites de alinhamento das palavras. Como esta procurar é continua, a partir da primeira detecção todas as palavras de alinhamento que forem detetadas encontrarão o alinhamento já feito. O valor deste símbolo que delimita as palavras (\textit{comma}) pode à partida ser definido no transcetor, contudo por vezes pode vir já pré-definido. A imagem 
+Para conseguir alinhar, o recetor procurar por uma palavra de alinhamento, conhecida por "\textit{comma}" (vírgula em português), e quando a encontra repõe os limites de alinhamento das palavras. Como esta procurar é continua, a partir da primeira detecção todas as palavras de alinhamento que forem detetadas encontrarão o alinhamento já feito. O valor deste símbolo que delimita as palavras (\textit{comma}) pode à partida ser definido no transcetor, contudo por vezes pode vir já pré-definido. 
 
 %\begin{figure}[h!]
 %	\begin{center}
@@ -534,7 +458,8 @@ Para conseguir alinhar, o recetor procurar por uma palavra de alinhamento, conhe
 	\end{center}
 \end{figure}
 
-A imagem \ref{fig:alinhamento_serie} da página \pageref{fig:alinhamento_serie} ilustra o que acontece ao \textit{stream} de bits que chegam ao recetor em série. Aquando a detecção da palavra de alinhamento todos os dados que são retirados daí para a frente já se encontram alinhados pelo delimitação da palavra. Na figura \ref{fig:alinhamento_paralelo} da página \pageref{fig:alinhamento_paralelo} é ilustrado o mesmo exemplo mas em paralelo para melhor entendimento do processo de alinhamento. Todos os dados recebidos no recetor antes da palavra de alinhamento são considerados dados não alinhados.
+A imagem \ref{fig:alinhamento_serie} ilustra o que acontece ao \textit{stream} de bits que chegam ao recetor em série. Aquando a detecção da palavra de alinhamento todos os dados que são retirados daí para a frente já se encontram alinhados pelo delimitação da palavra. Na figura \ref{fig:alinhamento_paralelo} é ilustrado o mesmo exemplo mas em paralelo para melhor entendimento do processo de alinhamento. Todos os dados recebidos no recetor antes da palavra de alinhamento são considerados dados não alinhados.
+
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
@@ -544,7 +469,7 @@ A imagem \ref{fig:alinhamento_serie} da página \pageref{fig:alinhamento_serie} 
 	\end{center}
 \end{figure}
 
-Tal como o autor de \cite{R032} menciona, a palavra de alinhamento deve ser única e diferenciável de todos os outros dados que possam ser transmitidos. Este mesmo autor sugere que os caracteres especiais \textit{K-characters} mencionados na tabela \ref{table:caracteres_especiais_8b10b} sejam utilizados para tal efeito, sendo que os mais adquados são o K28.1, K28.5 ou K28.7, isto porque todos têm um padrão inicial de 7 bits de 1100000, que apenas é encontrado nestes caracteres. Tal padrão não é encontrado em nenhuma outra sequência ordenada de dados ou em qualquer outro \textit{K-character}, e por isso é ideal para o alinhamento. Este autor reforça ainda que quando um protocolo de comunicação está a ser contruído, como é o caso deste projeto, a maneira mais segura é "pedir emprestado" este tipo de sinais de controlo a protocolos bem conhecidos.
+Tal como o autor de \cite{R032} menciona, a palavra de alinhamento deve ser única e diferenciável de todos os outros dados que possam ser transmitidos. Este mesmo autor sugere que os símbolos especiais \textit{K-characters} mencionados na tabela \ref{table:caracteres_especiais_8b10b} sejam utilizados para tal efeito, sendo que os mais adequados são o K28.1, K28.5 ou K28.7, isto porque todos têm um padrão inicial de 7 bits de 1100000, que apenas é encontrado nestes símbolos. Tal padrão não é encontrado em nenhuma outra sequência ordenada de dados ou em qualquer outro \textit{K-character}, e por isso é ideal para o alinhamento. Este autor reforça ainda que quando um protocolo de comunicação está a ser construído, como é o caso deste projeto, a maneira mais segura é "pedir emprestado" este tipo de sinais de controlo a protocolos bem conhecidos.
 
 
 
@@ -552,7 +477,7 @@ Tal como o autor de \cite{R032} menciona, a palavra de alinhamento deve ser úni
 
 Os blocos de serialização e deserialização da arquitetura têm uma grande importância no correto funcionamento de toda a arquitetura, isto porque, tal como o nome indica, estes convertem os dados em paralelo em série e vice-versa. Tal como já foi refeirdo anteriormente, o serializador recebe N dados a uma frequência de X, e transmite esses N dados a uma frequência de X*N. Por outro lado o deserializador, reduz a frequêncaia dos dados, convertendo-os em paralelo, para de seguida ser enviada para o resto da arquitetura para processamento desses mesmos dados. Por isso, é necessário tomar em atenção diversas características quanto à escolha destas arquieturas, tais como a sua latência.
 
-O autor de \cite{R012} propõe 3 tipos de arquiteturas para este tipo de bloco que são apresentadas na imagem ~\ref{fig:PISO-SIPO} na página~\pageref{fig:PISO-SIPO} e que passam a ser descritas as suas vantagens e desvantagens.
+O autor de \cite{R012} propõe 3 tipos de arquiteturas para este tipo de bloco que são apresentadas na imagem \ref{fig:PISO-SIPO} e que passam a ser descritas as suas vantagens e desvantagens.
 
 
 	\begin{figure}[h!]
@@ -564,9 +489,9 @@ O autor de \cite{R012} propõe 3 tipos de arquiteturas para este tipo de bloco q
 	\end{center}
 \end{figure}
 
-No circuito mais á esquerda, denominada de a) pelo autor de \cite{R012}, visualiza-se uma estrutura de um único andar, todavia esta é demasiado lenta devido às capacidades intrínsecas largas no nó de conversão. No circuito do centro, b), é representada uma topologia  heterogénea que se torna mais rápida que a apresentada em a). Já no último circuito apresentado na imagem (o da mais à direita), c), é é representada uma topologia em árvore binária que é a mais rápida segundo o autor de \cite{R012}. O autor reforça ainda a ideia de que a utilização de multiplexadores e des-mutiplexadores de 2:1 e 1:2 respectivamente são muito importantes para se obter uma arquitetura de funcionamento rápido. É de notar ainda que quando se utiliza uma arquitetura de serialização/deserialização em arvore binária, tal como o autor sugere, as portas de entrada do serializador terão dezenas de entradas, tal como as portas de saída do deserializador terão dezenas de saída, e por isso alguns pontos que necessitam de circuitos de velocidade elevada e outros que não. Para tal é necessário ter em atenção que tipo de circuitos são usados em cada etapa do serializador dada a sua necessidade de velocidade. O autor sugere a utilização de circuitos lógicos CML para as etpas que necessitam de trabalhar a altas velocidades, e CMOS para as que não necessitam de tanta velocidade.
+No circuito mais á esquerda, denominada de a) pelo autor de \cite{R012}, visualiza-se uma estrutura de um único andar, todavia esta é demasiado lenta devido às capacidades intrínsecas largas no nó de conversão. No circuito do centro, b), é representada uma topologia  heterogénea que se torna mais rápida que a apresentada em a). Já no último circuito apresentado na imagem (o da mais à direita), c), é representada uma topologia em árvore binária que é a mais rápida segundo o autor de \cite{R012}. O autor reforça ainda a ideia de que a utilização de multiplexadores de 2:1 e 1:2 respectivamente são muito importantes para se obter uma arquitetura de funcionamento rápido. É de notar ainda que quando se utiliza uma arquitetura de serialização/deserialização em árvore binária, tal como o autor sugere, as portas de entrada do serializador terão dezenas de entradas, tal como as portas de saída do deserializador terão dezenas de saída, e por isso alguns pontos que necessitam de circuitos de velocidade elevada e outros que não. Para tal é necessário ter em atenção que tipo de circuitos são usados em cada etapa do serializador dada a sua necessidade de velocidade.
 
-Em situações em que as taxas de débito são muito elevadas a utilização de \textit{shift registers} torna-se também bastante eficiente para implementar um serializador/deserializador. Na imagem \ref{fig:piso} da página \pageref{fig:piso} é possivel visualizar o exemplo de uma serializador com a base em shift-register de 4 bits e na imagem \ref{fig:sipo} da página \pageref{fig:piso} um deserializador com base na mesma arquitetura de 4 bits.
+Em situações em que as taxas de débito são muito elevadas a utilização de \textit{shift registers} torna-se também bastante eficiente para implementar um serializador/deserializador. Na imagem \ref{fig:piso} é possível visualizar o exemplo de uma serializador com a base em\textit{ shift-register} de 4 bits e na imagem \ref{fig:sipo} um deserializador com base na mesma arquitetura de 4 bits.
 
 	\begin{figure}[h!]
 	\begin{center}
@@ -589,7 +514,7 @@ O serializador lê os dados os dados em paralelo a um sinal de relógio cuja fre
 \end{figure}
 
 
-No caso do deserializador apresentado na imagem \ref{fig:sipo}, e segundo a fonte \cite{R034}, os dados que chegam em série a uma frequência determinada pelo sinal de relógio \textit{clock}, são movidos do registo A para o B e de seguida para o C e por fim para o D a essa mesma frequência (que corresponde à frequência de transmissão em série). Nas saías QA, QB, QC e QD obterão-se esses sinais, que chegaram ao inicio da cascada de registos em série, em paralelo fazendo a sua amostragem a uma frequência mais baixa (multipla da mais alta, tal como acontecia no serializador).
+No caso do deserializador apresentado na figura \ref{fig:sipo}, e segundo a fonte \cite{R034}, os dados que chegam em série a uma frequência determinada pelo sinal de relógio \textit{clock}, são movidos do registo A para o B e de seguida para o C e por fim para o D a essa mesma frequência (que corresponde à frequência de transmissão em série). Nas saídas QA, QB, QC e QD obtêm-se esses sinais, que chegaram ao inicio da cascada de registos em série, em paralelo fazendo a sua amostragem a uma frequência mais baixa (múltipla da mais alta, tal como acontecia no serializador).
 
 \begin{figure}[h!]
 	\begin{center}
@@ -600,9 +525,9 @@ No caso do deserializador apresentado na imagem \ref{fig:sipo}, e segundo a font
 	\end{center}
 \end{figure}
 
-Os autores de \cite{R033} utilizam este tipo de estrutura de serializador para obter uma ligação em série de 1.25 Gb/s. A arquitetura em questão é apresentada na imagem \ref{fig:exemplo_de_33} da página \pageref{fig:exemplo_de_33}.
+Os autores de \cite{R033} utilizam este tipo de estrutura de serializador para obter uma ligação em série de \SI{1.25}{\giga\bit\per\second}. A arquitetura em questão é apresentada na figura \ref{fig:exemplo_de_33}.
 
-Neste caso em especifico, a cada ciclo de relógio de "\textit{word-cycle}" é lida uma palavra de 10 proveniente de um multiplexador para um registo com nome na imagem de "\textit{Register}". A saída deste modulo é então dividida em dois "\textit{shift-register}"  de 5 bits cada. Tal como a figura ilustra, os bits são separados de forma a que bits adjacentes não entrem em \textit{shift-registers} diferentes. A saída do primeiro \textit{shift-register} é as entrada do multiplexador de saída, enquanto que a saída do segundo \textit{shift-register} é a entrada de uma \textit{latch} que serve exatamente para atrasar meio ciclo de relógio a operação de alternação de registos em relação ao primeiro \textit{shift-register}. As saídas do multiplexador de saída são seleccionadas pela a alternância do sinal de relógio com frequência mais elevada, fazendo assim uma correta seleccção entre os bits adjacentes e obtendo a saída com a velocidade pretendida para este caso em especifico: 1.25 Gb/s. Este exemplo é aqui mencionado para que se possa perceber como é possivel tirar partido deste tipo de arquiteturas de serialização.
+Neste caso em específico, a cada ciclo de relógio de "\textit{word-cycle}" é lida uma palavra de 10 bits proveniente de um multiplexador para um registo com nome na imagem de "\textit{Register}". A saída deste modulo é então dividida em dois "\textit{shift-register}"  de 5 bits cada. Tal como a figura ilustra, os bits são separados de forma a que bits adjacentes entrem em \textit{shift-registers} diferentes. A saída do primeiro \textit{shift-register} é a entrada do multiplexador de saída, enquanto que a saída do segundo \textit{shift-register} é a entrada de uma \textit{latch} que serve exatamente para atrasar meio ciclo de relógio a operação de alternação de registos em relação ao primeiro \textit{shift-register}. As saídas do multiplexador de saída são selecionadas pela alternância do sinal de relógio com frequência mais elevada, fazendo assim uma correta seleção entre os bits adjacentes e obtendo a saída com a velocidade pretendida para este caso em específico: \SI{1.25}{\giga\bit\per\second}. Este exemplo é aqui mencionado para que se possa perceber como é possível tirar partido deste tipo de arquiteturas de serialização.
 %
 %The output of one of the shift-registers (SR-1) drives one input of the output multiplexer while the other one (SR-2) drives a latch. This latch drives the other multiplexer input and its purpose is to delay the data shifting operation by half a clock cycle in relation to the output of the first SR. Since the select input of the output multiplexer is driven by the shifting clock (600MHz), it correctly selects between adjacent bits and constructs the desired 1.2Gbit/s bit stream. This is represented schematically in the timing diagram of Figure 3.
 
@@ -612,9 +537,9 @@ Para que estes blocos funcionem é necessário que exista um sinal de relógio d
 
 \subsubsection*{Interfaces com a camada física} \label{subsub:pre_enfase_equalizacao}
 
-As interfaces com as camadas físicas em ambos os lados da transmissão (recetor e transmissor) incluem circuitos analógicos que permitem transmitir e receber sianais diferenciais. Contudo o sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal. Por isso existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria poderia ser facilmente obtida através da utilização de canais de ligação de melhor qualidade. No entanto esta opção traz custos acrescidos à ligação. 
+As interfaces com as camadas físicas em ambos os lados da transmissão (recetor e transmissor) incluem circuitos analógicos que permitem transmitir e receber sinais diferenciais. Contudo o sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal. Por isso existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria poderia ser facilmente obtida através da utilização de canais de ligação de melhor qualidade. No entanto esta opção traz custos acrescidos à ligação. 
 
-Assim sendo recorre-se a técnicas implementadas nestas mesmas interfaces que por um lado são responsáveis por "preparar" os sinais a serem transmitidos para um canal ruidoso, precavendo a sua alteração, e por outro são responsáveis de corrigir os dados recebidos de acordo com determinados parâmetros. Estas técnicas que estão aqui a ser mencionadas têm o nome de pré-enfase do lado do transmissor e equalização do lado do recetor e passarão a ser descritas com mais detalhe.
+Assim sendo recorre-se a técnicas implementadas nestas mesmas interfaces que por um lado são responsáveis por "preparar" os sinais a serem transmitidos para um canal ruidoso, precavendo a sua alteração, e por outro são responsáveis de corrigir os dados recebidos de acordo com determinadas características. Estas técnicas que estão aqui a ser mencionadas têm o nome de pré-ênfase do lado do transmissor e equalização do lado do recetor e passarão a ser descritas com mais detalhe.
 
 %Pré-Enfase:
 %--> o que acontece no canal para que esta seja necessária
@@ -627,13 +552,13 @@ Durante a transmissão no canal físico é normal haver o fenómeno de interfer�
 		\label{fig:isi}
 	\end{center}
 \end{figure}
-Para melhor entendimento, a figura \ref{fig:isi} da página \pageref{fig:isi} ilustra o fenómeno de interferência inter-simbólica. Considere-se a transmissão de cima da imagem o sinal efetivamente transmitido, e a transmissão de baixo as distorções que o mesmo sofre no canal. Quando há uma longa transmissão de um determinado valor, na imagem ilustrado como 0, e de seguida uma pequena transição do valor oposto então o canal não tem tempo para carregar completamente o valor sofrendo por isso a distorção que se visualiza na imagem. Isto pode vir a causar problema no recetor no que toca à detecção desta transição distorcida.
+Para melhor entendimento, a figura \ref{fig:isi} ilustra o fenómeno de interferência inter-simbólica. Considere-se a transmissão de cima da imagem o sinal efetivamente transmitido, e a transmissão de baixo as distorções que o mesmo sofre no canal. Quando há uma longa transmissão de um determinado valor, na imagem ilustrado como 0, e de seguida uma pequena transição do valor oposto então o canal não tem tempo para carregar completamente o valor sofrendo por isso a distorção que se visualiza na imagem. Isto pode vir a causar problema no recetor no que toca à detecção desta transição distorcida.
 %--> o que esta faz
 
 Torna-se evidente a necessidade de controlar este tipo de interferências, e como tal na interface com o canal físico recorre-se à técnica de pré-enfase. Segundo \cite{R032} esta característica é talvez a  mais importante da interface com a camada física e consiste num \textit{overdriving} (dar um ênfase) intencional no inicio de uma transição e um \textit{underdriving} nos bits seguintes que apresentem o mesmo valor. Este segundo processo também é conhecido por \textit{de-emphasis}. Desta maneira, quando acontece o fenómeno de interferência inter-simbólica, a capacidade do canal recuperar a total amplitude de uma pequena transição não se tornará um problema.
 
 %--> Concluir a utilização desta técninca e introduzir a outra
-Assim sendo, do lado do transmissor é feito um pré-enfase do sinal mesmo antes do canal de transmissão. Todavia tal não é certamente suficiente para uma correta reconstituição do sinal e o recetor necessita de ter recorrer a técnicas para a sua correta recuperação.
+Assim sendo, do lado do transmissor é feito um pré-ênfase do sinal mesmo antes do canal de transmissão. Todavia tal não é certamente suficiente para uma correta reconstituição do sinal e o recetor necessita de ter recorrer a técnicas para a sua correta recuperação.
 
 %Equalização
 %--> o que esta faz
@@ -669,36 +594,36 @@ Segundo \cite{R032}, os equalizadores ativos fixos são melhores para sistemas c
 %Sinalização Diferencial Vs Sinalização única
 
 
-A implementação da camada física dos serializadores e deserializadores de alta velocidade tomam uma forma universal baseada em interfaces eletricamente diferenciais, segundo \cite{R032}. Esta forma de transmissão consiste no envio de dois sinais que se complementam eletricamente relativamente a uma massa comum. A principal vantagem que esta metodologia de transmissão acarta consigo é a uma maior rejeição ao ruído em modo-comum uma vez que o sinal no recetor é obtido através da diferença entre as duas tensões dos sinais diferencias recebidos. Assim sendo, este tipo de transmissão torna-se vantajosa quando a interferência eletromagnética (EMI) ou a interferência de radio-frequência (RFI) se tornam problemáticas na transmissão, pois caso estas existam a sua interferência será em ambos os sinais (positivo e negativo) e a no recetor a diferença será a mesma, não afetando a recuperação dos dados transmitidos.
+A implementação da camada física dos serializadores e deserializadores de alta velocidade tomam uma forma universal baseada em interfaces eletricamente diferenciais, segundo \cite{R032}. Esta forma de transmissão consiste no envio de dois sinais que se complementam eletricamente relativamente a uma massa comum. A principal vantagem que esta metodologia de transmissão acarta consigo é a uma maior rejeição ao ruído em modo-comum uma vez que o sinal no recetor é obtido através da diferença entre as duas tensões dos sinais diferencias recebidos. Assim sendo, este tipo de transmissão torna-se vantajosa quando a interferência eletromagnética (EMI - \textit{Electromagnetic interference} ) ou a interferência de radio-frequência (RFI - \textit{Radio Frequency interference}) se tornam problemáticas na transmissão, pois caso estas existam a sua interferência será em ambos os sinais (positivo e negativo) e a no recetor a diferença será a mesma, não afetando a recuperação dos dados transmitidos.
 
 Os métodos de implementação de sinalização diferencial podem variar em diversas características, como por exemplo o consumo de energia e tipo de aplicações em que podem ser implementadas. O autor de \cite{R032} menciona os três mais comuns:
 
 \begin{itemize}
-	\item \textbf{LVDS - \textit{Low-Voltage Differential Signaling}:} é uma técnica que opera a uma baixa potência e que atinge velocidades de transmissão até 3,125 Gb/s. 
-	\item \textbf{LVPELC - \textit{Low-Voltage Pseudo Emitter-Coupled Logic}}: é uma técnica que consume entre uma média e alta potência atigindo velocidades de transmissão superiores a 10 Gb/s.
-	\item \textbf{CML - \textit{Current Mode Logic}:} técnica que consome uma potência de valores médios, atingindo ainda assim velocidades de transmissão superiores a 10 Gb/s.
+	\item \textbf{LVDS - \textit{Low-Voltage Differential Signaling}:} é uma técnica que opera a uma baixa potência e que atinge velocidades de transmissão até \SI{3.125}{\giga\bit\per\second}.
+	\item \textbf{LVPELC - \textit{Low-Voltage Pseudo Emitter-Coupled Logic}}: é uma técnica que consume entre uma média e alta potência atingindo velocidades de transmissão superiores a \SI{10}{\giga\bit\per\second}.
+	\item \textbf{CML - \textit{Current Mode Logic}:} técnica que consome uma potência de valores médios, atingindo ainda assim velocidades de transmissão superiores a \SI{10}{\giga\bit\per\second}.
 \end{itemize}
 
-Os valores de consumo de potência e velocidades de transmissão para cada uma das técnicas apresentadas anteriormente foram retiradas da fonte \cite{R036}. Segundo o autor de \cite{R032} o método mais adquado para implementação em ligações cujas taxas de ligação rondam os Gb/s deve ser a CML.
+Os valores de consumo de potência e velocidades de transmissão para cada uma das técnicas apresentadas anteriormente foram retiradas da fonte \cite{R036}. Segundo o autor de \cite{R032} o método mais adequado para implementação em ligações cujas taxas de ligação rondam os \SI{}{\giga\bit\per\second} deve ser a CML.
 
 \subsubsection*{Requisitos de sinais de relógio de referência}
 
-O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. Segundo a fonte \cite{R012}, é comum que este sinal de relógio seja partilhado entre o recetor e o transmissor, havendo, contudo, a necessidade de ajuste de fase deste sinal do lado do recetor. Este ajuste de fase deve-se essencialmente por dois motivos: o atraso e ruído do canal. Por um lado, durante a transmissão é introduzido um atraso inerente no sinal que não é conhecido à priori, e por outro durante a transmissão também é introduzido ruído que torna a fase do sinal recebido bastante crítica para o desempenho do transcetor. 
+O sinal de relógio de alta frequência é bastante importante na implementação de arquiteturas de serialização e deserialização de alta velocidade, isto porque este sinal é necessário tanto do lado do recetor como do transmissor. Do lado do transmissor é necessário para gerar os símbolos a serem transmitidos e do lado do recetor é necessário para que a amostragem do sinal recebido possa ser bem realizada. Segundo a fonte \cite{R012}, é comum que este sinal de relógio seja partilhado entre o recetor e o transmissor, havendo, contudo, a necessidade de ajuste de fase deste sinal do lado do recetor. Este ajuste de fase deve-se essencialmente por dois motivos: o atraso e ruído do canal. Por um lado, durante a transmissão é introduzido um atraso inerente no sinal que não é conhecido à \textit{priori}, e por outro durante a transmissão também é introduzido ruído que torna a fase do sinal recebido bastante crítica para o desempenho do transcetor. 
 
-Assim sendo,tanto a fonte \cite{R032} como a fonte \cite{R012} reforçam a ideia de que o sinal de alta velocidade de referência possui requisitos muito particulares para o correto funcionamento do transcetor, uma vez que influencia fortemente o seu desempenho. Entre eles destacam-se o baixo ruído, elevada precisão e uma geração continua do mesmo. Um simples sinal gerado por um oscilador local não é suficiente para cumprir tais critérios, remata o autor de \cite{R012}. Desta maneira, é recomendado o uso de osciladores externos, capazes de serem reprogramados para determinadas frequências no sentido de se obter um sinal mais limpo e preciso. Tal será utilizado neste projeto através de um modulo disponível na FPGA VC7203 que será explicado com mais detalhe mais à frente neste relatório.
+Assim sendo,tanto a fonte \cite{R032} como a fonte \cite{R012} reforçam a ideia de que o sinal de alta velocidade de referência possui requisitos muito particulares para o correto funcionamento do transcetor, uma vez que influencia fortemente o seu desempenho. Entre eles destacam-se o baixo ruído, elevada precisão e uma geração continua do mesmo. Um simples sinal gerado por um oscilador local não é suficiente para cumprir tais critérios, remata o autor de \cite{R012}. Desta maneira, é recomendado o uso de osciladores externos, capazes de serem reprogramados para determinadas frequências no sentido de se obter um sinal mais limpo e preciso. Tal será utilizado neste projeto através de um modulo disponível na FPGA VC7203 que será explicado com mais detalhe mais à frente quando se abordar o trabalho desenvolvido.
 
 
 \subsubsection*{Importância da criação e uso de pacotes}
 
-O autor de \cite{R032} menciona a importância de criação de "pacotes" que contribuem para a definição do protocolo de transmissão em série. Antes de se perceber que tipos de tramas constituem um pacote é necessário ter em conta que um "pacote" consiste num conjunto de \textit{bytes} bem definidos que contém num cabeçalho, dados e fim do mesmo.
+O autor de \cite{R032} menciona a importância de criação de "pacotes" que contribuem para a definição do protocolo de transmissão em série. Antes de se perceber que tipos de tramas constituem um pacote é necessário ter em conta que um "pacote" consiste num conjunto de \textit{bytes} bem definidos que contém um cabeçalho, dados e fim do mesmo.
 
-Em qualquer tipo de transmissão de dados são usados pacotes para os transmitir, e a comunicação em série de alta velocidade não pode fugir a esta realidade ainda por cima porque este tipo de arquiteturas exigem métodos de alinhamento do \textit{stream} de bits chegados em palavras, transmissão de determinados padrões para ser possível a recuperação do relógio entre outros. Assim, é possível aproveitar a necessidade da transmissão destes determinados padrões e criar a partir daqui um pacote de transmissão que sirva para sinalizar as diferentes fases de transmissão dos dados e que ao mesmo tempo permita que o sinal de relógio seja recuperado e os dados alinhados. No fundo é juntar o útil ao útil.
+Em qualquer tipo de transmissão de dados são usados pacotes para os transmitir, e a comunicação em série de alta velocidade não pode fugir a esta realidade ainda por cima porque este tipo de arquiteturas exigem métodos de alinhamento do \textit{stream} de bits chegados em palavras, transmissão de determinados padrões para ser possível a recuperação do relógio entre outros. Assim, é possível aproveitar a necessidade da transmissão destes determinados padrões e criar a partir daqui um pacote de transmissão que sirva para sinalizar as diferentes fases de transmissão dos dados e que ao mesmo tempo permita que o sinal de relógio seja recuperado e os dados alinhados.
 
 Segundo o autor \cite{R032}, o pacote de transmissão deve ter bem definidas determinadas tramas, entre as quais:
 \begin{itemize}
-	\item \textbf{Inicio de Pacote (\textit{Start of Packet}): }para poder sinalizar a chegada do inicio de um novo pacote
+	\item \textbf{Inicio de Pacote (\textit{Start of Packet}): }para poder sinalizar a chegada do início de um novo pacote
 	\item \textbf{Fim de Pacote (\textit{End of Packet}):} para sinalizar o fim da transmissão de um pacote inteiro
-	\item\textbf{Dados :} tramas onde serão transmitidos os dados, pode conter determinados caracteres especiais que indiquem que tipo de dados são transmitidos
+	\item\textbf{Dados :} tramas onde serão transmitidos os dados, pode conter determinados símbolos especiais que indiquem que tipo de dados são transmitidos
 	\item \textbf{Símbolo de Espera (\textit{Idle Symbol}):} estas tramas devem ser enviadas sempre que não houver dados para transmitir para garantir que a transmissão contínua dos dados continua alinhada e o sinal de relógio continua a ser recuperado.
 \end{itemize}
 
@@ -710,9 +635,9 @@ Tal como referido anteriormente, a comunicação de sinais de alta velocidade po
 \subsubsection*{Detecção de erros na transmissão}
 
 Durante a transmissão em série de alta velocidade, e tal como já foi indicado anteriormente, são introduzidos ruídos e distorções nos sinais e apesar das diversas técnicas já apresentadas anteriormente que evitam estes erros existem códigos detetores e corretores de erros que podem ainda ser aplicados.
-No caso em especifico deste projeto em que se trata da transmissão em série de dados de imagem e som o mais conveniente é a implementação de códigos detetores de erros, pois não traz vantagem ao projeto corrigir esses mesmos erros detetados, por muito curto que seja o tempo que demore tal processo. O autor de \cite{R012} menciona mesmo que uma das técnicas mais utilizadas é o CRC (C\textit{yclic Redundancy Codes}) e que existem já algumas arquiteturas que incluem esta mesma técnica, e como tal esta será brevemente abordada. 
+No caso em específico deste projeto em que se trata da transmissão em série de dados de imagem e som, o mais conveniente é a implementação de códigos apenas detetores de erros, pois não traz vantagem ao projeto corrigir esses mesmos erros detetados, por muito curto que seja o tempo que demore tal processo. O autor de \cite{R012} menciona mesmo que uma das técnicas mais utilizadas é o CRC (\textit{Cyclic Redundancy Codes}) e que existem já algumas arquiteturas de serialização/deserialização que incluem esta mesma técnica, e como tal esta será brevemente abordada. 
 
-O principal objetivo desta técnica é determinar se o sinal que foi transmitido pelo canal com ruído foi corrompido ou não. Segundo \cite{R028}, a ideia básica por trás deste algoritmo de deteção de erros é tratar a mensagem a ser transmitida como um número binário normal, dividir por um número binário fixo e o resto dessa mesma divisão será o \textit{checksum} da mensagem que será enviado na mesma trama. Do lado do recetor é aplicado o mesmo algoritmo à trama recebida e de seguida verifica-se se o resto da divisão corresponde ao \textit{checksum} recebido. No pior dos casos quando o \textit{checksum} estiver errado então perderá-se a transmissão de um pacote (no caso do projeto será uma imagem) o que ao olho humano à partida nem será detetado.
+O principal objetivo desta técnica é determinar se o sinal que foi transmitido pelo canal com ruído foi corrompido ou não durante a transmissão. Segundo \cite{R028}, a ideia básica por trás deste algoritmo de deteção de erros é tratar a mensagem a ser transmitida como um número binário normal, dividir por um número binário fixo e o resto dessa mesma divisão será o \textit{checksum}\footnote{Código usado para verificar a integridade dos sinais transmitidos em canais ruidosos} da mensagem que será enviado na mesma trama. Do lado do recetor é aplicado o mesmo algoritmo à trama recebida e de seguida verifica-se se o resto da divisão corresponde ao \textit{checksum} recebido. No pior dos casos quando o \textit{checksum} não corresponder à mensagem recebida então perderá-se a transmissão de um pacote (no caso do projeto será uma imagem) o que ao olho humano à partida nem será detetado.
 
 Ainda segundo a fonte \cite{R028}, o que torna este algoritmo mais fiável relativamente aos outros é a complexidade de determinação do \textit{checksum}. Se outros algoritmos semelhantes podem receber um \textit{checksum} corrompido e uma mensagem que também esteja corrompida mas de acordo com esse determinado algoritmo o \textit{checksum} está correto para a mensagem recebida, então não é detetado nenhum erro devido à consistência da mensagem. No entanto, como o CRC é um algoritmo mais complexo então tal não acontece tornando-o num código detetor de erros robusto e que por isso pode ser utilizado neste projeto em concreto.
 
@@ -720,14 +645,14 @@ Ainda segundo a fonte \cite{R028}, o que torna este algoritmo mais fiável relat
 
 \section{Saídas em série de alta velocidade da FPGA VC7203}
 
-A FPGA VC7203 disponibiliza de uns transcetores de alta velocidade que devido às suas características poderão ser utilizados neste projeto. Esta secção irá abordar quais as características disponíveis e como podem ser utilizadas no projeto.
+A FPGA VC7203 disponibiliza de uns transcetores de alta velocidade que devido às suas características são utilizados neste projeto. Esta secção irá abordar quais as características disponíveis e como podem ser utilizadas no projeto.
 
 
 \subsection{Localização dos transcetores na FPGA}
 
-As FPGA de série 7 da XILINX têm disponíveis transcetores capazes de comunicação em série de alta velocidade, tal como é necessário neste projeto. Em específico, segundo \cite{R010}, na FPGA XILINX VC7203 Virtex-7 estão disponíveis transcetores GTX que permitem uma velocidade de 12.5 Gb/s e que são os mais adequados para este projeto. Noutros modelos existem outros transcetores, como por exemplo GTZ (que permite até 28 Gb/s), GTH (que permite débitos até 13,1 Gb/s) e GTP (com débitos até 6,6 Gb/s). No entanto apenas serão abordados os transcetores GTX, visto que são os mais adequados para este tipo de comunicações.
+As FPGA de série 7 da XILINX têm disponíveis transcetores capazes de comunicação em série de alta velocidade, tal como é necessário neste projeto. Em específico, segundo \cite{R010}, na FPGA XILINX VC7203 Virtex-7 estão disponíveis transcetores GT\footnote{\textit{Gigabit Transceiver}}X que permitem uma velocidade de \SI{12.5}{\giga\bit\per\second} e que são os mais adequados para este projeto. Noutros modelos existem outros transcetores, como por exemplo GTZ (que permite até \SI{28}{\giga\bit\per\second}), GTH (que permite débitos até \SI{13.1}{\giga\bit\per\second}) e GTP (com débitos até \SI{6.6}{\giga\bit\per\second}). No entanto apenas serão abordados os transcetores GTX, visto que são os mais adequados para este tipo de comunicações e os únicos disponíveis na FPGA utilizada. 
 
-Na figura \ref{fig:loc_gtx} na página \pageref{fig:loc_gtx} é possível visualizar a FPGA a ser utilizada no projeto e visualiza-se ainda assinaladas as entradas GTX (QUAD\_111, QUAD\_112, QUAD\_113, QUAD\_114, QUAD\_115, QUAD\_116, QUAD\_117, QUAD\_118 e QUAD\_119).
+Na figura \ref{fig:loc_gtx} é possível visualizar a FPGA a ser utilizada no projeto e visualiza-se ainda assinaladas as entradas GTX (QUAD\_111, QUAD\_112, QUAD\_113, QUAD\_114, QUAD\_115, QUAD\_116, QUAD\_117, QUAD\_118 e QUAD\_119).
  
 \begin{figure}[h!]
 	\begin{center}
@@ -740,7 +665,7 @@ Na figura \ref{fig:loc_gtx} na página \pageref{fig:loc_gtx} é possível visual
 
 \subsection{Arquitetura dos transcetores} \label{sub:arqGTX}
 
-Cada GTX é composto por quatro transmissores e quatro recetores. É possivel visualizar o conector do GTX na imagem \ref{fig:gtx_fis} na página \pageref{fig:gtx_fis}. A imagem A corresponde ao conector e a imagem B faz as correspondência de cada pino do conector. Através da imagem B é possivel verificar que efetivamente existem 4 pares diferencias de transmissores/recetores e ainda 2 pares diferenciais que são usados para conectar os sinais de relógio de referência. Nestes conectores são ligados cabos SMA diferenciais.
+Cada GTX é composto por quatro transmissores e quatro recetores. É possível visualizar o conector do GTX na figura \ref{fig:gtx_fis} . A figura A corresponde ao conector e a figura B faz as correspondência de cada pino do conector. Através da figura B é possível verificar que efetivamente existem quatro pares diferencias de transmissores/recetores e ainda dois pares diferenciais que são usados para conectar os sinais de relógio de referência. Nestes conectores são ligados cabos SMA(\textit{SubMiniature version A}) diferenciais.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -751,7 +676,7 @@ Cada GTX é composto por quatro transmissores e quatro recetores. É possivel vi
 	\end{center}
 \end{figure}
 
-Apesar de em cada GTX estarem disponíveis quatro transmissores/recetores, o projeto apenas faz uso de um canal para efetuar a transmissão de dados. Na imagem \ref{fig:gtx_geral_arq} da página \pageref{fig:gtx_geral_arq} é apresentada uma arquitetura geral dos transcetores da FPGA.
+Apesar de em cada GTX estarem disponíveis quatro transmissores/recetores, o projeto apenas faz uso de um canal para efetuar a transmissão de dados. Na figura \ref{fig:gtx_geral_arq} é apresentada uma arquitetura geral dos transcetores da FPGA.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -767,16 +692,16 @@ A arquitetura dos mesmos passa a ser brevemente descrita, segundo \cite{R010} e 
 \begin{itemize}
 	\item \textbf{Módulo PMA (\textit{Physical Medium Attachment Sublayer})} que inclui:
 	\begin{itemize}
-		\item Bloco serie/parelo e vice-versa (PISO e SIPO).
+		\item Bloco série/parelo e vice-versa (PISO e SIPO).
 		\item PLL (\textit{Phase-locked loop)}.
 		\item CDR (\textit{Clock Data Recovery}).
 		\item Pré-Ênfase e Bloco de Equalização.
-		\item Suporta uma taxa de débito de saída até 12,5 Gb/s.
+		\item Suporta uma taxa de débito de saída até \SI{12.5}{\giga\bit\per\second}.
 		\end{itemize}
 	\item \textbf{Módulo PCS (\textit{Physical Coding Sublayer}) que inclui:}
 	\begin{itemize}
 		\item Lógica de processamento dos dados em paralelo reconfigurável
-		\item \textit{Datapath} de 2 e 4 byte internos para suportar diferentes taxas de débitos
+		\item \textit{Datapath} de 2 e 4 \textit{byte} internos para suportar diferentes taxas de débitos
 		\item Codificação e descodificação 8B/10B
 		\item Deteção de vírgula e alinhamento de palavra
 		\item PRBS (\textit{Pseudo Random Bit Sequence}) gerador e verificador
@@ -787,7 +712,7 @@ A arquitetura dos mesmos passa a ser brevemente descrita, segundo \cite{R010} e 
 	\item \textbf{Interface com o canal físico em série diferencial.}
 \end{itemize}
 
-O transmissor e o recetor funcionam separadamente apesar de na imagem \ref{fig:gtx_geral_arq} da página \pageref{fig:gtx_geral_arq} sugerir que funcionam em conjunto. Estes dispões de blocos necessários referidos em \ref{sec:conexaoSerie} e como tal são usados no projeto. Mais detalhes sobre o funcionamento independente do transmissor e recetor serão detalhados quando for abordado o trabalho desenvolvido sobre a comunicação em série.
+O transmissor e o recetor funcionam separadamente apesar de na figura \ref{fig:gtx_geral_arq} sugerir que funcionam em conjunto. Estes dispõe de blocos necessários referidos em \ref{sec:conexaoSerie} e como tal são usados no projeto. Mais detalhes sobre o funcionamento independente do transmissor e recetor serão detalhados quando for abordado o trabalho desenvolvido sobre a comunicação em série.
 
 
 %\begin{figure}[h!]
@@ -811,7 +736,7 @@ O transmissor e o recetor funcionam separadamente apesar de na imagem \ref{fig:g
 %\end{figure}
 \section{Sincronização entre diferentes domínios de relógio} \label{sec:sincronizacao}
 
-Tal como referido em \ref{sec:descrição_objetivos} o projeto está dividido em duas partes fundamentais: a primeira em que se trabalha apenas com os dados provenientes do sinal HDMI, e uma segunda parte que conjugará dois domínios de sinais de relógio (do HDMI e do GTX). A imagem \ref{fig:dominios_diferentes} na página \pageref{fig:dominios_diferentes} ilustra os diferentes dominios de relógio existentes no projeto.
+Tal como referido em \ref{sec:descrição_objetivos} o projeto está dividido em duas partes fundamentais: a primeira em que se trabalha apenas com os dados provenientes do sinal HDMI, e uma segunda parte que conjugará dois domínios de sinais de relógio (do HDMI e do GTX). A figura \ref{fig:dominios_diferentes}ilustra os diferentes domínios de relógio existentes no projeto.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -835,7 +760,7 @@ Para se perceber o problema de meta-estabilidade é necessário ter em considera
 	\item \textbf{Tempo de \textit{clock-to-output} (T{\tiny CO})}: Tempo necessário para o valor estar disponível na saída do registo.
 \end{itemize}
  
-Quando alguma transição viola o T{\tiny SU} ou T{\tiny H} então a saída não conseguirá obter um valor e ficará num estado de metaestabilidade, que nem é 0 nem 1. Estes problemas normalmente acontecem em situações em que os dados são transmitidos entre dominios de relógio diferentes, tal como acontece neste projeto,e podem propagar-se no sistema, tal como ja foi referido. A figura \ref{fig:metaestabilidade} na página \pageref{fig:metaestabilidade} ilustra este problema.
+Quando alguma transição viola o T{\tiny SU} ou T{\tiny H} então a saída não conseguirá obter um valor e ficará num estado de metaestabilidade, que nem é 0 nem 1. Estes problemas normalmente acontecem em situações em que os dados são transmitidos entre dominios de relógio diferentes, tal como acontece neste projeto,e podem propagar-se no sistema, tal como ja foi referido. A figura \ref{fig:metaestabilidade} ilustra este problema.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -846,9 +771,9 @@ Quando alguma transição viola o T{\tiny SU} ou T{\tiny H} então a saída não
 	\end{center}
 \end{figure}
 
-Visto que é possível prever antecipadamente que este tipo de problemas ocorrerão durante o desenvolvimento do projeto, é então necessário levá-los em conta e procurar metódos que os possam resolver.
+Visto que é possível prever antecipadamente que este tipo de problemas ocorrerão durante o desenvolvimento do projeto, é então necessário levá-los em conta e procurar métodos que os possam resolver.
 
-Segundo \cite{R037} e \cite{R024}, para a correcção de problemas de metaestabilidade são tipicamente usadas cadeias de registos sincronização no domínio de relógio de destino para que o sinal seja re-sincronizado nesse mesmo domínio Isto permitirá que os registos tenham mais tempo para resolver eventuais estados de meta-estabilidade para um valor estável antes do valor ser usado no domínio de destino.  O tempo disponivel entre os caminhos de registo para registo é o tempo disponível para o sinal metaestável estabilizar. A imagem \ref{fig:sincronizacao} da página \pageref{fig:sincronizacao} ilustra uma cadeia de registos de sincronização.
+Segundo \cite{R037} e \cite{R024}, para a correção de problemas de metaestabilidade são tipicamente usadas cadeias de registos sincronização no domínio de relógio de destino para que o sinal seja re-sincronizado nesse mesmo domínio. Isto permitirá que os registos tenham mais tempo para resolver eventuais estados de meta-estabilidade para um valor estável antes do valor ser usado no domínio de destino.  O tempo disponível entre os caminhos de registo para registo é o tempo disponível para o sinal metaestável estabilizar. A figura \ref{fig:sincronizacao} ilustra uma cadeia de registos de sincronização.
 
 
 \begin{figure}[h!]

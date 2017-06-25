@@ -1,15 +1,16 @@
 
 \chapter{Transmissão de dados em série}\label{chap:chap4}
 
-Este capítulo aborda o trabalho realizado na segunda parte do projeto, tal como definido em ~\ref{sec:descrição_objetivos}. Esta parte do projeto consiste em transmitir em paralelo para o transmissor GTX existente na FPGA VC7203 que ,através da sua arquitetura, serializa os dados e envia-os através de um cabo físico. Esse mesmo cabo conectado ao recetor GTX irá deserializar para que sejam convertidos novamente para dados em paralelo.
+%Este capítulo aborda o trabalho realizado na segunda parte do projeto, tal como definido em ~\ref{sec:descrição_objetivos}. Esta parte do projeto consiste em transmitir em paralelo para o transmissor GTX existente na FPGA VC7203 que ,através da sua arquitetura, serializa os dados e envia-os através de um cabo físico. Esse mesmo cabo conectado ao recetor GTX irá deserializar para que sejam convertidos novamente para dados em paralelo.
 
-Este processo de serialização e deserialização exige muitos cuidados e aplicações de determinados métodos que permitam manter a integridade do sinal durante a transmissão do mesmo, já como explicado em no capítulo 2 em \ref{serial_theory}. Todavia nesse mesmo capítulo, em \ref{sub:arqGTX} foi já abordado que FPGA VC7203 possui entradas e saídas de alta velocidade com arquiteturas que possuem blocos que permitem a implementação destes mecanismos. Na imagem \ref{fig:gtx_geral_arq} da página \pageref{fig:gtx_geral_arq} visualiza-se uma arquitetura geral dos transcetores, mas estes serão descritos com mais detalhe neste capítulo.
+Este capítulo aborda os processos de serialização e deserialização adotados neste projeto. Estes exigem cuidados e aplicações de determinados métodos que permitam manter a integridade do sinal durante a transmissão do mesmo, como já foi referenciado em \ref{serial_theory}. Foi referido ainda em \ref{sub:arqGTX} que a FPGA VC7203 possui entradas e saídas de alta velocidade com arquiteturas constituídas por blocos que permitem a implementação destes mecanismos. Na imagem \ref{fig:gtx_geral_arq} visualiza-se uma arquitetura geral dos transcetores que serão descritos mais detalhadamente daqui em diante.
 
-Este capítulo começa por abordar as arquiteturas transmissora e recetora com mais detalhe, quais as características que são vantajosas a este projeto e ainda analisar as vantagens de desvantagens de algumas para poder fazer uma melhor escolha para o projeto. De seguida serão contempladas as arquiteturas desenvolvidas e explicadas todas as decisões no seu desenvolvimento.
+Este capítulo começa por abordar as arquiteturas transmissora e recetora com detalhe, quais as características que são vantajosas a este projeto e ainda analisa as vantagens e desvantagens de algumas para que se possa fazer a melhor escolha para o projeto. É ainda feita uma análise das características de transmissão e por fim é explicada a estrutura geral do transcetor.
 
 \section{Transmissor} \label{sec:tx_gtx}
 
-Na figura \ref{fig:gtx_tx_arq} da página \pageref{fig:gtx_tx_arq} visualiza-se a arquitetura do transmissor GTX. Assim como já foi mencionado, esta arquitetura possui muitos blocos com diferentes funções que permitem manter a integridade do sinal durante uma transmissão, pelo menos, daquilo que se pode fazer do lado do transmissor.
+Na figura \ref{fig:gtx_tx_arq} visualiza-se a arquitetura do transmissor GTX.  Esta possui blocos com diferentes funções que permitem manter a integridade do sinal durante uma transmissão.
+
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
@@ -19,14 +20,11 @@ Na figura \ref{fig:gtx_tx_arq} da página \pageref{fig:gtx_tx_arq} visualiza-se 
 	\end{center}
 \end{figure}
 
-Os blocos mais relevantes para o funcionamento do projeto passam de seguida a ser descritos nas próxima subsecções para que se possa entender mais facilmente as arquiteturas desenvolvidas quando estas forem apresentadas.
+Os blocos mais relevantes para o funcionamento do projeto passam a ser descritos nas próxima subsecções para uma melhor compreensão das arquiteturas desenvolvidas.
 
 \subsection{Interface com a FPGA} \label{subch:tx_interface}
 
-Na imagem \ref{fig:gtx_tx_arq} este bloco tem o nome de "\textit{FPGA TX Interface}" e é o bloco por onde entram os dados em paralelo provenientes da FPGA que se pretendem serializar. Segundo \cite{R011}, o tamanho desta interface depende de vários fatores internos, como por exemplo, o tamanho interno que os dados terão (pode estar dependente da utilização de codificação) e ainda o tamanho do \textit{datapath} que se escolhe usar.
-
-%%Tamanho das interfaces
-Para se perceber melhor como o tamanho da porta desta interface pode variar é apresentada a table \ref{table:tx_interface} na página \pageref{table:tx_interface} que expõe os casos possíveis.
+Na imagem \ref{fig:gtx_tx_arq} este bloco tem o nome de "\textit{FPGA TX Interface}" sendo a entrada dos dados em paralelo provenientes da FPGA que se pretendem serializar. Segundo \cite{R011}, o tamanho desta interface depende de vários fatores internos. Para se perceber melhor como o tamanho da porta pode variar são apresentados na tabela \ref{table:tx_interface} os casos possíveis.
 
 
 \begin{table}[h!]
@@ -53,14 +51,14 @@ Para se perceber melhor como o tamanho da porta desta interface pode variar é a
 	\label{table:tx_interface}
 \end{table}
 
-Os diferentes tamanhos que a porta da interface pode tomar estão apresentados na última coluna da tabela tendo em conta que quando é implementada uma codificação então estes apenas podem variar entre 16, 32 ou 64. Todavia quando não há codificação, então o tamanho desta porta pode ser os valores anteriormente referidos ou então até mesmo 20,40 ou 80. De notar que quando não há codificação e o tamanho da porta é 16, 32 ou 64 existe a possibilidade de extender esses valores (caso se pretenda) para 20, 40 e 80 respetivamente. No entanto, tal não será abordado dado que não é importante para o projeto. 
+Os diferentes tamanhos que a porta da interface pode tomar estão apresentados na última coluna da tabela, tendo em conta que quando é implementada uma codificação, estes apenas podem variar entre 16, 32 ou 64 bits. Todavia quando não há codificação, o tamanho desta porta pode tomar os valores anteriormente referidos ou 20,40 ou 80 bits. De notar que quando não há codificação e o tamanho da porta é 16, 32 ou 64 bits existe a possibilidade de extender esses valores (caso se pretenda) para 20, 40 e 80 bits respetivamente. No entanto, tal não será abordado dado que não é relevante para o projeto. 
 
-Os valores do tamanho interno do \textit{datapath} podem variar entre 2 e 4 bytes, contudo é necessário tomar em atenção que quando um \textit{datapath} de um determinado tamanho não chega para o número de bits à entrada então é necessário utilizar dois. Mas isto será abordado mais à frente nesta subsecção. 
+Os valores do tamanho interno do \textit{datapath} podem variar entre 2 e 4 bytes. Contudo, convém referir que quando um \textit{datapath} de um determinado tamanho não chega para o número de bits à entrada então é necessário utilizar dois. Este tópico será abordado mais à frente.
 
 %%Relógios que saem e para que servem
-Os dados em paralelo entram neste bloco a uma determinada cadência bem definida : ao flanco positivo do sinal de relógio \textit{TXUSRCLK2}. Este sinal de relógio é o sinal de sincronização entre os dados provenientes da FPGA com o transmissor, no entanto é também necessário outro sinal de relógio para a lógica interna PCS do transmissor : \textit{TXUSRCLK}. De recordar que a lógica interna PCS trabalha com os dados em paralelo ainda e portanto o valor deste sinal de relógio vai depender não só da cadência a que os dados em paralelo (\textit{TXUSRCLK2}) entram no transmissor mas também do \textit{datapath} escolhido.
+Os dados em paralelo entram neste bloco a uma determinada cadência bem definida: ao flanco positivo do sinal de relógio \textit{TXUSRCLK2}, sendo que este é o sinal de sincronização entre os dados provenientes da FPGA com o transmissor. No entanto, é também necessário outro sinal de relógio para a lógica interna PCS do transmissor : \textit{TXUSRCLK}. De recordar que a lógica interna PCS trabalha com os dados em paralelo, portanto o valor deste sinal de relógio depende não só da cadência a que os dados entram no transmissor mas também do \textit{datapath} escolhido. Segundo \cite{R011}, a relação entre estes dois sinais é bem definida e apresentada na tabela \ref{table:freq_tx}.
 
-Por um lado, o sinal de relógio \textit{TXUSRCLK2} é o principal sinal de sincronização entre a lógica da FPGA e a lógica do transmissor, por outro o sinal de relógio \textit{TXUSRCLK} é a cadência determinista dos dados em paralelo no bloco PCS, e por isso existe uma relação entre estes dois sinais muito bem definida que passa a ser apresentada na tabela \ref{table:freq_tx} na página \pageref{table:freq_tx}.
+%Por um lado, o sinal de relógio \textit{TXUSRCLK2} é o principal sinal de sincronização entre a lógica da FPGA e a lógica do transmissor, por outro o sinal de relógio \textit{TXUSRCLK} é a cadência determinista dos dados em paralelo no bloco PCS, e por isso existe uma relação entre estes dois sinais muito bem definida que passa a ser apresentada na tabela na página \pageref{table:freq_tx}.
 
 \begin{table}[h!]
 	\centering
@@ -80,7 +78,7 @@ Por um lado, o sinal de relógio \textit{TXUSRCLK2} é o principal sinal de sinc
 
 
 %Explicar que se pode obter uma estimativa da velocidade de transmissão de acordo com aquela equação
-Segundo \cite{R011}, sabendo estas relações entre os sinais de relógio, o tamanho da porta na interface do transmissor e o tamanho do \textit{datapath} usado é possível obter a velocidade de transmissão do dados em série através da equação apresentada em \ref{eq:lineRate} na página \pageref{eq:lineRate}.
+Segundo \cite{R011}, sabendo estas relações entre os sinais de relógio, o tamanho da porta na interface do transmissor e o tamanho do \textit{datapath} usado é possível obter a velocidade de transmissão dos dados em série através da equação apresentada em \ref{eq:lineRate}.
 
 \begin{equation} \label{eq:lineRate}
 Line\ Rate = F_{TXUSRCLK}*(Internal\ Datapath\ Width)
@@ -88,11 +86,11 @@ Line\ Rate = F_{TXUSRCLK}*(Internal\ Datapath\ Width)
 
 
 %Explicar pq e que tem frequências diferentes visto que sao os dois para sinais em paralelo
-Para que se perceba a diferença entre estas frequências é agora apresentado um caso em concreto que é utilizado neste projeto: pretende-se na entrada do transmissor obter 40 bits em paralelo, ou seja, ter uma porta com uma largura de 40 bits, e que estes dados sejam amostrados a uma frequência de 148,5 MHz ($F_{TXUSRCLK2} = 148,5\ MHz$). Assim sendo, existem agora duas hipóteses: a utilização de um \textit{datapath} de 2 byte ou 4 byte.
+Para que se perceba a diferença entre estas frequências é agora apresentado um caso em concreto que é utilizado neste projeto. Pretende-se na entrada do transmissor obter 40 bits em paralelo e que estes dados sejam amostrados a uma frequência de \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK2} = \SI{148.5}{\mega\hertz}$). Assim sendo, existem agora duas hipóteses: a utilização de um \textit{datapath} de 2 byte ou 4 byte.
 
-Se se optar pela utilização de um \textit{datapath} de 4 byte então está-se perante a opção a), ilustrada na imagem \ref{fig:exemplo_datapaths} da página \pageref{fig:exemplo_datapaths}, em que o sinal de amostragem à entrada é de 148,5 MHz ($F_{TXUSRCLK2} = 148,5\ MHz$) e o sinal de lógica do bloco PCS também é 148,5 MHz ($F_{TXUSRCLK} = 148,5\ MHz$), tal como ilustrado na figura. Neste caso a largura do sinal interno é de 40 bits o que, segundo a equação \ref{eq:lineRate}, perfaz uma taxa de saída do sinal serializado de $5,94\ Gb/s$.
+Se se optar pelo \textit{datapath} de 4 byte então está-se perante a opção a), ilustrada na figura \ref{fig:exemplo_datapaths}, em que o sinal de amostragem à entrada é de \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK2} = \SI{148.5}{\mega\hertz}$) e o sinal de lógica do bloco PCS também é \SI{148.5}{\mega\hertz} ($F_{TXUSRCLK} = \SI{148.5}{\mega\hertz}$). Neste caso a largura do sinal interno é de 40 bits o que, segundo a equação \ref{eq:lineRate}, perfaz uma taxa de saída dos dados em série de \SI{5.94}{\giga\bit\per\second}.
 
-Se por outro lado, se optar por um \textit{datapath} interno de 2 byte, então serão necessários 2 \textit{datapaths}, tal como ilustra o caso b) da figura \ref{fig:exemplo_datapaths}. Isto implica que a taxa de amostragem nesses sejam o dobro da cadência de entrada dos sinais na interface com transmissor. Assim, mantém-se uma frequência de amostragem à entrada do transmissor de $F_{TXUSRCLK2} = 148,5\ MHz$ e uma frequência do sinal de relógio de cada bloco PCS de $F_{TXUSRCLK} = 297\ MHz$. Ou seja, a largura interna de cada datapath é de 20 bits e por isso a taxa de saída do sinal serializado será igual a $5,94\ Gb/s$, segundo a equação \ref{eq:lineRate}.
+Por outro lado, se se optar por um \textit{datapath} interno de 2 byte serão necessários 2 \textit{datapath}, com largura interna de 20 bits cada, tal como ilustra o caso b) da figura \ref{fig:exemplo_datapaths}. Isto implica que a taxa de amostragem nesses seja o dobro da cadência de entrada dos sinais na interface com transmissor. Assim, mantém-se uma frequência de amostragem à entrada do transmissor de $F_{TXUSRCLK2} = \SI{148.5}{\mega\hertz}$ e uma frequência do sinal de relógio de cada bloco PCS de $F_{TXUSRCLK} = \SI{297}{\mega\hertz} $. Segundo a equação \ref{eq:lineRate}, a taxa de débito de saída é \SI{5.94}{\giga\bit\per\second}.
 
 \begin{figure}[h!]
  	\begin{center}
@@ -104,19 +102,21 @@ Se por outro lado, se optar por um \textit{datapath} interno de 2 byte, então s
  \end{figure}
 
 %%Concluir como se geram estes sinais
-Estes dois sinais de relógio são gerados neste bloco e colocados nas saídas do mesmo para que na FPGA possa ser desenvolvida uma arquitetura que leia os sinais em paralelo para o transmissor à cadência de \textit{TXUSRCLK2}. Estes estão alinhados pelo flanco positivo dos mesmos ainda que tenham frequências diferentes. Ambos são gerados com base no sinal de relógio de referência, segundo \cite{R011} e \cite{R022}, através de multiplicadores ou divisores caso possuam frequências diferentes.
+Estes dois sinais de relógio, gerados neste bloco, são colocados nas saídas do mesmo para que na FPGA possa ser desenvolvida uma arquitetura que leia os sinais em paralelo para o transmissor à cadência de \textit{TXUSRCLK2}. Estes estão alinhados pelo flanco positivo de ambos ainda que tenham frequências diferentes. De notar ainda que os mesmo são gerados com base no sinal de relógio de referência, segundo \cite{R011} e \cite{R022}, através de multiplicadores ou divisores caso possuam frequências diferentes.
 
 
 \subsection{Codificador 8B/10B}
 
-Este bloco permite que os sinais em paralelo sejam codificados de 8 bits para 10 bits quando está ativo. Por outras palavras, através da codificação extende os sinais de entrada de 16 bits para 20 bits, os sinais de 32 bits para 40 bits e os sinais de 64 bits para 80 bits. É de notar que apesar de ser vantajosa a utilização de codificação num protocolo de transmissão em série, que a ativação deste bloco aumenta a latência do transmissor, tal como é de esperar.
+Este bloco, quando ativo, permite que os sinais em paralelo sejam codificados de 8 para 10 bits. É de notar que, apesar de ser vantajosa a utilização de codificação num protocolo de transmissão em série, a ativação deste bloco aumenta a latência do transmissor.
 
-As características deste tipo de codificação, as suas vantagens e importância foram já abordadas na subsecção com o título "Codificação dos sinais e sua importância" em \ref{subsub:cod_impor} no capítulo \ref{chap:chap2}.
+As características deste tipo de codificação, as suas vantagens e importância foram já abordadas na subsecção \ref{subsub:cod_impor} na página \pageref{subsub:cod_impor}.
 
 %\subsection{Gerador de padrões pseudo-aleatórios}
 %
 %A geração de sequência pseudo-aleatórias é bastante utilizada em sistemas de telecomunicações para testar a integridade do sinal de ligações de grande velocidade, segundo \cite{R011}. Apesar de estas mesmas sequências parecerem aleatórias à primeira vista, na realidade apresentam determinadas características que são utilizadas para medir a qualidade da ligação. Este bloco do transmissor é responsável por esta ação. 
 
+
+%%%%%%%%%%%%%%%%%ESTAMOS AQUI !!!! %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Interface entre os diferentes domínios de sinal de relógio do transmissor} \label{subsub:tx_buffer}
 
 Já foi referido anteriormente que para o correto funcionamento do transmissor GTX opera com pelo menos dois sinais de relógio diferentes : TXUSRCLK and TXUSRCLK2. O segundo é o sinal de relógio de sincronização principal entre os dados provenientes da FPGA e o transmissor, e o primeiro é o sinal de relógio utilizado para a lógica do bloco PCS.
