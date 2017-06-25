@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.18)  25 JUN 2017 20:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.18)  25 JUN 2017 21:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2273,11 +2273,18 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 66.
  [41]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 99.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 99.
 
+LaTeX Warning: Reference `ap1:HDMIconfig+audio' on page 42 undefined on input l
+ine 69.
+
+
+LaTeX Warning: Reference `ap1:HDMIconfig+audio' on page 42 undefined on input l
+ine 93.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 99.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 99.
 [42]
 Package epstopdf Info: Source file: <figures/audio_i2s.eps>
 (epstopdf)                    date: 2017-06-19 10:39:44
@@ -2290,7 +2297,7 @@ erted-to.pdf figures/audio_i2s.eps>
 (epstopdf)             \includegraphics on input line 109.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/audio_i2s-eps-converted-to.pdf, id=1343, 448.67625pt x 111.41624pt>
+<figures/audio_i2s-eps-converted-to.pdf, id=1341, 448.67625pt x 111.41624pt>
 File: figures/audio_i2s-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/audio_i2s-eps-converted-to.pdf>
@@ -2325,7 +2332,7 @@ ps-converted-to.pdf figures/exemplo_colorBar.eps>
 (epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_colorBar-eps-converted-to.pdf, id=1372, 424.58624pt x 305.14pt
+<figures/exemplo_colorBar-eps-converted-to.pdf, id=1370, 424.58624pt x 305.14pt
 >
 File: figures/exemplo_colorBar-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/exemplo_colorBar-eps-converted-to.pdf>
@@ -2353,7 +2360,7 @@ onverted-to.pdf figures/colorBar_FSM.eps>
 (epstopdf)             \includegraphics on input line 189.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/colorBar_FSM-eps-converted-to.pdf, id=1386, 389.455pt x 274.02374pt>
+<figures/colorBar_FSM-eps-converted-to.pdf, id=1384, 389.455pt x 274.02374pt>
 File: figures/colorBar_FSM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/colorBar_FSM-eps-converted-to.pdf>
@@ -2385,7 +2392,7 @@ d-to.pdf figures/planA.eps>
 (epstopdf)             \includegraphics on input line 242.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planA-eps-converted-to.pdf, id=1416, 724.7075pt x 376.40625pt>
+<figures/planA-eps-converted-to.pdf, id=1414, 724.7075pt x 376.40625pt>
 File: figures/planA-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planA-eps-converted-to.pdf>
@@ -2419,7 +2426,7 @@ rted-to.pdf figures/planAsch.eps>
 (epstopdf)             \includegraphics on input line 292.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planAsch-eps-converted-to.pdf, id=1457, 713.66624pt x 292.09125pt>
+<figures/planAsch-eps-converted-to.pdf, id=1455, 713.66624pt x 292.09125pt>
 File: figures/planAsch-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planAsch-eps-converted-to.pdf>
@@ -2431,7 +2438,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 296.
  [50]
-<figures/resultados_planoA.png, id=1465, 396.5214pt x 344.487pt>
+<figures/resultados_planoA.png, id=1463, 396.5214pt x 344.487pt>
 File: figures/resultados_planoA.png Graphic file (type png)
 
 <use figures/resultados_planoA.png>
@@ -2456,7 +2463,7 @@ ed-to.pdf figures/planB1.eps>
 (epstopdf)             \includegraphics on input line 328.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planB1-eps-converted-to.pdf, id=1481, 872.25874pt x 428.60126pt>
+<figures/planB1-eps-converted-to.pdf, id=1479, 872.25874pt x 428.60126pt>
 File: figures/planB1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planB1-eps-converted-to.pdf>
@@ -2484,7 +2491,7 @@ rted-to.pdf figures/planBsch.eps>
 (epstopdf)             \includegraphics on input line 382.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planBsch-eps-converted-to.pdf, id=1519, 1216.545pt x 295.1025pt>
+<figures/planBsch-eps-converted-to.pdf, id=1517, 1216.545pt x 295.1025pt>
 File: figures/planBsch-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planBsch-eps-converted-to.pdf>
@@ -2492,7 +2499,7 @@ Package pdftex.def Info: figures/planBsch-eps-converted-to.pdf used on input li
 ne 382.
 (pdftex.def)             Requested size: 426.79135pt x 103.52606pt.
 
-<figures/resultados_planoB.png, id=1521, 391.2216pt x 288.5982pt>
+<figures/resultados_planoB.png, id=1519, 391.2216pt x 288.5982pt>
 File: figures/resultados_planoB.png Graphic file (type png)
 
 <use figures/resultados_planoB.png>
@@ -2517,7 +2524,7 @@ d-to.pdf figures/planC.eps>
 (epstopdf)             \includegraphics on input line 414.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planC-eps-converted-to.pdf, id=1537, 792.9625pt x 898.35625pt>
+<figures/planC-eps-converted-to.pdf, id=1535, 792.9625pt x 898.35625pt>
 File: figures/planC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planC-eps-converted-to.pdf>
@@ -2590,7 +2597,7 @@ Package epstopdf Info: Source file: <figures/tx_gtx_arq.eps>
 verted-to.pdf figures/tx_gtx_arq.eps>
 (epstopdf)             \includegraphics on input line 14.
 Package epstopdf Info: Output file is already uptodate.
-<figures/tx_gtx_arq-eps-converted-to.pdf, id=1598, 508.90125pt x 216.81pt>
+<figures/tx_gtx_arq-eps-converted-to.pdf, id=1596, 508.90125pt x 216.81pt>
 File: figures/tx_gtx_arq-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/tx_gtx_arq-eps-converted-to.pdf>
@@ -2628,7 +2635,7 @@ ps-converted-to.pdf figures/exemplo_datapath.eps>
 (epstopdf)             \includegraphics on input line 95.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_datapath-eps-converted-to.pdf, id=1632, 547.04375pt x 362.3537
+<figures/exemplo_datapath-eps-converted-to.pdf, id=1630, 547.04375pt x 362.3537
 4pt>
 File: figures/exemplo_datapath-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/exemplo_datapath-eps-converted-to.pdf>
@@ -2663,7 +2670,7 @@ tx_tx-eps-converted-to.pdf figures/clk_domain_cross_gtx_tx.eps>
 (epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/clk_domain_cross_gtx_tx-eps-converted-to.pdf, id=1645, 506.89375pt x 2
+<figures/clk_domain_cross_gtx_tx-eps-converted-to.pdf, id=1643, 506.89375pt x 2
 64.99pt>
 File: figures/clk_domain_cross_gtx_tx-eps-converted-to.pdf Graphic file (type p
 df)
@@ -2700,7 +2707,7 @@ verted-to.pdf figures/rx_gtx_arq.eps>
 (epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/rx_gtx_arq-eps-converted-to.pdf, id=1684, 499.8675pt x 188.705pt>
+<figures/rx_gtx_arq-eps-converted-to.pdf, id=1682, 499.8675pt x 188.705pt>
 File: figures/rx_gtx_arq-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/rx_gtx_arq-eps-converted-to.pdf>
@@ -2730,7 +2737,7 @@ s-converted-to.pdf figures/rxslide_example.eps>
 (epstopdf)             \includegraphics on input line 239.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/rxslide_example-eps-converted-to.pdf, id=1709, 483.8075pt x 200.75pt>
+<figures/rxslide_example-eps-converted-to.pdf, id=1707, 483.8075pt x 200.75pt>
 File: figures/rxslide_example-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/rxslide_example-eps-converted-to.pdf>
@@ -2761,7 +2768,7 @@ nverted-to.pdf figures/dominios_rx.eps>
 (epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/dominios_rx-eps-converted-to.pdf, id=1719, 502.87875pt x 225.84375pt>
+<figures/dominios_rx-eps-converted-to.pdf, id=1717, 502.87875pt x 225.84375pt>
 File: figures/dominios_rx-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/dominios_rx-eps-converted-to.pdf>
@@ -2807,7 +2814,7 @@ nverted-to.pdf figures/gtx_wrapper.eps>
 (epstopdf)             \includegraphics on input line 328.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/gtx_wrapper-eps-converted-to.pdf, id=1761, 839.135pt x 489.83pt>
+<figures/gtx_wrapper-eps-converted-to.pdf, id=1759, 839.135pt x 489.83pt>
 File: figures/gtx_wrapper-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/gtx_wrapper-eps-converted-to.pdf>
@@ -2855,7 +2862,7 @@ f>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planod_simples-eps-converted-to.pdf, id=1794, 1111.15125pt x 637.38126
+<figures/planod_simples-eps-converted-to.pdf, id=1792, 1111.15125pt x 637.38126
 pt>
 File: figures/planod_simples-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/planod_simples-eps-converted-to.pdf>
@@ -2892,7 +2899,7 @@ MI-eps-converted-to.pdf figures/sync_block_from_HDMI.eps>
 (epstopdf)             \includegraphics on input line 104.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/sync_block_from_HDMI-eps-converted-to.pdf, id=1842, 317.185pt x 312.16
+<figures/sync_block_from_HDMI-eps-converted-to.pdf, id=1840, 317.185pt x 312.16
 624pt>
 File: figures/sync_block_from_HDMI-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -2917,7 +2924,7 @@ icial-eps-converted-to.pdf figures/trama_abordagem_inicial.eps>
 (epstopdf)             \includegraphics on input line 134.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/trama_abordagem_inicial-eps-converted-to.pdf, id=1860, 1378.14874pt x 
+<figures/trama_abordagem_inicial-eps-converted-to.pdf, id=1858, 1378.14874pt x 
 269.005pt>
 File: figures/trama_abordagem_inicial-eps-converted-to.pdf Graphic file (type p
 df)
@@ -2937,7 +2944,7 @@ nsmissoes-eps-converted-to.pdf figures/exemplo_tramas_transmissoes.eps>
 (epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/exemplo_tramas_transmissoes-eps-converted-to.pdf, id=1862, 406.51875pt
+<figures/exemplo_tramas_transmissoes-eps-converted-to.pdf, id=1860, 406.51875pt
  x 323.2075pt>
 File: figures/exemplo_tramas_transmissoes-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -2966,7 +2973,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 168.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/organizacao_tramas-eps-converted-to.pdf, id=1880, 1882.03125pt x 1210.
+<figures/organizacao_tramas-eps-converted-to.pdf, id=1878, 1882.03125pt x 1210.
 5225pt>
 File: figures/organizacao_tramas-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/organizacao_tramas-eps-converted-to.pdf>
@@ -2993,7 +3000,7 @@ Package epstopdf Info: Source file: <figures/fsm1.eps>
 (epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fsm1-eps-converted-to.pdf, id=1895, 956.57375pt x 504.88625pt>
+<figures/fsm1-eps-converted-to.pdf, id=1893, 956.57375pt x 504.88625pt>
 File: figures/fsm1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/fsm1-eps-converted-to.pdf>
@@ -3021,7 +3028,7 @@ f>
 (epstopdf)             \includegraphics on input line 218.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fsm_track_data-eps-converted-to.pdf, id=1913, 991.705pt x 709.65125pt>
+<figures/fsm_track_data-eps-converted-to.pdf, id=1911, 991.705pt x 709.65125pt>
 File: figures/fsm_track_data-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/fsm_track_data-eps-converted-to.pdf>
 Package pdftex.def Info: figures/fsm_track_data-eps-converted-to.pdf used on in
@@ -3053,7 +3060,7 @@ converted-to.pdf figures/fsm_bit_align.eps>
 (epstopdf)             \includegraphics on input line 259.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/fsm_bit_align-eps-converted-to.pdf, id=1944, 876.27374pt x 674.52pt>
+<figures/fsm_bit_align-eps-converted-to.pdf, id=1942, 876.27374pt x 674.52pt>
 File: figures/fsm_bit_align-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/fsm_bit_align-eps-converted-to.pdf>
@@ -3077,7 +3084,7 @@ o.pdf>
 (epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/sync_block_to_HDMI-eps-converted-to.pdf, id=1963, 317.185pt x 312.1662
+<figures/sync_block_to_HDMI-eps-converted-to.pdf, id=1961, 317.185pt x 312.1662
 4pt>
 File: figures/sync_block_to_HDMI-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/sync_block_to_HDMI-eps-converted-to.pdf>
@@ -3103,7 +3110,7 @@ Package epstopdf Info: Source file: <figures/planod.eps>
 ed-to.pdf figures/planod.eps>
 (epstopdf)             \includegraphics on input line 330.
 Package epstopdf Info: Output file is already uptodate.
- <figures/planod-eps-converted-to.pdf, id=1970, 1120.185pt x 653.44125pt>
+ <figures/planod-eps-converted-to.pdf, id=1968, 1120.185pt x 653.44125pt>
 File: figures/planod-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planod-eps-converted-to.pdf>
@@ -3127,7 +3134,7 @@ Package epstopdf Info: Source file: <figures/planDsch.eps>
 rted-to.pdf figures/planDsch.eps>
 (epstopdf)             \includegraphics on input line 400.
 Package epstopdf Info: Output file is already uptodate.
-<figures/planDsch-eps-converted-to.pdf, id=1982, 713.66624pt x 318.18875pt>
+<figures/planDsch-eps-converted-to.pdf, id=1980, 713.66624pt x 318.18875pt>
 File: figures/planDsch-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planDsch-eps-converted-to.pdf>
@@ -3150,7 +3157,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 410.
  [86 <./figures/planod-eps-converted-to.pdf>]
-<figures/resultados_planoD.png, id=2014, 406.6392pt x 330.9966pt>
+<figures/resultados_planoD.png, id=2012, 406.6392pt x 330.9966pt>
 File: figures/resultados_planoD.png Graphic file (type png)
 
 <use figures/resultados_planoD.png>
@@ -3179,7 +3186,7 @@ eps-converted-to.pdf figures/planoE_simples_pt.eps>
 (epstopdf)             \includegraphics on input line 436.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planoE_simples_pt-eps-converted-to.pdf, id=2030, 1299.85625pt x 810.02
+<figures/planoE_simples_pt-eps-converted-to.pdf, id=2027, 1299.85625pt x 810.02
 625pt>
 File: figures/planoE_simples_pt-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/planoE_simples_pt-eps-converted-to.pdf>
@@ -3202,7 +3209,7 @@ nverted-to.pdf figures/recetorHDMI.eps>
 (epstopdf)             \includegraphics on input line 455.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/recetorHDMI-eps-converted-to.pdf, id=2050, 317.185pt x 312.16624pt>
+<figures/recetorHDMI-eps-converted-to.pdf, id=2048, 317.185pt x 312.16624pt>
 File: figures/recetorHDMI-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/recetorHDMI-eps-converted-to.pdf>
@@ -3220,7 +3227,7 @@ ed-to.pdf figures/planoE.eps>
 (epstopdf)             \includegraphics on input line 471.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/planoE-eps-converted-to.pdf, id=2056, 1299.85625pt x 810.02625pt>
+<figures/planoE-eps-converted-to.pdf, id=2054, 1299.85625pt x 810.02625pt>
 File: figures/planoE-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planoE-eps-converted-to.pdf>
@@ -3249,7 +3256,7 @@ Package epstopdf Info: Source file: <figures/planEsch_en.eps>
 nverted-to.pdf figures/planEsch_en.eps>
 (epstopdf)             \includegraphics on input line 555.
 Package epstopdf Info: Output file is already uptodate.
-<figures/planEsch_en-eps-converted-to.pdf, id=2088, 1216.545pt x 321.2pt>
+<figures/planEsch_en-eps-converted-to.pdf, id=2086, 1216.545pt x 321.2pt>
 File: figures/planEsch_en-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/planEsch_en-eps-converted-to.pdf>
@@ -3269,7 +3276,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 565.
  [91 <./figures/planEsch_en-eps-converted-to.pdf>] <figures/resultados_planoE.p
-ng, id=2116, 445.665pt x 314.6154pt>
+ng, id=2114, 445.665pt x 314.6154pt>
 File: figures/resultados_planoE.png Graphic file (type png)
 
 <use figures/resultados_planoE.png>
@@ -3286,7 +3293,7 @@ nverted-to.pdf figures/erro_planoE.eps>
 (epstopdf)             \includegraphics on input line 583.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/erro_planoE-eps-converted-to.pdf, id=2117, 804.00375pt x 192.72pt>
+<figures/erro_planoE-eps-converted-to.pdf, id=2115, 804.00375pt x 192.72pt>
 File: figures/erro_planoE-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/erro_planoE-eps-converted-to.pdf>
@@ -3417,34 +3424,32 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 5.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 87.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 87.
+(babel)             in language  on input line 90.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 90.
 [103
 
 
 
 ]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 90.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 184.
-
-Underfull \vbox (badness 3758) has occurred while \output is active []
-
+(babel)             in language  on input line 181.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
- [104]
+(babel)             in language  on input line 229.
+[104]
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 259.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
 Package babel Info: Redefining portuges shorthand "|
@@ -3602,10 +3607,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 195.
  ) 
 Here is how much of TeX's memory you used:
- 19187 strings out of 493014
- 365210 string characters out of 6133351
- 413777 words of memory out of 5000000
- 21903 multiletter control sequences out of 15000+600000
+ 19188 strings out of 493014
+ 365232 string characters out of 6133351
+ 414777 words of memory out of 5000000
+ 21904 multiletter control sequences out of 15000+600000
  27897 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,15n,45p,10470b,1064s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3637,10 +3642,10 @@ ype1/public/cm-super/sfsl1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/public/cm-super/sfti0900.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /public/cm-super/sfti1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
 ublic/cm-super/sfxc1440.pfb>
-Output written on MarisaOliveira.pdf (134 pages, 7366703 bytes).
+Output written on MarisaOliveira.pdf (134 pages, 7366560 bytes).
 PDF statistics:
- 2426 PDF objects out of 2487 (max. 8388607)
- 2012 compressed objects within 21 object streams
+ 2424 PDF objects out of 2487 (max. 8388607)
+ 2010 compressed objects within 21 object streams
  424 named destinations out of 1000 (max. 500000)
  933 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -71,7 +71,7 @@
 \contentsline {chapter}{\numberline {B}Configura\IeC {\c c}\IeC {\~o}es dos interruptores das placas HDMI}{103}{appendix.B}
 \contentsline {section}{\numberline {B.1}Configura\IeC {\c c}\IeC {\~a}o por omiss\IeC {\~a}o}{103}{section.B.1}
 \contentsline {section}{\numberline {B.2}Suporte de um canal de imagem e \IeC {\'a}udio}{104}{section.B.2}
-\contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{105}{section.B.3}
+\contentsline {section}{\numberline {B.3}Suporte de dois canais de imagem melhorado}{104}{section.B.3}
 \contentsline {chapter}{\numberline {C}Localiza\IeC {\c c}\IeC {\~o}es das portas conectadas \IeC {\`a}s placas HDMI}{107}{appendix.C}
 \contentsline {section}{\numberline {C.1}Transmiss\IeC {\~a}o de uma imagem gerada na FPGA}{107}{section.C.1}
 \contentsline {section}{\numberline {C.2}Transmiss\IeC {\~a}o de uma imagem entre dispositivos HDMI}{107}{section.C.2}

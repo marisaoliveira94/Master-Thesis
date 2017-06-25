@@ -4,7 +4,7 @@ Este anexo contempla as diversas configurações possíveis dos interruptores pr
 
 \section{Configuração por omissão} \label{sec:HDMIconfigdefault_switches}
 
-Quando as placas estão configuradas de fábrica relembra-se que as imagens transmitidas correspondem ao formato RGB de 30 bits (10 bits por cor). Deste modo, a indicação que vem em \cite{R009} sobre as funções dos interruptores da placa HDMI recetora é muito pouca. Apenas é indicado que quando esta configuração está ativa os interruptores se devem encontrar tal como especifica a tabela \ref{table:HDMI_default_switches_RX} na página \pageref{table:HDMI_default_switches_RX}, adaptada de \cite{R009}.
+Quando as placas estão configuradas de fábrica relembra-se que as imagens transmitidas correspondem ao formato RGB de 30 bits (10 bits por cor). Deste modo, a indicação que vem em \cite{R009} sobre as funções dos interruptores da placa HDMI recetora é escassa. Apenas é indicado que quando esta configuração está ativa os interruptores se devem encontrar tal como especifica a tabela \ref{table:HDMI_default_switches_RX} na página \pageref{table:HDMI_default_switches_RX}, adaptada de \cite{R009}.
 
 %\begin{table}[h!]
 %	\centering
@@ -27,7 +27,8 @@ Quando as placas estão configuradas de fábrica relembra-se que as imagens tran
 
 \begin{table}[h!]
 	\centering
-
+		\caption{Configuração dos interruptores da placa HDMI RX configurada de fábrica}
+	\label{table:HDMI_default_switches_RX}
 		\begin{tabular}{@{}l|l@{}}
 			\toprule
 			\multicolumn{1}{c}{\textbf{Interruptor}} & \multicolumn{1}{c}{\textbf{Estado}} \\ \midrule
@@ -40,12 +41,9 @@ Quando as placas estão configuradas de fábrica relembra-se que as imagens tran
 			\textbf{S1-7}                            & Não usado                           \\
 			\textbf{S1-8}                            & ON                                  \\ \bottomrule
 		\end{tabular}%
-	\captionsetup{width=0.3\linewidth}
-	\caption{Configuração dos interruptores da placa HDMI RX configurada de fábrica}
-	\label{table:HDMI_default_switches_RX}
 \end{table}
 
-Relativamente à placa HDMI transmissora é sabido que lhe chegam imagens no formato RGB de 10 bits. Todavia é possível configurar o integrado ADV7511 de tal forma que na sua saída o número de bits não seja limitado a 10. Para tal é necessário configurar os interruptores da forma que a tabela \ref{table:HDMI_default_switches_TX} indica, adaptada de \cite{R009}.
+Relativamente à placa HDMI transmissora é sabido que lhe chegam imagens no formato RGB de 10 bits. Todavia, é possível configurar o integrado ADV7511 de tal forma que na sua saída o número de bits não seja limitado a 10. Para tal, é necessário configurar os interruptores da forma que a tabela \ref{table:HDMI_default_switches_TX} indica, adaptada de \cite{R009}.
 
 %\begin{table}[h!]
 %	\centering
@@ -68,6 +66,8 @@ Relativamente à placa HDMI transmissora é sabido que lhe chegam imagens no for
 
 \begin{table}[h!]
 	\centering
+		\caption{Configuração dos interruptores da placa HDMI TX configurada de fábrica}
+	\label{table:HDMI_default_switches_TX}
 	\begin{tabular}{@{}llll@{}}
 		\toprule
 		\multicolumn{1}{c}{\textbf{Interruptor}} & \multicolumn{3}{c}{\textbf{Estado}} \\ \midrule
@@ -81,9 +81,6 @@ Relativamente à placa HDMI transmissora é sabido que lhe chegam imagens no for
 		\multicolumn{1}{l|}{\textbf{S1-7}} & \multicolumn{3}{l}{Não usado} \\
 		\multicolumn{1}{l|}{\textbf{S1-8}} & \multicolumn{3}{l}{Não usado} \\ \bottomrule
 	\end{tabular}
-	\captionsetup{width=0.45\linewidth}
-	\caption{Configuração dos interruptores da placa HDMI TX configurada de fábrica}
-	\label{table:HDMI_default_switches_TX}
 \end{table}
 
 
@@ -115,6 +112,8 @@ Quando se configuram as placas HDMI de forma a obter-se o suporte de imagem e so
 % \usepackage{graphicx}
 \begin{table}[h!]
 	\centering
+		\caption{Configuração dos interruptores da placa HDMI RX configurada para um canal e suporte de áudio}
+	\label{table:HDMI_1ch+audio_switches_RX}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{lllllll}
 			\hline
@@ -130,8 +129,7 @@ Quando se configuram as placas HDMI de forma a obter-se o suporte de imagem e so
 			\multicolumn{1}{l|}{\textbf{S1-7}}                     & \multicolumn{6}{l}{ON}                                                      \\
 			\multicolumn{1}{l|}{\textbf{S1-8}}                     & \multicolumn{6}{l}{ON}                                                      \\ \hline
 		\end{tabular}	}
-	\caption{Configuração dos interruptores da placa HDMI RX configurada para um canal e suporte de áudio}
-	\label{table:HDMI_1ch+audio_switches_RX}
+
 \end{table}
 
 
@@ -160,6 +158,8 @@ Quando se configuram as placas HDMI de forma a obter-se o suporte de imagem e so
 
 \begin{table}[h!]
 	\centering
+		\caption{Configuração dos interruptores da placa HDMI TX configurada para um canal e suporte de áudio}
+	\label{table:HDMI_1ch+audio_switches_TX}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{@{}llllllllll@{}}
 			\toprule
@@ -176,9 +176,6 @@ Quando se configuram as placas HDMI de forma a obter-se o suporte de imagem e so
 			\multicolumn{1}{l|}{\textbf{S1-8}} & \multicolumn{9}{l}{ON} \\ \bottomrule
 		\end{tabular}%
 	}
-	
-	\caption{Configuração dos interruptores da placa HDMI TX configurada para um canal e suporte de áudio}
-	\label{table:HDMI_1ch+audio_switches_TX}
 \end{table}
 
 \section{Suporte de dois canais de imagem melhorado} \label{sec:HDMIconfigMelhorado_switches}
@@ -211,6 +208,8 @@ Quando se reconfigura as placas para suportarem a versão de transmissão de doi
 % \usepackage{graphicx}
 \begin{table}[h!]
 	\centering
+		\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados}
+	\label{table:HDMI_2ch_melhoradp_RX}
 %	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{lllll}
 			\hline
@@ -227,9 +226,6 @@ Quando se reconfigura as placas para suportarem a versão de transmissão de doi
 			\multicolumn{1}{l|}{\textbf{S1-8}}                     & \multicolumn{4}{l}{ON}                           \\ \hline
 		\end{tabular}%
 %	}
-	\captionsetup{width=0.9\linewidth}
-	\caption{Configuração dos interruptores da placa HDMI RX configurada para dois canais melhorados}
-	\label{table:HDMI_2ch_melhoradp_RX}
 \end{table}
 
 Relativamente à placa HDMI transmissora, ambos os canais são capazes de suportar imagens em formato RGB ou YCbCr. A tabela \ref{table:HDMI_2ch_melhoradp_TX} da página \pageref{table:HDMI_2ch_melhoradp_TX} apresenta as combinações dos interruptores para se poder obter os diversos formatos na saída do ADV7511.
@@ -256,7 +252,9 @@ Relativamente à placa HDMI transmissora, ambos os canais são capazes de suport
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h!]
+		\caption{Configuração dos interruptores da placa HDMI TX configurada para dois canais melhorados}
+	\label{table:HDMI_2ch_melhoradp_TX}
 	\centering
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{@{}lllllll@{}}
@@ -274,6 +272,4 @@ Relativamente à placa HDMI transmissora, ambos os canais são capazes de suport
 			\multicolumn{1}{l|}{\textbf{S1-8}}                     & \multicolumn{6}{l}{ON}                                           \\ \bottomrule
 		\end{tabular}%
 	}
-	\caption{Configuração dos interruptores da placa HDMI TX configurada para dois canais melhorados}
-	\label{table:HDMI_2ch_melhoradp_TX}
 \end{table}
