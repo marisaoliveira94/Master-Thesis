@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {2.1}{\ignorespaces Nomes dos pinos da interface FMC de TB-FMCH-HDMI2 RX}}{14}{table.caption.18}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Nomes dos pins da interface FMC de TB-FMCH-HDMI2 TX}}{17}{table.caption.22}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Nomes dos pinos da interface FMC de TB-FMCH-HDMI2 TX}}{17}{table.caption.22}
 \contentsline {table}{\numberline {2.3}{\ignorespaces Exemplo de codifica\IeC {\c c}\IeC {\~a}o 8B/10B}}{22}{table.caption.27}
 \contentsline {table}{\numberline {2.4}{\ignorespaces Exemplo de palavras de 8 bits codificadas em 8B/10B}}{22}{table.caption.28}
 \contentsline {table}{\numberline {2.5}{\ignorespaces S\IeC {\'\i }mbolos de controlo especificos da codifica\IeC {\c c}\IeC {\~a}o 8B/10B}}{23}{table.caption.30}

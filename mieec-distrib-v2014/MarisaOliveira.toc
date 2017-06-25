@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Comunica\IeC {\c c}\IeC {\~o}es em paralelo VS comunica\IeC {\c c}\IeC {\~o}es em s\IeC {\'e}rie}{17}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Considera\IeC {\c c}\IeC {\~o}es sobre arquiteturas de transmiss\IeC {\~a}o de dados em s\IeC {\'e}rie}{19}{subsection.2.4.2}
 \contentsline {section}{\numberline {2.5}Sa\IeC {\'\i }das em s\IeC {\'e}rie de alta velocidade da FPGA VC7203}{32}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Localiza\IeC {\c c}\IeC {\~a}o dos transcetores na FPGA}{33}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.1}Localiza\IeC {\c c}\IeC {\~a}o dos transcetores na FPGA}{32}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Arquitetura dos transcetores}{33}{subsection.2.5.2}
 \contentsline {section}{\numberline {2.6}Sincroniza\IeC {\c c}\IeC {\~a}o entre diferentes dom\IeC {\'\i }nios de rel\IeC {\'o}gio}{35}{section.2.6}
 \contentsline {chapter}{\numberline {3}Transmiss\IeC {\~a}o de dados HDMI}{39}{chapter.3}

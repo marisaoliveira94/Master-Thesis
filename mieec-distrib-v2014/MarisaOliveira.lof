@@ -5,9 +5,9 @@
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Diagrama geral da segunda parte do problema\relax }}{6}{figure.caption.10}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Vista Geral da FPGA VC7203 Virtex-7}}{12}{figure.caption.16}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 RX}}{13}{figure.caption.17}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos da placa HDMI RX}}{13}{figure.caption.17}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Amostragem dos dados provenientes da FPGA no recetor}}{15}{figure.caption.19}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de blocos de TB-FMCH-HDMI2 TX}}{16}{figure.caption.20}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de blocos da placa HDMI TX}}{16}{figure.caption.20}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Amostragem dos dados provenientes do FMC no recetor}}{16}{figure.caption.21}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Arquitetura simples de um serializador e deserializador}}{19}{figure.caption.24}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do alinhamento em s\IeC {\'e}rie quando encontrada a \textit {comma}}}{24}{figure.caption.31}
@@ -20,8 +20,8 @@
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Localiza\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica na FPGA dos GTX}}{33}{figure.caption.45}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Conectores GTX localizados na FPGA}}{34}{figure.caption.46}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Arquitetura geral dos transcetores}}{34}{figure.caption.47}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o dos diferentes dom\IeC {\'\i }nios de sinais de rel\IeC {\'o}gio no projeto\relax }}{36}{figure.caption.48}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Exemplo de metaestabilidade}}{37}{figure.caption.49}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o dos diferentes dom\IeC {\'\i }nios de sinais de rel\IeC {\'o}gio no projeto\relax }}{35}{figure.caption.48}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Exemplo de metaestabilidade}}{36}{figure.caption.49}
 \contentsline {figure}{\numberline {2.19}{\ignorespaces Exemplo de cadeia de registos de sincroniza\IeC {\c c}\IeC {\~a}o}}{37}{figure.caption.50}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Placa HDMI recetora TB-FMCH-HDMI2 RX}}{40}{figure.caption.51}
