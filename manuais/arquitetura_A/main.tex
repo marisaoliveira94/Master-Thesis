@@ -1,60 +1,178 @@
-\documentclass[a4paper]{article}
 
-\usepackage[english]{babel}
+\documentclass[11pt,a4paper]{article}
+
+
+\usepackage[portuguese]{babel}
+\usepackage[version=3]{mhchem} % Package for chemical equation typesetting
+\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\sisetup{
+	load-configurations=binary,
+	detect-all,
+	group-digits=false,
+	output-decimal-marker={,},
+	per-mode=symbol,
+	per-symbol=/,
+	binary-units = true
+}
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements 
+
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabto}
+\usepackage{booktabs}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage[colorinlistoftodos]{todonotes}
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs
 
-\title{Transmissão de uma imagem gerada na FPGA}
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+\usepackage{epstopdf}
+\graphicspath{{figures/}}
 
-\author{Marisa Oliveira}
+\usepackage[colorlinks = true,
+linkcolor = blue,
+urlcolor  = blue,
+citecolor = blue,
+anchorcolor = blue]{hyperref}
 
-\date{\today}
+\usepackage[capitalise]{cleveref}
+
+
+
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Transmissão de uma imagem gerada na FPGA} % Title
+
+\author{Edição 1.0}
+
+\date{\today} % Date for the report
 
 \begin{document}
-\maketitle
+	
+	\maketitle % Insert the title, author and date
+	
+	% Please add the following required packages to your document preamble:
+	% \usepackage{booktabs}
+	\begin{table}[h!]
+		\centering
+		\label{my-label}
+		\begin{tabular}{@{}llll@{}}
+			\toprule
+			\multicolumn{1}{c}{\textbf{Data}} & \multicolumn{1}{c}{\textbf{Autor}} & \multicolumn{1}{c}{\textbf{Edição}} & \multicolumn{1}{c}{\textbf{Alterações}} \\ \midrule
+			10 julho 2017                     & Marisa Oliveira                    & 1.0                                 & Lançamento Inicial                       \\ \bottomrule
+		\end{tabular}
+	\end{table}
+	
+	% If you wish to include an abstract, uncomment the lines below
+	%\begin{abstract}
+	%% Abstract text
+	%\end{abstract}
+	
+	%----------------------------------------------------------------------------------------
+	%	SECTIONs
+	%----------------------------------------------------------------------------------------
+	
+	\section{Introdução}
+	
+	Este manual apresenta os aspetos relevantes sobre a arquitetura implementada em FPGA que permite a transmissão de uma barra de cores para um dispositivo final HDMI.
+	
+	\section{Objetivo}
+	
+	Esta arquitetura tem como principal objetivo a transmissão direta entre a FPGA e o dispositivo final HDMI, tal como mencionado em \cite{R041}. É gerada uma barra de cores em \textit{FULL HD} com uma taxa de atualização vertical de \SI{60}{\hertz} no módulo ``\textit{colorBar\_generator.v}'' e os dados referentes à imagem são transmitidos para a placa HDMI TX, tal como se visualiza na \cref{fig:planoA}.
 
+	\section{Material Utilizado}
+	Para a implementação desta arquitetura são utilizados vários equipamentos, entre os quais os seguintes:
+	\subsection{FPGA VC7203}
+	É uma FPGA (\textit{Field-programmable gate array}) que se caracteriza pelo seu elevado número de recursos e também pelas entradas em saídas de alta velocidade que possui, tal como indica \cite{R008}. É utilizada para implementação do código desenvolvido em Verilog para esta arquitetura e ainda para conexão à placa HDMI pelos conectores FMC (\textit{FPGA Mezzanine Card}).
+	\subsection{TB-FMCH-HDMI2-TX}
+	
+	
+	\section{Arquitetura}
+	
+	
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=1.0\textwidth]{planA} 
+			\caption{Diagrama de blocos da arquitetura}
+			\label{fig:planoA}
+		\end{center}
+	\end{figure}
 
-\section{Introdução}
-\subsection{Funcionalidades}
+	\section{Configuração do \textit{setup}}
+	
+		\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=1.0\textwidth]{planAsch} 
+			\caption{\textit{Setup} de teste}
+		\end{center}
+	\end{figure}
 
-\subsection{Material}
-FPGA
+	\section{Conclusões}
+	
+		\begin{table}[h!]
+			\centering
+			\caption{Recursos utilizados pelas diferentes arquiteturas implementadas na FPGA}
+			\label{table:recursos_a_b_c}
+		%	\resizebox{\textwidth}{!}{%
+				\begin{tabular}{l|ll}
+					\hline
+					\multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Recurso}}} & \multicolumn{2}{r}{\textbf{Arquitetura A}} \\ \cline{2-3} 
+					\multicolumn{1}{c|}{}                                  & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c}{\textbf{\%}} \\ \hline
+					\textbf{FF}                                            & 31                                      & 0,01                            \\
+					\textbf{LUT}                                           & 59                                      & 0,02                            \\
+					\textbf{I/O}                                           & 38                                      & 5,43         			   		\\
+					\textbf{GT}                                            & 0                                       & 0                               \\ \hline
+				\end{tabular}%
+	%		}
+		\end{table}
+	
+	
+	%-------------------------------------------------------------------------
+	%	BIBLIOGRAPHY
+	%----------------------------------------------------------------------------------------
+	
+	\bibliographystyle{ieeetr}
+	
+	\bibliography{myrefs}
+	
+	
+	%----------------------------------------------------------------------------------------
+%	\begin{table}[h!]
+%		\centering
+%		\caption{Recursos utilizados pelas diferentes arquiteturas implementadas na FPGA}
+%		\label{table:recursos_a_b_c}
+%		\resizebox{\textwidth}{!}{%
+%			\begin{tabular}{l|ll|ll|ll}
+%				\hline
+%				\multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Recurso}}} & \multicolumn{2}{r|}{\textbf{Arquitetura A}}                                 & \multicolumn{2}{r|}{\textbf{Arquitetura B}}                                & \multicolumn{2}{r}{\textbf{Arquitetura C}}                               \\ \cline{2-7} 
+%				\multicolumn{1}{c|}{}                                  & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c|}{\textbf{\%}} & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c|}{\textbf{\%}} & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c}{\textbf{\%}} \\ \hline
+%				\textbf{FF}                                            & 31                                      & 0,01                             & 64                                      & 0,01                            & 59                                      & 0,01                            \\
+%				\textbf{LUT}                                           & 59                                      & 0,02                             & 67                                      & 0,02                            & 27                                      & 0,01                            \\
+%				\textbf{I/O}                                           & 38                                      & 5,43                             & 70                                      & 10                               & 103                                     & 14,71                           \\
+%				\textbf{GT}                                            & 0                                       & 0                                & 0                                       & 0                                & 0                                       & 0                               \\ \hline
+%			\end{tabular}%
+%		}
+%	\end{table}
+%
+%\begin{table}[h!]
+%	\centering
+%	\caption{Recursos utilizados pelas arquiteturas desenvolvidas de transmissão em série}
+%	\label{table:recursos_planoD_planoE}
+%	
+%	\begin{tabular}{rllll}
+%		\hline
+%		\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Recurso}}} & \multicolumn{2}{c}{\textbf{Arquitetura D}}                                 & \multicolumn{2}{c}{\textbf{Arquitetura E}}                               \\ \cline{2-5} 
+%		\multicolumn{1}{c}{}                                  & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c|}{\textbf{\%}} & \multicolumn{1}{c}{\textbf{Utilização}} & \multicolumn{1}{c}{\textbf{\%}} \\ \hline
+%		\multicolumn{1}{r|}{\textbf{FF}}                      & 566                                     & \multicolumn{1}{l|}{0,09}        & 710                                    & 0,12                            \\
+%		\multicolumn{1}{r|}{\textbf{LUT}}                     & 486                                     & \multicolumn{1}{l|}{0,16}        & 590                                    & 0,19                            \\
+%		\multicolumn{1}{r|}{\textbf{I/O}}                     & 44                                      & \multicolumn{1}{l|}{6,29}        & 78                                     & 11,14                           \\
+%		\multicolumn{1}{r|}{\textbf{GT}}                      & 1                                       & \multicolumn{1}{l|}{2,86}        & 1                                      & 2,86                            \\ \hline
+%	\end{tabular}%
+%\end{table}
 
-PLACAS HDMI
-%\section{Nest}
-%\subsection{Functionalities}
-%The Nest controls the temperature in your home, Capture video.
-%\subsection{Physical components}
-%Thermostat, camera, smoke detection device, cloud storage, apps
-%\section{Deployment}
-%\subsection{Hue}
-%The functions to control the lights are grouped together in apps and deployed on devices as: phones, tablets and computers. The apps send the commands to the bridge which is connected to the lamps. There is also a possibility to control the lights with switches that can be directly connected to the bridge or to single lights. The bridge saves different kind of settings like scenes and groups for the users. To control the lamps over the internet at a remote place, the portal is used to connect to the bridge.
-%\subsection{Nest}
-%\section{extra-functional properties}
-%\subsection{Reliability}
-%The Hue system is controlled via the bridge which can make this a single point of failure. It does not require the system to be connected to the internet to control the lights, only for the remote access to the system. This increases the reliability of the system. The lights work as a signal repeater which means that the range of the system can be extended by adding more lights.
-%\subsection{Privacy}
-%All the data of the system is stored in the bridge which is located at the user. The portal opens the connection to the bridge from outside. It is not clear whether only the owner can access the data or that also third parties can access this data. The portal connection has to be setup by the user, so the user can decide to open the connection. This makes the system adhere to the privacy of the user.
-%\subsection{Performance}
-%http://www.developers.meethue.com/things-you-need-know
-%As indicated by the Hue developer site, the Hue system has a transition time and a maximum number of commands that can be send in one second. The transition time can be set by the user. This time can be set to zero, so this would not influence the performance of the system. The maximum number of commands to send to light is about 10 per second and for groups it is 1 per second. So as long as you don't want to make a complex disco out of your lighting system, you should be fine. The system has a maximum number of lights that can connect to a single bridge which is 63, but adding more lights will make the system slower. The advised maximum is 50.
-%\section{Development}
-%Developers that want to use the Hue system can use the REST api of the bridge. All lights and groups can be set using different calls to the api. The device that makes these calls needs to be in the same network as the bridge. Philips is planning to make it accessible from the internet, but this is not yet implemented. New applications need to be added to the bridge by pressing a physical button on the bridge, this makes the system more secure because other apps can not access the system before the user adds them.
-%
-%
-%\section{Google Nest}
-%\subsection{Functionalities}
-%
-%The Google Nest is a home automation device responsible for controlling a home's heating, and sometimes air conditioning. The smart thermostat allows the user to control the temperature of their home throughout the day using a schedule, such as setting a lower temperature at night. As they are connected to the Internet, they allow users to adjust heating settings from other internet-connected devices, such as smartphones. This allows users to easily switch off the heating or air conditioning when the house is empty. This ease of use is essential for ensuring energy savings.
-%
-%\subsection{Physical components}
-%
-%\subsection{Privacy} 
-%
-%First, to say a company takes privacy seriously makes no guarantees about what it will do with your data. It’s clear at this point that what a privacy policy says has no bearing on what the company may do tomorrow, next year, or five years from now.
-%
-%Google also takes privacy seriously, but that did not stop it from consolidating its data silos or forcing Google+ into places it didn’t used to be. YouTube logins weren’t going to change under Google ownership until they did. Your most frequent contacts were your own business until Google Buzz broadcasted them to the public. 
-
+	
 \end{document}

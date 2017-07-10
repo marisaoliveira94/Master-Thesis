@@ -1,3 +1,10 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: lab_report_1.aux
 The style file: apalike.bst
-Database file #1: sample.bib
+I couldn't open database file myrefs.bib
+---line 3 of file lab_report_1.aux
+ : \bibdata{myrefs
+ :                }
+I'm skipping whatever remains of this command
+I found no \citation commands---while reading file lab_report_1.aux
+I found no database files---while reading file lab_report_1.aux
+(There were 3 error messages)
