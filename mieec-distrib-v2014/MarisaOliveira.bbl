@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{R040}
+``{iBROW - Innovative ultra-BROadband ubiquitous Wireless communications
+  through terahertz transceivers}.'' iBROW Consortium.
+
 \bibitem{R002}
 {Wikipedia Contributors}, ``{HDMI},'' 2016.
 
@@ -16,7 +20,7 @@ J.~Federici and L.~Moeller, ``{Review of terahertz and subterahertz wireless
   communications},'' {\em Journal of Applied Physics}, vol.~107, no.~11, 2010.
 
 \bibitem{R004}
-{Wikipedia Contributors}, ``{HDMI},'' 2016.
+W.~contributors, ``Audio and video interfaces and connectors,'' 2016.
 
 \bibitem{R008}
 Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization

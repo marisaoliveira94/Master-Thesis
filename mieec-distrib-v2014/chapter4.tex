@@ -21,7 +21,7 @@ Os blocos mais relevantes para o funcionamento do projeto passam a ser descritos
 
 \subsection{Interface com a FPGA} \label{subch:tx_interface}
 
-Na figura \ref{fig:gtx_tx_arq} este bloco tem o nome de "\textit{FPGA TX Interface}" sendo a entrada dos dados em paralelo provenientes da FPGA que se pretendem serializar. Segundo \cite{R011}, o tamanho desta interface depende de vários fatores internos. Para se perceber melhor como o tamanho da porta pode variar são apresentados na tabela \ref{table:tx_interface} os casos possíveis.
+Na figura \ref{fig:gtx_tx_arq} este bloco tem o nome de ``\textit{FPGA TX Interface}'' sendo a entrada dos dados em paralelo provenientes da FPGA que se pretendem serializar. Segundo \cite{R011}, o tamanho desta interface depende de vários fatores internos. Para se perceber melhor como o tamanho da porta pode variar são apresentados na tabela \ref{table:tx_interface} os casos possíveis.
 
 
 \begin{table}[h!]
@@ -243,7 +243,7 @@ Este bloco dispõe de uma opção de alinhamento manual que vem substituir o aut
 	\end{center}
 \end{figure}
 
-Este processo de alinhamento manual é conhecido pelo nome de "\textit{RXSLIDE}" e é usado para mover a palavra em 1 bit. Este sinal deve estar ativo apenas um ciclo de relógio de RXUSRCLK2 e de seguida deve ser inativo. Segundo \cite{R011}, deve-se esperar pelo menos 32 ciclos de relógio para que esta operação seja realizada outra vez. Este tempo de espera relaciona-se com o tamanho do \textit{datapath} usado.
+Este processo de alinhamento manual é conhecido pelo nome de ``\textit{RXSLIDE}'' e é usado para mover a palavra em 1 bit. Este sinal deve estar ativo apenas um ciclo de relógio de RXUSRCLK2 e de seguida deve ser inativo. Segundo \cite{R011}, deve-se esperar pelo menos 32 ciclos de relógio para que esta operação seja realizada outra vez. Este tempo de espera relaciona-se com o tamanho do \textit{datapath} usado.
 
 \subsection{Descodificador 8B/10B}
 
@@ -275,11 +275,11 @@ Assim sendo, o uso do bloco de alinhamento torna-se útil quando a latência é 
 
 \subsection{Interface com a FPGA}
 
-Este é o bloco responsável pela conexão entre os dados do recetor com o resto da FPGA. Toda a lógica desenvolvida na FPGA deve receber os dados provenientes do recetor pela porta "RXDATA" lendo-os ao flanco positivo do sinal de relógio "RXUSRCLK2". O tamanho desta porta depende de vários fatores internos do recetor, tal como acontecia no transmissor,  como por exemplo se a codificação está ativa ou não e ainda qual o tamanho do \textit{datapath} usado (2 ou 4 \textit{byte}). As diferentes possibilidades de largura da porta de "RXDATA" assemelham-se às da largura da porta de entrada do transmissor (TXDATA), e por isso é possível encontrá-las na tabela \ref{table:tx_interface}.
+Este é o bloco responsável pela conexão entre os dados do recetor com o resto da FPGA. Toda a lógica desenvolvida na FPGA deve receber os dados provenientes do recetor pela porta ``RXDATA'' lendo-os ao flanco positivo do sinal de relógio ``RXUSRCLK2''. O tamanho desta porta depende de vários fatores internos do recetor, tal como acontecia no transmissor,  como por exemplo se a codificação está ativa ou não e ainda qual o tamanho do \textit{datapath} usado (2 ou 4 \textit{byte}). As diferentes possibilidades de largura da porta de ``RXDATA'' assemelham-se às da largura da porta de entrada do transmissor (TXDATA), e por isso é possível encontrá-las na tabela \ref{table:tx_interface}.
 
 Também à semelhança do transmissor existem dois sinais de relógio necessários para o correto funcionamento do recetor: RXUSRCLK e RXUSRCLK2. O segundo já foi mencionado como o sinal de relógio de sincronização entre o recetor e a lógica da FPGA, e o sinal de relógio RXUSRCLK é o sinal interno para a lógica do bloco PCS (que lida com os dados em paralelo). O valor deste relógio depende da velocidade de transmissão do canal e do tamanho interno do \textit{datapath} usados, sendo possível calcular o seu valor através da equação presente em \ref{eq:lineRate}.
 
-A relação entre estes dois sinais de relógio mencionados (RXUSRCLK e RXUSRCLK2) é bem definida, dependendo do tamanho da porta "RXDATA" e do tamanho do \textit{datapath} usado.  A relação entre estes dois sinais de relógio do recetor é idêntica à do transmissor e por isso é possível encontrar essas mesmas relações na tabela \ref{table:freq_tx}.
+A relação entre estes dois sinais de relógio mencionados (RXUSRCLK e RXUSRCLK2) é bem definida, dependendo do tamanho da porta ``RXDATA'' e do tamanho do \textit{datapath} usado.  A relação entre estes dois sinais de relógio do recetor é idêntica à do transmissor e por isso é possível encontrar essas mesmas relações na tabela \ref{table:freq_tx}.
 
 \section{Análise das características de transmissão}
 

@@ -50,7 +50,7 @@ Do lado do recetor as principais decisões tomadas foram as seguintes:
 \begin{enumerate}
 	\item \textbf{Tipo de equalização:} Na subsecção \ref{subsub:rx_equalização} são apresentadas as vantagens de cada um dos tipos de equalizadores disponíveis. Apesar de este ser um projeto simples em que não se pretende inserir o sinal em canais ruidosos, optou-se por utilizar um equalizador DFE uma vez que traz mais vantagens do que a utilização do equalizador LPM.
 	
-	\item \textbf{Alinhamento de palavras:} Como palavra de alinhamento escolheu-se o símbolo K28.3 da tabela \ref{table:caracteres_especiais_8b10b}. Contudo, é necessário ter em conta que não se está a utilizar codificação e, como tal, para efetuar o alinhamento da palavra o recetor não alinha pelo símbolo K28.3 codificado, mas sim, não codificado. Ou seja, na realidade quando encontrar a palavra "7C" assume que é a palavra de alinhamento e a trama passa a estar alinhada para esse limite. Para além disso, optou-se por ativar a porta "RXSLIDE" que ativa o alinhamento manual dos bits, pois tal como referido em \ref{subsub:align} é de esperar que seja necessário ativar o alinhamento manual para ligações cuja taxa de débito seja superior a \SI{5}{\giga\bit\per\second}.
+	\item \textbf{Alinhamento de palavras:} Como palavra de alinhamento escolheu-se o símbolo K28.3 da tabela \ref{table:caracteres_especiais_8b10b}. Contudo, é necessário ter em conta que não se está a utilizar codificação e, como tal, para efetuar o alinhamento da palavra o recetor não alinha pelo símbolo K28.3 codificado, mas sim, não codificado. Ou seja, na realidade quando encontrar a palavra ``7C'' assume que é a palavra de alinhamento e a trama passa a estar alinhada para esse limite. Para além disso, optou-se por ativar a porta ``RXSLIDE'' que ativa o alinhamento manual dos bits, pois tal como referido em \ref{subsub:align} é de esperar que seja necessário ativar o alinhamento manual para ligações cuja taxa de débito seja superior a \SI{5}{\giga\bit\per\second}.
 	
 	\item \textbf{Tipo de descodificação:} Não foi utilizada nenhuma descodificação, pois do lado do transmissor também não há codificação.
 	\item \textbf{Escolha ente \textit{Buffer} ou Bloco de Alinhamento de Fase:} Optou-se pela escolha do \textit{buffer}, porque no caso do recetor para além não requerer lógica extra e ter uma inicialização mais rápida (comparativamente ao bloco de alinhamento de fase), também não exige que a correção do sinal de relógio seja realizada fora do transcetor, tal como mencionado em \ref{subsub:rx_buffer}.
@@ -190,7 +190,7 @@ A máquina de estados principal é dividida em três por questões de simplifica
 		
 	\end{itemize}
 
-	Sempre que for necessário fazer \textit{reset} ao sistema, quer pela ativação do utilizador ou então pelo transcetor, volta-se ao estado inicial "\textit{begin}".
+	Sempre que for necessário fazer \textit{reset} ao sistema, quer pela ativação do utilizador ou então pelo transcetor, volta-se ao estado inicial ``\textit{begin}''.
 	
 	
 	\begin{figure}[h!]
@@ -203,7 +203,7 @@ A máquina de estados principal é dividida em três por questões de simplifica
 	\end{center}
 	\end{figure}
 	
-	A figura \ref{fig:FSM1} representa a máquina de estados detalhada anteriormente. De notar que na imagem estão representadas algumas \textit{flags} de decisão de transição de estados. A \textit{flag} "\textit{SOP\_detected}" indica que se a trama de início de pacote foi encontrada nos dados recebidos e "\textit{error\_detected}" indica que foi detetado um erro nos dados recebidos. Ambas são definidas por máquinas de estados que serão explicadas mais adiante.
+	A figura \ref{fig:FSM1} representa a máquina de estados detalhada anteriormente. De notar que na imagem estão representadas algumas \textit{flags} de decisão de transição de estados. A \textit{flag} ``\textit{SOP\_detected}'' indica que se a trama de início de pacote foi encontrada nos dados recebidos e ``\textit{error\_detected}'' indica que foi detetado um erro nos dados recebidos. Ambas são definidas por máquinas de estados que serão explicadas mais adiante.
 	
 	
 	\item \textbf{Máquina de leitura de dados}
@@ -239,12 +239,12 @@ A máquina de estados principal é dividida em três por questões de simplifica
 	 	
 	 	\item \textbf{\textit{Data\_valid}:} Este estado serve essencialmente para guardar os dados devidamente alinhados segundo os limites da trama SOP. Ativa-se a flag \textit{bit\_align} para que o sistema reconheça que os dados se encontram alinhados. Se os dados que estão a ser guardados em \textit{data\_align} corresponderem à trama SOP então transita-se de estado para indicar que esta trama foi detetada. 
 	 	
-	 	\item \textbf{\textit{SOP\_detected}:} Quando este estado está ativo, então os dados alinhados correspondem à trama SOP, e por isso deve-se ativar a \textit{flag} "\textit{SOP\_detected}". Este estado mantém-se ativo enquanto os dados alinhados corresponderem à trama SOP e transita para o estado "\textit{data\_valid}" assim que tal deixar de ser verdade. 
+	 	\item \textbf{\textit{SOP\_detected}:} Quando este estado está ativo, então os dados alinhados correspondem à trama SOP, e por isso deve-se ativar a \textit{flag} ``\textit{SOP\_detected}''. Este estado mantém-se ativo enquanto os dados alinhados corresponderem à trama SOP e transita para o estado ``\textit{data\_valid}'' assim que tal deixar de ser verdade. 
 	 \end{itemize}
  
  		Sempre que a transmissão for interrompida (\textit{all\_incoming\_data} se iguala a zero) ou o sinal de \textit{reset} for ativo (quer por opção do utilizador ou pelo módulo GTX), então a máquina retorna ao estado inicial e repõe os dados originais do sistema. 
 	 
-	 	Inicialmente o estado ativo é "\textit{waiting}", e todas as \textit{flags} de decisão de mudança de estado (\textit{all\_incoming\_data} e \textit{data\_valid\_detected}) estão igualadas a zero.
+	 	Inicialmente o estado ativo é ``\textit{waiting}'', e todas as \textit{flags} de decisão de mudança de estado (\textit{all\_incoming\_data} e \textit{data\_valid\_detected}) estão igualadas a zero.
 	 
 	 
 	 \item \textbf{Máquina de estados de verificação do alinhamento dos dados}
@@ -296,7 +296,7 @@ A máquina de estados principal é dividida em três por questões de simplifica
 %	\item \textbf{Máquina que deteta o estado da ligação}
 \end{enumerate}
 
-Para além destas máquinas de estados apresentadas existe a possibilidade de implementação de uma outra que verifique os erros das tramas recebidas. Esta máquina torna-se útil quando há implementação de códigos detetores de erros nas tramas, ativando a \textit{flag}  "\textit{error\_detected}", sempre que o \textit{checksum} recebido na trama não corresponder à mensagem. Contudo, nesta abordagem inicial tal não é realizado e por isso essa \textit{flag} é globalmente igualada a zero.
+Para além destas máquinas de estados apresentadas existe a possibilidade de implementação de uma outra que verifique os erros das tramas recebidas. Esta máquina torna-se útil quando há implementação de códigos detetores de erros nas tramas, ativando a \textit{flag} ``\textit{error\_detected}'', sempre que o \textit{checksum} recebido na trama não corresponder à mensagem. Contudo, nesta abordagem inicial tal não é realizado e por isso essa \textit{flag} é globalmente igualada a zero.
 
 Quando os dados estão alinhados procede-se à extração da informação contida na trama recebida, enviando-a para o bloco responsável pela sua transmissão para a placa HDMI, sendo necessário que o estado  \textit{track\_data} esteja ativo. A informação retirada depende do tipo de trama recebida: caso a trama seja SOP, os dados são todos igualados a 0; caso contrário, então extrai-se os dados de acordo com o formato da trama de informação apresentado na figura \ref{fig:trama_abordagem_inicial}.
 
@@ -393,7 +393,7 @@ O conteúdo do ficheiro de restrições físicas pode ser encontrado nas secçõ
 
 
 
-Após a síntese e implementação da arquitetura desenvolvida a FPGA foi devidamente programada com o \textit{bitstream} gerado. Porém, nesta arquitetura é necessário ter em consideração que o sinal de relógio de referência que se conecta ao GTX é proveniente de um módulo disponível nesta FPGA Virtex-7 com o nome de "\textit{SuperClock2-Module}". Consequentemente, antes da FPGA ser programada com a arquitetura desenvolvida, este módulo deve ser re-programado para a frequência desejada de \SI{148.5}{\mega\hertz}. Para testar a arquitetura utilizou-se o \textit{setup} que se pode visualizar na figura \ref{fig:planD_setup}.
+Após a síntese e implementação da arquitetura desenvolvida a FPGA foi devidamente programada com o \textit{bitstream} gerado. Porém, nesta arquitetura é necessário ter em consideração que o sinal de relógio de referência que se conecta ao GTX é proveniente de um módulo disponível nesta FPGA Virtex-7 com o nome de ``\textit{SuperClock2-Module}''. Consequentemente, antes da FPGA ser programada com a arquitetura desenvolvida, este módulo deve ser re-programado para a frequência desejada de \SI{148.5}{\mega\hertz}. Para testar a arquitetura utilizou-se o \textit{setup} que se pode visualizar na figura \ref{fig:planD_setup}.
 \begin{figure}[h!]
 	\begin{center}
 		\leavevmode
@@ -428,7 +428,7 @@ Nesta subsecção é apresentada uma arquitetura de transmissão de imagem em s�
 
 \subsubsection{Considerações sobre a arquitetura} \label{subsub:planE_considerações}
 
-A arquitetura desenvolvida gera uma barra de cores em \textit{FULL HD} na FPGA, tal como anteriormente, e ao mesmo tempo recebe os dados provenientes da placa HDMI recetora. Tal como se visualiza na figura \ref{fig:planE_simples}, os dados a ser transmitidos vão depender do valor de "\textit{start}". Este sinal define a seleção do multiplexador que se visualiza na figura: se estiver ativo seleciona os dados provenientes do módulo gerador da barra de cores, se estiver inativo os dados selecionados pelo multiplexador são os dados provenientes da placa HDMI recetora.
+A arquitetura desenvolvida gera uma barra de cores em \textit{FULL HD} na FPGA, tal como anteriormente, e ao mesmo tempo recebe os dados provenientes da placa HDMI recetora. Tal como se visualiza na figura \ref{fig:planE_simples}, os dados a ser transmitidos vão depender do valor de ``\textit{start}''. Este sinal define a seleção do multiplexador que se visualiza na figura: se estiver ativo seleciona os dados provenientes do módulo gerador da barra de cores, se estiver inativo os dados selecionados pelo multiplexador são os dados provenientes da placa HDMI recetora.
 
 \begin{figure}[h!]
 	\begin{center}
@@ -475,7 +475,7 @@ Na figura \ref{fig:planoE} encontra-se o diagrama de blocos da arquitetura desen
 	\end{center}
 \end{figure}
 
-As localizações físicas das portas de entrada e saída do bloco encontram-se detalhadas na tabela \ref{table:LOC_simples_planE}. Como se pode observar, existem algumas portas que não estão representadas na figura \label{fig:planE} para simplificá-la. Essas portas são provenientes do módulo verificador de tramas e a sua principal função é manter o utilizador a par dos estados da transmissão do lado do recetor.  As mesmas são referidas na tabela com os nomes de "\textit{begin\_state}", "\textit{SOP\_detected}", "\textit{track\_data}", "\textit{data\_error\_detected }", "\textit{idle\_slip }", "\textit{wait\_state}" e "\textit{align}" e correspondem aos diferentes estados da máquina apresentada na secção \ref{subsub:serial_frameChecker} na página \pageref{subsub:serial_frameChecker}.
+As localizações físicas das portas de entrada e saída do bloco encontram-se detalhadas na tabela \ref{table:LOC_simples_planE}. Como se pode observar, existem algumas portas que não estão representadas na figura \label{fig:planE} para simplificá-la. Essas portas são provenientes do módulo verificador de tramas e a sua principal função é manter o utilizador a par dos estados da transmissão do lado do recetor.  As mesmas são referidas na tabela com os nomes de ``\textit{begin\_state}'', ``\textit{SOP\_detected}'', ``\textit{track\_data}'', ``\textit{data\_error\_detected }'', ``\textit{idle\_slip}'', ``\textit{wait\_state}'' e ``\textit{align}'' e correspondem aos diferentes estados da máquina apresentada na secção \ref{subsub:serial_frameChecker} na página \pageref{subsub:serial_frameChecker}.
 
 \begin{table}[h!]
 	\centering
@@ -587,7 +587,7 @@ O problema foi diagnosticado recorrendo-se à utilização de um \textit{IP} da 
 	\end{center}
 \end{figure}
 
-Na figura \ref{fig:planoE_rerro} é possível visualizar um gráfico retirado da análise dos sinais internos da FPGA. De notar que a base de tempo é o sinal de relógio de referência, que para este caso foi TXUSRCLK2 (proveniente do GTX), e por isso uma unidade na figura representa um ciclo de relógio do mesmo.  Neste gráfico estão a ser analisadas as transições dos dados do sub-módulo do sistema "Bloco Recetor de dados HDMI" para o "Bloco Sincronizador dos dados HDMI". Os sinais "\textit{hsync\_r2}" e "\textit{hsync\_r3}" no gráfico correspondem aos dois registos de sincronização do bloco "Sincronizador dos dados HDMI" ilustrado na figura \ref{fig:sync_block}.
+Na figura \ref{fig:planoE_rerro} é possível visualizar um gráfico retirado da análise dos sinais internos da FPGA. De notar que a base de tempo é o sinal de relógio de referência, que para este caso foi TXUSRCLK2 (proveniente do GTX), e por isso uma unidade na figura representa um ciclo de relógio do mesmo.  Neste gráfico estão a ser analisadas as transições dos dados do sub-módulo do sistema ``Bloco Recetor de dados HDMI'' para o ``Bloco Sincronizador dos dados HDMI''. Os sinais ``\textit{hsync\_r2}'' e ``\textit{hsync\_r3}'' no gráfico correspondem aos dois registos de sincronização do bloco ``Sincronizador dos dados HDMI'' ilustrado na figura \ref{fig:sync_block}.
 
 O que está a causar o problema, através da análise feita, é a falha num ciclo de relógio de uma linha inteira. Ou seja, na primeira transição que se vê no sinal \textit{hsync\_r2} o seu comportamento é como esperado: tem um tempo de duração de 44 ciclos de relógio e encontra-se no início da transmissão de uma linha completa. No entanto, na segunda transição do mesmo o seu comportamento não é o esperado: tem um tempo de duração de 45 ciclos de relógio e fica ativo um ciclo de relógio antes do início da linha. Relembrando que uma linha completa tem 2200 ciclos de relógio, a diferença entre a primeira transição de 0 para 1 do sinal em questão para a segunda é de 2199 ciclos de relógio. 
 

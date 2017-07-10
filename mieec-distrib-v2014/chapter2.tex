@@ -11,7 +11,7 @@ As interfaces de áudio e vídeo definem parâmetros físicos e interpretações
 No caso da transmissão de sinais de áudio e vídeo digital existem várias interfaces que passam a ser analisadas, segundo \cite{R004}:
 \begin{itemize}
 	\item \textbf{\textit{Display Port:}} utiliza um conector do tipo \textit{DisplayPort} e é o principal concorrente do HDMI. Esta interface define uma interconexão sem licenças que foi inicialmente desenhada para ser utilizada numa conexão entre o computador e o monitor do mesmo. O sinal de vídeo não é compatível com DVI ou HDMI, mas um conector \textit{DisplayPort} pode fazer passar estes sinais.
-	\item \textbf{\textit{ IEEE 1394 “FireWire":}} utiliza um conector do tipo \textit{FireWire} ou i.LINK. Este protocolo de transferência de dados é principalmente utilizado em câmaras digitais, mas também em computadores e em transferências de sinal de áudio. Este tipo de interface é capaz de hospedar vários sinais no mesmo cabo entregando os dados nos devidos destinos.
+	\item \textbf{\textit{ IEEE 1394 ``FireWire'':}} utiliza um conector do tipo \textit{FireWire} ou i.LINK. Este protocolo de transferência de dados é principalmente utilizado em câmaras digitais, mas também em computadores e em transferências de sinal de áudio. Este tipo de interface é capaz de hospedar vários sinais no mesmo cabo entregando os dados nos devidos destinos.
 	\item \textbf{\textit{HDMI (High Definition Multimedia Interface):}} utiliza um conector do tipo HDMI e é uma interface de transmissão de sinal áudio/vídeo comprimida para transmissão de sinal digital descomprimida. 
 \end{itemize}
 
@@ -30,7 +30,7 @@ Em específico na interface HDMI, este protocolo divide a informação a transmi
 Para além de ser utilizada no HDMI, esta técnica é também utilizada em interfaces DVI.
 
 \subsection*{CEC - \textit{Consumer Electronics Control} } \label{subsec:CEC} 
-É uma característica do HDMI que permite ao utilizador controlar até 15 dispositivos que tenham esta mesma característica ativa e que estão conectados por HDMI usando apenas um controlo remoto. Também é possivel dispositivos inviduais controlarem outros dispositivos sem intervenção do utilizador
+É uma característica do HDMI que permite ao utilizador controlar até 15 dispositivos que tenham esta mesma característica ativa e que estão conectados por HDMI usando apenas um controlo remoto. Também é possivel dispositivos individuais controlarem outros dispositivos sem intervenção do utilizador
 
 \subsection*{ARC - \textit{Audio Return Channel}  } \label{subsec:ARC} 
 Esta característica do HDMI utiliza 2 pinos do conector. É uma ligação de áudio que tem como objetivo substituir outros cabos entre a TV e outros recetores ou então sistema de som. Esta direção é usada quando é a TV que gera ou recebe o vídeo mas é outro equipamente que reproduz o som. Esta característica está apenas disponível a partir da versão 1.4 de HDMI.
@@ -62,7 +62,7 @@ Na figura~\ref{fig:fpgaVistaGeral}  visualiza-se a placa de desenvolvimento a se
 Os conectores assinalados na figura desta placa tratam-se de conectores FMC HPC (\textit{High Pin Count}) e permitem conectar as placas HDMI com a FPGA. Segundo \cite{R030}, os conectores FMC implementam determinadas normas que permitem uma rápida transmissão de dados entre placas. Exitem dois tipos de conectores FMC : LPC (\textit{Low Pin Count}) que disponibiliza 160 pinos e ainda HPC que dispõe de 400 pinos. Ainda segundo \cite{R030}, qualquer tipo dos conectores consegue alcançar uma velocidade de conexão de até \SI{2}{\giga\bit\per\second} para sinais com sinalização diferencial e única. Para além da rápida velocidade de transmissão, outra gande vantagem que a utilização deste tipo de conector traz é número de conexões que permite (400 pinos no caso de HPC) para a pequena área que ocupa. 
 %%ESPECIFICAR QUANTO E QUE PARES SÃO DISPONIBILIZADOS
 
-Em específico nesta FPGA existem três conectores FMC (FMC1, FMC2 e FMC3) que permitem diferentes conectividades. Segundo \cite{R008}, o conector FMC1 dispões de 68 pares diferencias definidos pelo utilizador e ainda quatro sinais de relógio diferenciais. O mesmo acontece para o conector FMC2. No entanto, o conector FMC3 apenas disponibiliza 65 pares diferencias que podem ser definidos pelo utilizador e quatro sinais de relógio diferencias.
+Em específico nesta FPGA existem três conectores FMC (FMC1, FMC2 e FMC3) que permitem diferentes conectividades. Segundo \cite{R008}, o conector FMC1 dispões de 68 pares diferenciais definidos pelo utilizador e ainda quatro sinais de relógio diferenciais. O mesmo acontece para o conector FMC2. No entanto, o conector FMC3 apenas disponibiliza 65 pares diferenciais que podem ser definidos pelo utilizador e quatro sinais de relógio diferenciais.
 
 \subsection{Recetor} \label{subsec:RX}
 
@@ -306,7 +306,7 @@ As funções de cada bloco do diagrama do serializador apresentado passam a ser 
 \begin{itemize}
 	\item \textbf{\textit{Transmit FIFO (First in, First out):}} Trata-se de uma memória FIFO que guarda os dados em paralelo antes destes serem enviados para o resto da arquitetura. No diagrama poderia também estar representa uma fonte direta de sinais em paralelo (como é o caso deste projeto).
 	
-	\item\textbf{\textit{Line Enconder:}} Este bloco trata-se de um  bloco opcional, e nem em todas as arquiteturas de serializadores/deserializadores está presente. Este bloco codifica os dados que recebe para um formato \textit{"line-friendly"} \footnote{é o termo usado pelo autor de \cite{R032}}. Trata-se de um formato que ajuda o recetor a recuperar os sinais da dados e relógio, normalmente envolvendo a eliminação de longas tramas de zeros ou uns, de maneira a garantir que há um equilíbrio entre o número de uns e zeros numa trama.
+	\item\textbf{\textit{Line Enconder:}} Este bloco trata-se de um  bloco opcional, e nem em todas as arquiteturas de serializadores/deserializadores está presente. Este bloco codifica os dados que recebe para um formato \textit{``line-friendl''} \footnote{é o termo usado pelo autor de \cite{R032}}. Trata-se de um formato que ajuda o recetor a recuperar os sinais da dados e relógio, normalmente envolvendo a eliminação de longas tramas de zeros ou uns, de maneira a garantir que há um equilíbrio entre o número de uns e zeros numa trama.
 	
 	\item \textbf{\textit{Serializer:}} Tal como o nome indica este é um bloco que serializa os dados que recebe, ou seja, quando recebe um determinado número de dados em paralelo (x dados) a uma determinada cadência (frequência y), transforma-o num \textit{stream} de dados a uma taxa de x multiplicado por y.
 	 
@@ -319,7 +319,7 @@ Por outro lado, o deserializador tem de fazer todo o processo inverso que o bloc
 	\item \textbf{\textit{RX Line Interface:}} É a interface do deserializador com o cabo físico. Já pode incluir alguma equalização do sinal passiva ou ativa.
 	\item\textbf{\textit{Deserializer:}} Converte os dados em série que recebe a uma cadência de x multiplicado por y, em x dados paralelo a uma cadência de y.
 	\item \textbf{\textit{Line Decoder:}} Descodifica os dados recebidos, se tal processo foi realizado do lado do transmissor.
-	\item \textbf{\textit{RX Elastic Buffer:}} Este bloco permite o alinhamento dos dados recebidos para os repectivos limites. Tal pode ser feito automaticamente ou recorrer-se a palavras de alinhamento, também chamadas de "vírgulas".
+	\item \textbf{\textit{RX Elastic Buffer:}} Este bloco permite o alinhamento dos dados recebidos para os repectivos limites. Tal pode ser feito automaticamente ou recorrer-se a palavras de alinhamento, também chamadas de ``vírgulas''.
 	\item \textbf{\textit{Clock Correction and Channel Bonding:}} Este bloco permite que haja correção entre as diferenças de sinais de relógio, e ainda correção de atrasos entre diferentes canais (caso haja transmissão em vários canais). 
 \end{itemize}
 
@@ -441,7 +441,7 @@ Uma função importante do deserializador, segundo o autor de \cite{R032} é o a
 	}
 \end{table}
 
-Para conseguir alinhar, o recetor procura por uma palavra de alinhamento, conhecida por "\textit{comma}" (vírgula em português), e quando a encontra repõe os limites de alinhamento das palavras. Como esta procura é contínua, a partir da primeira deteção todas as palavras de alinhamento que forem detetadas encontrarão o alinhamento já feito. O valor deste símbolo que delimita as palavras (\textit{comma}) pode à partida ser definido no transcetor, contudo por vezes pode vir já pré-definido. 
+Para conseguir alinhar, o recetor procura por uma palavra de alinhamento, conhecida por ``\textit{comma}'' (vírgula em português), e quando a encontra repõe os limites de alinhamento das palavras. Como esta procura é contínua, a partir da primeira deteção todas as palavras de alinhamento que forem detetadas encontrarão o alinhamento já feito. O valor deste símbolo que delimita as palavras (\textit{comma}) pode à partida ser definido no transcetor, contudo por vezes pode vir já pré-definido. 
 
 %\begin{figure}[h!]
 %	\begin{center}
@@ -472,7 +472,7 @@ A figura \ref{fig:alinhamento_serie} ilustra o que acontece ao \textit{stream} d
 	\end{center}
 \end{figure}
 
-Tal como o autor de \cite{R032} menciona, a palavra de alinhamento deve ser única e diferenciável de todos os outros dados que possam ser transmitidos. Este mesmo autor sugere que os símbolos especiais \textit{K-characters} mencionados na tabela \ref{table:caracteres_especiais_8b10b} sejam utilizados para tal efeito, sendo que os mais adequados são o K28.1, K28.5 ou K28.7, pois todos têm um padrão inicial de 7 bits de 1100000, que apenas é encontrado nestes símbolos. Tal padrão não é encontrado em nenhuma outra sequência ordenada de dados ou em qualquer outro \textit{K-character}, e por isso é ideal para o alinhamento. Este autor reforça ainda que quando um protocolo de comunicação está a ser construído, como é o caso deste projeto, a maneira mais segura é "pedir emprestado" este tipo de sinais de controlo a protocolos bem conhecidos.
+Tal como o autor de \cite{R032} menciona, a palavra de alinhamento deve ser única e diferenciável de todos os outros dados que possam ser transmitidos. Este mesmo autor sugere que os símbolos especiais \textit{K-characters} mencionados na tabela \ref{table:caracteres_especiais_8b10b} sejam utilizados para tal efeito, sendo que os mais adequados são o K28.1, K28.5 ou K28.7, pois todos têm um padrão inicial de 7 bits de 1100000, que apenas é encontrado nestes símbolos. Tal padrão não é encontrado em nenhuma outra sequência ordenada de dados ou em qualquer outro \textit{K-character}, e por isso é ideal para o alinhamento. Este autor reforça ainda que quando um protocolo de comunicação está a ser construído, como é o caso deste projeto, a maneira mais segura é ``pedir emprestado'' este tipo de sinais de controlo a protocolos bem conhecidos.
 
 
 
@@ -530,7 +530,7 @@ No caso do deserializador apresentado na figura \ref{fig:sipo}, e segundo a font
 
 Os autores de \cite{R033} utilizam este tipo de estrutura de serializador para obter uma ligação em série de \SI{1.25}{\giga\bit\per\second}. A arquitetura em questão é apresentada na figura \ref{fig:exemplo_de_33}.
 
-Neste caso em específico, a cada ciclo de relógio de "\textit{word-cycle}" é lida uma palavra de 10 bits proveniente de um multiplexador para um registo com nome na figura de "\textit{Register}". A saída deste modulo é então dividida em dois "\textit{shift-register}"  de 5 bits cada. Tal como a figura ilustra, os bits são separados de forma a que bits adjacentes entrem em \textit{shift-registers} diferentes. A saída do primeiro \textit{shift-register} é a entrada do multiplexador de saída, enquanto que a saída do segundo \textit{shift-register} é a entrada de uma \textit{latch} que serve exatamente para atrasar meio ciclo de relógio a operação de alternação de registos em relação ao primeiro \textit{shift-register}. As saídas do multiplexador de saída são selecionadas pela alternância do sinal de relógio com frequência mais elevada, fazendo assim uma correta seleção entre os bits adjacentes e obtendo a saída com a velocidade pretendida para este caso em específico: \SI{1.25}{\giga\bit\per\second}. Este exemplo é aqui mencionado para que se possa perceber como é possível tirar partido deste tipo de arquiteturas de serialização.
+Neste caso em específico, a cada ciclo de relógio de ``\textit{word-cycle}'' é lida uma palavra de 10 bits proveniente de um multiplexador para um registo com nome na figura de ``\textit{Register}''. A saída deste modulo é então dividida em dois ``\textit{shift-register}''  de 5 bits cada. Tal como a figura ilustra, os bits são separados de forma a que bits adjacentes entrem em \textit{shift-registers} diferentes. A saída do primeiro \textit{shift-register} é a entrada do multiplexador de saída, enquanto que a saída do segundo \textit{shift-register} é a entrada de uma \textit{latch} que serve exatamente para atrasar meio ciclo de relógio a operação de alternação de registos em relação ao primeiro \textit{shift-register}. As saídas do multiplexador de saída são selecionadas pela alternância do sinal de relógio com frequência mais elevada, fazendo assim uma correta seleção entre os bits adjacentes e obtendo a saída com a velocidade pretendida para este caso em específico: \SI{1.25}{\giga\bit\per\second}. Este exemplo é aqui mencionado para que se possa perceber como é possível tirar partido deste tipo de arquiteturas de serialização.
 %
 %The output of one of the shift-registers (SR-1) drives one input of the output multiplexer while the other one (SR-2) drives a latch. This latch drives the other multiplexer input and its purpose is to delay the data shifting operation by half a clock cycle in relation to the output of the first SR. Since the select input of the output multiplexer is driven by the shifting clock (600MHz), it correctly selects between adjacent bits and constructs the desired 1.2Gbit/s bit stream. This is represented schematically in the timing diagram of Figure 3.
 
@@ -542,7 +542,7 @@ Para que estes blocos funcionem é necessário que exista um sinal de relógio d
 
 As interfaces com as camadas físicas em ambos os lados da transmissão (recetor e transmissor) incluem circuitos analógicos que permitem transmitir e receber sinais diferenciais. Contudo o sinal comunicado ao longo do canal pode sofrer interferências por vários motivos, interferências essas que são críticas no que toca à receção do sinal. Por isso existe uma necessidade de utilizar técnicas que melhorem a ligação entre os dois terminais. Segundo \cite{R012}, esta melhoria poderia ser facilmente obtida através da utilização de canais de ligação de melhor qualidade. No entanto esta opção traz custos acrescidos à ligação. 
 
-Assim sendo, recorre-se a técnicas implementadas nestas mesmas interfaces que por um lado são responsáveis por "preparar" os sinais a serem transmitidos para um canal ruidoso, precavendo a sua alteração, e por outro são responsáveis de corrigir os dados recebidos de acordo com determinadas características. Estas técnicas que estão aqui a ser mencionadas têm o nome de pré-ênfase do lado do transmissor e equalização do lado do recetor e passarão a ser descritas com mais detalhe.
+Assim sendo, recorre-se a técnicas implementadas nestas mesmas interfaces que por um lado são responsáveis por ``prepara'' os sinais a serem transmitidos para um canal ruidoso, precavendo a sua alteração, e por outro são responsáveis de corrigir os dados recebidos de acordo com determinadas características. Estas técnicas que estão aqui a ser mencionadas têm o nome de pré-ênfase do lado do transmissor e equalização do lado do recetor e passarão a ser descritas com mais detalhe.
 
 %Pré-Enfase:
 %--> o que acontece no canal para que esta seja necessária
@@ -618,13 +618,13 @@ Assim sendo,tanto a fonte \cite{R032} como a fonte \cite{R012} reforçam a ideia
 
 \subsubsection*{Importância da criação e uso de pacotes}
 
-O autor de \cite{R032} menciona a importância de criação de "pacotes" que contribuem para a definição do protocolo de transmissão em série. Antes de se perceber que tipos de tramas constituem um pacote é necessário ter em conta que um "pacote" consiste num conjunto de \textit{bytes} bem definidos que contém um cabeçalho, dados e fim do mesmo.
+O autor de \cite{R032} menciona a importância de criação de ``pacotes'' que contribuem para a definição do protocolo de transmissão em série. Antes de se perceber que tipos de tramas constituem um pacote é necessário ter em conta que um ``pacote'' consiste num conjunto de \textit{bytes} bem definidos que contém um cabeçalho, dados e fim do mesmo.
 
 Em qualquer tipo de transmissão de dados são usados pacotes para os transmitir, e a comunicação em série de alta velocidade não pode fugir a esta realidade, porque este tipo de arquiteturas exigem métodos de alinhamento do \textit{stream} de bits chegados em palavras, transmissão de determinados padrões para ser possível a recuperação do relógio entre outros. Assim, é possível aproveitar a necessidade da transmissão destes determinados padrões e criar a partir daqui um pacote de transmissão que sirva para sinalizar as diferentes fases de transmissão dos dados e  ao mesmo tempo permita que o sinal de relógio seja recuperado e os dados alinhados.
 
 Segundo o autor \cite{R032}, o pacote de transmissão deve ter bem definidas determinadas tramas, entre as quais:
 \begin{itemize}
-	\item \textbf{Inicio de Pacote (\textit{Start of Packet}): }para poder sinalizar a chegada do início de um novo pacote
+	\item \textbf{Início de Pacote (\textit{Start of Packet}): }para poder sinalizar a chegada do início de um novo pacote
 	\item \textbf{Fim de Pacote (\textit{End of Packet}):} para sinalizar o fim da transmissão de um pacote inteiro
 	\item\textbf{Dados :} tramas onde serão transmitidos os dados, pode conter determinados símbolos especiais que indiquem que tipo de dados são transmitidos
 	\item \textbf{Símbolo de Espera (\textit{Idle Symbol}):} estas tramas devem ser enviadas sempre que não houver dados para transmitir para garantir que a transmissão contínua dos dados continua alinhada e o sinal de relógio a ser recuperado.
@@ -666,7 +666,7 @@ Na figura \ref{fig:loc_gtx} é possível visualizar a FPGA a ser utilizada no pr
 
 \subsection{Arquitetura dos transcetores} \label{sub:arqGTX}
 
-Cada GTX é composto por quatro transmissores e quatro recetores. É possível visualizar o conector do GTX na figura \ref{fig:gtx_fis} . A figura A corresponde ao conector e a figura B faz as correspondência de cada pino do conector. Através da figura B é possível verificar que efetivamente existem quatro pares diferencias de transmissores/recetores e ainda dois pares diferenciais que são usados para conectar os sinais de relógio de referência. Nestes conectores são ligados cabos SMA(\textit{SubMiniature version A}) diferenciais.
+Cada GTX é composto por quatro transmissores e quatro recetores. É possível visualizar o conector do GTX na figura \ref{fig:gtx_fis} . A figura A corresponde ao conector e a figura B faz as correspondência de cada pino do conector. Através da figura B é possível verificar que efetivamente existem quatro pares diferenciais de transmissores/recetores e ainda dois pares diferenciais que são usados para conectar os sinais de relógio de referência. Nestes conectores são ligados conectores SMA(\textit{SubMiniature version A}) diferenciais.
 
 \begin{figure}[h!]
 	\begin{center}

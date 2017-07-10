@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: MarisaOliveira.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: MarisaOliveira.aux
 A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: acknows.aux
 A level-1 auxiliary file: quote.aux
@@ -17,7 +15,7 @@ A level-1 auxiliary file: appendix4.aux
 A level-1 auxiliary file: appendix3.aux
 A level-1 auxiliary file: appendix2.aux
 Database file #1: myrefs.bib
-I was expecting a `,' or a `}'---line 236 of file myrefs.bib
+I was expecting a `,' or a `}'---line 237 of file myrefs.bib
  :  
  :  edition      = {1.5},
 (Error may have been on previous line)
@@ -29,45 +27,4 @@ Warning--empty year in R012
 Warning--empty journal in R033
 Warning--empty year in R033
 Warning--empty author in R037
-You've used 28 entries,
-            1876 wiz_defined-function locations,
-            642 strings with 6127 characters,
-and the built_in function-call counts, 3672 in all, are:
-= -- 327
-> -- 137
-< -- 3
-+ -- 63
-- -- 35
-* -- 275
-:= -- 512
-add.period$ -- 28
-call.type$ -- 28
-change.case$ -- 25
-chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 202
-empty$ -- 430
-format.name$ -- 35
-if$ -- 879
-int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 9
-newline$ -- 89
-num.names$ -- 11
-pop$ -- 95
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 75
-stack$ -- 0
-substring$ -- 36
-swap$ -- 35
-text.length$ -- 3
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 7
-while$ -- 15
-width$ -- 30
-write$ -- 224
 (There was 1 error message)
