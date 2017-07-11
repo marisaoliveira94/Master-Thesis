@@ -89,12 +89,12 @@ anchorcolor = blue]{hyperref}
 	\subsection{FPGA VC7203}
 	É uma FPGA (\textit{Field-programmable gate array}) que se caracteriza pelo seu elevado número de recursos e também pelas entradas em saídas de alta velocidade que possui, tal como indica \cite{R008}. É utilizada para implementação do código desenvolvido em Verilog para esta arquitetura e ainda para conexão à placa HDMI pelos conectores FMC (\textit{FPGA Mezzanine Card}).
 	\subsection{TB-FMCH-HDMI2-TX}
-	
+	Esta placa HDMI caracteriza-se pela capacidade de transmissão de dados HDMI através da receção dos dados referentes à imagem em paralelo. Esses dados são recebidos através dos conectores FMC de interface entre a placa e a FPGA VC7203. Para esta implementação, a placa deve estar configurada por omissão cujos detalhes se encontram em \cite{R009}.
 	
 	\section{Arquitetura}
 	
-	
-	\begin{figure}[h]
+	O diagrama de blocos na \cref{fig:planoA} representa a arquitetura desenvolvida. É implementado um módulo que gera uma barra de cores em FULL HD com uma taxa de atualização vertical de 60 Hz. Os dados são transmitidos para a placa HDMI transmissora através dos conectores FMC.
+	\begin{figure}[h!]
 		\begin{center}
 			\includegraphics[width=1.0\textwidth]{planA} 
 			\caption{Diagrama de blocos da arquitetura}
@@ -102,9 +102,18 @@ anchorcolor = blue]{hyperref}
 		\end{center}
 	\end{figure}
 
+	\textbf{Disponível para o utilizador:}
+	\begin{itemize}
+		\item Botão \textbf{reset}: permite ao utilizador repor os dados originais do sistema;
+		\item Interruptor \textbf{start}: permite ao utilizador definir o início da transmissão:
+		\begin{itemize}
+			\item \textbf{ON}: Transmissão ativa;
+			\item \textbf{OFF}: Transmissão inativa;
+		\end{itemize}
+	\end{itemize}
 	\section{Configuração do \textit{setup}}
 	
-		\begin{figure}[h]
+		\begin{figure}[h!]
 		\begin{center}
 			\includegraphics[width=1.0\textwidth]{planAsch} 
 			\caption{\textit{Setup} de teste}
@@ -116,7 +125,7 @@ anchorcolor = blue]{hyperref}
 		\begin{table}[h!]
 			\centering
 			\caption{Recursos utilizados pelas diferentes arquiteturas implementadas na FPGA}
-			\label{table:recursos_a_b_c}
+				\label{table:recursosA}
 		%	\resizebox{\textwidth}{!}{%
 				\begin{tabular}{l|ll}
 					\hline

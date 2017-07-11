@@ -9,4 +9,8 @@ M.~Oliveira, ``{Implementação em FPGA de um conversor HDMI para transmissão
 Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
   Board User Guide}}, 1.3~ed., outubro 2014.
 
+\bibitem{R009}
+Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}, 1.04~ed.,
+  agosto 2014.
+
 \end{thebibliography}

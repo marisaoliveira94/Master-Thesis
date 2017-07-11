@@ -4,7 +4,7 @@
 
 Neste capítulo é realizada uma breve revisão bibliográfica das interfaces de vídeo existentes, em específico do HDMI, e também de métodos de transmissão dos sinais HDMI para a FPGA. São também abordadas técnicas de serialização de dados e todos os cuidados que se deve ter com este processo, finalizando o capítulo com uma breve abordagem dos transcetores dísponiveis na FPGA utilizada no projeto.
 
-\section{Interfaces de transmissão de video/audio}
+\section{Interfaces de transmissão de vídeo/áudio}
 
 As interfaces de áudio e vídeo definem parâmetros físicos e interpretações dos sinais recebidos, segundo \cite{R004}. Para sinais digitais a interface acaba por definir não só a camada física mas também a camada de ligação de dados e principalmente a camada da aplicação. As características físicas do equipamento (elétrico ou ótico) incluem o número e o tipo de ligações necessárias, tensões, frequências, intensidade ótica e ainda o \textit{design} físico dos conectores. Relativamente à camada de ligação de dados, esta define como os dados da aplicação serão encapsulados para que, por exemplo, possam ser sincronizados ou para fazer correções de erros. Por fim, a camada da aplicação define o formato do sinal de áudio e vídeo a ser transmitido, normalmente incorporando \textit{codecs} não específicos. No entanto, por vezes esta camada acaba por não definir em concreto o tipo de formato de dados deixando em aberto tal parâmetro para que se possa transmitir dados no geral (é o caso do HDMI).
 
@@ -478,7 +478,7 @@ Tal como o autor de \cite{R032} menciona, a palavra de alinhamento deve ser úni
 
 \subsubsection*{PISO (\textit{Parallel input – serial output}) e SIPO (\textit{serial input – parallel output})}
 
-Os blocos de serialização e deserialização da arquitetura têm uma grande importância no correto funcionamento de toda a arquitetura, isto porque, tal como o nome indica, estes convertem os dados em paralelo em série e vice-versa. Tal como já foi referido anteriormente, o serializador recebe N dados a uma frequência de X, e transmite esses N dados a uma frequência de X*N. Por outro lado o deserializador, reduz a frequência dos dados, convertendo-os em paralelo, para de seguida ser enviada para o resto da arquitetura para processamento desses mesmos dados. Por isso, é necessário tomar em atenção diversas características quanto à escolha destas arquieturas, tais como a sua latência.
+Os blocos de serialização e deserialização da arquitetura têm uma grande importância no correto funcionamento de toda a arquitetura, isto porque, tal como o nome indica, estes convertem os dados em paralelo em série e vice-versa. Tal como já foi referido anteriormente, o serializador recebe $N$ dados a uma frequência de $X$, e transmite esses N dados a uma frequência de $X \times N$. Por outro lado o deserializador, reduz a frequência dos dados, convertendo-os em paralelo, para de seguida ser enviada para o resto da arquitetura para processamento desses mesmos dados. Por isso, é necessário tomar em atenção diversas características quanto à escolha destas arquieturas, tais como a sua latência.
 
 O autor de \cite{R012} propõe três tipos de arquiteturas para este tipo de bloco que são apresentadas na figura \ref{fig:PISO-SIPO} cujas vantagens e desvantagens passam de seguida a ser expostas.
 
@@ -666,7 +666,7 @@ Na figura \ref{fig:loc_gtx} é possível visualizar a FPGA a ser utilizada no pr
 
 \subsection{Arquitetura dos transcetores} \label{sub:arqGTX}
 
-Cada GTX é composto por quatro transmissores e quatro recetores. É possível visualizar o conector do GTX na figura \ref{fig:gtx_fis} . A figura A corresponde ao conector e a figura B faz as correspondência de cada pino do conector. Através da figura B é possível verificar que efetivamente existem quatro pares diferenciais de transmissores/recetores e ainda dois pares diferenciais que são usados para conectar os sinais de relógio de referência. Nestes conectores são ligados conectores SMA(\textit{SubMiniature version A}) diferenciais.
+Cada GTX é composto por quatro transmissores e quatro recetores. É possível visualizar o conector do GTX na figura \ref{fig:gtx_fis} . A figura A corresponde ao conector e a figura B faz as correspondência de cada pino do conector. Através da figura B é possível verificar que efetivamente existem quatro pares diferenciais de transmissores/recetores e ainda dois pares diferenciais que são usados para conectar os sinais de relógio de referência. Nestes são ligados conectores SMA(\textit{SubMiniature version A}) diferenciais.
 
 \begin{figure}[h!]
 	\begin{center}

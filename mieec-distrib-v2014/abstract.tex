@@ -5,7 +5,7 @@ A sociedade atual depende cada vez mais dos serviços de comunicações, exigind
 
 O trabalho realizado consiste no desenvolvimento e implementação de  uma arquitetura em FPGA capaz de suportar sinais provenientes de uma fonte HDMI, serializá-los e ainda enviá-los a alta velocidade. A arquitetura suporta ainda o processo inverso, isto é, recebe os dados em série em alta velocidade e envia-os de seguida para um dispositivo HDMI de destino. Para cumprir os requisitos propostos o projeto é dividido em duas partes.
 
-Numa primeira fase são desenvolvidas arquiteturas que permitem a comunicação entre dois dispositivos recorrendo a duas placas HDMI e uma FPGA de série 7 para realizar tal transmissão. Estas variam entre a transmissão de imagem em diferentes formatos e também de imagem e som. Numa segunda fase do projeto desenvolve-se uma arquitetura capaz de serializar dados e enviá-los pelas saídas de alta velocidade disponíveis na FPGA utilizada. Esses mesmo dados são recebidos de volta na FPGA e convertidos para o seu formato original. Por fim, englobando as duas partes, conseguiu-se obter a transmissão em série de dados HDMI.
+Numa primeira fase são desenvolvidas arquiteturas que permitem a comunicação entre dois dispositivos recorrendo a duas placas HDMI e uma FPGA \textit{Xilinx 	Virtex} 7 para realizar tal transmissão. Estas variam entre a transmissão de imagem em diferentes formatos e também de imagem e som. Numa segunda fase do projeto desenvolve-se uma arquitetura capaz de serializar dados e enviá-los pelas saídas de alta velocidade disponíveis na FPGA utilizada. Esses mesmo dados são recebidos de volta na FPGA e convertidos para o seu formato original. Por fim, englobando as duas partes, conseguiu-se obter a transmissão em série de dados HDMI.
 
 \chapter*{Abstract}
 %\addcontentsline{toc}{chapter}{Abstract}
@@ -15,7 +15,7 @@ Our society is increasingly dependent on communication services, demaning better
 
 The progress work is based on the development and implementation of a design on the FPGA that is able to support signals from an HDMI sink, serialized them and send it through a high-speed channel. This architecture allows the reverse process, in other words, it is able to receive the high-speed serial data and send it to and HDMI source. To accomplish the proposed goals, the project is divided in two parts.
 
-The firts step proposes architectures that allow the communication between two devices using two HDMI boards and a 7th series FPGA to reach the transmission. These architectures differs from each other regarding the kind of the transmission: different formats of image, or support of image and sound.
+The firts step proposes architectures that allow the communication between two devices using two HDMI boards and a Xilinx Virtex 7 FPGA to reach the transmission. These architectures differs from each other regarding the kind of the transmission: different formats of image, or support of image and sound.
 
 In the second phase of the project, an architecture which is able to serialize data and send it through the FPGA high-speed outputs is developed. It also supports the reception of the serial data and do the reverse process, which is convert it to its original format.
 
