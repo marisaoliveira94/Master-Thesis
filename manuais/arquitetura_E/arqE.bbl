@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{R008}
 Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
@@ -8,14 +8,38 @@ Xilinx and Inc, {\em {VC7203 Virtex-7 FPGA GTX Transceiver Characterization
 Inrevium, {\em {Manual do Utilizador de TB-FMCH-HDMI2 Hardware}}, 1.04~ed.,
   agosto 2014.
 
+\bibitem{R041}
+M.~Oliveira, ``{Implementação em FPGA de um conversor HDMI para transmissão
+  em série de alta velocidade},'' Master's thesis, Faculdade de Engenharia da
+  Universidade do Porto, 2017.
+
+\bibitem{R011}
+Xilinx and Inc, {\em {7 Series FPGAs GTX/GTH Transceivers User Guide }},
+  1.12~ed., dezembro 2016.
+
+\bibitem{R022}
+Xilinx, {\em {7 series FPGAs Transceivers Wizard}}, {3.4}~ed., outubro 2014.
+
+\bibitem{R024}
+C.~E. Cummings, ``{Clock Domain Crossing ( CDC ) Design {\&} Verification
+  Techniques Using SystemVerilog},'' {\em Snug-2008}, 2008.
+
+\bibitem{R014}
+Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 1 IN / OUT + Audio
+  support}}, 1.05~ed., agosto 2014.
+
+\bibitem{R013}
+Inrevium, {\em {TB-FMCH-HDMI2 Hardware User Manual 2 Ch IN / OUT support}},
+  1.04~ed., fevereiro 2015.
+
+\bibitem{R019}
+Xilinx, {\em {Vivado Design Suite Tutorial}}, {2015.1}~ed., maio 2015.
+
 \bibitem{R025}
 Xilinx, {\em {Xilinx Platform Cable USB II}}.
 
 \bibitem{R026}
 Xilinx, {\em {Platform Flash In-System Programmable Configuration PROMs}},
   2.19~ed., junho 2016.
-
-\bibitem{R019}
-Xilinx, {\em {Vivado Design Suite Tutorial}}, {2015.1}~ed., maio 2015.
 
 \end{thebibliography}
