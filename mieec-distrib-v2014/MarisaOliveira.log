@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.20)  13 JUL 2017 12:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.3)  14 JUL 2017 00:36
 entering extended mode
 **./MarisaOliveira.tex
 (MarisaOliveira.tex
@@ -335,6 +335,13 @@ Now handling font encoding U ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2017/01/24 v2.0c Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2017/01/24 v2.0c Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
@@ -1145,20 +1152,20 @@ LaTeX Warning: Label `table:LOCplanC_detail' multiply defined.
 ) (appendix2.aux))
 \openout1 = `MarisaOliveira.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
 Package marginnote Info: \pdfoutput not 0 or unimportant and
 (marginnote)             \pdflastxpos or \lastxpos available.
 (marginnote)             Extended position detection mode activated.
@@ -1308,7 +1315,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 79.
+Package hyperref Info: Link coloring ON on input line 82.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1318,23 +1325,23 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count303
 )
-LaTeX Info: Redefining \ref on input line 79.
-LaTeX Info: Redefining \pageref on input line 79.
-LaTeX Info: Redefining \nameref on input line 79.
+LaTeX Info: Redefining \ref on input line 82.
+LaTeX Info: Redefining \pageref on input line 82.
+LaTeX Info: Redefining \nameref on input line 82.
 
 (MarisaOliveira.out) (MarisaOliveira.out)
 \@outlinefile=\write3
 \openout3 = `MarisaOliveira.out'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 82.
 \c__siunitx_mathsf_int=\count304
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 79.
+(Font)              <10.95> on input line 82.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 79.
+(Font)              <8> on input line 82.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 79.
+(Font)              <6> on input line 82.
 \c__siunitx_mathtt_int=\count305
 \leftbox=\box61
 \rightbox=\box62
@@ -1342,7 +1349,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 . LaTeX info: "xparse/define-command"
 . 
 . Defining command \lrboxbrace with sig. 's O{\{} O{\}} O{0.05\linewidth } m
-. O{0.8\linewidth } m' on line 96.
+. O{0.8\linewidth } m' on line 99.
 .................................................
 \@crestbox=\box63
 
@@ -1350,31 +1357,31 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 File: figures/uporto-feup.pdf Graphic file (type pdf)
 
 <use figures/uporto-feup.pdf>
-Package pdftex.def Info: figures/uporto-feup.pdf used on input line 137.
+Package pdftex.def Info: figures/uporto-feup.pdf used on input line 140.
 (pdftex.def)             Requested size: 204.85983pt x 76.59618pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 140.
  [-3
 
 
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./figures/uporto-feup.pdf
->]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 137.
+{C:/Users/Utilizador/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./figu
+res/uporto-feup.pdf>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 140.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 137.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 140.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 140.
  [-2
 
 ]
@@ -1400,9 +1407,9 @@ Package babel Info: Redefining portuges shorthand "|
 
 ])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 141.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 141.
  [3]
 \openout2 = `acknows.aux'.
 
@@ -1424,33 +1431,33 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 8.
  [5])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 139.
+(babel)             in language  on input line 142.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 139.
+(babel)             in language  on input line 142.
 
 [6]
 \openout2 = `quote.aux'.
 
  (quote.tex)
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 140.
+(babel)             in language  on input line 143.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 140.
+(babel)             in language  on input line 143.
  [7
 
 
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 141.
+(babel)             in language  on input line 144.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 141.
+(babel)             in language  on input line 144.
  [8
 
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 142.
+(babel)             in language  on input line 145.
  (MarisaOliveira.toc
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 45.
@@ -1468,19 +1475,19 @@ Package babel Info: Redefining portuges shorthand "|
 \openout4 = `MarisaOliveira.toc'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 147.
  [11]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 147.
  [12
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 148.
 
 (MarisaOliveira.lof
 Package babel Info: Redefining portuges shorthand "|
@@ -1494,12 +1501,12 @@ Package babel Info: Redefining portuges shorthand "|
 \openout5 = `MarisaOliveira.lof'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 147.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 147.
+(babel)             in language  on input line 150.
  [14]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 148.
+(babel)             in language  on input line 151.
  (MarisaOliveira.lot
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 33.
@@ -1513,9 +1520,9 @@ Package babel Info: Redefining portuges shorthand "|
 \openout6 = `MarisaOliveira.lot'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 153.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 153.
  [16]
 \openout2 = `abbrevs.aux'.
 
@@ -1530,9 +1537,9 @@ Package babel Info: Redefining portuges shorthand "|
 
 ])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 153.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 153.
  [18]
 \openout2 = `chapter1.aux'.
 
@@ -1571,11 +1578,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 42.
 Package epstopdf Info: Source file: <figures/diagrama_inicial.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1608250 bytes
 (epstopdf)             Output file: <figures/diagrama_inicial-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 19822 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/diagrama_inicial-ep
 s-converted-to.pdf figures/diagrama_inicial.eps>
@@ -1595,10 +1602,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 56.
  [4 <./figures/diagrama_inicial-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/1aparte.eps>
-(epstopdf)                    date: 2017-06-21 20:38:14
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1287426 bytes
 (epstopdf)             Output file: <figures/1aparte-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:14
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 18455 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/1aparte-eps-convert
 ed-to.pdf figures/1aparte.eps>
@@ -1613,10 +1620,10 @@ Package pdftex.def Info: figures/1aparte-eps-converted-to.pdf used on input lin
 e 67.
 (pdftex.def)             Requested size: 426.79135pt x 141.40837pt.
 Package epstopdf Info: Source file: <figures/2parte.eps>
-(epstopdf)                    date: 2017-06-21 20:38:14
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1034418 bytes
 (epstopdf)             Output file: <figures/2parte-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:14
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 23328 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/2parte-eps-converte
 d-to.pdf figures/2parte.eps>
@@ -1647,9 +1654,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 97.
  [6 <./figures/2parte-eps-converted-to.pdf>])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 160.
+(babel)             in language  on input line 163.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 160.
+(babel)             in language  on input line 163.
  [7]
 \openout2 = `chapter2.aux'.
 
@@ -1690,11 +1697,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 48.
 Package epstopdf Info: Source file: <figures/fpga_fmc_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 5633506 bytes
 (epstopdf)             Output file: <figures/fpga_fmc_vet-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 278965 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/fpga_fmc_vet-eps-co
 nverted-to.pdf figures/fpga_fmc_vet.eps>
@@ -1716,11 +1723,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 67.
 Package epstopdf Info: Source file: <figures/diagramaBlocosRX_hdmi.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 1872182 bytes
 (epstopdf)             Output file: <figures/diagramaBlocosRX_hdmi-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 180202 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/diagramaBlocosRX_hd
 mi-eps-converted-to.pdf figures/diagramaBlocosRX_hdmi.eps>
@@ -1751,11 +1758,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 128.
 [14]
 Package epstopdf Info: Source file: <figures/amostragem_RX_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 719710 bytes
 (epstopdf)             Output file: <figures/amostragem_RX_vet-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 19128 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/amostragem_RX_vet-e
 ps-converted-to.pdf figures/amostragem_RX_vet.eps>
@@ -1772,11 +1779,11 @@ Package pdftex.def Info: figures/amostragem_RX_vet-eps-converted-to.pdf used on
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 142.
 Package epstopdf Info: Source file: <figures/diagramaBlocosTX_HDMI.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 1661898 bytes
 (epstopdf)             Output file: <figures/diagramaBlocosTX_HDMI-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 156142 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/diagramaBlocosTX_HD
 MI-eps-converted-to.pdf figures/diagramaBlocosTX_HDMI.eps>
@@ -1796,11 +1803,11 @@ d on input line 149.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <figures/amostragem_TX_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 717294 bytes
 (epstopdf)             Output file: <figures/amostragem_TX_vet-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 19152 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/amostragem_TX_vet-e
 ps-converted-to.pdf figures/amostragem_TX_vet.eps>
@@ -1855,10 +1862,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 289.
  [18]
 Package epstopdf Info: Source file: <figures/ser_des.eps>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 53469 bytes
 (epstopdf)             Output file: <figures/ser_des-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 19761 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/ser_des-eps-convert
 ed-to.pdf figures/ser_des.eps>
@@ -1897,11 +1904,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 417.
  [22]
 Package epstopdf Info: Source file: <figures/serial_align_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:19
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 626654 bytes
 (epstopdf)             Output file: <figures/serial_align_vet-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2017-06-21 21:35:14
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 16499 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/serial_align_vet-ep
 s-converted-to.pdf figures/serial_align_vet.eps>
@@ -1920,11 +1927,11 @@ input line 458.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <figures/paralel_align.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 653270 bytes
 (epstopdf)             Output file: <figures/paralel_align-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 16581 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/paralel_align-eps-c
 onverted-to.pdf figures/paralel_align.eps>
@@ -1955,11 +1962,11 @@ Package babel Info: Redefining portuges shorthand "|
  [24 <./figures/serial_align_vet-eps-converted-to.pdf> <./figures/paralel_align
 -eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/SIPO_PISO_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:41
 (epstopdf)                    size: 645206 bytes
 (epstopdf)             Output file: <figures/SIPO_PISO_vet-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:41
 (epstopdf)                    size: 25069 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/SIPO_PISO_vet-eps-c
 onverted-to.pdf figures/SIPO_PISO_vet.eps>
@@ -1978,10 +1985,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 498.
  [25 <./figures/SIPO_PISO_vet-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/PISO.eps>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 524770 bytes
 (epstopdf)             Output file: <figures/PISO-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 20306 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/PISO-eps-converted-
 to.pdf figures/PISO.eps>
@@ -1996,10 +2003,10 @@ Package pdftex.def Info: figures/PISO-eps-converted-to.pdf used on input line 5
 02.
 (pdftex.def)             Requested size: 341.43437pt x 106.89291pt.
 Package epstopdf Info: Source file: <figures/SIPO.eps>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 611026 bytes
 (epstopdf)             Output file: <figures/SIPO-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 26681 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/SIPO-eps-converted-
 to.pdf figures/SIPO.eps>
@@ -2014,11 +2021,11 @@ Package pdftex.def Info: figures/SIPO-eps-converted-to.pdf used on input line 5
 13.
 (pdftex.def)             Requested size: 341.43437pt x 161.59352pt.
 Package epstopdf Info: Source file: <figures/exemplo_serializer.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 680234 bytes
 (epstopdf)             Output file: <figures/exemplo_serializer-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 25008 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/exemplo_serializer-
 eps-converted-to.pdf figures/exemplo_serializer.eps>
@@ -2048,10 +2055,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 544.
  [27 <./figures/exemplo_serializer-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/ISI_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:14
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 580922 bytes
 (epstopdf)             Output file: <figures/ISI_vet-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:14
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 19278 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/ISI_vet-eps-convert
 ed-to.pdf figures/ISI_vet.eps>
@@ -2098,10 +2105,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 655.
  [32]
 Package epstopdf Info: Source file: <figures/loc_gtx_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 4984446 bytes
 (epstopdf)             Output file: <figures/loc_gtx_vet-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 21:35:21
+(epstopdf)                    date: 2017-07-14 00:28:06
 (epstopdf)                    size: 278835 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/loc_gtx_vet-eps-con
 verted-to.pdf figures/loc_gtx_vet.eps>
@@ -2118,10 +2125,10 @@ Package pdftex.def Info: figures/loc_gtx_vet-eps-converted-to.pdf used on input
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 667.
 Package epstopdf Info: Source file: <figures/gtx_fisico.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1063234 bytes
 (epstopdf)             Output file: <figures/gtx_fisico-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 45013 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/gtx_fisico-eps-conv
 erted-to.pdf figures/gtx_fisico.eps>
@@ -2140,11 +2147,11 @@ line 674.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <figures/geral_arq_trans.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 539894 bytes
 (epstopdf)             Output file: <figures/geral_arq_trans-eps-converted-to.p
 df>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 21282 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/geral_arq_trans-eps
 -converted-to.pdf figures/geral_arq_trans.eps>
@@ -2176,11 +2183,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 738.
 Package epstopdf Info: Source file: <figures/diagrama_dominios.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1508890 bytes
 (epstopdf)             Output file: <figures/diagrama_dominios-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 35055 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/diagrama_dominios-e
 ps-converted-to.pdf figures/diagrama_dominios.eps>
@@ -2200,10 +2207,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 752.
  [35 <./figures/diagrama_dominios-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/meta_stable.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 557478 bytes
 (epstopdf)             Output file: <figures/meta_stable-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 17134 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/meta_stable-eps-con
 verted-to.pdf figures/meta_stable.eps>
@@ -2223,11 +2230,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 776.
  [36 <./figures/meta_stable-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/sincronizacao_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:19
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 454934 bytes
 (epstopdf)             Output file: <figures/sincronizacao_vet-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2017-06-21 20:38:19
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 20062 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/sincronizacao_vet-e
 ps-converted-to.pdf figures/sincronizacao_vet.eps>
@@ -2242,9 +2249,9 @@ Package pdftex.def Info: figures/sincronizacao_vet-eps-converted-to.pdf used on
 (pdftex.def)             Requested size: 341.43437pt x 118.19217pt.
 )
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 161.
+(babel)             in language  on input line 164.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 161.
+(babel)             in language  on input line 164.
  [37 <./figures/sincronizacao_vet-eps-converted-to.pdf>]
 \openout2 = `chapter3.aux'.
 
@@ -2264,11 +2271,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 5.
 Package epstopdf Info: Source file: <figures/placa_HDMI_rx_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 2712510 bytes
 (epstopdf)             Output file: <figures/placa_HDMI_rx_vet-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 149638 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/placa_HDMI_rx_vet-e
 ps-converted-to.pdf figures/placa_HDMI_rx_vet.eps>
@@ -2287,11 +2294,11 @@ Package pdftex.def Info: figures/placa_HDMI_rx_vet-eps-converted-to.pdf used on
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <figures/placa_HDMI_tx_vet.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 2689570 bytes
 (epstopdf)             Output file: <figures/placa_HDMI_tx_vet-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 145084 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/placa_HDMI_tx_vet-e
 ps-converted-to.pdf figures/placa_HDMI_tx_vet.eps>
@@ -2331,7 +2338,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 35.
  [40 <./figures/placa_HDMI_rx_vet-eps-converted-to.pdf> <./figures/placa_HDMI_t
 x_vet-eps-converted-to.pdf>]
-Underfull \vbox (badness 3439) has occurred while \output is active []
+Underfull \vbox (badness 3449) has occurred while \output is active []
 
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 66.
@@ -2345,10 +2352,10 @@ Package babel Info: Redefining portuges shorthand "|
 
 [42]
 Package epstopdf Info: Source file: <figures/audio_i2s.eps>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 44709 bytes
 (epstopdf)             Output file: <figures/audio_i2s-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 15885 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/audio_i2s-eps-conve
 rted-to.pdf figures/audio_i2s.eps>
@@ -2379,11 +2386,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 150.
  [44]
 Package epstopdf Info: Source file: <figures/exemplo_colorBar.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 20632 bytes
 (epstopdf)             Output file: <figures/exemplo_colorBar-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-11 16:44:42
 (epstopdf)                    size: 8572 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/exemplo_colorBar-ep
 s-converted-to.pdf figures/exemplo_colorBar.eps>
@@ -2407,11 +2414,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 185.
 [45]
 Package epstopdf Info: Source file: <figures/colorBar_FSM.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1366562 bytes
 (epstopdf)             Output file: <figures/colorBar_FSM-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2017-07-11 14:44:54
+(epstopdf)                    date: 2017-07-14 00:16:41
 (epstopdf)                    size: 50013 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/colorBar_FSM-eps-co
 nverted-to.pdf figures/colorBar_FSM.eps>
@@ -2440,10 +2447,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 213.
  [47 <./figures/colorBar_FSM-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/planA.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1050154 bytes
 (epstopdf)             Output file: <figures/planA-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 62892 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planA-eps-converted
 -to.pdf figures/planA.eps>
@@ -2474,10 +2481,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 255.
  [49 <./figures/planA-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/planAsch.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1018454 bytes
 (epstopdf)             Output file: <figures/planAsch-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 16195 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planAsch-eps-conver
 ted-to.pdf figures/planAsch.eps>
@@ -2511,10 +2518,10 @@ Package babel Info: Redefining portuges shorthand "|
  [51 <./figures/planAsch-eps-converted-to.pdf> <./figures/resultados_planoA.png
 >]
 Package epstopdf Info: Source file: <figures/planB1.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1467510 bytes
 (epstopdf)             Output file: <figures/planB1-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 28799 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planB1-eps-converte
 d-to.pdf figures/planB1.eps>
@@ -2539,10 +2546,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 378.
  [53]
 Package epstopdf Info: Source file: <figures/planBsch.eps>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1336706 bytes
 (epstopdf)             Output file: <figures/planBsch-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 21:35:24
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 17992 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planBsch-eps-conver
 ted-to.pdf figures/planBsch.eps>
@@ -2572,10 +2579,10 @@ Package babel Info: Redefining portuges shorthand "|
  [54 <./figures/planBsch-eps-converted-to.pdf> <./figures/resultados_planoB.png
 >]
 Package epstopdf Info: Source file: <figures/planC.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 2246882 bytes
 (epstopdf)             Output file: <figures/planC-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 40011 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planC-eps-converted
 -to.pdf figures/planC.eps>
@@ -2624,9 +2631,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 536.
 [58])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 162.
+(babel)             in language  on input line 165.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 162.
+(babel)             in language  on input line 165.
  [59]
 \openout2 = `chapter4.aux'.
 
@@ -2646,10 +2653,10 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 7.
 Package epstopdf Info: Source file: <figures/tx_gtx_arq.eps>
-(epstopdf)                    date: 2017-06-21 20:38:19
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 676382 bytes
 (epstopdf)             Output file: <figures/tx_gtx_arq-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:19
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 24998 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/tx_gtx_arq-eps-conv
 erted-to.pdf figures/tx_gtx_arq.eps>
@@ -2682,11 +2689,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 57.
  [62 <./figures/tx_gtx_arq-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/exemplo_datapath.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 782634 bytes
 (epstopdf)             Output file: <figures/exemplo_datapath-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 17678 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/exemplo_datapath-ep
 s-converted-to.pdf figures/exemplo_datapath.eps>
@@ -2717,11 +2724,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 112.
 Package epstopdf Info: Source file: <figures/clk_domain_cross_gtx_tx.eps>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 842038 bytes
 (epstopdf)             Output file: <figures/clk_domain_cross_gtx_tx-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:15
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 28898 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/clk_domain_cross_gt
 x_tx-eps-converted-to.pdf figures/clk_domain_cross_gtx_tx.eps>
@@ -2755,10 +2762,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 145.
  [65 <./figures/clk_domain_cross_gtx_tx-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/rx_gtx_arq.eps>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 677990 bytes
 (epstopdf)             Output file: <figures/rx_gtx_arq-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 23365 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/rx_gtx_arq-eps-conv
 erted-to.pdf figures/rx_gtx_arq.eps>
@@ -2784,11 +2791,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 224.
 Package epstopdf Info: Source file: <figures/rxslide_example.eps>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 639090 bytes
 (epstopdf)             Output file: <figures/rxslide_example-eps-converted-to.p
 df>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 19288 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/rxslide_example-eps
 -converted-to.pdf figures/rxslide_example.eps>
@@ -2816,10 +2823,10 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 254.
 Package epstopdf Info: Source file: <figures/dominios_rx.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 823374 bytes
 (epstopdf)             Output file: <figures/dominios_rx-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 27466 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/dominios_rx-eps-con
 verted-to.pdf figures/dominios_rx.eps>
@@ -2862,10 +2869,10 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 321.
 Package epstopdf Info: Source file: <figures/gtx_wrapper.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1262114 bytes
 (epstopdf)             Output file: <figures/gtx_wrapper-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 22124 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/gtx_wrapper-eps-con
 verted-to.pdf figures/gtx_wrapper.eps>
@@ -2885,9 +2892,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 340.
  [71 <./figures/gtx_wrapper-eps-converted-to.pdf>])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 163.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 163.
+(babel)             in language  on input line 166.
  [72]
 \openout2 = `chapter5.aux'.
 
@@ -2909,11 +2916,11 @@ Package babel Info: Redefining portuges shorthand "|
 
 ]
 Package epstopdf Info: Source file: <figures/planod_simples.eps>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1985326 bytes
 (epstopdf)             Output file: <figures/planod_simples-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2017-06-21 20:38:18
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 31925 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planod_simples-eps-
 converted-to.pdf figures/planod_simples.eps>
@@ -2946,11 +2953,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 98.
  [76]
 Package epstopdf Info: Source file: <figures/sync_block_from_HDMI.eps>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 687098 bytes
 (epstopdf)             Output file: <figures/sync_block_from_HDMI-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 30241 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/sync_block_from_HDM
 I-eps-converted-to.pdf figures/sync_block_from_HDMI.eps>
@@ -2971,11 +2978,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 120.
  [77 <./figures/sync_block_from_HDMI-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/trama_abordagem_inicial.eps>
-(epstopdf)                    date: 2017-06-21 20:38:19
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1125134 bytes
 (epstopdf)             Output file: <figures/trama_abordagem_inicial-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 11706 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/trama_abordagem_ini
 cial-eps-converted-to.pdf figures/trama_abordagem_inicial.eps>
@@ -2991,11 +2998,11 @@ Package pdftex.def Info: figures/trama_abordagem_inicial-eps-converted-to.pdf u
 sed on input line 134.
 (pdftex.def)             Requested size: 384.1096pt x 74.97609pt.
 Package epstopdf Info: Source file: <figures/exemplo_tramas_transmissoes.eps>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 565534 bytes
 (epstopdf)             Output file: <figures/exemplo_tramas_transmissoes-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:16
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 18349 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/exemplo_tramas_tran
 smissoes-eps-converted-to.pdf figures/exemplo_tramas_transmissoes.eps>
@@ -3020,11 +3027,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 160.
 [78 <./figures/trama_abordagem_inicial-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/organizacao_tramas.eps>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 5023410 bytes
 (epstopdf)             Output file: <figures/organizacao_tramas-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2017-06-21 20:38:17
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 29408 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/organizacao_tramas-
 eps-converted-to.pdf figures/organizacao_tramas.eps>
@@ -3048,10 +3055,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 183.
 [79 <./figures/exemplo_tramas_transmissoes-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/fsm1.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1264682 bytes
 (epstopdf)             Output file: <figures/fsm1-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 16848 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/fsm1-eps-converted-
 to.pdf figures/fsm1.eps>
@@ -3075,11 +3082,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 211.
 [80 <./figures/organizacao_tramas-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/fsm_track_data.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1809578 bytes
 (epstopdf)             Output file: <figures/fsm_track_data-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 26679 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/fsm_track_data-eps-
 converted-to.pdf figures/fsm_track_data.eps>
@@ -3107,11 +3114,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 252.
  [82 <./figures/fsm_track_data-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/fsm_bit_align.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 1517698 bytes
 (epstopdf)             Output file: <figures/fsm_bit_align-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 21042 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/fsm_bit_align-eps-c
 onverted-to.pdf figures/fsm_bit_align.eps>
@@ -3131,11 +3138,11 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 276.
  [83 <./figures/fsm_bit_align-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/sync_block_to_HDMI.eps>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 658454 bytes
 (epstopdf)             Output file: <figures/sync_block_to_HDMI-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 25435 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/sync_block_to_HDMI-
 eps-converted-to.pdf figures/sync_block_to_HDMI.eps>
@@ -3159,10 +3166,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 323.
 [84]
 Package epstopdf Info: Source file: <figures/planod.eps>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 2085870 bytes
 (epstopdf)             Output file: <figures/planod-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-07-11 14:45:03
+(epstopdf)                    date: 2017-07-14 00:16:41
 (epstopdf)                    size: 35903 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planod-eps-converte
 d-to.pdf figures/planod.eps>
@@ -3183,10 +3190,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <figures/planDsch.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1089534 bytes
 (epstopdf)             Output file: <figures/planDsch-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 18423 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planDsch-eps-conver
 ted-to.pdf figures/planDsch.eps>
@@ -3233,11 +3240,11 @@ Package babel Info: Redefining portuges shorthand "|
  [87 <./figures/planDsch-eps-converted-to.pdf> <./figures/resultados_planoD.png
 >]
 Package epstopdf Info: Source file: <figures/planoE_simples_pt.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 2757562 bytes
 (epstopdf)             Output file: <figures/planoE_simples_pt-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 33818 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planoE_simples_pt-e
 ps-converted-to.pdf figures/planoE_simples_pt.eps>
@@ -3257,10 +3264,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 447.
  [88 <./figures/planoE_simples_pt-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/recetorHDMI.eps>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 658654 bytes
 (epstopdf)             Output file: <figures/recetorHDMI-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:11
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 24241 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/recetorHDMI-eps-con
 verted-to.pdf figures/recetorHDMI.eps>
@@ -3275,10 +3282,10 @@ Package pdftex.def Info: figures/recetorHDMI-eps-converted-to.pdf used on input
  line 455.
 (pdftex.def)             Requested size: 170.71393pt x 168.01472pt.
 Package epstopdf Info: Source file: <figures/planoE.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 2815802 bytes
 (epstopdf)             Output file: <figures/planoE-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 36986 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planoE-eps-converte
 d-to.pdf figures/planoE.eps>
@@ -3310,10 +3317,10 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 551.
 [90 <./figures/planoE-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/planEsch_en.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 1427906 bytes
 (epstopdf)             Output file: <figures/planEsch_en-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:32
 (epstopdf)                    size: 19087 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/planEsch_en-eps-con
 verted-to.pdf figures/planEsch_en.eps>
@@ -3339,10 +3346,10 @@ File: figures/resultados_planoE.png Graphic file (type png)
 Package pdftex.def Info: figures/resultados_planoE.png used on input line 570.
 (pdftex.def)             Requested size: 298.75264pt x 210.90643pt.
 Package epstopdf Info: Source file: <figures/erro_planoE.eps>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 831678 bytes
 (epstopdf)             Output file: <figures/erro_planoE-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-06-29 20:15:10
+(epstopdf)                    date: 2017-06-26 13:28:31
 (epstopdf)                    size: 28116 bytes
 (epstopdf)             Command: <epstopdf --outfile=figures/erro_planoE-eps-con
 verted-to.pdf figures/erro_planoE.eps>
@@ -3374,9 +3381,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 634.
 [93])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 164.
+(babel)             in language  on input line 167.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 164.
+(babel)             in language  on input line 167.
  [94]
 \openout2 = `chapter6.aux'.
 
@@ -3407,9 +3414,9 @@ Package babel Info: Redefining portuges shorthand "|
 
 [96])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 165.
+(babel)             in language  on input line 168.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 165.
+(babel)             in language  on input line 168.
  [97] (MarisaOliveira.bbl
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -3425,9 +3432,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 61.
  [99])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 184.
+(babel)             in language  on input line 187.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 184.
+(babel)             in language  on input line 187.
  [100]
 \openout2 = `appendix1.aux'.
 
@@ -3570,9 +3577,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 204.
 [104])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 184.
+(babel)             in language  on input line 187.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 184.
+(babel)             in language  on input line 187.
  [105]
 \openout2 = `appendix4.aux'.
 
@@ -3616,14 +3623,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 188.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 188.
  [109]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 188.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 188.
  [110]
 \openout2 = `appendix3.aux'.
 
@@ -3756,9 +3763,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 183.
 [114])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 186.
+(babel)             in language  on input line 189.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 186.
+(babel)             in language  on input line 189.
  [115]
 \openout2 = `appendix2.aux'.
 
@@ -3831,65 +3838,67 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1354.
 )
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
+(babel)             in language  on input line 190.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
+(babel)             in language  on input line 190.
  [122]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
  (MarisaOliveira.aux (abstract.aux) (acknows.aux)
 (quote.aux) (abbrevs.aux) (chapter1.aux) (chapter2.aux) (chapter3.aux)
 (chapter4.aux) (chapter5.aux) (chapter6.aux) (appendix1.aux) (appendix4.aux)
 (appendix3.aux) (appendix2.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `MarisaOliveira.out' has not changed.
 (rerunfilecheck)             Checksum: CCDB5E8F385BD5CC51A0D3D52ECE6150;8020.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 195.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
  ) 
 Here is how much of TeX's memory you used:
- 20119 strings out of 493333
- 383535 string characters out of 3139192
- 449420 words of memory out of 3000000
+ 20123 strings out of 493333
+ 383747 string characters out of 3139180
+ 450490 words of memory out of 3000000
  22803 multiletter control sequences out of 15000+200000
  555295 words of font info for 71 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,15n,54p,10472b,1070s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecrm1000.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecbx0600.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecti0900.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\HP PC\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\HP PC\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1200.pk> <C:\Users\HP PC\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Us
-ers\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1440.
-pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecbi1095.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
-\ec\dpi600\ecrm0800.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\tcrm0800.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\font
-s\pk\ljfour\jknappen\ec\dpi600\ecbx2074.pk> <C:\Users\HP PC\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\HP PC\AppData\L
-ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1095.pk> <C:\Users\HP PC
-\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\U
-sers\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095
-.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecrm1200.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecbx1440.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
-ur\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\HP PC\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecxc1440.pk><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on MarisaOliveira.pdf (142 pages, 7476724 bytes).
+{C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/cm-super/cm-s
+uper-t1.enc}{C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/cm-
+super/cm-super-ts1.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Utilizador/AppData/
+Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfbi1095.pfb><C:/Users/Utilizado
+r/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfbi1200.pfb><C:/Users
+/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfbi1440.pfb
+><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sf
+bx0600.pfb><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/c
+m-super/sfbx1095.pfb><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type
+1/public/cm-super/sfbx1200.pfb><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/
+fonts/type1/public/cm-super/sfbx1440.pfb><C:/Users/Utilizador/AppData/Roaming/M
+iKTeX/2.9/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Users/Utilizador/AppData
+/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfbx2488.pfb><C:/Users/Utilizad
+or/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfrm0600.pfb><C:/User
+s/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfrm0800.pf
+b><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/s
+frm0900.pfb><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/
+cm-super/sfrm1000.pfb><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/typ
+e1/public/cm-super/sfrm1095.pfb><C:/Users/Utilizador/AppData/Roaming/MiKTeX/2.9
+/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Users/Utilizador/AppData/Roaming/
+MiKTeX/2.9/fonts/type1/public/cm-super/sfsl1095.pfb><C:/Users/Utilizador/AppDat
+a/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfti0900.pfb><C:/Users/Utiliza
+dor/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfti1095.pfb><C:/Use
+rs/Utilizador/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sfxc1440.p
+fb>
+Output written on MarisaOliveira.pdf (142 pages, 7644719 bytes).
 PDF statistics:
- 3287 PDF objects out of 3580 (max. 8388607)
+ 2478 PDF objects out of 2487 (max. 8388607)
  439 named destinations out of 1000 (max. 500000)
  933 words of extra memory for PDF output out of 10000 (max. 10000000)
 
